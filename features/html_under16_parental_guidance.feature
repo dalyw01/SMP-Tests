@@ -36,8 +36,6 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     Then I should be able to restart playback without another pop-up
 
 
-
-
   @BUMP_guidance_dissming_after_cta
   Scenario: Checking I am prompted with BUMP guidance and can then dismiss
     Given a HTML player with guidance
@@ -58,11 +56,11 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     And I press BUMP Play button
     Then I should be able to press BUMP Play button again
 
-    @BUMP_guidance_clicking_successfully_through
-    Scenario: Playing through the whole PG setup successfully
-      Given a HTML player with guidance
-      When I click small CTA
-      And I tick BUMP checkbox
-      And I press BUMP Play button
-      And I seek to small player end
-      Then I should be able to restart small player playback without another pop-up
+  @BUMP_guidance_clicking_successfully_through
+  Scenario: Playing through the whole PG setup successfully
+    Given a HTML player with guidance
+    When I click small CTA
+    And I tick BUMP checkbox
+    And I press BUMP Play button
+    And I seek to small player end
+    Then I should be able to restart small player playback without another pop-up
