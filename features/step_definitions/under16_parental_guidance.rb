@@ -1,11 +1,15 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# INPLAYER GUIDANCE
+# GENERAL STEP(S)
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Given(/^a HTML player with guidance$/) do
-    visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_under16_players.html')
-    sleep(2)
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_under16_players.html')
+  sleep(2)
 end
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# INPLAYER GUIDANCE STEPS
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 When(/^I click CTA$/) do
   within_frame 'smphtml5iframemedia_player_1' do
@@ -18,13 +22,6 @@ When(/^I tick checkbox$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
     find('#ageConfirmCheck').click
-  end
-end
-
-When(/^I do not press the checkbox$/) do
-  within_frame 'smphtml5iframemedia_player_1' do
-    sleep(1)
-    find('#ageConfirmCheck').hover
   end
 end
 
@@ -67,7 +64,7 @@ Then(/^I should be able to restart playback without another pop\-up$/) do
 end
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# BUMP GUIDANCE
+# BUMP GUIDANCE STEPS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 When(/^I click small CTA$/) do
@@ -115,12 +112,3 @@ Then(/^I should be able to restart small player playback without another pop\-up
     page.first(".p_pauseIcon").click
   end
 end
-
-#
-#
-#
-# zcsadadasd
-#
-#
-#
-# asdads
