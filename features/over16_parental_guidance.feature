@@ -9,22 +9,23 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
 
   @inplayer_tp_1
   Scenario: Checking playback commences when I click "Play Without PG Lock"
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen large CTA
     And I press [Play Without PG Lock]
     Then large player playback should initialize
 
   @BUMP_tp_1
   Scenario: Checking playback commences when I click BUMP "Play Without PG Lock"
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen small CTA
     And I press BUMP [Play Without PG Lock]
     Then small player playback should initialize
 
 
+
   @inplayer_tp_2
-  Scenario: Checking I am prompted with guidance and can dismiss immediately
-    Given multiple over sixteen HTML players with guidance
+  Scenario: Checking I am prompted with guidance and can dismiss
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen large CTA
     And I dismiss over sixteen pop-up pressing X icon
     And I click over sixteen large CTA
@@ -32,8 +33,8 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     Then large player playback should initialize
 
   @BUMP_tp_2
-  Scenario: Checking I am prompted with BUMP guidance and can dismiss immediately
-    Given multiple over sixteen HTML players with guidance
+  Scenario: Checking I am prompted with BUMP guidance and can dismiss
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen small CTA
     And I dismiss over sixteen BUMP pop-up pressing X icon
     And I click over sixteen small CTA
@@ -44,66 +45,97 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
 
   @inplayer_tp_3
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen large CTA
     And I press [Turn On PG Lock]
     And I am presented with a text field
     And I dismiss over sixteen pop-up pressing X icon
-    Then playback should start without another over sixteen pop-up after pressing CTA
+    And I click over sixteen large CTA
+    Then large player playback should initialize
 
   @BUMP_tp_3
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen small CTA
     And I press BUMP [Turn On PG Lock]
     And I am presented with a BUMP text field
     And I dismiss over sixteen BUMP pop-up pressing X icon
-    Then I should be able to restart playback without another BUMP over sixteen pop-up
+    And I click over sixteen small CTA
+    Then small player playback should initialize
 
 
 
   @inplayer_tp_4
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen large CTA
     And I press [Turn On PG Lock]
     And I am presented with a text field
     And I dismiss over sixteen pop-up pressing X icon
-    Then the padlock should be unlocked on both players
+    Then padlock should be unlocked on both players
 
   @BUMP_tp_4
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
-    Given multiple over sixteen HTML players with guidance
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen small CTA
     And I press BUMP [Turn On PG Lock]
     And I am presented with a BUMP text field
     And I dismiss over sixteen BUMP pop-up pressing X icon
-    Then the padlock should be unlocked on both players
+    Then padlock should be unlocked on both players
 
 
 
   @inplayer_tp_5
-  Scenario: Successfully setting pin and checking state of small player
-    Given multiple over sixteen HTML players with guidance
+  Scenario: Setting new pin and unlocking a single play on small player
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen large CTA
     And I press [Turn On PG Lock]
     And I enter multiple one values
-    And I press [Play] to activate PIN
+    And I press [Play] to set new PIN
     Then large player playback should initialize
     When I click over sixteen small CTA
     And I enter multiple one values to BUMP
-    And I press BUMP [Play] to play content
+    And I press BUMP [Play] to unlock
     Then small player playback should initialize
 
   @BUMP_tp_5
-  Scenario: Successfully setting pin and checking state of player
-    Given multiple over sixteen HTML players with guidance
+  Scenario: Setting new pin and unlocking a single play on large player
+    Given multiple over sixteen HTML players with guidance and NO cookies
     When I click over sixteen small CTA
     And I press BUMP [Turn On PG Lock]
     And I enter multiple one values to BUMP
-    And I press BUMP [Play] to activate PIN
+    And I press BUMP [Play] to set new PIN
     Then small player playback should initialize
     When I click over sixteen large CTA
     And I enter multiple one values
     And I press [Play] to unlock
     Then large player playback should initialize
+
+
+
+  @inplayer_tp_6
+  Scenario: Setting pin on large player and unlocking via small player
+    Given multiple over sixteen HTML players with guidance and NO cookies
+    When I click over sixteen large CTA
+    And I press [Turn On PG Lock]
+    And I enter multiple one values
+    And I press [Play] to set new PIN
+    Then large player playback should initialize
+    When I click over sixteen small LOCK icon
+    And I enter multiple one values to BUMP
+    And I press BUMP [Play] to unlock
+    Then padlock should be unlocked on small player
+
+
+  @BUMP_tp_6
+  Scenario: Setting pin on small player and unlocking via large player
+    Given multiple over sixteen HTML players with guidance and NO cookies
+    When I click over sixteen small CTA
+    And I press BUMP [Turn On PG Lock]
+    And I enter multiple one values to BUMP
+    And I press BUMP [Play] to set new PIN
+    Then small player playback should initialize
+    When I click over sixteen large LOCK icon
+    And I enter multiple one values
+    And I press [Play] to unlock
+    Then padlock should be unlocked on large player
