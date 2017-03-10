@@ -1,4 +1,4 @@
-Feature: Checking Parental Guidance works as expected for a user under 16 with NO pin set
+Feature: Checking Parental Guidance works as expected for a user under 16 with NO pin set initially
   As a tester
   I want to check every part of PG is clickable
   I want to check every part of PG can be exited from via X icon
