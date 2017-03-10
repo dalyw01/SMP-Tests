@@ -2,7 +2,7 @@
 # GENERAL STEP(S)
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Given(/^multiple over sixteen HTML players with guidance and NO cookies$/) do
+Given(/^multiple o16 HTML players with guidance and NO cookies$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_over16_players.html')
   sleep(2)
   page.driver.browser.manage.delete_all_cookies()
@@ -27,14 +27,14 @@ end
 # INPLAYER GUIDANCE STEPS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-When(/^I click over sixteen large CTA$/) do
+When(/^I click o16 large CTA$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(2)
     page.first(".p_ctaIcon").click
   end
 end
 
-When(/^I click over sixteen large LOCK icon$/) do
+When(/^I click o16 large LOCK icon$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(2)
     page.first(".p_padlock-lockedIcon").click
@@ -78,7 +78,7 @@ When(/^I press \[Play\] to set new PIN$/) do
   end
 end
 
-When(/^I dismiss over sixteen pop\-up pressing X icon$/) do
+When(/^I dismiss o16 pop\-up pressing X icon$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(2)
     find('.p_gel-exitLinkIcon').click
@@ -103,14 +103,14 @@ end
 # BUMP GUIDANCE STEPS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-When(/^I click over sixteen small CTA$/) do
+When(/^I click o16 small CTA$/) do
   within_frame 'smphtml5iframemedia_player_2' do
     sleep(2)
     page.first(".p_ctaIcon").click
   end
 end
 
-When(/^I click over sixteen small LOCK icon$/) do
+When(/^I click o16 small LOCK icon$/) do
   within_frame 'smphtml5iframemedia_player_2' do
     sleep(2)
     page.first(".p_padlock-lockedIcon").click
@@ -151,7 +151,7 @@ When(/^I press BUMP \[Play\] to unlock$/) do
   all(:xpath, '//*[@id="pgTurnOff"]')[0].click
 end
 
-When(/^I dismiss over sixteen BUMP pop\-up pressing X icon$/) do
+When(/^I dismiss o16 BUMP pop\-up pressing X icon$/) do
   find('#pgExit').hover
   sleep(2)
   find('#pgExit').click

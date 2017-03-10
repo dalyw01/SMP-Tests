@@ -2,9 +2,11 @@
 # GENERAL STEP(S)
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Given(/^a HTML player with guidance$/) do
+Given(/^an u16 HTML player with guidance$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_under16_players.html')
   sleep(2)
+  page.driver.browser.manage.window.resize_to( 700, 700 )
+  sleep(1)
 end
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
