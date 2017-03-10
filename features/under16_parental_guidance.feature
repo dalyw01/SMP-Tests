@@ -6,7 +6,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   I want playback to replay upon completion without the need to repeat every PG step again
   So that PG works as expected for both inplayer PG and BUMP PG
 
-  @inplayer_guidance_tp_1
+  @inplayer_tp_1
   Scenario: Checking I am prompted with guidance and can then dismiss
     Given an u16 HTML player with guidance
     When I click CTA
