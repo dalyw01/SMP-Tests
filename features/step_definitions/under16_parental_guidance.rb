@@ -27,7 +27,7 @@ When(/^I tick checkbox$/) do
   end
 end
 
-When(/^I press Play button$/) do
+When(/^I press \[Play\] button$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
     find('#pgAgeContinue').click
@@ -82,7 +82,7 @@ When(/^I tick BUMP checkbox$/) do
   find('#ageConfirmCheck').click
 end
 
-When(/^I press BUMP Play button$/) do
+When(/^I press BUMP \[Play\] button$/) do
   find('#pgAgeContinue').hover
   sleep(1)
   find('#pgAgeContinue').click
