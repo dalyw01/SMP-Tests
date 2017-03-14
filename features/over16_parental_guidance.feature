@@ -126,7 +126,6 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I press BUMP [Play] to unlock
     Then padlock should be unlocked on small player
 
-
   @BUMP_tp_6
   Scenario: Setting pin on small player and unlocking via large player padlock
     Given multiple o16 HTML players with guidance and NO cookies

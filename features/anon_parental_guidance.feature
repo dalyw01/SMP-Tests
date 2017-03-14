@@ -11,6 +11,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking anon popup appears and can be dismissed
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I tick checkbox
     Then I should be able to dismiss pop-up pressing X icon
     When I click o16 large CTA
@@ -21,6 +22,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking anon popup appears and can be dismissed
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     Then I should be able to dismiss BUMP pop-up pressing X icon
     When I click o16 small CTA
@@ -33,6 +35,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking anon popup doesn't proceed without ticking checkbox
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I press [Continue]
     And I press [Continue]
     And I press [Continue]
@@ -42,6 +45,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking anon popup doesn't proceed without ticking checkbox
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I press BUMP [Continue]
     And I press BUMP [Continue]
     And I press BUMP [Continue]
@@ -50,20 +54,23 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
 
 
   @inplayer_tp_3
-  Scenario: Checking I am prompted with guidance and can dismiss
+  Scenario: Checking I am prompted with guidance and can initialize playback
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I dismiss o16 pop-up pressing X icon
     And I click o16 large CTA
     And I tick checkbox
+    And I see correct PG message
     And I press [Continue]
     And I press [Play Without PG Lock]
     Then large player playback should initialize
 
   @BUMP_tp_3
-  Scenario: Checking I am prompted with guidance and can dismiss
+  Scenario: Checking I am prompted with guidance and can initialize playback
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I dismiss o16 BUMP pop-up pressing X icon
     And I click o16 small CTA
     And I tick BUMP checkbox
@@ -72,10 +79,12 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     Then small player playback should initialize
 
 
+
   @inplayer_tp_4
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
@@ -88,6 +97,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
@@ -102,6 +112,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
@@ -113,6 +124,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
@@ -126,6 +138,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Setting new pin on large player and unlocking a single play on small player
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
@@ -141,6 +154,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Setting new pin on small player and unlocking a single play on large player
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
@@ -158,6 +172,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Setting pin on large player and unlocking via small player padlock
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 large CTA
+    And I see correct PG message
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
@@ -173,6 +188,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
   Scenario: Setting pin on small player and unlocking via large player padlock
     Given multiple anon HTML players with guidance and NO cookies
     When I click o16 small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]

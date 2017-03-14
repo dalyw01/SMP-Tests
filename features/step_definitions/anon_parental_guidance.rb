@@ -12,6 +12,20 @@ Given(/^multiple anon HTML players with guidance and NO cookies$/) do
   sleep(1)
 end
 
+When(/^I see correct PG message$/) do
+  within_frame 'smphtml5iframemedia_player_1' do
+    sleep(1)
+    find('#guidanceText').should have_content('PG MESSAGE LARGE PLAYLIST')
+    sleep(2)
+  end
+end
+
+When(/^I see correct BUMP PG message$/) do
+  sleep(1)
+  find('#guidanceMessage').should have_content('PG MESSAGE SMALL PLAYLIST')
+  sleep(2)
+end
+
 When(/^I press \[Continue\]$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)

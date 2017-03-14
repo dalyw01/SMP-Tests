@@ -10,12 +10,14 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Checking I am prompted with guidance and can then dismiss
     Given an u16 HTML player with guidance
     When I click CTA
+    And I see correct PG message
     Then I should be able to dismiss pop-up pressing X icon
 
   @BUMP_tp_1
   Scenario: Checking I am prompted with BUMP guidance and can then dismiss
     Given an u16 HTML player with guidance
     When I click small CTA
+    And I see correct BUMP PG message
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
 
@@ -24,6 +26,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Checking pressing Play button without check box does not start playback
     Given an u16 HTML player with guidance
     When I click CTA
+    And I see correct PG message
     And I press [Play] button
     Then I should be able to press Play button again
 
@@ -31,6 +34,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Checking pressing Play button without check box does not start playback
     Given an u16 HTML player with guidance
     When I click small CTA
+    And I see correct BUMP PG message
     And I press BUMP [Play] button
     Then I should be able to press BUMP Play button again
 
@@ -40,6 +44,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Checking I can tick checkbox and can then dismiss popup
     Given an u16 HTML player with guidance
     When I click CTA
+    And I see correct PG message
     And I tick checkbox
     Then I should be able to dismiss pop-up pressing X icon
 
@@ -47,6 +52,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Checking I can tick checkbox and can then dismiss popup
     Given an u16 HTML player with guidance
     When I click small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
@@ -56,6 +62,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Playing through the whole PG setup successfully
     Given an u16 HTML player with guidance
     When I click CTA
+    And I see correct PG message
     And I tick checkbox
     And I press [Play] button
     And I seek to end
@@ -65,6 +72,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
   Scenario: Playing through the whole PG setup successfully
     Given an u16 HTML player with guidance
     When I click small CTA
+    And I see correct BUMP PG message
     And I tick BUMP checkbox
     And I press BUMP [Play] button
     And I seek to small player end
