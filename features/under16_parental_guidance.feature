@@ -28,7 +28,9 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     When I click CTA
     And I see correct PG message
     And I press [Play] button
+    And I see caution symbol with permissions error message
     Then I should be able to press Play button again
+    And I see caution symbol with permissions error message
 
   @BUMP_tp_2
   Scenario: Checking pressing Play button without check box does not start playback
@@ -36,7 +38,9 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     When I click small CTA
     And I see correct BUMP PG message
     And I press BUMP [Play] button
+    And I see BUMP caution symbol with permissions error message
     Then I should be able to press BUMP Play button again
+    And I see BUMP caution symbol with permissions error message
 
 
 

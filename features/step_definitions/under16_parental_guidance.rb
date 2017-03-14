@@ -35,6 +35,16 @@ When(/^I press \[Play\] button$/) do
   end
 end
 
+When(/^I see caution symbol with permissions error message$/) do
+  within_frame 'smphtml5iframemedia_player_1' do
+    sleep(1)
+    find('.p_guidance-alertIcon').hover
+    sleep(1)
+    find('#guidanceMessage').should have_content('Please confirm you have permission before continuing')
+    sleep(2)
+  end
+end
+
 When(/^I seek to end$/) do
   sleep(5) # Wait for ident to finish
   page.execute_script( 'mediaPlayer1.currentTime(( mediaPlayer1.duration() - 2 ));')
@@ -86,6 +96,14 @@ When(/^I press BUMP \[Play\] button$/) do
   find('#pgAgeContinue').hover
   sleep(1)
   find('#pgAgeContinue').click
+end
+
+Then(/^I see BUMP caution symbol with permissions error message$/) do
+  sleep(1)
+  all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click
+  sleep(1)
+  find('#guidanceMessage').should have_content('Please confirm you have permission before continuing')
+  sleep(2)
 end
 
 When(/^I seek to small player end$/) do

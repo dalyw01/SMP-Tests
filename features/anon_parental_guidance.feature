@@ -37,7 +37,9 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     When I click o16 large CTA
     And I see correct PG message
     And I press [Continue]
+    And I see caution symbol with age error message
     And I press [Continue]
+    And I see caution symbol with age error message
     And I press [Continue]
     Then I should be able to dismiss pop-up pressing X icon
 
@@ -47,8 +49,11 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     When I click o16 small CTA
     And I see correct BUMP PG message
     And I press BUMP [Continue]
+    And I see BUMP caution symbol with age error message
     And I press BUMP [Continue]
+    And I see BUMP caution symbol with age error message
     And I press BUMP [Continue]
+    And I see BUMP caution symbol with age error message
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
 

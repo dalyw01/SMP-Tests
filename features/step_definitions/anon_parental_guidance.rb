@@ -26,6 +26,24 @@ When(/^I see correct BUMP PG message$/) do
   sleep(2)
 end
 
+When(/^I see caution symbol with age error message$/) do
+  within_frame 'smphtml5iframemedia_player_1' do
+    sleep(1)
+    find('.p_guidance-alertIcon').hover
+    sleep(1)
+    find('#guidanceMessage').should have_content('Please confirm your age before continuing')
+    sleep(2)
+  end
+end
+
+When(/^I see BUMP caution symbol with age error message$/) do
+  sleep(1)
+  all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click
+  sleep(1)
+  find('#guidanceMessage').should have_content('Please confirm your age before continuing')
+  sleep(2)
+end
+
 When(/^I press \[Continue\]$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
