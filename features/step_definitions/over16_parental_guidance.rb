@@ -8,7 +8,7 @@ Given(/^multiple o16 HTML players with guidance and NO cookies$/) do
   page.driver.browser.manage.delete_all_cookies()
   sleep(2)
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_over16_players.html')
-  page.driver.browser.manage.window.resize_to( 700, 700 )
+  # page.driver.browser.manage.window.resize_to( 700, 700 )
   sleep(1)
 end
 
