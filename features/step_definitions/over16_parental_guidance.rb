@@ -1,38 +1,3 @@
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# GENERAL STEP(S)
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-Given(/^multiple o16 HTML players with guidance and NO cookies$/) do
-  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_over16_players.html')
-  sleep(2)
-  page.driver.browser.manage.delete_all_cookies()
-  sleep(2)
-  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/multiple_over16_players.html')
-  # page.driver.browser.manage.window.resize_to( 700, 700 )
-  sleep(1)
-end
-
-Then(/^padlock should be unlocked on both players$/) do
-  within_frame 'smphtml5iframemedia_player_1' do
-    sleep(2)
-    page.first(".p_padlock-unlockedIcon").hover
-  end
-  within_frame 'smphtml5iframemedia_player_2' do
-    sleep(2)
-    page.first(".p_padlock-unlockedIcon").hover
-  end
-end
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# INPLAYER GUIDANCE STEPS
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-When(/^I click o16 large CTA$/) do
-  within_frame 'smphtml5iframemedia_player_1' do
-    sleep(2)
-    page.first(".p_ctaIcon").click
-  end
-end
 
 When(/^I click o16 large LOCK icon$/) do
   within_frame 'smphtml5iframemedia_player_1' do
@@ -103,12 +68,6 @@ end
 # BUMP GUIDANCE STEPS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-When(/^I click o16 small CTA$/) do
-  within_frame 'smphtml5iframemedia_player_2' do
-    sleep(2)
-    page.first(".p_ctaIcon").click
-  end
-end
 
 When(/^I click o16 small LOCK icon$/) do
   within_frame 'smphtml5iframemedia_player_2' do

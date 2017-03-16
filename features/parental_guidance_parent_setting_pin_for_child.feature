@@ -6,7 +6,7 @@ Feature: Checking PG works for parent setting parent and then blocks a child whe
   @inplayer_tp_1
   Scenario: Setting pin on large player and unlocking as child
     Given multiple o16 HTML players with guidance and NO cookies
-    When I click o16 large CTA
+    When I click CTA
     And I press [Turn On PG Lock]
     And I enter multiple one values
     And I press [Play] to set new PIN
@@ -22,7 +22,7 @@ Feature: Checking PG works for parent setting parent and then blocks a child whe
   @BUMP_tp_1
   Scenario: Setting pin on BUMP player and unlocking as child
     Given multiple o16 HTML players with guidance and NO cookies
-    When I click o16 small CTA
+    When I click small CTA
     And I press BUMP [Turn On PG Lock]
     And I enter multiple one values to BUMP
     And I press BUMP [Play] to set new PIN
