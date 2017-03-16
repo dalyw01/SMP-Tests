@@ -62,6 +62,14 @@ When(/^I enter the letters D A L Y to BUMP$/) do
   sleep(2)
 end
 
+When(/^I see BUMP caution symbol with age error message$/) do
+  sleep(1)
+  all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click
+  sleep(1)
+  find('#guidanceBody').should have_content('Please confirm your age before continuing')
+  sleep(2)
+end
+
 When(/^I see BUMP caution symbol with invalid PIN error Message$/) do
   sleep(1)
   all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click
