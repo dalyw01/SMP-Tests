@@ -30,7 +30,6 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
 
-
   @inplayer_tp_2
   Scenario: Checking anon popup doesn't proceed without ticking checkbox
     Given multiple anon HTML players with guidance and NO cookies
@@ -64,7 +63,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     When I click CTA
     And I see correct PG message
     And I dismiss o16 pop-up pressing X icon
-    And I click large CTA
+    And I click CTA
     And I tick checkbox
     And I see correct PG message
     And I press [Continue]
@@ -98,7 +97,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press [Play] to set new PIN
     And I see caution symbol with invalid PIN error message
     And I dismiss o16 pop-up pressing X icon
-    And I click large CTA
+    And I click CTA
     Then large player playback should initialize
 
   @BUMP_tp_4
