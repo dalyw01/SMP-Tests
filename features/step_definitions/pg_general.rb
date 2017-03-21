@@ -45,3 +45,17 @@ Then(/^padlock should be unlocked on large player$/) do
     page.first(".p_padlock-unlockedIcon").hover
   end
 end
+
+When(/^I click o16 large LOCKED icon$/) do
+  within_frame 'smphtml5iframemedia_player_1' do
+    sleep(2)
+    page.first(".p_padlock-lockedIcon").click
+  end
+end
+
+When(/^I click o16 small LOCKED icon$/) do
+  within_frame 'smphtml5iframemedia_player_2' do
+    sleep(2)
+    page.first(".p_padlock-lockedIcon").click
+  end
+end

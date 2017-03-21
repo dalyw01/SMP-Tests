@@ -93,7 +93,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press [Continue]
     And I press [Turn On PG Lock]
     And I am presented with a text field
-    And I enter the letters D A L Y
+    And I enter D A L Y
     And I press [Play] to set new PIN
     And I see caution symbol with invalid PIN error message
     And I dismiss o16 pop-up pressing X icon
@@ -109,7 +109,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
     And I am presented with a BUMP text field
-    And I enter the letters D A L Y to BUMP
+    And I enter D A L Y to BUMP
     And I press BUMP [Play] to set new PIN
     And I see BUMP caution symbol with invalid PIN error Message
     And I dismiss o16 BUMP pop-up pressing X icon
@@ -127,7 +127,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press [Continue]
     And I press [Turn On PG Lock]
     And I am presented with a text field
-    And I enter the letters D A L Y
+    And I enter D A L Y
     And I press [Play] to set new PIN
     And I see caution symbol with invalid PIN error message
     And I dismiss o16 pop-up pressing X icon
@@ -142,7 +142,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
     And I am presented with a BUMP text field
-    And I enter the letters D A L Y to BUMP
+    And I enter D A L Y to BUMP
     And I press BUMP [Play] to set new PIN
     And I see BUMP caution symbol with invalid PIN error Message
     And I dismiss o16 BUMP pop-up pressing X icon
@@ -158,14 +158,14 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
-    And I enter the letters D A L Y
+    And I enter D A L Y
     And I press [Play] to set new PIN
     And I see caution symbol with invalid PIN error message
-    And I enter multiple one values
+    And I enter 1 1 1 1
     And I press [Play] to set new PIN
     Then large player playback should initialize
     When I click small CTA
-    And I enter multiple one values to BUMP
+    And I enter 1 1 1 1 to BUMP
     And I press BUMP [Play] to unlock
     Then small player playback should initialize
 
@@ -177,14 +177,14 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
-    And I enter the letters D A L Y to BUMP
+    And I enter D A L Y to BUMP
     And I press BUMP [Play] to set new PIN
     And I see BUMP caution symbol with invalid PIN error Message
-    And I enter multiple one values to BUMP
+    And I enter 1 1 1 1 to BUMP
     And I press BUMP [Play] to set new PIN
     Then small player playback should initialize
     When I click CTA
-    And I enter multiple one values
+    And I enter 1 1 1 1
     And I press [Play] to unlock
     Then large player playback should initialize
 
@@ -198,14 +198,14 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I tick checkbox
     And I press [Continue]
     And I press [Turn On PG Lock]
-    And I enter the letters D A L Y
+    And I enter D A L Y
     And I press [Play] to set new PIN
     And I see caution symbol with invalid PIN error message
-    And I enter multiple one values
+    And I enter 1 1 1 1
     And I press [Play] to set new PIN
     Then large player playback should initialize
-    When I click o16 small LOCK icon
-    And I enter multiple one values to BUMP
+    When I click o16 small LOCKED icon
+    And I enter 1 1 1 1 to BUMP
     And I press BUMP [Play] to unlock
     Then padlock should be unlocked on small player
 
@@ -217,13 +217,13 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I tick BUMP checkbox
     And I press BUMP [Continue]
     And I press BUMP [Turn On PG Lock]
-    And I enter the letters D A L Y to BUMP
+    And I enter D A L Y to BUMP
     And I press BUMP [Play] to set new PIN
     And I see BUMP caution symbol with invalid PIN error Message
-    And I enter multiple one values to BUMP
+    And I enter 1 1 1 1 to BUMP
     And I press BUMP [Play] to set new PIN
     Then small player playback should initialize
-    When I click o16 large LOCK icon
-    And I enter multiple one values
+    When I click o16 large LOCKED icon
+    And I enter 1 1 1 1
     And I press [Play] to unlock
     Then padlock should be unlocked on large player

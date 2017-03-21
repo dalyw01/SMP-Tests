@@ -27,20 +27,20 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     Given an u16 HTML player with guidance
     When I click CTA
     And I see correct PG message
-    And I press [Play] button
-    And I see caution symbol with permissions error message
-    Then I should be able to press Play button again
-    And I see caution symbol with permissions error message
+    And I press [Play] button to proceed through u16
+    And I see caution symbol with GUARDIANS permission error message
+    Then I should be able to press [Play] button again
+    And I see caution symbol with GUARDIANS permission error message
 
   @BUMP_tp_2
   Scenario: Checking pressing Play button without check box does not start playback
     Given an u16 HTML player with guidance
     When I click small CTA
     And I see correct BUMP PG message
-    And I press BUMP [Play] button
-    And I see BUMP caution symbol with permissions error message
+    And I press BUMP [Play] button to proceed through u16
+    And I see BUMP caution symbol with GUARDIANS permission error message
     Then I should be able to press BUMP Play button again
-    And I see BUMP caution symbol with permissions error message
+    And I see BUMP caution symbol with GUARDIANS permission error message
 
 
 
@@ -68,7 +68,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     When I click CTA
     And I see correct PG message
     And I tick checkbox
-    And I press [Play] button
+    And I press [Play] button to proceed through u16
     And I seek to end
     Then I should be able to restart playback without another pop-up
 
@@ -78,6 +78,6 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     When I click small CTA
     And I see correct BUMP PG message
     And I tick BUMP checkbox
-    And I press BUMP [Play] button
+    And I press BUMP [Play] button to proceed through u16
     And I seek to small player end
     Then I should be able to restart small player playback without another pop-up
