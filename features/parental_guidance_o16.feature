@@ -109,8 +109,6 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I press [Play] to set new PIN
     Then large player playback should initialize
     When I click small CTA
-    And I enter 1 1 1 1 to BUMP
-    And I press BUMP [Play] to unlock
     Then small player playback should initialize
 
   @BUMP_tp_5
@@ -125,8 +123,6 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I press BUMP [Play] to set new PIN
     Then small player playback should initialize
     When I click CTA
-    And I enter 1 1 1 1
-    And I press [Play] to unlock
     Then large player playback should initialize
 
 
@@ -142,10 +138,8 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I enter 1 1 1 1
     And I press [Play] to set new PIN
     Then large player playback should initialize
-    When I click o16 small LOCK icon
-    And I enter 1 1 1 1 to BUMP
-    And I press BUMP [Play] to unlock
-    Then padlock should be unlocked on small player
+    When I click small CTA
+    Then small player playback should initialize
 
   @BUMP_tp_6
   Scenario: Setting pin on small player and unlocking via large player padlock
@@ -158,7 +152,5 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I enter 1 1 1 1 to BUMP
     And I press BUMP [Play] to set new PIN
     Then small player playback should initialize
-    When I click o16 large LOCK icon
-    And I enter 1 1 1 1
-    And I press [Play] to unlock
-    Then padlock should be unlocked on large player
+    When I click CTA
+    Then large player playback should initialize
