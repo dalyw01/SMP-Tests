@@ -1,7 +1,7 @@
 Feature: Checking SMP HTML accessibility
   As a tester of SMP
-  I want to check acessibility with keyboard
-  So that I can use every part of SMP via keyboard
+  I want to check I can fully use SMP with just keyboard inputs
+  So that its accessible for all
 
   Scenario: Check basic HTML functionality
     Given I am on a page with a HTML player

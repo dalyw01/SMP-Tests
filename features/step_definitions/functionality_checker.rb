@@ -3,7 +3,6 @@ Given(/^I am on a page with a HTML player$/) do
 end
 
 When(/^I click on CTA to begin playback$/) do
-  #The iframe HTML id -> <iframe id="smphtml5iframemedia_player"
   within_frame 'smphtml5iframemedia_player' do
     sleep(1)
     page.first(".p_ctaIcon").click
@@ -46,6 +45,31 @@ Then(/^mute again$/) do
   end
 end
 
+Then(/^click seekbar$/) do
+  within_frame 'smphtml5iframemedia_player' do
+    sleep(2)
+    page.first(".p_seekBar").click
+    sleep(2)
+    page.first(".p_seekBar").hover
+  end
+end
+
+Then(/^verify thumbnail appears$/) do
+  within_frame 'smphtml5iframemedia_player' do
+    page.first(".p_thumbnail").hover
+    sleep(2)
+  end
+end
+
+Then(/^press right-key$/) do
+  within_frame 'smphtml5iframemedia_player' do
+    find(:id, 'smpj2ooiframemedia_player').native.send_keys(:tab)
+    sleep(1)
+    find(:id, 'smpj2ooiframemedia_player').native.send_keys(:arrow_right)
+  end
+end
+
+
 Then(/^enter full\-screen$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
@@ -71,7 +95,7 @@ Then(/^verify previous inputs work$/) do
   end
 end
 
-Then(/^exit full\-screen again$/) do
+Then(/^exit full\-screen$/) do
   within_frame 'smphtml5iframemedia_player' do
     page.first(".p_fullscreen-returnIcon").click
   end
