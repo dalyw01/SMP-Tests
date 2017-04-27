@@ -11,8 +11,11 @@ Feature: Checking SMP HTML player base functionality
     And unmute player
     And click each volume bar
     And mute again
+    And click seekbar
+    And verify thumbnail appears
     And enter full-screen
     And verify previous inputs work
-    And exit full-screen again
     And seek in quarters to the end
+    And ensure control-bar is visible when done
+    And exit full-screen
     And be prompted with a clickable CTA again
