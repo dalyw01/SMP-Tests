@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title>CDN</title>
+    </head>
+
+    <body style="height:2000px;" bgcolor="#45459E">
+      <center>
+
+        <h3 style="color:white;">Akamai 1</h3>
+        <div id="media_player_1" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Akamai 2</h3>
+        <div id="media_player_2" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Akamai 3</h3>
+        <div id="media_player_3" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Akamai 4</h3>
+        <div id="media_player_4" style="height:150px; width:400px;"></div>
+
+        <!-- -->
+
+        <h3 style="color:white;">Limelight 1</h3>
+        <div id="media_player_5" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Limelight 2</h3>
+        <div id="media_player_6" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Limelight 3</h3>
+        <div id="media_player_7" style="height:150px; width:400px;"></div>
+
+        <h3 style="color:white;">Limelight 4</h3>
+        <div id="media_player_8" style="height:150px; width:400px;"></div>
+
+      </center>
+    </body>
+</html>
+
+<script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
+<script type="text/javascript">
+
+    bbcRequireMap =
+    {
+        "jquery-1.9":"//static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.9.1",
+        "swfobject-2":"//static.bbci.co.uk/frameworks/swfobject/0.1.10/sharedmodules/swfobject-2",
+        "bump-3":"//emp.live.bbci.co.uk/emp/bump-3/bump-3"
+    }
+
+    require({ paths: bbcRequireMap, waitSeconds: 30 })
+
+    document.cookie = 'bbcBumpForcePlayer=smphtml5';
+
+    require(['bump-3'],function ($)
+    {
+        var akamai_settings =
+        {
+            muted : true,
+            responsive : true,
+
+            mediator:
+            {
+                fck: "akamai"
+            },
+
+            playlistObject:
+            {
+              items:
+              [
+                {
+                    versionID: "p049sq7k",
+                    kind: "programme"
+                }
+              ]
+            }
+        }
+
+        var limelight_settings =
+        {
+            muted : true,
+            responsive : true,
+
+            mediator:
+            {
+                fck: "limelight"
+            },
+
+            playlistObject:
+            {
+              items:
+              [
+                {
+                    versionID: "p049sq7k",
+                    kind: "programme"
+                }
+              ]
+            }
+        }
+
+        // Setup Akamai players
+
+        var mediaPlayer1 = $('#media_player_1').player(akamai_settings);
+        window.mediaPlayer1 = mediaPlayer1;
+
+        var mediaPlayer2 = $('#media_player_2').player(akamai_settings);
+        window.mediaPlayer2 = mediaPlayer2;
+
+        var mediaPlayer3 = $('#media_player_3').player(akamai_settings);
+        window.mediaPlayer3 = mediaPlayer3;
+
+        var mediaPlayer4 = $('#media_player_4').player(akamai_settings);
+        window.mediaPlayer4 = mediaPlayer4;
+
+
+        // Setup Limelight players
+
+        var mediaPlayer5 = $('#media_player_5').player(limelight_settings);
+        window.mediaPlayer5 = mediaPlayer5;
+
+        var mediaPlayer6 = $('#media_player_6').player(limelight_settings);
+        window.mediaPlayer6 = mediaPlayer6;
+
+        var mediaPlayer7 = $('#media_player_7').player(limelight_settings);
+        window.mediaPlayer7 = mediaPlayer7;
+
+        var mediaPlayer8 = $('#media_player_8').player(limelight_settings);
+        window.mediaPlayer8 = mediaPlayer8;
+
+        // Load Akamai players
+
+        mediaPlayer1.load();
+        mediaPlayer2.load();
+        mediaPlayer3.load();
+        mediaPlayer4.load();
+
+        // Load Limelight players
+
+        mediaPlayer5.load();
+        mediaPlayer6.load();
+        mediaPlayer7.load();
+        mediaPlayer8.load();
+
+    });
+</script>
