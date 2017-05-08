@@ -67,7 +67,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
 
 
   @inplayer_tp_3
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission CURRENTLY FAILING AS EXPECTED
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]
@@ -90,7 +90,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     Then I should be able to restart playback without another pop-up
 
   @BUMP_tp_3
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission  CURRENTLY FAILING AS EXPECTED
     Given multiple o16 HTML players with guidance and NO cookies
     When I click small CTA
     And I press BUMP [Turn On PG Lock]
@@ -114,7 +114,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
 
 
   @inplayer_tp_4
-  Scenario: As parent, IGNORING PG setup by pressing X, then checking child still has to get permission CURRENTLY FAILING AS EXPECTED
+  Scenario: As parent, IGNORING PG setup by pressing X, then checking child still has to get permission
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     Then I should be able to dismiss pop-up pressing X icon
@@ -129,7 +129,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     Then I should be able to restart playback without another pop-up
 
   @BUMP_tp_4
-  Scenario: As parent, IGNORING PG setup by pressing X, then checking child still has to get permission CURRENTLY FAILING AS EXPECTED
+  Scenario: As parent, IGNORING PG setup by pressing X, then checking child still has to get permission
     Given multiple o16 HTML players with guidance and NO cookies
     When I click small CTA
     Then I should be able to dismiss BUMP pop-up pressing X icon
