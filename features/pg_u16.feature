@@ -63,7 +63,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
 
 
   @inplayer_tp_4
-  Scenario: Playing through the whole PG setup successfully
+  Scenario: Playing through the whole PG setup successfully without any PIN set
     Given an u16 HTML player with guidance
     When I click CTA
     And I see correct PG message
@@ -73,7 +73,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     Then I should be able to restart playback without another pop-up
 
   @BUMP_tp_4
-  Scenario: Playing through the whole PG setup successfully
+  Scenario: Playing through the whole PG setup successfully without any PIN set
     Given an u16 HTML player with guidance
     When I click small CTA
     And I see correct BUMP PG message

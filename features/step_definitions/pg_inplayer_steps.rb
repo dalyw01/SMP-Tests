@@ -1,11 +1,3 @@
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -
-# INPLAYER GUIDANCE STEPS
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Interactions with SMP
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 When(/^I click CTA$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)

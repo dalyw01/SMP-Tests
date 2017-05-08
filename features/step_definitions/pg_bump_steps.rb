@@ -1,11 +1,3 @@
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# BUMP GUIDANCE STEPS
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Interactions with SMP
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 When(/^I click small CTA$/) do
   within_frame 'smphtml5iframemedia_player_2' do
     sleep(1)

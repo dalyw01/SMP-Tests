@@ -6,16 +6,22 @@ Feature: Checking SMP HTML player base functionality
   Scenario: Check basic HTML functionality
     Given I am on a page with a HTML player
     When I click on CTA to begin playback
-    Then I should be able to pause
-    And play
-    And unmute player
-    And click each volume bar
-    And mute again
-    And click seekbar
-    And verify thumbnail appears
-    And enter full-screen
-    And verify previous inputs work
-    And seek in quarters to the end
-    And ensure control-bar is visible when done
-    And exit full-screen
-    And be prompted with a clickable CTA again
+    Then I can pause
+    And I can verify controlbar fades instantly
+    And I can play
+    And I can unmute player
+    And I can click each volume bar
+    And I can mute
+    And I can click seekbar
+    And I can see thumbnails
+    And I can enter fullscreen
+    And I can verify controlbar fades instantly
+    And I can play
+    And I can unmute player
+    And I can click each volume bar
+    And I can mute
+    And I can click seekbar
+    And I can see thumbnails
+    And I can seek in quarters to the end
+    And I can restart by clicking anywhere hitbox
+    And I can ensure controlbar is visible when

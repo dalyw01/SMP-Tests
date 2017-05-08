@@ -9,28 +9,37 @@ When(/^I click on CTA to begin playback$/) do
   end
 end
 
-Then(/^I should be able to pause$/) do
+Then(/^I can pause$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
     page.first(".p_pauseIcon").click
   end
 end
 
-Then(/^play$/) do
+Then(/^I can verify controlbar fades instantly$/) do
+  page.find('body').click
+  sleep(1)
+  within_frame 'smphtml5iframemedia_player' do
+    page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+    page.first(".mediaContainer").click # Need this here or proceedings command don't work
+  end
+end
+
+Then(/^I can play$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
     page.first(".p_playIcon").click
   end
 end
 
-Then(/^unmute player$/) do
+Then(/^I can unmute player$/) do
   within_frame 'smphtml5iframemedia_player' do
     page.first(".p_volumeControls").click
     sleep(1)
   end
 end
 
-Then(/^click each volume bar$/) do
+Then(/^I can click each volume bar$/) do
   within_frame 'smphtml5iframemedia_player' do
     page.all(:css, '.p_volumeBar').each do |item|
       item.click
@@ -38,14 +47,14 @@ Then(/^click each volume bar$/) do
   end
 end
 
-Then(/^mute again$/) do
+Then(/^I can mute$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
     page.first(".p_audioIcon").click
   end
 end
 
-Then(/^click seekbar$/) do
+Then(/^I can click seekbar$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
     page.first(".p_seekBar").click
@@ -54,14 +63,14 @@ Then(/^click seekbar$/) do
   end
 end
 
-Then(/^verify thumbnail appears$/) do
+Then(/^I can see thumbnails$/) do
   within_frame 'smphtml5iframemedia_player' do
     page.first(".p_thumbnail").hover
     sleep(2)
   end
 end
 
-Then(/^press right-key$/) do
+Then(/^I can press right-key$/) do
   within_frame 'smphtml5iframemedia_player' do
     find(:id, 'smpj2ooiframemedia_player').native.send_keys(:tab)
     sleep(1)
@@ -69,8 +78,7 @@ Then(/^press right-key$/) do
   end
 end
 
-
-Then(/^enter full\-screen$/) do
+Then(/^I can enter full\-screen$/) do
   within_frame 'smphtml5iframemedia_player' do
     sleep(2)
     page.first(".p_fullscreenButton").click
@@ -101,7 +109,7 @@ Then(/^exit full\-screen$/) do
   end
 end
 
-Then(/^seek in quarters to the end$/) do
+Then(/^I can seek in quarters to the end$/) do
   duration = page.execute_script( 'mediaPlayer.currentTime( ( mediaPlayer.duration() / 4 ) );')
   sleep(2)
   duration = page.execute_script( 'mediaPlayer.currentTime( (( mediaPlayer.duration() / 4 ) * 2 ));')
@@ -117,4 +125,13 @@ Then(/^be prompted with a clickable CTA again$/) do
     page.first(".p_ctaIcon").click
     sleep(2)
   end
+end
+
+Then(/^I can restart by clicking anywhere hitbox$/) do
+  sleep(2)
+  page.find('body').click
+end
+
+Then(/^ensure control\-bar is visible when done$/) do
+  # Write code here that turns the phrase above into concrete actions
 end
