@@ -1,9 +1,9 @@
 Feature: Checking SMP HTML accessibility
   As a tester of SMP
   I want to check I can fully use SMP with just keyboard inputs
-  So that its accessible for all
+  So that its accessible for people unable to use the mouse
 
-  Scenario: Check basic HTML functionality
+  Scenario: Check basic HTML accessibility
     Given I am on a page with a HTML player
     When I TAB
     And I press ENTER on CTA to begin playback

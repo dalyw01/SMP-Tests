@@ -82,6 +82,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I press [Play] to unlock
     Given an u16 HTML player with guidance
     When I click CTA
+    And I press [Play] button to proceed through u16
     And I see caution symbol with GUARDIANS permission error message
     Then I should be able to press [Play] button again
     And I tick checkbox
@@ -105,6 +106,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I press BUMP [Play] to unlock
     Given an u16 HTML player with guidance
     When I click small CTA
+    And I press BUMP [Play] button to proceed through u16
     And I see BUMP caution symbol with GUARDIANS permission error message
     Then I should be able to press BUMP Play button again
     And I tick BUMP checkbox
