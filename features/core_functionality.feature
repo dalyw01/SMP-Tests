@@ -6,7 +6,7 @@ Feature: Checking SMP HTML player base functionality
   Scenario: Check basic HTML functionality
     Given I am on a page with a HTML player
     When I click on CTA to begin playback
-    Then I can pause
+    And I can pause
     And I can verify controlbar fades instantly when hover away
     And I can play
     And I can unmute player

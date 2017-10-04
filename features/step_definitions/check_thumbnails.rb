@@ -2,6 +2,7 @@ Given(/^I am on a page with several HTML players$/) do
   visit( 'http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cdn_players_thumbnails.html' )
   sleep(2)
 end
+
 When(/^I click on CTA to begin playback on "([^"]*)"$/) do |current_player|
   within_frame current_player do
     sleep(1)

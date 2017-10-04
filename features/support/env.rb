@@ -3,6 +3,7 @@ require 'capybara/dsl'
 require 'cucumber'
 require 'selenium-webdriver'
 require 'rspec'
+require 'touch_action'
 
 Capybara.default_driver = :selenium
 
