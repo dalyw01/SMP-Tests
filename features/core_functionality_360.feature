@@ -7,19 +7,17 @@ Feature: Checking 360 player base functionality
     Given I am on a page with a 360 player
     When I click on CTA to begin playback
     Then I click away
-    
     And I tab to compass
     And I can press LEFT key
     And I can press RIGHT key
     And I can press UP key
     And I can press DOWN key
     And I can press ENTER key
-    And I can click then hold left arrow
-    And I can click then hold right arrow
-    And I can click then hold up arrow
-    And I can click then hold down arrow
-    And I can click RESET
-
+    And I can click then hold LEFT arrow
+    And I can click then hold RIGHT arrow
+    And I can click then hold UP arrow
+    And I can click then hold DOWN arrow
+    And I can click RESET button
     And I click away
     And I tab to controlbar
     And I can pause
@@ -29,19 +27,17 @@ Feature: Checking 360 player base functionality
     And I can mute
     And I can click seekbar
     And I can enter fullscreen
-    And I can click seekbar fullscreen
-
+    And I can click seekbar in fullscreen
     And I tab to compass
     And I can press LEFT key
     And I can press RIGHT key
     And I can press UP key
     And I can press DOWN key
-    And I can click then hold left arrow
-    And I can click then hold right arrow
-    And I can click then hold up arrow
-    And I can click then hold down arrow
-    And I can click RESET
-    
+    And I can click then hold LEFT arrow
+    And I can click then hold RIGHT arrow
+    And I can click then hold UP arrow
+    And I can click then hold DOWN arrow
+    And I can click RESET button
     And I tab to controlbar
     And I can pause
     And I can unmute player
@@ -53,8 +49,3 @@ Feature: Checking 360 player base functionality
     And I can exit fullscreen
     And I can hover over a visible CTA again
     And I can restart by clicking anywhere in player hitbox
-
-
-
-
-  

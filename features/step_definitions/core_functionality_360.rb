@@ -6,10 +6,6 @@ Then(/^I click away$/) do
     page.first("#playlist_title").click
 end
 
-# When(/^I hover over controlbar area$/) do
-#   page.first(".p_accessibleHitArea").click
-# end
-
 Then(/^I tab to compass$/) do
   5.times do
     page.driver.browser.action.send_keys(:tab).perform
@@ -50,7 +46,7 @@ Then(/^I can press ENTER key$/) do
   page.driver.browser.action.send_keys(:enter).perform
 end
 
-Then(/^I can click then hold left arrow$/) do
+Then(/^I can click then hold LEFT arrow$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_left_touch").hover
     sleep(1)
@@ -58,7 +54,7 @@ Then(/^I can click then hold left arrow$/) do
   end
 end
 
-Then(/^I can click then hold right arrow$/) do
+Then(/^I can click then hold RIGHT arrow$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_right_touch").hover
     sleep(1)
@@ -66,7 +62,7 @@ Then(/^I can click then hold right arrow$/) do
   end
 end
 
-Then(/^I can click then hold up arrow$/) do
+Then(/^I can click then hold UP arrow$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_up_touch").hover
     sleep(1)
@@ -74,7 +70,7 @@ Then(/^I can click then hold up arrow$/) do
   end
 end
 
-Then(/^I can click then hold down arrow$/) do
+Then(/^I can click then hold DOWN arrow$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_down_touch").hover
     sleep(1)
@@ -82,10 +78,12 @@ Then(/^I can click then hold down arrow$/) do
   end
 end
 
-Then(/^I can click RESET$/) do
+Then(/^I can click RESET button$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_centre_touch").hover
     sleep(1)
     page.first("#p_compass_centre_touch").touch_action(:press, hold: 1000)
   end
 end
+
+

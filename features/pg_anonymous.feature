@@ -56,7 +56,6 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
 
-
   @inplayer_tp_3
   Scenario: Checking I am prompted with guidance and can initialize playback
     Given multiple anon HTML players with guidance and NO cookies
@@ -117,7 +116,6 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     Then small player playback should initialize
 
 
-
   @inplayer_tp_5
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
     Given multiple anon HTML players with guidance and NO cookies
@@ -147,7 +145,6 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I see BUMP caution symbol with invalid PIN error Message
     And I dismiss o16 BUMP pop-up pressing X icon
     Then padlock should be unlocked on both players
-
 
 
   @inplayer_tp_6

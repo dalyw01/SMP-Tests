@@ -5,9 +5,8 @@ end
 When(/^I click on CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_ctaIcon").click
+    page.first(".p_accessibleHitArea").click # I have to comment this out to work with 360 player, there's a bug!
     sleep(1)
-    # page.first(".p_accessibleHitArea").click # I have to comment this out to work with 360 player, there's a bug!
   end
 end
 
@@ -18,8 +17,8 @@ Then(/^I can pause$/) do
   end
 end
 
-Then(/^I can verify controlbar fades instantly when hover away$/) do
-  page.find('.settings-player').hover       # Hovering over a different div on page to take focus off player
+Then(/^I can see controlbar fade instantly when cursor hovers away$/) do
+  page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
   sleep(1)
   within_frame 'smphtml5iframemp' do
     page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
@@ -50,8 +49,8 @@ Then(/^I can click each volume bar$/) do
 end
 
 Then(/^I can mute$/) do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
+  within_frame 'smphtml5iframemp' do-
+    sleep(1)
     page.first(".p_audioIcon").click
   end
 end
@@ -79,7 +78,14 @@ Then(/^I can enter fullscreen$/) do
   end
 end
 
-Then(/^I can click seekbar fullscreen$/) do
+When(/^I can see controlbar$/) do
+  within_frame 'smphtml5iframemp' do
+    page.should have_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+    page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
+  end
+end
+
+Then(/^I can click seekbar in fullscreen$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first(".p_playerSeekBarHolder").click
