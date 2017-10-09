@@ -1,5 +1,5 @@
-Given(/^I am on a page that plays an AD$/) do
-	visit('https://is.gd/esesuc')
+Given(/^I am on a "([^"]*)" that plays an AD$/) do |new_link|
+  visit(new_link)
 end
 
 When(/^I can see AD controlbar$/) do
