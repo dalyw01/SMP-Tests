@@ -1,0 +1,31 @@
++-----------------------------------+
+Quick setup of Cucumber for Windows!
++-----------------------------------+
+
+Go here - https://www.spritecloud.com/2015/04/complete-setup-guide-for-ruby-cucumber-and-watir-on-windows/
+
+I downloaded "devkit" into the same directory where RUBY is installed (usually C:\ drive) alongside 
+	bins
+	doc
+	include
+	etc
+
+Inside "devkit" I had files like 
+	dk.rb
+	devkitvars.bat
+	msys.bat
+
+Go here if you're getting an SSL errror from above link - http://guides.rubygems.org/ssl-certificate-update/#installing-using-update-packages
+Download  "rubygems-update-2.6.7.gem"  and place inside "devkit" directory
+
++-----------------------------------+
+How to run a Cucumber test!
++-----------------------------------+
+
+cucumber features/link_click.feature
+
++----------------------------------+
+Things that often trip me up...
++----------------------------------+
+
+If any 1 file is wrong it can upset Cucumber a whole cucumber project e.g file [x.rb] can stop me running [d.rb]

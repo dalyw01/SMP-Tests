@@ -21,7 +21,9 @@ Then(/^I can see controlbar fade instantly when cursor hovers away$/) do
   page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
   sleep(1)
   within_frame 'smphtml5iframemp' do
-    page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+    if page.driver.browser.browser == :chrome
+      page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+    end
     page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
   end
 end
