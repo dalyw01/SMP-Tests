@@ -1,7 +1,3 @@
-Given(/^I am on a "([^"]*)" that plays an AD$/) do |new_link|
-  visit(new_link)
-end
-
 When(/^I can see AD controlbar$/) do
   within_frame 'smphtml5iframemp' do
     page.should have_selector(:xpath, '//*[@id="ads_buttonBar"]')

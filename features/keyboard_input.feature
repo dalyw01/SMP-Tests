@@ -3,8 +3,8 @@ Feature: Checking SMP HTML accessibility
   I want to check I can fully use SMP with just keyboard inputs
   So that its accessible for people unable to use the mouse
 
-  Scenario: Check basic HTML accessibility
-    Given I am on a page with a HTML player
+  Scenario Outline: Check basic HTML accessibility
+    Given I am on a "<page>" with a HTML player
     When I TAB
     And I press ENTER on CTA to begin playback
     And I TAB
@@ -41,3 +41,7 @@ Feature: Checking SMP HTML accessibility
     And I TAB
     And I fullscreen
     And I press ENTER on CTA to begin playback
+
+  Examples:
+    | page                 | type      |
+    | https://is.gd/webilo | video     |

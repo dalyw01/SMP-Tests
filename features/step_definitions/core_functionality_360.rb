@@ -1,7 +1,3 @@
-Given(/^I am on a page with a 360 player$/) do
- visit( 'https://is.gd/qigiqu' )
-end
-
 Then(/^I click away$/) do
     page.first("#playlist_title").click
 end

@@ -1,5 +1,5 @@
-Given(/^I am on a page with a HTML player$/) do
- visit( 'https://is.gd/ovigot')
+Given(/^I am on a "([^"]*)" with a HTML player$/) do |new_link|
+  visit(new_link)
 end
 
 When(/^I click on CTA to begin playback$/) do
@@ -17,14 +17,16 @@ Then(/^I can pause$/) do
   end
 end
 
-Then(/^I can see controlbar fade instantly when cursor hovers away$/) do
-  page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
-  sleep(1)
-  within_frame 'smphtml5iframemp' do
-    if page.driver.browser.browser == :chrome
-      page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+Then("I can see controlbar fade instantly when cursor hovers away if {string}") do |type|
+  if type == "video" || type == "vertical" || type == "webcast" || type == "simulcast" || type == "360"
+    page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
+    sleep(1)
+    within_frame 'smphtml5iframemp' do
+      if page.driver.browser.browser == :chrome
+        page.should have_no_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+      end
+      page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
     end
-    page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
   end
 end
 
@@ -35,7 +37,7 @@ Then(/^I can play$/) do
   end
 end
 
-Then(/^I can unmute player$/) do
+Then(/^I can unmute$/) do
   within_frame 'smphtml5iframemp' do
     page.first(".p_volumeControls").click
     sleep(1)
@@ -66,10 +68,12 @@ Then(/^I can click seekbar$/) do
   end
 end
 
-Then(/^I can see thumbnails$/) do
-  within_frame 'smphtml5iframemp' do
-    page.first(".p_thumbnail").hover
-    sleep(2)
+Then("I can enter fullscreen if {string}") do |type|
+  if type != "minimode"
+    within_frame 'smphtml5iframemp' do
+      sleep(2)
+      page.first(".p_fullscreenButton").click
+    end
   end
 end
 
@@ -87,18 +91,22 @@ When(/^I can see controlbar$/) do
   end
 end
 
-Then(/^I can click seekbar in fullscreen$/) do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
-    page.first(".p_playerSeekBarHolder").click
-    sleep(2)
-    page.first(".p_playerSeekBarHolder").hover
+Then("I can click seekbar in fullscreen {string}") do |type|
+  if type != "minimode"
+    within_frame 'smphtml5iframemp' do
+      sleep(2)
+      page.first(".p_playerSeekBarHolder").click
+      sleep(2)
+      page.first(".p_playerSeekBarHolder").hover
+    end
   end
 end
 
-Then(/^I can exit fullscreen$/) do
-  within_frame 'smphtml5iframemp' do
-    page.first(".p_fullscreen-returnIcon").click
+Then("I can exit fullscreen if {string}") do |type|
+  if type != "minimode"
+    within_frame 'smphtml5iframemp' do
+      page.first(".p_fullscreen-returnIcon").click
+    end
   end
 end
 
@@ -113,23 +121,11 @@ Then(/^I can seek in quarters to the end$/) do
   sleep(5)
 end
 
-Then(/^I can see controlbar when finished$/) do
-  within_frame 'smphtml5iframemp' do
-    page.first(".p_playerControls").hover
-    sleep(2)
-  end
-end
-
-Then(/^I can hover over a visible CTA again$/) do
-  within_frame 'smphtml5iframemp' do
-    page.first(".p_ctaIcon").hover # Just want to detect its there
-    sleep(2)
-  end
-end
-
-Then(/^I can restart by clicking anywhere in player hitbox$/) do
-  within_frame 'smphtml5iframemp' do
-    sleep(1)
-    page.first(".displayCover").click
+Then("I can see controlbar when finished if {string}") do |type|
+  if type != "minimode"
+    within_frame 'smphtml5iframemp' do
+      page.first(".p_playerControls").hover
+      sleep(2)
+    end
   end
 end
