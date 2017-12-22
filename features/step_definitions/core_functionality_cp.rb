@@ -2,6 +2,10 @@ Given(/^I am on a CP page with a HTML player$/) do
   visit('https://is.gd/nufoka')
 end
 
+When(/^I seek to end of programme$/) do
+  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
+end
+
 Then("I can see cp controlbar fade instantly when cursor hovers away") do
   page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
   sleep(1)
@@ -14,7 +18,6 @@ Then("I can see cp controlbar fade instantly when cursor hovers away") do
 end
 
 Then("I can enter fullscreen of CP") do
-  sleep(2)
 	within_frame 'smphtml5iframemp' do
 	  page.first(".p_fullscreenButton").click
 	end
@@ -60,7 +63,20 @@ Then("I can press thumbnail of CP") do
   sleep(5)
 end
 
-Then(/^I seek to end of programme$/) do
-  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
-  sleep(5)
-end
+# Then("I can press toggle") do
+#   sleep(2)
+#   within_frame 'smphtml5iframemp' do
+#     page.first(".gcp_autoplayOnOffButton").hover
+#     sleep(3)
+#     page.first(".gcp_autoplayOnOffButton").click
+#     sleep(2)
+#     page.first(".gcp_toggleSlider round gcp_tick_transition").click
+#     find('label', :text => 'gcp_toggle').click
+#         # gcp_toggleSlider round gcp_tick_transition
+#     # page.first(".gcp_tick").click
+#   end
+# end
+
+
+
+
