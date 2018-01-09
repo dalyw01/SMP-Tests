@@ -10,7 +10,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
     Then I can see cp controlbar fade instantly when cursor hovers away
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-  
+
   @x
   Scenario: Check X icon works
   Then I can press X of CP
@@ -129,6 +129,11 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
     And I seek to end of programme
     And I can press thumbnail of CP
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-
+  @cpAndControls
+  Scenario: Check core CP functionality
+    When I seek to end of programme
+    And I can press mini CTA of CP
+    And I seek to end of programme
 
