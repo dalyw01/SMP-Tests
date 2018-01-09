@@ -63,19 +63,39 @@ Then("I can press thumbnail of CP") do
   sleep(5)
 end
 
-# Then("I can press toggle") do
-#   sleep(2)
-#   within_frame 'smphtml5iframemp' do
-#     page.first(".gcp_autoplayOnOffButton").hover
-#     sleep(3)
-#     page.first(".gcp_autoplayOnOffButton").click
-#     sleep(2)
-#     page.first(".gcp_toggleSlider round gcp_tick_transition").click
-#     find('label', :text => 'gcp_toggle').click
-#         # gcp_toggleSlider round gcp_tick_transition
-#     # page.first(".gcp_tick").click
-#   end
-# end
+When("I use core functionality of SMP") do
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    page.first(".p_pauseIcon").click
+    sleep(2)
+    page.first(".p_playIcon").click
+    sleep(2)
+    page.first(".p_audioIcon").click
+    sleep(2)
+    page.first(".p_volumeControls").click
+    sleep(2)
+  end
+end
+
+Then("I can press toggle") do
+  sleep(2)
+  within_frame 'smphtml5iframemp' do
+    page.first(".gcp_autoplayOnOffButton").hover
+    sleep(3)
+    page.first(".gcp_autoplayOnOffButton").click
+    sleep(2)
+    click_button('Autoplay next item is turned on, to turn off click button')
+    sleep(2)    
+    # find(:id, '.gcp_autoplayOnOffButton').native.send_keys(:enter)
+    # page.first(".gcp_toggleSlider round gcp_tick_transition").click
+    # sleep(10)
+    # find('label', :text => 'gcp_toggle').click
+    # gcp_toggleSlider round gcp_tick_transition
+    # page.first(".gcp_tick").click
+  end
+  # find(:id, 'smphtml5iframemp').native.send_keys(:enter)
+  # sleep(1)
+end
 
 
 

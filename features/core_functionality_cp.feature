@@ -17,7 +17,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
 
   @xFullscreen
   Scenario: Check X icon works in fullscreen
-    When I can enter fullscreen of CP
+    Then I can enter fullscreen of CP
     Then I can press X of CP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -28,7 +28,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
 
   @cancelStringFullscreen
   Scenario: Check cancel icon works in fullscreen
-    When I can enter fullscreen of CP
+    Then I can enter fullscreen of CP
     Then I can press cancel of CP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -39,7 +39,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
 
   @cancelCircleFullscreen
   Scenario: Check cancel circle works in fullscreen
-    When I can enter fullscreen of CP
+    Then I can enter fullscreen of CP
     Then I can press cancel circle of CP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -50,7 +50,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
 
   @miniCTAFullscreen
   Scenario: Check mini cta works in fullscreen
-    When I can enter fullscreen of CP
+    Then I can enter fullscreen of CP
     Then I can press mini CTA of CP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -67,40 +67,40 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @xThenX
-  Scenario: Press X then X of CP
-    When I seek to end of programme
+  Scenario: Checking CP appears again and pressing X works
+    Then I seek to end of programme
     And I can press X of CP
     And I seek to end of programme
     And I can play
     And I can press X of CP
 
-  @xThenMiniCancelString
-  Scenario: Press X then Cancel of CP
-    When I seek to end of programme
+  @xThenCancelString
+  Scenario: Checking CP appears again and pressing Cancel works
+    Then I seek to end of programme
     And I can press X of CP
     And I seek to end of programme
     And I can play
     And I can press cancel of CP
 
-  @xThenMiniCancelCircle
-  Scenario: Press X then Cancel Circle of CP
-    When I seek to end of programme
+  @xThenCancelCircle
+  Scenario: Checking CP appears again and pressing Cancel Circle works
+    Then I seek to end of programme
     And I can press X of CP
     And I seek to end of programme
     And I can play
     And I can press cancel circle of CP
 
   @xThenMiniCTA
-  Scenario: Press X then Mini CTA of CP
-    When I seek to end of programme
+  Scenario: Checking CP appears again and pressing Mini CTA works
+    Then I seek to end of programme
     And I can press X of CP
     And I seek to end of programme
     And I can play
     And I can press mini CTA of CP
 
   @xThenMiniThumbnail
-  Scenario: Press X then Thumbnail of CP
-    When I seek to end of programme
+  Scenario: Checking CP appears again and pressing Thumbnail works
+    Then I seek to end of programme
     And I can press X of CP
     And I seek to end of programme
     And I can play
@@ -109,8 +109,8 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @cp
-  Scenario: Check core CP functionality
-    When I seek to end of programme
+  Scenario: Check that CP continually loads clips and plays them
+    Then I seek to end of programme
     And I can press mini CTA of CP
     And I seek to end of programme
     And I can press thumbnail of CP
@@ -132,8 +132,19 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @cpAndControls
-  Scenario: Check core CP functionality
-    When I seek to end of programme
+  Scenario: Check CP does not break core SMP functionality
+    Then I seek to end of programme
     And I can press mini CTA of CP
+    And I use core functionality of SMP
     And I seek to end of programme
+    And I can press thumbnail of CP
+    And I use core functionality of SMP
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+  @TOGGLE
+  Scenario: Check CP does not break core SMP functionality
+    Then I can press toggle
+
+
 
