@@ -1,150 +1,181 @@
 Feature: Checking SMP HTML player base functionality with CP (Continious Play) plugin
   As a tester of SMP
-  I want to check base functionality of CP works as expected
-  So that I can interact with each part
+  I want to interact with each component of CP
+  So that I load and view content continuously
 
   Background:
-    Given I am on a CP page with a HTML player
+    Given I am page with the HTML player and CP plugin
     When I click on CTA to begin playback
-    When I seek to end of programme
-    Then I can see cp controlbar fade instantly when cursor hovers away
+    And I seek to end of programme
+    Then CP controlbar fades when I hover away
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @x
+  @X
   Scenario: Check X icon works
-  Then I can press X of CP
+    Then I press X of CP
+    And I can replay
 
-  @xFullscreen
+  @XFullscreen
   Scenario: Check X icon works in fullscreen
-    Then I can enter fullscreen of CP
-    Then I can press X of CP
+    Then I enter fullscreen of CP
+    And I press X of CP
+    And I can replay
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @cancelString
-  Scenario: Check cancel icon works
-    Then I can press cancel of CP
+  @CancelString
+  Scenario: Check cancel string works
+    Then I press cancel of CP
+    And I can replay
 
-  @cancelStringFullscreen
-  Scenario: Check cancel icon works in fullscreen
-    Then I can enter fullscreen of CP
-    Then I can press cancel of CP
+  @CancelStringFullscreen
+  Scenario: Check cancel string works in fullscreen
+    Then I enter fullscreen of CP
+    And I press cancel of CP
+    And I can replay
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @cancelCircle
+  @CancelCircle
   Scenario: Check cancel circle works
-    Then I can press cancel circle of CP
+    Then I press cancel circle of CP
+    And I can replay
 
-  @cancelCircleFullscreen
+  @CancelCircleFullscreen
   Scenario: Check cancel circle works in fullscreen
-    Then I can enter fullscreen of CP
-    Then I can press cancel circle of CP
+    Then I enter fullscreen of CP
+    And I press cancel circle of CP
+    And I can replay
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @miniCTA
+  @MiniCTA
   Scenario: Check mini cta works
-    Then I can press mini CTA of CP
+    Then I press mini CTA of CP
+    And I can pause
 
-  @miniCTAFullscreen
+  @MiniCTAFullscreen
   Scenario: Check mini cta works in fullscreen
-    Then I can enter fullscreen of CP
-    Then I can press mini CTA of CP
+    Then I enter fullscreen of CP
+    Then I press mini CTA of CP
+    And I can pause
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @miniThumbnail
-  Scenario: Check mini clickable thumbnail works
-    Then I can press thumbnail of CP
+  @MiniThumbnail
+  Scenario: Check mini clickable mini thumbnail works
+    Then I press mini thumbnail of CP
+    And I can pause
 
-  @miniThumbnailFullscreen
-  Scenario: Check mini clickable thumbnail works in fullscreen
-    And I can enter fullscreen of CP
-    And I can press thumbnail of CP
+  @MiniThumbnailFullscreen
+  Scenario: Check mini clickable mini thumbnail works in fullscreen
+    Then I enter fullscreen of CP
+    And I press mini thumbnail of CP
+    And I can pause
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @xThenX
+  @XThenX
   Scenario: Checking CP appears again and pressing X works
     Then I seek to end of programme
-    And I can press X of CP
+    And I press X of CP
     And I seek to end of programme
     And I can play
-    And I can press X of CP
+    And I press X of CP
+    And I can replay
 
-  @xThenCancelString
+  @XThenCancelString
   Scenario: Checking CP appears again and pressing Cancel works
     Then I seek to end of programme
-    And I can press X of CP
-    And I seek to end of programme
+    And I press X of CP
     And I can play
-    And I can press cancel of CP
+    And I seek to end of programme
+    And I press cancel of CP
+    And I can replay
 
-  @xThenCancelCircle
+  @XThenCancelCircle
   Scenario: Checking CP appears again and pressing Cancel Circle works
     Then I seek to end of programme
-    And I can press X of CP
-    And I seek to end of programme
+    And I press X of CP
     And I can play
-    And I can press cancel circle of CP
+    And I seek to end of programme
+    And I press cancel circle of CP
+    And I can replay
 
-  @xThenMiniCTA
+  @XThenMiniCTA
   Scenario: Checking CP appears again and pressing Mini CTA works
     Then I seek to end of programme
-    And I can press X of CP
-    And I seek to end of programme
+    And I press X of CP
     And I can play
-    And I can press mini CTA of CP
+    And I seek to end of programme
+    And I press mini CTA of CP
+    And I can pause
 
-  @xThenMiniThumbnail
-  Scenario: Checking CP appears again and pressing Thumbnail works
+  @XThenMiniThumbnail
+  Scenario: Checking CP appears again and pressing mini thumbnail works
     Then I seek to end of programme
-    And I can press X of CP
-    And I seek to end of programme
+    And I press X of CP
     And I can play
-    And I can press thumbnail of CP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
+    And I can pause
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @cp
-  Scenario: Check that CP continually loads clips and plays them
-    Then I seek to end of programme
-    And I can press mini CTA of CP
-    And I seek to end of programme
-    And I can press thumbnail of CP
-    And I seek to end of programme
-    And I can press mini CTA of CP
-    And I seek to end of programme
-    And I can press thumbnail of CP
-    And I seek to end of programme
-    And I can press mini CTA of CP
-    And I seek to end of programme
-    And I can press thumbnail of CP
-    And I seek to end of programme
-    And I can press mini CTA of CP
-    And I seek to end of programme
-    And I can press thumbnail of CP
-    And I seek to end of programme
-    And I can press thumbnail of CP
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-  @cpAndControls
+  @CpAndControls
   Scenario: Check CP does not break core SMP functionality
-    Then I seek to end of programme
-    And I can press mini CTA of CP
+    And I press mini CTA of CP
     And I use core functionality of SMP
     And I seek to end of programme
-    And I can press thumbnail of CP
+    And I press mini thumbnail of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini CTA of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
+    And I use core functionality of SMP
+
+  @CpAndControlsFullscreen
+  Scenario: Check CP does not break core SMP functionality in Fullscreen
+    And I press mini CTA of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini CTA of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
     And I use core functionality of SMP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @TOGGLE
-  Scenario: Check CP does not break core SMP functionality
-    Then I can press toggle
+  @ToggleON
+  Scenario: Check CP shows if toggle ON
+    Then CP shows
+
+  @ToggleONFullscreen
+  Scenario: Check CP shows if toggle ON in fullscreen
+    And I enter fullscreen of CP
+    And CP shows
+
+  @ToggleOFF
+  Scenario: Check CP does not show if toggle OFF
+    Then I toggle CP OFF
+    And I press mini CTA of CP
+    And I seek to end of programme
+    And CP does NOT show
+
+  @ToggleOFFFullscreen
+  Scenario: Check CP does not show if toggle OFF in fullscreen
+    Then I toggle CP OFF
+    And I press mini CTA of CP
+    And I enter fullscreen of CP
+    And I seek to end of programme
+    And CP does NOT show
 
 
 

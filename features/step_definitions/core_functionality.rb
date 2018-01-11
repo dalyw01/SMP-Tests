@@ -10,13 +10,6 @@ When(/^I click on CTA to begin playback$/) do
   end
 end
 
-Then(/^I can pause$/) do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
-    page.first(".p_pauseIcon").click
-  end
-end
-
 Then("I can see controlbar fade instantly when cursor hovers away if {string}") do |type|
   if type == "video" || type == "vertical" || type == "webcast" || type == "simulcast" || type == "360"
     page.find('.settings-player').hover  # Hovering over a different div on page to take focus off player
@@ -34,6 +27,13 @@ Then(/^I can play$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first(".p_playIcon").click
+  end
+end
+
+Then(/^I can pause$/) do
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    page.first(".p_pauseIcon").click
   end
 end
 
