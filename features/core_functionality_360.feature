@@ -4,8 +4,8 @@ Feature: Checking 360 player base functionality
   So that I verify its working as expected
 
   Scenario Outline: Check basic 360  accessibility
-    Given I am on a "<page>" with a HTML player
-    When I click on CTA to begin playback
+    Given I visit "<page>" with a "<type>" player
+    When I click CTA to begin playback
     Then I click away
     And I tab to compass
     And I can press LEFT key
@@ -47,7 +47,7 @@ Feature: Checking 360 player base functionality
     And I can seek in quarters to the end
     And I can see controlbar when finished if "<type>"
     And I can exit fullscreen if "<type>"
-    And I click on CTA to begin playback
+    And I click CTA to begin playback
 
   Examples:
     | page                 | type |

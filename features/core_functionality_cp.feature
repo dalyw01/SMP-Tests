@@ -5,7 +5,7 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
 
   Background:
     Given I am page with the HTML player and CP plugin
-    When I click on CTA to begin playback
+    When I click CTA to begin playback
     And I seek to end of programme
     Then CP controlbar fades when I hover away
 
@@ -136,9 +136,16 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
     And I seek to end of programme
     And I press mini thumbnail of CP
     And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini CTA of CP
+    And I use core functionality of SMP
 
   @CpAndControlsFullscreen
   Scenario: Check CP does not break core SMP functionality in Fullscreen
+    And I enter fullscreen of CP
     And I press mini CTA of CP
     And I use core functionality of SMP
     And I seek to end of programme
@@ -149,12 +156,18 @@ Feature: Checking SMP HTML player base functionality with CP (Continious Play) p
     And I use core functionality of SMP
     And I seek to end of programme
     And I press mini thumbnail of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini thumbnail of CP
+    And I use core functionality of SMP
+    And I seek to end of programme
+    And I press mini CTA of CP
     And I use core functionality of SMP
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @ToggleON
-  Scenario: Check CP shows if toggle ON
+  Scenario: Check CP shows if toggle ON and is on by default
     Then CP shows
 
   @ToggleONFullscreen

@@ -4,7 +4,7 @@ Feature: Checking SMP HTML accessibility
   So that its accessible for people unable to use the mouse
 
   Scenario Outline: Check basic HTML accessibility
-    Given I am on a "<page>" with a HTML player
+    Given I visit "<page>" with a "<type>" player
     When I TAB
     And I press ENTER on CTA to begin playback
     And I TAB

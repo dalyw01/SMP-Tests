@@ -1,8 +1,8 @@
-Given(/^I am on a "([^"]*)" with a HTML player$/) do |new_link|
-  visit(new_link)
+Given("I visit {string} with a {string} player") do |string, string2|
+  visit(string)
 end
 
-When(/^I click on CTA to begin playback$/) do
+When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(1)
     page.first(".p_accessibleHitArea").click # I have to comment this out to work with 360 player, there's a bug!

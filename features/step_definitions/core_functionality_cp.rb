@@ -99,7 +99,6 @@ end
 Then("CP shows") do
   within_frame "smphtml5iframemp" do
     sleep(4)
-    puts expect(page).to have_css(".gcp_closeSVG")
     expect(page).to have_css(".gcp_closeSVG")
     expect(page).to have_css(".gcp_cancel")
     expect(page).to have_css(".gcp_spinnerCountdown_button")
@@ -111,7 +110,6 @@ end
 Then("CP does NOT show") do
   within_frame "smphtml5iframemp" do
     sleep(4)
-    puts expect(page).to have_no_css(".gcp_closeSVG")
     expect(page).to have_no_css(".gcp_closeSVG")
     expect(page).to have_no_css(".gcp_cancel")
     expect(page).to have_no_css(".gcp_spinnerCountdown_button")

@@ -4,8 +4,8 @@ Feature: Checking SMP HTML player base functionality
   So that I verify its working as expected
 
   Scenario Outline: Check basic HTML functionality
-    Given I am on a "<page>" with a HTML player
-    When I click on CTA to begin playback
+    Given I visit "<page>" with a "<type>" player
+    When I click CTA to begin playback
     Then I can see controlbar fade instantly when cursor hovers away if "<type>"
     And I can pause
     And I can see controlbar fade instantly when cursor hovers away if "<type>"
@@ -24,11 +24,11 @@ Feature: Checking SMP HTML player base functionality
     And I can click each volume bar
     And I can mute
     And I can see controlbar fade instantly when cursor hovers away if "<type>"
+    And I can exit fullscreen if "<type>"
+    And I can see controlbar fade instantly when cursor hovers away if "<type>"
     And I can play
     And I can seek in quarters to the end
-    And I can see controlbar when finished if "<type>"
-    And I can exit fullscreen if "<type>"
-    And I click on CTA to begin playback
+    And I click CTA to begin playback
 
   Examples:
     | page                 | type      |
