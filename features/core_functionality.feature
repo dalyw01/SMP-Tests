@@ -20,9 +20,9 @@ Feature: Checking SMP HTML player base functionality
     And I can click seekbar in fullscreen "<type>"
     And I can pause
     And I can see controlbar fade instantly when cursor hovers away if "<type>"
-    And I can unmute
-    And I can click each volume bar
     And I can mute
+    And I can click each volume bar
+    And I can unmute
     And I can see controlbar fade instantly when cursor hovers away if "<type>"
     And I can exit fullscreen if "<type>"
     And I can see controlbar fade instantly when cursor hovers away if "<type>"
@@ -36,4 +36,3 @@ Feature: Checking SMP HTML player base functionality
     | https://is.gd/emiduz | vertical  |
     | https://is.gd/wequda | audio     |
     | https://is.gd/ahekoj | minimode  |
-    | https://is.gd/dizehe | webcast   |

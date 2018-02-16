@@ -1,12 +1,12 @@
-Given(/^I am page with the HTML player and CP plugin$/) do
-  visit('https://is.gd/nufoka')
+Given(/^I am on a page with the HTML player and CP plugin installed$/) do
+  visit('https://is.gd/xopabe')
 end
 
 When(/^I seek to end of programme$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
 end
 
-Then("CP controlbar fades when I hover away") do
+Then(/^I move my cursor away$/) do
   page.find('.settings-player').hover  # Hovering away + take focus off player
   sleep(1)
   within_frame "smphtml5iframemp" do
@@ -23,11 +23,19 @@ Then("I enter fullscreen of CP") do
 	end
 end
 
-Then(/^I can replay$/) do
+Then(/^I can replay current programme$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first(".p_playIcon").click
     sleep(1)
+  end
+end
+
+Then(/^I can pause the new programme$/) do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.first(".p_pauseIcon").click
+    sleep(2)
   end
 end
 
@@ -39,7 +47,7 @@ Then("I press X of CP") do
   sleep(5)
 end
 
-Then("I press cancel of CP") do
+Then("I press cancel of CPP to stop countdown") do
   within_frame "smphtml5iframemp" do
     sleep(4)
     page.first(".gcp_cancel").click
@@ -47,12 +55,16 @@ Then("I press cancel of CP") do
   sleep(5)
 end
 
-Then("I press cancel circle of CP") do
+Then("I press cancel circle of CPP to stop countdown") do
   within_frame "smphtml5iframemp" do
     sleep(4)
     page.first(".gcp_spinnerCountdown_button").click
   end
   sleep(5)
+end
+
+Then("I wait for countdown to finish") do
+  sleep(12)
 end
 
 Then("I press mini CTA of CP") do
@@ -71,6 +83,24 @@ Then("I press mini thumbnail of CP") do
   sleep(5)
 end
 
+Then("I scroll through whole carousel and select the last item") do
+  within_frame "smphtml5iframemp" do
+    sleep(4)
+    28.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    28.times do
+      page.first(".gcp_carouselControlsPrevious").click
+    end
+    32.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    find(:xpath, '//*[@id="p_pluginContainer"]/ul/li[29]/div/div/div[2]/h3').click
+    sleep(5)
+  end
+  sleep(5)
+end
+
 When("I use core functionality of SMP") do
   within_frame "smphtml5iframemp" do
     sleep(2)
@@ -85,7 +115,7 @@ When("I use core functionality of SMP") do
   end
 end
 
-Then("I toggle CP OFF") do
+Then("I toggle CPP OFF") do
   sleep(2)
   within_frame "smphtml5iframemp" do
     page.first(".gcp_autoplayOnOffButton").hover
@@ -96,9 +126,19 @@ Then("I toggle CP OFF") do
   end
 end
 
-Then("CP shows") do
+Then("CPP dimisses cancel option") do
   within_frame "smphtml5iframemp" do
-    sleep(4)
+    sleep(2)
+    expect(page).to have_css(".gcp_closeSVG")
+    expect(page).to have_css(".gcp_itemCtaIcon")
+    expect(page).to have_css(".gcp_itemImg")
+    # expect to not have
+  end
+end
+
+Then("CPP shows") do
+  within_frame "smphtml5iframemp" do
+    sleep(2)
     expect(page).to have_css(".gcp_closeSVG")
     expect(page).to have_css(".gcp_cancel")
     expect(page).to have_css(".gcp_spinnerCountdown_button")
@@ -107,16 +147,28 @@ Then("CP shows") do
   end
 end
 
-Then("CP does NOT show") do
+Then("CPP does NOT show") do
   within_frame "smphtml5iframemp" do
     sleep(4)
-    expect(page).to have_no_css(".gcp_closeSVG")
-    expect(page).to have_no_css(".gcp_cancel")
-    expect(page).to have_no_css(".gcp_spinnerCountdown_button")
-    expect(page).to have_no_css(".gcp_itemCtaIcon")
-    expect(page).to have_no_css(".gcp_itemImg")
+    if page.driver.browser.browser == :chrome
+      expect(page).to have_no_css(".gcp_closeSVG")
+      expect(page).to have_no_css(".gcp_cancel")
+      expect(page).to have_no_css(".gcp_spinnerCountdown_button")
+      expect(page).to have_no_css(".gcp_itemCtaIcon")
+      expect(page).to have_no_css(".gcp_itemImg")
+    elsif page.driver.browser.browser == :firefox
+      # # This is firefox
+      # if expect(page).to have_css(".p_ctaIcon") or expect(page).to have_css(".p_playIcon")
+      #   puts "asdadadadaddadad"
+      # end
+    end
   end
 end
+
+
+
+
+
 
 
 

@@ -22,9 +22,9 @@ Feature: Checking 360 player base functionality
     And I tab to controlbar
     And I can pause
     And I can play
-    And I can unmute
-    And I can click each volume bar
     And I can mute
+    And I can click each volume bar
+    And I can unmute
     And I can click seekbar
     And I can enter fullscreen
     And I can click seekbar in fullscreen "<type>"
@@ -40,9 +40,9 @@ Feature: Checking 360 player base functionality
     And I can click RESET button
     And I tab to controlbar
     And I can pause
-    And I can unmute
-    And I can click each volume bar
     And I can mute
+    And I can click each volume bar
+    And I can unmute
     And I can play
     And I can seek in quarters to the end
     And I can see controlbar when finished if "<type>"
@@ -51,4 +51,4 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type |
-    | https://is.gd/opapud | 360  |
+    | https://is.gd/ukiyiv | 360  |

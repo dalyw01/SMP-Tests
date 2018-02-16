@@ -1,5 +1,5 @@
 Then(/^I click away$/) do
-    page.first("#playlist_title").click
+  page.first("#playlist_title").click
 end
 
 Then(/^I tab to compass$/) do
@@ -11,7 +11,6 @@ end
 
 Then(/^I tab to controlbar$/) do
   page.driver.browser.action.send_keys(:tab).perform
-  sleep(1)
 end
 
 Then(/^I can press LEFT key$/) do
@@ -79,6 +78,7 @@ Then(/^I can click RESET button$/) do
     page.first("#p_compass_centre_touch").hover
     sleep(1)
     page.first("#p_compass_centre_touch").touch_action(:press, hold: 1000)
+    sleep(1)
   end
 end
 
