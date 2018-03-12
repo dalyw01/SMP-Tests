@@ -116,19 +116,19 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @arrowLastItem
-  Scenario: Check user can scroll across carousel and play last item, last item no longer prompts CPP
+  Scenario: Check user can scroll across carousel and play last item, last item no longer has countdown
     Then CPP shows
     And I scroll through whole carousel and select the last item
     And I seek to end of programme
-    And CPP does NOT show
+    And CPP shows WITHOUT cancel options
 
-  @arrowFullscreenLastItem
-  Scenario: Check user can scroll across carousel and play last item while fullscreen, last item no longer prompts CPP
+  @arrowLastItemFullscreen
+  Scenario: Check user can scroll across carousel and play last item while fullscreen, last item no longer has countdown
     Then I enter fullscreen of CP
     And CPP shows
     And I scroll through whole carousel and select the last item
     And I seek to end of programme
-    And CPP does NOT show
+    And CPP shows WITHOUT cancel options
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -241,7 +241,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I toggle CPP OFF
     And I press mini CTA of CP
     And I seek to end of programme
-    And CPP does NOT show
+    And CPP shows WITHOUT cancel options
 
   @ToggleOFFFullscreen
   Scenario: Check CPP does not show if toggle OFF in fullscreen
@@ -249,5 +249,5 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I press mini CTA of CP
     And I enter fullscreen of CP
     And I seek to end of programme
-    And CPP does NOT show
+    And CPP shows WITHOUT cancel options
 

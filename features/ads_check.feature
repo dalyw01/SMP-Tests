@@ -1,7 +1,8 @@
 Feature: Checking SMP Ads
+  
   As a tester of SMP
   I want to check Ads work with SMP
-  So that I verify SMP works during and after ad playback
+  So that I verify SMP works during and after an Ad plays
 
   Scenario Outline: Check basic HTML functionality
     Given I visit "<page>" with a "<type>" player
@@ -39,3 +40,4 @@ Feature: Checking SMP Ads
     | page                 | type  |
     | https://is.gd/rukequ | video |
     | https://is.gd/ukewad | audio |
+    | https://is.gd/nocutu | 360   |

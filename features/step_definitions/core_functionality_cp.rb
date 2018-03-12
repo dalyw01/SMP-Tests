@@ -78,7 +78,7 @@ end
 Then("I press mini thumbnail of CP") do
   within_frame "smphtml5iframemp" do
     sleep(4)
-    page.first(".gcp_itemImg").click
+    page.first(".gcp_itemDescription").click
   end
   sleep(5)
 end
@@ -147,28 +147,14 @@ Then("CPP shows") do
   end
 end
 
-Then("CPP does NOT show") do
+
+Then("CPP shows WITHOUT cancel options") do
   within_frame "smphtml5iframemp" do
-    sleep(4)
-    if page.driver.browser.browser == :chrome
-      expect(page).to have_no_css(".gcp_closeSVG")
-      expect(page).to have_no_css(".gcp_cancel")
-      expect(page).to have_no_css(".gcp_spinnerCountdown_button")
-      expect(page).to have_no_css(".gcp_itemCtaIcon")
-      expect(page).to have_no_css(".gcp_itemImg")
-    elsif page.driver.browser.browser == :firefox
-      # # This is firefox
-      # if expect(page).to have_css(".p_ctaIcon") or expect(page).to have_css(".p_playIcon")
-      #   puts "asdadadadaddadad"
-      # end
-    end
+    sleep(2)
+    expect(page).to have_css(".gcp_closeSVG")
+    expect(page).to have_no_css(".gcp_cancel")
+    expect(page).to have_no_css(".gcp_spinnerCountdown_button")
+    expect(page).to have_css(".gcp_itemCtaIcon")
+    expect(page).to have_css(".gcp_itemImg")
   end
 end
-
-
-
-
-
-
-
-

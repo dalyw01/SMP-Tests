@@ -5,7 +5,7 @@ end
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_accessibleHitArea").click # I have to comment this out to work with 360 player, there's a bug!
+    page.first(".p_accessibleHitArea").click
     sleep(1)
   end
 end
@@ -59,12 +59,16 @@ Then(/^I can mute$/) do
   end
 end
 
-Then(/^I can click seekbar$/) do
+Then("I can click seekbar unless {string}") do |type|
   within_frame 'smphtml5iframemp' do
-    sleep(2)
-    page.first(".p_seekBar").click
-    sleep(2)
-    page.first(".p_seekBar").hover
+    if type == "simulcast"
+      # Need to look into why simulcast markers = seekbar
+      page.first(".p_chapterMarker").click
+      page.first(".p_chapterMarker").hover
+    else
+      page.first(".p_seekBar").click
+      page.first(".p_seekBar").hover
+    end
   end
 end
 

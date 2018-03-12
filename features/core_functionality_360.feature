@@ -1,6 +1,7 @@
 Feature: Checking 360 player base functionality
+
   As a tester of SMP
-  I want to check base functionality of 360 player
+  I want to check core functionality of 360 player
   So that I verify its working as expected
 
   Scenario Outline: Check basic 360  accessibility
@@ -52,3 +53,6 @@ Feature: Checking 360 player base functionality
   Examples:
     | page                 | type |
     | https://is.gd/ukiyiv | 360  |
+
+
+    
