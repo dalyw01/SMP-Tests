@@ -10,7 +10,9 @@ Then(/^I tab to compass$/) do
 end
 
 Then(/^I tab to controlbar$/) do
-  page.driver.browser.action.send_keys(:tab).perform
+  2.times do
+    page.driver.browser.action.send_keys(:tab).perform
+  end
 end
 
 Then(/^I can press LEFT key$/) do

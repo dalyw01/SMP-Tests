@@ -1,5 +1,5 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/xopabe')
+  visit('https://is.gd/horake')
 end
 
 When(/^I seek to end of programme$/) do
@@ -151,10 +151,16 @@ end
 Then("CPP shows WITHOUT cancel options") do
   within_frame "smphtml5iframemp" do
     sleep(2)
-    expect(page).to have_css(".gcp_closeSVG")
-    expect(page).to have_no_css(".gcp_cancel")
-    expect(page).to have_no_css(".gcp_spinnerCountdown_button")
-    expect(page).to have_css(".gcp_itemCtaIcon")
-    expect(page).to have_css(".gcp_itemImg")
+    if page.driver.browser.browser == :firefox
+      expect(page).to have_css(".gcp_closeSVG")
+      expect(page).to have_css(".gcp_itemCtaIcon")
+      expect(page).to have_css(".gcp_itemImg")
+    else
+      expect(page).to have_css(".gcp_closeSVG")
+      expect(page).to have_no_css(".gcp_cancel")
+      expect(page).to have_no_css(".gcp_spinnerCountdown_button")
+      expect(page).to have_css(".gcp_itemCtaIcon")
+      expect(page).to have_css(".gcp_itemImg")
+    end
   end
 end

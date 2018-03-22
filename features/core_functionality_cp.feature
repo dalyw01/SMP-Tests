@@ -4,12 +4,14 @@ Feature: Checking "Continious Play" plugin core functionality works
   I want the CPP panel to load at the end of the current clip
   So that the main interactions are working as expected...
 
-  - CPP loads next item if user chooses
+  - CPP displays
   - CPP loads next item if user does nothing
-  - CPP can be dimissed when loaded
+  - CPP loads an item if user selects it
   - CPP can be halted when loaded
-  - CPP no longer loads when final item has been played
-  - CPP respects state of cookie user sets via toggle
+  - CPP can be dimissed when loaded
+  - CPP has a catalogue of items which can be scrolled across
+  - CPP still loads when final item has been played
+  - CPP displays without timer if autoplay cookie is OFF
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed
@@ -228,7 +230,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @ToggleON
-  Scenario: Check CPP shows if toggle ON and is on by default
+  Scenario: Check CPP shows if toggle ON and is on by defaul
     Then CPP shows
 
   @ToggleONFullscreen

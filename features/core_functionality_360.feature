@@ -26,7 +26,7 @@ Feature: Checking 360 player base functionality
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I can click seekbar
+    And I can click seekbar unless "<type>"
     And I can enter fullscreen
     And I can click seekbar in fullscreen "<type>"
     And I tab to compass

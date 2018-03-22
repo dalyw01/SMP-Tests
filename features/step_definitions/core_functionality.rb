@@ -32,7 +32,7 @@ end
 
 Then(/^I can pause$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(2)
+    sleep(3)
     page.first(".p_pauseIcon").click
   end
 end
