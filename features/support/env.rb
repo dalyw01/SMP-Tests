@@ -15,7 +15,7 @@ end
 # A Capybara thing that needs to be here
 World(Capybara::DSL)
 
-#  This is a chunk of code to stop selenium auto-quitting when complete
+# This is a chunk of code to stop selenium auto-quitting when complete
 # Capybara::Selenium::Driver.class_eval do
 #   def quit
 #     puts "Press RETURN to quit the browser"
