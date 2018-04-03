@@ -16,6 +16,7 @@ Then(/^I tab to controlbar$/) do
 end
 
 Then(/^I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard$/) do
+  sleep(2)
   10.times do
     page.driver.browser.action.send_keys(:arrow_left).perform
   end
