@@ -1,11 +1,11 @@
 Feature: Checking SMP core functionality
 
   As a tester of SMP
-  I want to check core functionality of SMP
-  So that I can use every feature of the player is working
+  I want to check core functionality of SMP across various sized screens
+  So that I can verify every feature of the player is working in all situations
 
   Scenario Outline: Check basic functionality of SMP for various players
-    Given I visit "<page>" with a "<type>" player
+    Given I visit "<page>" with a "<type>" player and "<device>"
     When I click CTA to begin playback
     Then I see controlbar hides instantly if "<type>"
     And I can pause
@@ -32,11 +32,27 @@ Feature: Checking SMP core functionality
     And I click CTA to begin playback
 
   Examples:
-    | page                 | type                 |
-    | https://is.gd/webilo | news                 |
-    | https://is.gd/wohoja | ident + video + subs |
-    | https://is.gd/emiduz | vertical             |
-    | https://is.gd/wodovo | simulcast            |
-    | https://is.gd/sotuka | webcast              |
-    | https://is.gd/wequda | audio                |
-    | https://is.gd/ahekoj | minimode             |
+    | page                 | type               | device  | 
+    | https://is.gd/webilo | vod                | phone   |
+    | https://is.gd/webilo | vod                | tablet  |
+    | https://is.gd/webilo | vod                | desktop |
+    | https://is.gd/wohoja | ident + vod + subs | phone   |
+    | https://is.gd/wohoja | ident + vod + subs | tablet  |
+    | https://is.gd/wohoja | ident + vod + subs | desktop |
+    | https://is.gd/emiduz | vertical           | phone   |
+    | https://is.gd/emiduz | vertical           | tablet  |
+    | https://is.gd/emiduz | vertical           | desktop |
+    | https://is.gd/wodovo | simulcast          | phone   |
+    | https://is.gd/wodovo | simulcast          | tablet  |
+    | https://is.gd/wodovo | simulcast          | desktop |
+    | https://is.gd/sotuka | webcast            | phone   |
+    | https://is.gd/sotuka | webcast            | tablet  |
+    | https://is.gd/sotuka | webcast            | desktop |
+    | https://is.gd/wequda | audio              | phone   |
+    | https://is.gd/wequda | audio              | tablet  |
+    | https://is.gd/wequda | audio              | desktop |
+    | https://is.gd/ahekoj | minimode           | phone   |
+    | https://is.gd/ahekoj | minimode           | tablet  |
+    | https://is.gd/ahekoj | minimode           | desktop |
+
+

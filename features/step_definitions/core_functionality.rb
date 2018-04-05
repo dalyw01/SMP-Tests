@@ -1,5 +1,18 @@
-Given("I visit {string} with a {string} player") do | new_page, new_player |
-  visit( new_page )
+g_device = ""
+g_flag = 0
+
+Given("I visit {string} with a {string} player and {string}") do |string1, string2, string3|
+  visit( string1 )
+  g_device = string3
+  sleep(1)
+  if g_device == "phone"
+    page.driver.browser.manage.window.resize_to( 300 ,900 )
+  elsif g_device == "tablet"
+    page.driver.browser.manage.window.resize_to( 1000 , 1000 )
+  else
+    page.driver.browser.manage.window.resize_to( 1920 , 1080 )
+  end
+  sleep(1)
 end
 
 When(/^I click CTA to begin playback$/) do
@@ -65,7 +78,7 @@ Then("I can enter fullscreen if {string}") do |type|
   end
 end
 
-# Used in 360 player
+# Used in 360 player 
 Then(/^I can enter fullscreen$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -93,13 +106,19 @@ Then("I can interact with subtitles panel if present") do
   within_frame 'smphtml5iframemp' do
     if page.first(".p_subtitleButton")
 
-      # Turn ON subs
-      sleep(1)
+      # This is if the cookie for subs has been set 
       page.first(".p_subtitleButton").click
-
-      # Check middle font are default for this size device
       sleep(1)
-      expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
+
+      if g_flag == 0
+        if g_device == "phone"
+          expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
+        else
+          expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
+        end
+      elsif g_flag == 1
+        expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
+      end
 
       # Turn OFF subs
       sleep(1)
@@ -118,20 +137,20 @@ Then("I can interact with subtitles panel if present") do
       page.first("#p_subtitleSizeButton_useLargeFontSize").click
       sleep(2)
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
-      
-      # Turning back to middle subs for FULLSCREEN step
-      sleep(2)
-      page.first("#p_subtitleSizeButton_useMediumFontSize").click
+      g_flag = 1
     end
   end
 end
 
 Then("I can click seekbar unless {string}") do |type|
   within_frame 'smphtml5iframemp' do
-    if type == "simulcast"
-      # Need to look into why simulcast markers = seekbar
+    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
       page.first(".p_chapterMarker").click
       page.first(".p_chapterMarker").hover
+    elsif type == "simulcast" and g_device == "phone"
+      page.should have_no_selector(".p_chapterMarker")
+      page.first(".p_progressBar").click
+      page.first(".p_progressBar").hover
     elsif type == "webcast"
       page.first(".p_progressBar").click
       page.first(".p_progressBar").hover
