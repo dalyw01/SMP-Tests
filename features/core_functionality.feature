@@ -2,10 +2,10 @@ Feature: Checking SMP core functionality
 
   As a tester of SMP
   I want to check core functionality of SMP across various sized screens
-  So that I can verify every feature of the player is working in all situations
+  So that I can verify every feature of the player is working in all expected situations
 
   Scenario Outline: Check basic functionality of SMP for various players
-    Given I visit "<page>" with a "<type>" player and "<device>"
+    Given I visit "<page>" with a "<type>" player on "<device>"
     When I click CTA to begin playback
     Then I see controlbar hides instantly if "<type>"
     And I can pause

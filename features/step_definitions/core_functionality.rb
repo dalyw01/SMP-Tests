@@ -1,7 +1,7 @@
-g_device = ""
-g_flag = 0
+g_device    = ""
+g_subs_flag = 0
 
-Given("I visit {string} with a {string} player and {string}") do |string1, string2, string3|
+Given("I visit {string} with a {string} player on {string}") do |string1, string2, string3|
   visit( string1 )
   g_device = string3
   sleep(1)
@@ -110,13 +110,13 @@ Then("I can interact with subtitles panel if present") do
       page.first(".p_subtitleButton").click
       sleep(1)
 
-      if g_flag == 0
+      if g_subs_flag == 0
         if g_device == "phone"
           expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
         else
           expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
         end
-      elsif g_flag == 1
+      elsif g_subs_flag == 1
         expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
       end
 
@@ -129,15 +129,20 @@ Then("I can interact with subtitles panel if present") do
       page.first(".p_subtitleButton").click
       sleep(1)
       page.first("#p_subtitleSizeButton_useSmallestFontSize").click
+      expect(page.find('button#p_subtitleSizeButton_useSmallestFontSize')['aria-pressed']).to eq("true")
       sleep(2)
       page.first("#p_subtitleSizeButton_useSmallFontSize").click
+      expect(page.find('button#p_subtitleSizeButton_useSmallFontSize')['aria-pressed']).to eq("true")
       sleep(2)
       page.first("#p_subtitleSizeButton_useMediumFontSize").click
+      expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
       sleep(2)
       page.first("#p_subtitleSizeButton_useLargeFontSize").click
+      expect(page.find('button#p_subtitleSizeButton_useLargeFontSize')['aria-pressed']).to eq("true")
       sleep(2)
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
-      g_flag = 1
+      expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
+      g_subs_flag = 1
     end
   end
 end
