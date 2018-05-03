@@ -76,7 +76,11 @@ Then("I toggle CPP OFF") do
     page.first(".p_playbackSettingsButton").hover
     page.first(".p_playbackSettingsButton").click
     sleep(1)
-    page.first(".p_toggle").click
+    
+    # If toggle is ON
+    if page.find('div#p_autoplayToggle')['aria-checked'].strip == "true"
+      page.first(".p_toggle").click
+    end
   end
 end
 
