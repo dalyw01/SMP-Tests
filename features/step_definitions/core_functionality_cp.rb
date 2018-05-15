@@ -1,5 +1,6 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/vakule')
+  visit('http://cookbook.tools.bbc.co.uk/onwardjourney')  
+  # visit('https://is.gd/vakule') # Lock to stage
   sleep(10)
 end
 
@@ -76,20 +77,10 @@ Then("I toggle CPP OFF") do
     page.first(".p_playbackSettingsButton").hover
     page.first(".p_playbackSettingsButton").click
     sleep(1)
-    
     # If toggle is ON
     if page.find('div#p_autoplayToggle')['aria-checked'].strip == "true"
       page.first(".p_toggle").click
     end
-  end
-end
-
-Then("CPP dimisses cancel option") do
-  within_frame "smphtml5iframemp" do
-    sleep(2)
-    expect(page).to have_css(".gcp_closeSVG")
-    expect(page).to have_css(".gcp_itemCtaIcon")
-    expect(page).to have_css(".gcp_itemImg")
   end
 end
 
@@ -101,6 +92,11 @@ Then("CPP shows") do
     expect(page).to have_css(".gcp_spinnerCountdown_button")
     expect(page).to have_css(".gcp_itemCtaIcon")
     expect(page).to have_css(".gcp_itemImg")
+    # expect(page).to have_css(".gcp_carouselControlsPrevious")
+    expect(page).to have_css(".gcp_carouselControlsNext")
+    expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu")
+    find( "p" , text: "Up next" )
+    find( "p" , text: "More" )
   end
 end
 
@@ -112,12 +108,18 @@ Then("CPP shows WITHOUT cancel options") do
       expect(page).to have_css(".gcp_closeSVG")
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
+      expect(page).to have_css(".gcp_carouselControlsNext")
+      find( "p" , text: "Up next" )
+      find( "p" , text: "More" )
     else
       expect(page).to have_css(".gcp_closeSVG")
       expect(page).to have_no_css(".gcp_cancel")
       expect(page).to have_no_css(".gcp_spinnerCountdown_button")
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
+      expect(page).to have_css(".gcp_carouselControlsNext")
+      find( "p" , text: "Up next" )
+      find( "p" , text: "More" )
     end
   end
 end

@@ -5,7 +5,7 @@ Feature: Checking 360 player base functionality
   So that I verify its working as expected
 
   Scenario Outline: Check basic 360  accessibility
-    Given I visit "<page>" with a "<type>" player
+    Given I visit "<page>" with a "<type>" player on "<device>"
     When I click CTA to begin playback
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
@@ -32,5 +32,6 @@ Feature: Checking 360 player base functionality
     And I click CTA to begin playback
 
   Examples:
-    | page                 | type |
-    | https://is.gd/ukiyiv | 360  |
+    | page                 | type | device  | 
+    | https://is.gd/ukiyiv | 360  | tablet  |
+    | https://is.gd/ukiyiv | 360  | desktop |

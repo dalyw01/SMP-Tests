@@ -1,9 +1,9 @@
 g_device    = ""
 g_subs_flag = 0
 
-Given("I visit {string} with a {string} player on {string}") do |string1, string2, string3|
-  visit( string1 )
-  g_device = string3
+Given("I visit {string} with a {string} player on {string}") do |new_page, string2, new_device|
+  visit(new_page)
+  g_device = new_device
   sleep(1)
   if g_device == "phone"
     page.driver.browser.manage.window.resize_to( 300 ,900 )
@@ -11,6 +11,12 @@ Given("I visit {string} with a {string} player on {string}") do |string1, string
     page.driver.browser.manage.window.resize_to( 1000 , 1000 )
   else
     page.driver.browser.manage.window.resize_to( 1920 , 1080 )
+  end
+  sleep(1)
+  # If its a webcast we need to set some data first for seekbar to show
+  if new_page == "https://is.gd/sotuka"
+    page.first("#setWebcastData").click
+    sleep(1)
   end
   sleep(1)
 end
@@ -178,12 +184,12 @@ Then("I can click seekbar in fullscreen {string}") do |type|
 end
 
 Then(/^I can seek in quarters to the end$/) do
-  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() / 4 ) );')
+  duration = page.execute_script( 'embeddedMedia.players[0].currentTime(( embeddedMedia.players[0].duration() / 4 ) );')
   sleep(2)
-  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( (( embeddedMedia.players[0].duration() / 4 ) * 2 ));')
+  duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() / 4 ) * 2 ));')
   sleep(2)
-  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( (( embeddedMedia.players[0].duration() / 4 ) * 3 ));')
+  duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() / 4 ) * 3 ));')
   sleep(2)
-  duration = page.execute_script( 'embeddedMedia.players[0].currentTime( (( embeddedMedia.players[0].duration() - 3 )));')
+  duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() - 3 )));')
   sleep(5)
 end

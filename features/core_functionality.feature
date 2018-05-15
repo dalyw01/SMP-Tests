@@ -32,7 +32,7 @@ Feature: Checking SMP core functionality
     And I click CTA to begin playback
 
   Examples:
-    | page                 | type               | device  | 
+    | page                 | type               | device  |
     | https://is.gd/webilo | vod                | phone   |
     | https://is.gd/webilo | vod                | tablet  |
     | https://is.gd/webilo | vod                | desktop |
@@ -54,5 +54,3 @@ Feature: Checking SMP core functionality
     | https://is.gd/ahekoj | minimode           | phone   |
     | https://is.gd/ahekoj | minimode           | tablet  |
     | https://is.gd/ahekoj | minimode           | desktop |
-
-

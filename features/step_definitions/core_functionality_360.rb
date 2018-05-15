@@ -10,8 +10,14 @@ Then(/^I tab to compass$/) do
 end
 
 Then(/^I tab to controlbar$/) do
-  2.times do
-    page.driver.browser.action.send_keys(:tab).perform
+  if page.driver.browser.browser == :firefox
+    4.times do
+      page.driver.browser.action.send_keys(:tab).perform
+    end
+  else
+    2.times do
+      page.driver.browser.action.send_keys(:tab).perform
+    end
   end
 end
 

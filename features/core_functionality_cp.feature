@@ -34,7 +34,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini Thumbnail | Inline     |
     | Mini Thumbnail | Fullscreen |
-    | Mini CTA       | Inline     |`
+    | Mini CTA       | Inline     |
     | Mini CTA       | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
