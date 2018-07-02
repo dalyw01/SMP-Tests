@@ -1,6 +1,5 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('http://cookbook.tools.bbc.co.uk/onwardjourney')  
-  # visit('https://is.gd/vakule') # Lock to stage
+  visit('https://is.gd/vakule') # Lock to stage
   sleep(10)
 end
 
@@ -53,7 +52,6 @@ Then("I scroll through whole carousel and select the last item") do
     32.times do
       page.first(".gcp_carouselControlsNext").click
     end
-    # find(:xpath, '//*[@id="p_pluginContainer"]/ul/li[29]/div/div/div[2]/h3').click
     sleep(5)
   end
 end
@@ -95,7 +93,7 @@ Then("CPP shows") do
     # expect(page).to have_css(".gcp_carouselControlsPrevious")
     expect(page).to have_css(".gcp_carouselControlsNext")
     expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu")
-    find( "p" , text: "Up next" )
+    # find( "p" , text: "Up next" )
     find( "p" , text: "More" )
   end
 end
@@ -109,7 +107,7 @@ Then("CPP shows WITHOUT cancel options") do
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
       expect(page).to have_css(".gcp_carouselControlsNext")
-      find( "p" , text: "Up next" )
+      # find( "p" , text: "Up next" )
       find( "p" , text: "More" )
     else
       expect(page).to have_css(".gcp_closeSVG")
@@ -118,7 +116,7 @@ Then("CPP shows WITHOUT cancel options") do
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
       expect(page).to have_css(".gcp_carouselControlsNext")
-      find( "p" , text: "Up next" )
+      # find( "p" , text: "Up next" )
       find( "p" , text: "More" )
     end
   end

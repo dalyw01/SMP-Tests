@@ -1,5 +1,5 @@
 Given(/^I am on the Cookbook Errors page$/) do
-  visit('http://cookbook.tools.bbc.co.uk/errors')
+  visit('http://cookbook.tools.bbc.co.uk/errors?environment=stage')
 end
 
 Given(/^I am on the errors cookbook page and select HTML player$/) do

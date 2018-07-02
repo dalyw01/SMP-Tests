@@ -43,5 +43,5 @@ Feature: Checking SMP HTML accessibility
     And I press ENTER on CTA to begin playback
 
   Examples:
-    | page                 | type      |
-    | https://is.gd/webilo | video     |
+    | page                 | type  |
+    | https://is.gd/egubug | video |

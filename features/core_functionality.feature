@@ -33,24 +33,24 @@ Feature: Checking SMP core functionality
 
   Examples:
     | page                 | type               | device  |
-    | https://is.gd/webilo | vod                | phone   |
-    | https://is.gd/webilo | vod                | tablet  |
-    | https://is.gd/webilo | vod                | desktop |
-    | https://is.gd/wohoja | ident + vod + subs | phone   |
-    | https://is.gd/wohoja | ident + vod + subs | tablet  |
-    | https://is.gd/wohoja | ident + vod + subs | desktop |
-    | https://is.gd/emiduz | vertical           | phone   |
-    | https://is.gd/emiduz | vertical           | tablet  |
-    | https://is.gd/emiduz | vertical           | desktop |
-    | https://is.gd/wodovo | simulcast          | phone   |
-    | https://is.gd/wodovo | simulcast          | tablet  |
-    | https://is.gd/wodovo | simulcast          | desktop |
-    | https://is.gd/sotuka | webcast            | phone   |
-    | https://is.gd/sotuka | webcast            | tablet  |
-    | https://is.gd/sotuka | webcast            | desktop |
-    | https://is.gd/wequda | audio              | phone   |
-    | https://is.gd/wequda | audio              | tablet  |
-    | https://is.gd/wequda | audio              | desktop |
-    | https://is.gd/ahekoj | minimode           | phone   |
-    | https://is.gd/ahekoj | minimode           | tablet  |
-    | https://is.gd/ahekoj | minimode           | desktop |
+    | https://is.gd/egubug | vod                | phone   |
+    | https://is.gd/egubug | vod                | tablet  |
+    | https://is.gd/egubug | vod                | desktop |
+    | https://is.gd/sabiwu | ident + vod + subs | phone   |
+    | https://is.gd/sabiwu | ident + vod + subs | tablet  |
+    | https://is.gd/sabiwu | ident + vod + subs | desktop |
+    | https://is.gd/ejocas | vertical           | phone   |
+    | https://is.gd/ejocas | vertical           | tablet  |
+    | https://is.gd/ejocas | vertical           | desktop |
+    | https://is.gd/wetese | simulcast          | phone   |
+    | https://is.gd/wetese | simulcast          | tablet  |
+    | https://is.gd/wetese | simulcast          | desktop |
+    | https://is.gd/desusa | webcast            | phone   |
+    | https://is.gd/desusa | webcast            | tablet  |
+    | https://is.gd/desusa | webcast            | desktop |
+    | https://is.gd/ubofek | audio              | phone   |
+    | https://is.gd/ubofek | audio              | tablet  |
+    | https://is.gd/ubofek | audio              | desktop |
+    | https://is.gd/vesovi | minimode           | phone   |
+    | https://is.gd/vesovi | minimode           | tablet  |
+    | https://is.gd/vesovi | minimode           | desktop |

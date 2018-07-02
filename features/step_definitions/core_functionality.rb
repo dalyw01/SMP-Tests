@@ -1,7 +1,7 @@
 g_device    = ""
 g_subs_flag = 0
 
-Given("I visit {string} with a {string} player on {string}") do |new_page, string2, new_device|
+Given("I visit {string} with a {string} player on {string}") do |new_page, new_type, new_device|
   visit(new_page)
   g_device = new_device
   sleep(1)
@@ -13,8 +13,16 @@ Given("I visit {string} with a {string} player on {string}") do |new_page, strin
     page.driver.browser.manage.window.resize_to( 1920 , 1080 )
   end
   sleep(1)
+  if page.driver.browser.browser == :firefox
+    # If the notice for cookies being set shows
+    if "bbcprivacy-continue-button"
+      page.driver.browser.navigate.refresh
+      sleep(1)
+      page.driver.browser.navigate.refresh
+    end
+  end
   # If its a webcast we need to set some data first for seekbar to show
-  if new_page == "https://is.gd/sotuka"
+  if new_type == "webcast"
     page.first("#setWebcastData").click
     sleep(1)
   end
@@ -23,14 +31,14 @@ end
 
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(1)
+    sleep(3)
     page.first(".p_accessibleHitArea").click
-    sleep(1)
+    sleep(3)
   end
 end
 
 Then("I see controlbar hides instantly if {string}") do |type|
-  if type != "audio" or type != "minimode"
+  if type != "audio" or type != "minimode" 
     page.find('.column-right').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do

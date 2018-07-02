@@ -33,5 +33,5 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type | device  | 
-    | https://is.gd/ukiyiv | 360  | tablet  |
-    | https://is.gd/ukiyiv | 360  | desktop |
+    | https://is.gd/zikivo | 360  | tablet  |
+    | https://is.gd/zikivo | 360  | desktop |
