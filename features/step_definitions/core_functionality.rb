@@ -6,21 +6,25 @@ Given("I visit {string} with a {string} player on {string}") do |new_page, new_t
   g_device = new_device
   sleep(1)
   if g_device == "phone"
-    page.driver.browser.manage.window.resize_to( 300 ,900 )
+    page.driver.browser.manage.window.resize_to( 300 , 1800 )
   elsif g_device == "tablet"
     page.driver.browser.manage.window.resize_to( 1000 , 1000 )
   else
     page.driver.browser.manage.window.resize_to( 1920 , 1080 )
   end
+  
+  # Accept cookies
   sleep(1)
+
   if page.driver.browser.browser == :firefox
-    # If the notice for cookies being set shows
-    if "bbcprivacy-continue-button"
-      page.driver.browser.navigate.refresh
-      sleep(1)
-      page.driver.browser.navigate.refresh
+    if page.first("#bbcprivacy-continue-button")
+      click_button( "OK" )
+    end
+    if page.first("#bbccookies-prompt")
+      click_button( "Yes, I agree" )
     end
   end
+
   # If its a webcast we need to set some data first for seekbar to show
   if new_type == "webcast"
     page.first("#setWebcastData").click
@@ -45,6 +49,10 @@ Then("I see controlbar hides instantly if {string}") do |type|
       page.first(".p_accessibleHitArea").hover 
     end
   end
+  # Just for firefox and mobile, just seeing if this works
+  # if page.driver.browser.browser == :firefox and g_device == "phone"
+  #   page.execute_script "window.scrollBy(0,10000)"
+  # end
 end
 
 Then(/^I can pause$/) do
