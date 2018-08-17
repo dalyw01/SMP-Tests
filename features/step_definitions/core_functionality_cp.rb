@@ -1,6 +1,10 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/vakule') # Lock to stage
+  visit('https://is.gd/ulexed') # Lock to stage
   sleep(10)
+end
+
+Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html') 
 end
 
 When(/^I seek to end of programme$/) do

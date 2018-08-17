@@ -43,16 +43,12 @@ end
 
 Then("I see controlbar hides instantly if {string}") do |type|
   if type != "audio" or type != "minimode" 
-    page.find('.column-right').hover
+    page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
       page.first(".p_accessibleHitArea").hover 
     end
   end
-  # Just for firefox and mobile, just seeing if this works
-  # if page.driver.browser.browser == :firefox and g_device == "phone"
-  #   page.execute_script "window.scrollBy(0,10000)"
-  # end
 end
 
 Then(/^I can pause$/) do
@@ -100,7 +96,7 @@ Then("I can enter fullscreen if {string}") do |type|
   end
 end
 
-# Used in 360 player 
+# Used in core_functionality_360.feature
 Then(/^I can enter fullscreen$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -209,3 +205,44 @@ Then(/^I can seek in quarters to the end$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() - 3 )));')
   sleep(5)
 end
+
+# used in core_functionality_cp_news.feature
+Then(/^I can see guidance$/) do
+  within_frame 'smphtml5iframemp' do
+    find('.p_guidanceContainer').hover
+  end
+end
+
+# Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next
+Then("I can resume past News blocking guidance in {string}") do |mode|
+  within_frame 'smphtml5iframemp' do
+    sleep(1)
+    if mode == "Inline"
+      page.first(".p_accessibleHitArea").click
+    end
+    sleep(2)
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

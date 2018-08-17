@@ -4,21 +4,16 @@ Feature: Checking "Continious Play" plugin core functionality works
   I want the CPP panel to load at the end of the current clip
   So that I am informed and prompted to play other BBC content
   
-  The main properties of CPP are...
+  The difference being in NEWS that
 
-  - A black panel displays
-  - Next item loads if user does nothing after 10 seconds
-  - Next item loads if user selects one from carousel
-  - CPP can be halted by selecting cancel options
-  - CPP can be dimissed when loaded by selecting X icon
-  - CPP has a catalogue of items which can be scrolled across
-  - CPP still loads when final item has finished
-  - CPP displays without timer if autoplay cookie is OFF
+  - For every single item with guidance, the user gets blocked 
+  - Press CTA if inline playback
+  - Presst play if in fullscreen
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   Background:
-    Given I am on a page with the HTML player and CP plugin installed
+    Given I am on a page with the News HTML player and CP plugin installed
     When I click CTA to begin playback
     And I seek to end of programme
     Then I move my cursor away
@@ -30,59 +25,13 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I enter "<mode>"
     And CPP shows
     And I press "<button>"
+    And I can resume past News blocking guidance in "<mode>"
     And I can pause new programme if "<button>"
 
   Examples:
     | button         | mode       |
     | Mini Thumbnail | Inline     |
-    | Mini Thumbnail | Fullscreen |
     | Mini CTA       | Inline     |
-    | Mini CTA       | Fullscreen |
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-  @PreventNextItem
-  Scenario Outline: Check pressing various icons of CPP dismiss's or halt CPP
-    Then I enter "<mode>"
-    And CPP shows
-    And I press "<button>"
-    And CPP stays if "<button>"
-
-  Examples:
-    | button | mode       |
-    | X      | Inline     |
-    | X      | Fullscreen |
-    | Cancel | Inline     |
-    | Cancel | Fullscreen |
-    | Circle | Inline     |
-    | Circle | Fullscreen |
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
-  @DissmissCPThenUseOtherIcons
-  Scenario Outline: Checking CPP appears again with full functionality after dismissing with X
-    Then I enter "<mode>"
-    And CPP shows
-    And I press X of CP
-    And I seek to end of programme
-    And I can play
-    And CPP shows
-    And I press "<button>"
-    And CPP stays if "<button>"
-    And I can pause new programme if "<button>"
-
-  Examples:
-    | button         | mode       |
-    | X              | Inline     |
-    | X              | Fullscreen |
-    | Cancel         | Inline     |
-    | Cancel         | Fullscreen |
-    | Circle         | Inline     |
-    | Circle         | Fullscreen |
-    | Mini Thumbnail | Inline     |
-    | Mini Thumbnail | Fullscreen |
-    | Mini CTA       | Inline     |
-    | Mini CTA       | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -90,24 +39,21 @@ Feature: Checking "Continious Play" plugin core functionality works
   Scenario Outline: Check CPP does not break core SMP functionality
     Then I enter "<mode>"
     And I press "<button>"
+    And I can resume past News blocking guidance in "<mode>"
     And I use core functionality of SMP
     And I seek to end of programme
     And CPP shows
     And I press "<button>"
-    And I use core functionality of SMP
-    And I seek to end of programme
-    And CPP shows
-    And I press "<button>"
+    And I can resume past News blocking guidance in "<mode>"
+    And I see controlbar hides instantly if "<type>"
     And I use core functionality of SMP
     And I seek to end of programme
     And CPP shows
 
   Examples:
-    | button         | mode       |
-    | Mini Thumbnail | Inline     |
-    | Mini Thumbnail | Fullscreen |
-    | Mini CTA       | Inline     |
-    | Mini CTA       | Fullscreen |
+    | button         | mode       | type |
+    | Mini Thumbnail | Inline     | vod  |
+    | Mini CTA       | Inline     | vod  |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -122,7 +68,6 @@ Feature: Checking "Continious Play" plugin core functionality works
   Examples:
     | mode       |
     | Inline     |
-    | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -131,18 +76,19 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I enter "<mode>"
     And CPP shows
     And I wait for countdown to finish
+    And I can resume past News blocking guidance in "<mode>"
     And I can pause
 
   Examples:
     | mode       |
     | Inline     |
-    | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
     Then I press "<button>"
+    And I can resume past News blocking guidance in "<mode>"
     And I toggle CPP OFF
     And I enter "<mode>"
     And I seek to end of programme
@@ -151,7 +97,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     Examples:
     | button         | mode       |
     | Mini Thumbnail | Inline     |
-    | Mini CTA       | Fullscreen |
 
 
 
