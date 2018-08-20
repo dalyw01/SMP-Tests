@@ -62,9 +62,9 @@ end
 
 When("I use core functionality of SMP") do
   within_frame "smphtml5iframemp" do
-    sleep(2)
+    sleep(1)
     page.first(".p_pauseIcon").click
-    sleep(2)
+    sleep(1)
     page.first(".p_playIcon").click
     sleep(2)
     page.first(".p_audioIcon").click
@@ -98,7 +98,7 @@ Then("CPP shows") do
     expect(page).to have_css(".gcp_carouselControlsNext")
     expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu")
     # find( "p" , text: "Up next" )
-    find( "p" , text: "More" )
+    # find( "p" , text: "More" )
   end
 end
 

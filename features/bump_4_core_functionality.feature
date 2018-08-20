@@ -6,7 +6,8 @@ Feature: Checking SMP core functionality on BUMP 4
 
   Scenario Outline: Check basic functionality of SMP for various players
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When I click CTA to begin playback
+    When I accept BBC cookies
+    And I click CTA to begin playback
     Then I see controlbar hides instantly if "<type>"
     And I can pause
     And I can play

@@ -19,7 +19,8 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed
-    When I click CTA to begin playback
+    When I accept BBC cookies
+    And I click CTA to begin playback
     And I seek to end of programme
     Then I move my cursor away
 

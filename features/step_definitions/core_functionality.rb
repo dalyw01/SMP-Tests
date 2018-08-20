@@ -2,7 +2,7 @@ g_device    = ""
 g_subs_flag = 0
 
 Given("I visit {string} with a {string} player on {string}") do |new_page, new_type, new_device|
-  visit(new_page)
+  visit( new_page )
   g_device = new_device
   sleep(1)
   if g_device == "phone"
@@ -12,25 +12,22 @@ Given("I visit {string} with a {string} player on {string}") do |new_page, new_t
   else
     page.driver.browser.manage.window.resize_to( 1920 , 1080 )
   end
-  
-  # Accept cookies
-  sleep(1)
-
-  if page.driver.browser.browser == :firefox
-    if page.first("#bbcprivacy-continue-button")
-      click_button( "OK" )
-    end
-    if page.first("#bbccookies-prompt")
-      click_button( "Yes, I agree" )
-    end
-  end
-
   # If its a webcast we need to set some data first for seekbar to show
   if new_type == "webcast"
     page.first("#setWebcastData").click
     sleep(1)
   end
   sleep(1)
+end
+
+When("I accept BBC cookies") do
+  if page.first("#bbcprivacy-continue-button")
+    click_button( "OK" )
+    sleep(1)
+  end
+  if page.first("#bbccookies-prompt")
+    click_button( "Yes, I agree" )
+  end
 end
 
 When(/^I click CTA to begin playback$/) do
@@ -124,17 +121,22 @@ Then("I can interact with subtitles panel if present") do
   within_frame 'smphtml5iframemp' do
     if page.first(".p_subtitleButton")
 
-      # This is if the cookie for subs has been set 
+      # Click SUBS button to see current status
       page.first(".p_subtitleButton").click
       sleep(1)
 
+      # If subs are OFF
       if g_subs_flag == 0
         if g_device == "phone"
+          # On phone we expect turning subs ON to have largest size by default
           expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
         else
+          # Else tablet or desktop turning subs ON should give us medium by default
           expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
         end
+      # Else if they are already ON
       elsif g_subs_flag == 1
+        # They should be largest size as I set it to that last
         expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
       end
 
@@ -142,7 +144,7 @@ Then("I can interact with subtitles panel if present") do
       sleep(1)
       page.first(".p_subsToggle").click
 
-      # Turn ON subs + select SIZES
+      # Turn ON subs + select SIZES + validate size
       sleep(1)
       page.first(".p_subtitleButton").click
       sleep(1)
@@ -213,7 +215,7 @@ Then(/^I can see guidance$/) do
   end
 end
 
-# Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next
+# Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
 Then("I can resume past News blocking guidance in {string}") do |mode|
   within_frame 'smphtml5iframemp' do
     sleep(1)

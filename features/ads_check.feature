@@ -6,7 +6,8 @@ Feature: Checking SMP Ads
 
   Scenario Outline: Check basic HTML functionality
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When I click CTA to begin playback
+    When I accept BBC cookies
+    And I click CTA to begin playback
     And I can see AD controlbar
     And I can AD pause
     And I can see AD controlbar
