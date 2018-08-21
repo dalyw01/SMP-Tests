@@ -1,7 +1,7 @@
 g_device    = ""
 g_subs_flag = 0
 
-Given("I visit {string} with a {string} player on {string}") do |new_page, new_type, new_device|
+Given(/^I visit {string} with a {string} player on {string}$/) do |new_page, new_type, new_device|
   visit( new_page )
   g_device = new_device
   sleep(1)
@@ -20,7 +20,13 @@ Given("I visit {string} with a {string} player on {string}") do |new_page, new_t
   sleep(1)
 end
 
-When("I accept BBC cookies") do
+Given(/^I visit an audio {string} with a {string} player on {string}$/) do |new_page, new_type, new_device|
+  visit( new_page )
+  page.execute_script('document.cookie="ckns_smpj2Beta=true";')
+  refresh()
+end
+
+When(/^I accept BBC cookies$/) do
   if page.first("#bbcprivacy-continue-button")
     click_button( "OK" )
     sleep(1)
@@ -38,7 +44,7 @@ When(/^I click CTA to begin playback$/) do
   end
 end
 
-Then("I see controlbar hides instantly if {string}") do |type|
+Then(/^I see controlbar hides instantly if {string}$/) do |type|
   if type != "audio" or type != "minimode" 
     page.find('.settings-player').hover
     sleep(1)
@@ -84,7 +90,7 @@ Then(/^I can click each volume bar$/) do
   end
 end
 
-Then("I can enter fullscreen if {string}") do |type|
+Then(/^I can enter fullscreen if {string}$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(2)
@@ -101,7 +107,7 @@ Then(/^I can enter fullscreen$/) do
   end
 end
 
-Then("I can exit fullscreen if {string}") do |type|
+Then(/^I can exit fullscreen if {string}$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       page.first(".p_fullscreen-returnIcon").click
@@ -117,7 +123,7 @@ When(/^I can see controlbar$/) do
   end
 end
 
-Then("I can interact with subtitles panel if present") do
+Then(/^I can interact with subtitles panel if present$/) do
   within_frame 'smphtml5iframemp' do
     if page.first(".p_subtitleButton")
 
@@ -167,7 +173,7 @@ Then("I can interact with subtitles panel if present") do
   end
 end
 
-Then("I can click seekbar unless {string}") do |type|
+Then(/^I can click seekbar unless {string}$/) do |type|
   within_frame 'smphtml5iframemp' do
     if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
       page.first(".p_chapterMarker").click
@@ -186,7 +192,7 @@ Then("I can click seekbar unless {string}") do |type|
   end
 end
 
-Then("I can click seekbar in fullscreen {string}") do |type|
+Then(/^I can click seekbar in fullscreen {string}$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(1)
@@ -216,7 +222,7 @@ Then(/^I can see guidance$/) do
 end
 
 # Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
-Then("I can resume past News blocking guidance in {string}") do |mode|
+Then(/^I can resume past News blocking guidance in {string}$/) do |mode|
   within_frame 'smphtml5iframemp' do
     sleep(1)
     if mode == "Inline"
@@ -225,15 +231,6 @@ Then("I can resume past News blocking guidance in {string}") do |mode|
     sleep(2)
   end
 end
-
-
-
-
-
-
-
-
-
 
 
 

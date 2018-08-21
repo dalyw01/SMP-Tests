@@ -1,5 +1,5 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/ulexed') # Lock to stage
+  visit('https://is.gd/vakule') # Lock to stage
   sleep(10)
 end
 
@@ -9,6 +9,20 @@ end
 
 When(/^I seek to end of programme$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
+end
+
+When(/^I use core functionality of SMP$/) do
+  within_frame "smphtml5iframemp" do
+    sleep(1)
+    page.first(".p_pauseIcon").click
+    sleep(1)
+    page.first(".p_playIcon").click
+    sleep(2)
+    page.first(".p_audioIcon").click
+    sleep(2)
+    page.first(".p_muteIcon").click
+    sleep(2)
+  end
 end
 
 Then(/^I move my cursor away$/) do
@@ -30,7 +44,7 @@ Then(/^I can replay current programme$/) do
   end
 end
 
-Then("I can pause new programme if {string}") do |string|
+Then(/^I can pause new programme if {string}$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
       sleep(3)
@@ -40,11 +54,11 @@ Then("I can pause new programme if {string}") do |string|
   end
 end
 
-Then("I wait for countdown to finish") do
+Then(/^I wait for countdown to finish$/) do
   sleep(12)
 end
 
-Then("I scroll through whole carousel and select the last item") do
+Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
     sleep(4)
     28.times do
@@ -60,21 +74,7 @@ Then("I scroll through whole carousel and select the last item") do
   end
 end
 
-When("I use core functionality of SMP") do
-  within_frame "smphtml5iframemp" do
-    sleep(1)
-    page.first(".p_pauseIcon").click
-    sleep(1)
-    page.first(".p_playIcon").click
-    sleep(2)
-    page.first(".p_audioIcon").click
-    sleep(2)
-    page.first(".p_muteIcon").click
-    sleep(2)
-  end
-end
-
-Then("I toggle CPP OFF") do
+Then(/^I toggle CPP OFF$/) do
   within_frame "smphtml5iframemp" do
     page.first(".p_playbackSettingsButton").hover
     page.first(".p_playbackSettingsButton").click
@@ -86,7 +86,7 @@ Then("I toggle CPP OFF") do
   end
 end
 
-Then("CPP shows") do
+Then(/^CPP shows$/) do
   within_frame "smphtml5iframemp" do
     sleep(2)
     expect(page).to have_css(".gcp_closeSVG")
@@ -102,7 +102,7 @@ Then("CPP shows") do
   end
 end
 
-Then("CPP shows WITHOUT cancel options") do
+Then(/^CPP shows WITHOUT cancel options$/) do
   sleep(2)
   within_frame "smphtml5iframemp" do
     sleep(2)
@@ -126,7 +126,7 @@ Then("CPP shows WITHOUT cancel options") do
   end
 end
 
-Then("I press {string}") do |string|
+Then(/^I press {string}$/) do |string|
   within_frame "smphtml5iframemp" do
     sleep(4)
     if string == "X"
@@ -144,7 +144,7 @@ Then("I press {string}") do |string|
   sleep(5)
 end
 
-Then("I enter {string}") do |string|
+Then(/^I enter {string}$/) do |string|
   if string == "Fullscreen"
     within_frame "smphtml5iframemp" do
       page.first(".p_fullscreenButton").click
@@ -152,7 +152,7 @@ Then("I enter {string}") do |string|
   end
 end
 
-Then("CPP stays if {string}") do |string|
+Then(/^CPP stays if {string}$/) do |string|
   if string == "Cancel" or string == "Circle"
     within_frame "smphtml5iframemp" do
       sleep(2)
@@ -171,7 +171,7 @@ Then("CPP stays if {string}") do |string|
   end
 end
 
-Then("I press X of CP") do
+Then(/^I press X of CP$/) do
   within_frame "smphtml5iframemp" do
     sleep(4)
     page.first(".gcp_closeSVG").click
