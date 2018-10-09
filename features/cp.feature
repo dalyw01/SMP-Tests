@@ -154,5 +154,3 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Fullscreen |
 
-
-

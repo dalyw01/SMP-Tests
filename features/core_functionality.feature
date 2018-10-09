@@ -5,6 +5,7 @@ Feature: Checking SMP core functionality
   So that I can verify every feature of the player is working in all expected situations
 
   Scenario Outline: Check basic functionality of SMP for various players
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When I accept BBC cookies
     And I click CTA to begin playback

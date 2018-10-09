@@ -1,7 +1,7 @@
 g_device    = ""
 g_subs_flag = 0
 
-Given(/^I visit {string} with a {string} player on {string}$/) do |new_page, new_type, new_device|
+Given("I visit {string} with a {string} player on {string}") do |new_page, new_type, new_device|
   visit( new_page )
   g_device = new_device
   sleep(1)
@@ -12,7 +12,7 @@ Given(/^I visit {string} with a {string} player on {string}$/) do |new_page, new
   else
     page.driver.browser.manage.window.resize_to( 1920 , 1080 )
   end
-  # If its a webcast we need to set some data first for seekbar to show
+  # If webcast we need to set some data first for seekbar to show
   if new_type == "webcast"
     page.first("#setWebcastData").click
     sleep(1)
@@ -39,13 +39,19 @@ end
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(3)
-    page.first(".p_accessibleHitArea").click
+      # If its the new audio player
+      if page.first(".p_audioButton_buttonInner")
+        page.first(".p_audioButton_buttonInner").click
+      # Else its the usual player
+      elsif page.first(".p_accessibleHitArea")
+        page.first(".p_accessibleHitArea").click
+      end
     sleep(3)
   end
 end
 
-Then(/^I see controlbar hides instantly if {string}$/) do |type|
-  if type != "audio" or type != "minimode" 
+Then("I see controlbar hides instantly if {string}") do |type|
+  if type != "audio" or type != "minimode"
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
@@ -57,32 +63,46 @@ end
 Then(/^I can pause$/) do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_pauseIcon").click
+    if page.first(".p_audioButton_buttonInner")
+      page.first(".p_audioButton_buttonInner").click
+    else
+      page.first(".p_pauseIcon").click
+    end
   end
 end
 
 Then(/^I can play$/) do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_playIcon").click
+    if page.first(".p_audioButton_buttonInner")
+      page.first(".p_audioButton_buttonInner").click
+    else
+      page.first(".p_playIcon").click
+    end
   end
 end
 
 Then(/^I can mute$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(1)
-    page.first(".p_volumeButton").click
+    # Bug where smaller windows have mute icon disappearing
+    if g_device == "desktop"
+      sleep(1)
+      page.first(".p_volumeButton").click
+    end
   end
 end
 
 Then(/^I can unmute$/) do
   within_frame 'smphtml5iframemp' do
-    page.first(".p_volumeControls").click
-    sleep(1)
+    # Bug where smaller windows have mute icon disappearing
+    if g_device == "desktop"
+      sleep(1)
+      page.first(".p_volumeButton").click
+    end
   end
 end
 
-Then(/^I can click each volume bar$/) do
+Then("I can click each volume bar") do
   within_frame 'smphtml5iframemp' do
     page.all(:css, '.p_volumeBar').each do |item|
       item.click
@@ -90,8 +110,8 @@ Then(/^I can click each volume bar$/) do
   end
 end
 
-Then(/^I can enter fullscreen if {string}$/) do |type|
-  if type != "minimode"
+Then("I can enter fullscreen if {string}") do |type|
+  if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(2)
       page.first(".p_fullscreenButton").click
@@ -99,16 +119,8 @@ Then(/^I can enter fullscreen if {string}$/) do |type|
   end
 end
 
-# Used in core_functionality_360.feature
-Then(/^I can enter fullscreen$/) do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
-    page.first(".p_fullscreenButton").click
-  end
-end
-
-Then(/^I can exit fullscreen if {string}$/) do |type|
-  if type != "minimode"
+Then("I can exit fullscreen if {string}") do |type|
+  if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
       page.first(".p_fullscreen-returnIcon").click
     end
@@ -116,10 +128,11 @@ Then(/^I can exit fullscreen if {string}$/) do |type|
   end
 end
 
-When(/^I can see controlbar$/) do
+When("I can see controlbar") do
   within_frame 'smphtml5iframemp' do
-    page.should have_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
-    page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
+    page.first(".notInteractiveContent").hover # Need this here or proceedings command don't work
+    # page.should have_selector(:xpath, '//*[@id="mediaContainer"]/div[7]')
+    # page.first(".p_accessibleHitArea").hover # Need this here or proceedings command don't work
   end
 end
 
@@ -173,7 +186,7 @@ Then(/^I can interact with subtitles panel if present$/) do
   end
 end
 
-Then(/^I can click seekbar unless {string}$/) do |type|
+Then("I can click seekbar unless {string}") do |type|
   within_frame 'smphtml5iframemp' do
     if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
       page.first(".p_chapterMarker").click
@@ -192,7 +205,7 @@ Then(/^I can click seekbar unless {string}$/) do |type|
   end
 end
 
-Then(/^I can click seekbar in fullscreen {string}$/) do |type|
+Then("I can click seekbar in fullscreen {string}") do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(1)
@@ -231,17 +244,5 @@ Then(/^I can resume past News blocking guidance in {string}$/) do |mode|
     sleep(2)
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
 
 

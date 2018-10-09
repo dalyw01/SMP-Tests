@@ -44,7 +44,7 @@ Then(/^I can replay current programme$/) do
   end
 end
 
-Then(/^I can pause new programme if {string}$/) do |string|
+Then("I can pause new programme if {string}") do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
       sleep(3)
@@ -126,7 +126,7 @@ Then(/^CPP shows WITHOUT cancel options$/) do
   end
 end
 
-Then(/^I press {string}$/) do |string|
+Then("I press {string}") do |string|
   within_frame "smphtml5iframemp" do
     sleep(4)
     if string == "X"
@@ -144,7 +144,7 @@ Then(/^I press {string}$/) do |string|
   sleep(5)
 end
 
-Then(/^I enter {string}$/) do |string|
+Then("I enter {string}") do |string|
   if string == "Fullscreen"
     within_frame "smphtml5iframemp" do
       page.first(".p_fullscreenButton").click
@@ -152,7 +152,7 @@ Then(/^I enter {string}$/) do |string|
   end
 end
 
-Then(/^CPP stays if {string}$/) do |string|
+Then("CPP stays if {string}") do |string|
   if string == "Cancel" or string == "Circle"
     within_frame "smphtml5iframemp" do
       sleep(2)

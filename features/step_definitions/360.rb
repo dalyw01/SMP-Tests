@@ -21,6 +21,13 @@ Then(/^I tab to controlbar$/) do
   end
 end
 
+Then("I can enter fullscreen") do
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    page.first(".p_fullscreenButton").click
+  end
+end
+
 Then(/^I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard$/) do
   sleep(2)
   10.times do
