@@ -1,4 +1,4 @@
-Then("I can press seek forward button") do
+Then("I can press +{int}") do |int|
    	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_forwardInterval").click
@@ -6,10 +6,26 @@ Then("I can press seek forward button") do
 	sleep(1)
 end
 
-Then("I can press seek back button") do
+Then("I can press -{int}") do |int|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_backInterval").click
+	end
+	sleep(1)
+end
+
+Then("I see -{int} is disabled when at START") do |int|
+	sleep(1)
+	within_frame 'smphtml5iframemp' do
+		find_button('p_audioui_backInterval', disabled: true).should be 
+	end
+	sleep(1)
+end
+
+Then("I see +{int} is disabled when at LIVE") do |int|
+	sleep(1)
+	within_frame 'smphtml5iframemp' do
+		find_button('p_audioui_forwardInterval', disabled: true).should be 
 	end
 	sleep(1)
 end
@@ -45,3 +61,4 @@ Then("I can press LIVE button") do
 	end
 	sleep(3)
 end
+
