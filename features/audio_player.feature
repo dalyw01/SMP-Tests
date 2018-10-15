@@ -8,26 +8,25 @@ Feature: New Audio Player
 
   @OneItem
   Scenario Outline: Check basic functionality of audio player for a 1 item playlist    
-  
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When I accept BBC cookies
-    Then I click CTA to begin playback
+    Then I click Audio player CTA to begin playback
     And I can press +20
     And I can press -20
-    And I can pause
+    And I can Audio pause
     And I can press +20
     And I can press -20
-    And I can play
+    And I can Audio play
     And I can press +20
     And I can press -20
-    And I can mute
-    And I can click each volume bar
+    And I can Audio mute if "<device>"
     And I can press +20
     And I can press -20
-    And I can unmute
+    And I can Audio unmute if "<device>"
     And I can click seekbar unless "<type>"
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I click Audio player CTA to begin playback
 
   Examples:
     | page                 | type  | device  |
@@ -39,22 +38,26 @@ Feature: New Audio Player
 
   @ThreeItems
   Scenario Outline: Check basic functionality of audio player for 3 item playlist
-    
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When I accept BBC cookies
-    Then I click CTA to begin playback
+    Then I click Audio player CTA to begin playback
     And I can press next item
+    And I can press +20
+    And I can press -20
     And I can press previous item
+    And I can press +20
+    And I can press -20
     And I can press next item
     And I can press next item
     And I can press +20
     And I can press +20
     And I can press -20
     And I can press -20
-    And I can pause
-    And I can play
+    And I can Audio pause
+    And I can Audio play
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I click Audio player CTA to begin playback
 
   Examples:
     | page                 | type  | device  |
@@ -64,51 +67,85 @@ Feature: New Audio Player
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
+  @SimulcastStartButton
+  Scenario Outline: Check core functionality of START button
+
+  Given I visit "<page>" with a "<type>" player on "<device>"
+    When I accept BBC cookies
+    Then I click Audio player CTA to begin playback
+    And I can press START button
+    And I see START button is disabled when at START
+    And I see -20 is disabled when at START
+    And I can Audio pause
+    And I can Audio play
+    And I can press +20
+    And I can press -20
+    And I can press +20
+    And I can press START button
+    And I see START button is disabled when at START
+    And I can press LIVE button
+    And I can press START button
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/idihug | audio | phone   |
+    | https://is.gd/idihug | audio | tablet  |
+    | https://is.gd/idihug | audio | desktop |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+  @SimulcastLiveButton
+  Scenario Outline: Check core functionality of LIVE button
+
+  Given I visit "<page>" with a "<type>" player on "<device>"
+    When I accept BBC cookies
+    Then I click Audio player CTA to begin playback
+    And I see +20 is disabled when at LIVE
+    And I see LIVE button is disabled when at LIVE
+    And I can Audio pause
+    And I can Audio play
+    And I can press -20
+    And I can press LIVE button
+    And I can press START button
+    And I see START button is disabled when at START
+    And I can press LIVE button
+    And I see LIVE button is disabled when at LIVE
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/idihug | audio | phone   |
+    | https://is.gd/idihug | audio | tablet  |
+    | https://is.gd/idihug | audio | desktop |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
   @Simulcast
   Scenario Outline: Check core functionality of audio player for a Simulcast
 
   Given I visit "<page>" with a "<type>" player on "<device>"
     When I accept BBC cookies
-    Then I click CTA to begin playback
+    Then I click Audio player CTA to begin playback
     And I can press START button
     And I see -20 is disabled when at START
-    And I can pause
-    And I can play
+    And I can Audio pause
+    And I can Audio play
     And I can press +20
     And I can press -20
     And I can press LIVE button
     And I see +20 is disabled when at LIVE
+    And I can Audio mute if "<device>"
     And I can press -20
     And I can press +20
-    And I can pause
-    And I can play
+    And I can Audio unmute if "<device>"
+    And I can press -20
+    And I can press +20
+    And I can Audio pause
+    And I click Audio player CTA to begin playback
 
   Examples:
     | page                 | type  | device  |
+    | https://is.gd/idihug | audio | phone   |
+    | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
