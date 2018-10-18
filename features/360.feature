@@ -6,7 +6,7 @@ Feature: Checking 360 player base functionality
 
   Scenario Outline: Check basic 360  accessibility
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When I accept BBC cookies
+    When the COOKBOOK has loaded
     And I click CTA to begin playback
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass

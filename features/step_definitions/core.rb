@@ -26,20 +26,9 @@ Given(/^I visit an audio {string} with a {string} player on {string}$/) do |new_
   refresh()
 end
 
-When(/^I accept BBC cookies$/) do
-  # sleep(1)
-  # if find_button("OK").visible?
-  #   click_button( "OK" )
-  #   sleep(1)
-  # else
-  #   puts "AM I GETTING IN HERE?"
-  # end
-  # if find_button("Yes, I agree").visible?
-  #   click_button( "Yes, I agree" )
-  # else
-  #   puts "TEST TEST TEST TEST TEST"
-  # end
-  # sleep(1)
+When(/^the COOKBOOK has loaded$/) do
+  find( "h1" , text: "SMP COOKBOOK" )   
+  sleep(1)
 end
 
 When(/^I click CTA to begin playback$/) do
@@ -96,6 +85,8 @@ end
 
 Then("I can click each volume bar") do
   within_frame 'smphtml5iframemp' do
+    sleep(1)
+    page.first(".p_volumeButton").hover
     page.all(:css, '.p_volumeBar').each do |item|
       item.click
     end
@@ -215,24 +206,6 @@ Then(/^I can seek in quarters to the end$/) do
   sleep(2)
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() - 3 )));')
   sleep(5)
-end
-
-# used in core_functionality_cp_news.feature
-Then(/^I can see guidance$/) do
-  within_frame 'smphtml5iframemp' do
-    find('.p_guidanceContainer').hover
-  end
-end
-
-# Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
-Then(/^I can resume past News blocking guidance in {string}$/) do |mode|
-  within_frame 'smphtml5iframemp' do
-    sleep(1)
-    if mode == "Inline"
-      page.first(".p_accessibleHitArea").click
-    end
-    sleep(2)
-  end
 end
 
 

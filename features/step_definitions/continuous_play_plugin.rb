@@ -88,7 +88,7 @@ end
 
 Then(/^CPP shows$/) do
   within_frame "smphtml5iframemp" do
-    sleep(2)
+    sleep(4)
     expect(page).to have_css(".gcp_closeSVG")
     expect(page).to have_css(".gcp_cancel")
     expect(page).to have_css(".gcp_spinnerCountdown_button")
@@ -96,14 +96,14 @@ Then(/^CPP shows$/) do
     expect(page).to have_css(".gcp_itemImg")
     # expect(page).to have_css(".gcp_carouselControlsPrevious")
     expect(page).to have_css(".gcp_carouselControlsNext")
-    expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu")
+    expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu for autoplay and video quality settings")
     # find( "p" , text: "Up next" )
     # find( "p" , text: "More" )
   end
 end
 
 Then(/^CPP shows WITHOUT cancel options$/) do
-  sleep(2)
+  sleep(4)
   within_frame "smphtml5iframemp" do
     sleep(2)
     if page.driver.browser.browser == :firefox
@@ -178,3 +178,22 @@ Then(/^I press X of CP$/) do
   end
   sleep(5)
 end
+
+# Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
+Then("I can resume past News blocking guidance in {string}") do |mode|
+  within_frame 'smphtml5iframemp' do
+    sleep(1)
+    if mode == "Inline"
+      page.first(".p_accessibleHitArea").click
+    end
+    sleep(2)
+  end
+end
+
+# used in core_functionality_cp_news.feature
+Then(/^I can see guidance$/) do
+  within_frame 'smphtml5iframemp' do
+    find('.p_guidanceContainer').hover
+  end
+end
+

@@ -19,7 +19,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed
-    When I accept BBC cookies
+    When the COOKBOOK has loaded
     And I click CTA to begin playback
     And I seek to end of programme
     Then I move my cursor away
@@ -99,9 +99,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I seek to end of programme
     And CPP shows
     And I press "<button>"
-    And I use core functionality of SMP
-    And I seek to end of programme
-    And CPP shows
 
   Examples:
     | button         | mode       |

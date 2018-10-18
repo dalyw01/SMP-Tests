@@ -8,7 +8,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   - For every single item with guidance, the user gets blocked 
   - Press CTA if inline playback
-  - Presst play if in fullscreen
+  - Press play if in fullscreen
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
