@@ -83,6 +83,7 @@ Feature: New Audio Player
     And I can press +20
     And I can press -20
     And I can press PREVIOUS item
+    And I can press PREVIOUS item
     And I can press +20
     And I can press -20
     And I can press NEXT item
