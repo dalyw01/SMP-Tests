@@ -13,6 +13,8 @@ Feature: New Audio Player
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     Then I click Audio player CTA to begin playback
+    And I can press +20
+    And I can press -20
     And I can Audio pause
     And I can press -20
     And I see NEXT button is disabled
@@ -24,22 +26,24 @@ Feature: New Audio Player
     And I see NEXT button is disabled
     And I can press +20
     And I can press -20
-    And I can press previous item
+    And I can press PREVIOUS item
     And I can press +20
     And I can press -20
     And I can Audio mute if "<device>"
     And I can press +20
     And I can press -20
     And I can Audio unmute if "<device>"
+    And I can press +20
+    And I can press -20
     And I can click seekbar unless "<type>"
     And I can seek in quarters to the end
     And I click Audio player CTA to begin playback
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/otehed | audio | phone   |
-    | https://is.gd/otehed | audio | tablet  |
-    | https://is.gd/otehed | audio | desktop |
+    | https://is.gd/hayuwa | audio | phone   |
+    | https://is.gd/hayuwa | audio | tablet  |
+    | https://is.gd/hayuwa | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -63,9 +67,9 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/awuheh | audio | phone   |
-    | https://is.gd/awuheh | audio | tablet  |
-    | https://is.gd/awuheh | audio | desktop |
+    | https://is.gd/owebiz | audio | phone   |
+    | https://is.gd/owebiz | audio | tablet  |
+    | https://is.gd/owebiz | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -94,11 +98,12 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/abivek | audio | phone   |
-    | https://is.gd/abivek | audio | tablet  |
-    | https://is.gd/abivek | audio | desktop |
+    | https://is.gd/ivacij | audio | phone   |
+    | https://is.gd/ivacij | audio | tablet  |
+    | https://is.gd/ivacij | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @SimulcastStartButton
   Scenario Outline: Check core functionality of START button for a Simulcast
