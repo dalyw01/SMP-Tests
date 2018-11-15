@@ -103,7 +103,6 @@ Feature: New Audio Player
     | https://is.gd/ivacij | audio | tablet  |
     | https://is.gd/ivacij | audio | desktop |
 
-
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @SimulcastStartButton
@@ -187,6 +186,32 @@ Feature: New Audio Player
     | https://is.gd/idihug | audio | phone   |
     | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+  @Bug21
+  Scenario Outline: SMPHTML-1383, Issue 21, In a PAUSED state for 1 item, back arrow isn't greyed out but -20 is
+
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    When the COOKBOOK has loaded
+    Then I click Audio player CTA to begin playback
+    And I can Audio pause
+    And I can press -20
+    And I can Audio play
+    And I can Audio pause
+    And I can press PREVIOUS item
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/hayuwa | audio | phone   |
+    | https://is.gd/hayuwa | audio | tablet  |
+    | https://is.gd/hayuwa | audio | desktop |
+
+
+
+
+
+
 
 
 
