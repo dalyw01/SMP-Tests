@@ -7,6 +7,11 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html') 
 end
 
+When("I press alwaysShowCarouselButton then page reloads") do
+  page.first(" #alwaysShowCarouselButtonContainerButton").click
+  sleep(2)
+end
+
 When(/^I seek to end of programme$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
 end
@@ -196,4 +201,46 @@ Then(/^I can see guidance$/) do
     find('.p_guidanceContainer').hover
   end
 end
+
+Then("I can click WATCH MORE") do
+  within_frame 'smphtml5iframemp' do
+    sleep(1)
+    # find("button", text: "Watch More").hover
+    # sleep(1)
+    page.first("#gcp_onDemandButtonContainer").click
+    # sleep(1)
+    # expect(page).to have_css("#gcp_onDemandButtonContainer button", text: "Watch more" ) 
+    # sleep(2)
+  end
+  # pending # Write code here that turns the phrase above into concrete actions
+  #gcp_onDemandButtonContainer
+  # aria-label - Watch more
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,7 +2,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   
   As a tester of SMP
   I want the CPP panel to load at the end of the current clip
-  So that I am informed and prompted to play other BBC content
+  So that I am informed and prompted about other available BBC content
   
   The main properties of CPP are...
 

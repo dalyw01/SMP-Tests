@@ -189,7 +189,7 @@ Feature: New Audio Player
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-  @Bug21
+  @Bug21-
   Scenario Outline: SMPHTML-1383, Issue 21, In a PAUSED state for 1 item, back arrow isn't greyed out but -20 is
 
     Given I visit "<page>" with a "<type>" player on "<device>"

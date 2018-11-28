@@ -2,13 +2,13 @@ Feature: Checking "Continious Play" plugin core functionality works
   
   As a tester of SMP
   I want the CPP panel to load at the end of the current clip
-  So that I am informed and prompted to play other BBC content
+  So that I am informed and prompted about other available BBC content
   
   The difference being in NEWS that
 
   - For every single item with guidance, the user gets blocked 
   - Press CTA if inline playback
-  - Press play if in fullscreen
+  - Press play icon if in fullscreen
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
