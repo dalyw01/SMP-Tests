@@ -23,9 +23,9 @@ Then(/^I can Audio play$/) do
  	sleep(1)
 end
 
-Then("I can Audio mute if {string}") do |string|
+Then(/^I can Audio mute if "([^"]*)"$/) do |new_device|
 	sleep(1)
-	if string == "desktop"
+	if new_device == "desktop"
 		within_frame 'smphtml5iframemp' do
 			page.first(".audio").click
 		end
@@ -33,9 +33,9 @@ Then("I can Audio mute if {string}") do |string|
 	sleep(1)
 end
 
-Then("I can Audio unmute if {string}") do |string|
+Then(/^I can Audio unmute if "([^"]*)"$/) do |new_device|
 	sleep(1)
-	if string == "desktop"
+	if new_device == "desktop"
 		within_frame 'smphtml5iframemp' do
 			page.first(".p_volumeButton").click
 		end
@@ -43,7 +43,7 @@ Then("I can Audio unmute if {string}") do |string|
 	sleep(1)
 end
 
-Then("I can press +{int}") do |int|
+Then(/^I can press \+(\d+)$/) do |arg1|
    	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_forwardInterval").click
@@ -51,7 +51,7 @@ Then("I can press +{int}") do |int|
 	sleep(2)
 end
 
-Then("I can press -{int}") do |int|
+Then(/^I can press \-(\d+)$/) do |arg1|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_backInterval").click
@@ -59,7 +59,7 @@ Then("I can press -{int}") do |int|
 	sleep(2)
 end
 
-Then("I see -{int} is disabled when at START") do |int|
+Then(/^I see \-(\d+) is disabled when at START$/) do |arg1|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
 		find_button('p_audioui_backInterval', disabled: true).should be 
@@ -67,7 +67,7 @@ Then("I see -{int} is disabled when at START") do |int|
 	sleep(1)
 end
 
-Then("I see +{int} is disabled when at LIVE") do |int|
+Then(/^I see \+(\d+) is disabled when at LIVE$/) do |arg1|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
 		find_button('p_audioui_forwardInterval', disabled: true).should be 
@@ -75,7 +75,7 @@ Then("I see +{int} is disabled when at LIVE") do |int|
 	sleep(1)
 end
 
-Then("I can press NEXT item") do
+Then(/^I can press NEXT item$/) do
 	sleep(2)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_nextButton").click
@@ -83,7 +83,7 @@ Then("I can press NEXT item") do
 	sleep(3)
 end
 
-Then("I can press PREVIOUS item") do
+Then(/^I can press PREVIOUS item$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_previousButton").click
@@ -91,7 +91,7 @@ Then("I can press PREVIOUS item") do
 	sleep(3)
 end
 
-Then("I see NEXT button is disabled") do
+Then(/^I see NEXT button is disabled$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
 		find_button('p_audioui_nextButton', disabled: true).should be  
@@ -99,7 +99,7 @@ Then("I see NEXT button is disabled") do
 	sleep(3)
 end
 
-Then("I can press START button") do
+Then(/^I can press START button$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_backToStartButton").click
@@ -107,7 +107,7 @@ Then("I can press START button") do
 	sleep(3)
 end
 
-Then("I can press LIVE button") do
+Then(/^I can press LIVE button$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
   		page.first("#p_audioui_toLiveButton").click
@@ -115,7 +115,7 @@ Then("I can press LIVE button") do
 	sleep(3)
 end
 
-Then("I see START button is disabled when at START") do
+Then(/^I see START button is disabled when at START$/) do
 	sleep(4)
 	within_frame 'smphtml5iframemp' do
 		find_button('p_audioui_backToStartButton', disabled: true).should be 
@@ -123,7 +123,7 @@ Then("I see START button is disabled when at START") do
 	sleep(1)
 end
 
-Then("I see LIVE button is disabled when at LIVE") do
+Then(/^I see LIVE button is disabled when at LIVE$/) do
 	sleep(4)
 	within_frame 'smphtml5iframemp' do
 		find_button('p_audioui_toLiveButton', disabled: true).should be 

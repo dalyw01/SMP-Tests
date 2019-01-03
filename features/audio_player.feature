@@ -112,15 +112,14 @@ Feature: New Audio Player
     When the COOKBOOK has loaded
     Then I click Audio player CTA to begin playback
     And I can press START button
-    And I see START button is disabled when at START
-    And I see -20 is disabled when at START
     And I can Audio pause
+    And I see -20 is disabled when at START
+    And I see START button is disabled when at START
     And I can Audio play
     And I can press +20
     And I can press -20
     And I can press +20
     And I can press START button
-    And I see START button is disabled when at START
     And I can press LIVE button
     And I can press START button
 
@@ -146,6 +145,8 @@ Feature: New Audio Player
     And I can press -20
     And I can press LIVE button
     And I can press START button
+    And I can Audio pause
+    And I see -20 is disabled when at START
     And I see START button is disabled when at START
     And I can press LIVE button
     And I see LIVE button is disabled when at LIVE

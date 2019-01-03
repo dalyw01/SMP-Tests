@@ -1,7 +1,8 @@
 g_device    = ""
 g_subs_flag = 0
 
-Given("I visit {string} with a {string} player on {string}") do |new_page, new_type, new_device|
+
+Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
   g_device = new_device
   sleep(1)
@@ -39,7 +40,7 @@ When(/^I click CTA to begin playback$/) do
   end
 end
 
-Then("I see controlbar hides instantly if {string}") do |type|
+When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
   if type != "audio" or type != "minimode"
     page.find('.settings-player').hover
     sleep(1)
@@ -93,7 +94,7 @@ Then("I can click each volume bar") do
   end
 end
 
-Then("I can enter fullscreen if {string}") do |type|
+When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
   if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(2)
@@ -102,7 +103,7 @@ Then("I can enter fullscreen if {string}") do |type|
   end
 end
 
-Then("I can exit fullscreen if {string}") do |type|
+When(/^I can exit fullscreen if "([^"]*)"$/) do |type|
   if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
       page.first(".p_fullscreen-returnIcon").click
@@ -117,7 +118,7 @@ Then("I can see controlbar") do
   end
 end
 
-Then("I can interact with subtitles panel if {string}") do |type|
+Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if type == "ident + vod + subs"
 
@@ -167,7 +168,7 @@ Then("I can interact with subtitles panel if {string}") do |type|
   end
 end
 
-Then("I can click seekbar unless {string}") do |type|
+Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
       page.first(".p_chapterMarker").click
@@ -186,7 +187,7 @@ Then("I can click seekbar unless {string}") do |type|
   end
 end
 
-Then("I can click seekbar in fullscreen {string}") do |type|
+When(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(1)
