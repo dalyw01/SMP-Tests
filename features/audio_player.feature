@@ -199,6 +199,7 @@ Feature: New Audio Player
     And I can Audio pause
     And I can press -20
     And I can Audio play
+    And I can press +20
     And I can Audio pause
     And I can press PREVIOUS item
 
