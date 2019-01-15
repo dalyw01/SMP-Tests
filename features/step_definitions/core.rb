@@ -1,6 +1,4 @@
 g_device    = ""
-g_subs_flag = 0
-
 
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
@@ -126,22 +124,7 @@ Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
       page.first(".p_subtitleButton").click
       sleep(1)
 
-      # If subs are OFF
-      if g_subs_flag == 0
-        if g_device == "phone"
-          # On phone we expect turning subs ON to have largest size by default
-          expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
-        else
-          # Else tablet or desktop turning subs ON should give us medium by default
-          expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
-        end
-      # Else if they are already ON
-      elsif g_subs_flag == 1
-        # They should be largest size as I set it to that last
-        expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
-      end
-
-      # Turn OFF subs
+      # Turn ON subs
       sleep(1)
       page.first(".p_subsToggle").click
 
@@ -190,7 +173,7 @@ end
 When(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
-      sleep(1)
+      sleep(2)
       page.first(".p_playerSeekBarHolder").click
       sleep(1)
       page.first(".p_playerSeekBarHolder").hover

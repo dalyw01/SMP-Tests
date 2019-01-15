@@ -1,4 +1,4 @@
-Feature: Checking SMP core functionality on BUMP 4
+Feature: Checking SMP core functionality for RTL and Phantom Player
 
   As a tester of SMP
   I want to check core functionality of SMP works
@@ -34,6 +34,6 @@ Feature: Checking SMP core functionality on BUMP 4
 
   Examples:
     | page                 | type               | device  |
-    | https://is.gd/axohun | ident + vod + subs | phone   |
-    | https://is.gd/axohun | ident + vod + subs | tablet  |
-    | https://is.gd/axohun | ident + vod + subs | desktop |
+    | https://is.gd/icuhut | ident + vod + subs | phone   |
+    | https://is.gd/icuhut | ident + vod + subs | tablet  |
+    | https://is.gd/icuhut | ident + vod + subs | desktop |

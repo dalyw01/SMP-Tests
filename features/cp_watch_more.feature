@@ -64,10 +64,6 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     And I can pause
     And I can click WATCH MORE
     And CPP shows WITHOUT cancel options
-    And I press X of CP
-    And I seek to end of programme
-    And I can play
-    And CPP shows
 
   Examples:
     | mode       |
