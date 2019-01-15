@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-gem 'capybara'
+
 gem 'cucumber'
-gem 'selenium-webdriver', '2.53.4'
+gem 'capybara'
 gem 'rspec'
+gem 'selenium-webdriver','3.141'
 gem 'touch_action'
