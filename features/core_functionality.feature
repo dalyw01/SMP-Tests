@@ -19,7 +19,6 @@ Feature: Checking SMP core functionality
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can enter fullscreen if "<type>"
-    And I can see controlbar
     And I can click seekbar in fullscreen "<type>"
     And I can pause
     And I can play
