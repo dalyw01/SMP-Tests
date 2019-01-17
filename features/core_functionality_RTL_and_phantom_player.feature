@@ -1,14 +1,15 @@
 Feature: Checking SMP core functionality for RTL and Phantom Player
 
   As a tester of SMP
-  I want to check core functionality of SMP works
-  So that I can verify every feature of the player is working in all expected situations
+  I want pressing the fake Phantom CTA to prompt a validation pop-up
+  I want a regular player to load once I've successfully been validated
+  So I can verify a normal SMP loads and every feature of the player is working in all expected situations
 
   Scenario Outline: Check basic functionality of SMP for various players
 
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When the COOKBOOK has loaded
-    And I click CTA to begin playback
+    When I click phantom CTA to begin playback
+    And I click phantom LOGIN button from pop up
     Then I see controlbar hides instantly if "<type>"
     And I can pause
     And I can play

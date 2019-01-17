@@ -3,9 +3,26 @@ g_device    = ""
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
   g_device = new_device
+
   sleep(1)
-  if g_device == "phone"
-    page.driver.browser.manage.window.resize_to( 300 , 1800 )
+
+  # This is for the pop-up to take the BBC Survey
+  # if class="close" 
+  # <span>No thanks</span>
+  # page.find('.close').click
+  # if page.has_link?('No thanks')
+  #   page.click_link('No thanks')
+  # end
+
+  sleep(1)
+  if g_device == "phone" 
+      if page.driver.browser.browser == :firefox
+        # If it is a PHONE and FIREFOX browser we skip as it's not used by anybody!
+        # This will mark the step as yellow in Terminal output
+        pending
+      else
+        page.driver.browser.manage.window.resize_to( 300 , 1800 )
+      end
   elsif g_device == "tablet"
     page.driver.browser.manage.window.resize_to( 1000 , 1000 )
   else
@@ -120,33 +137,36 @@ Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if type == "ident + vod + subs"
 
-      # Click SUBS button to see current status
+      # Click SUBS button to see current status + turn s
       page.first(".p_subtitleButton").click
       sleep(1)
 
-      # Turn ON subs
-      sleep(1)
-      page.first(".p_subsToggle").click
+      if page.driver.browser.browser == :chrome
+          # Chrome needs an additional press for some reason
+          sleep(1)
+          page.first(".p_subsToggle").click
+          sleep(1)
+          page.first(".p_subtitleButton").click
+      elsif page.driver.browser.browser == :firefox
+          # Do nothing as Firefox is behaving as I'd expect
+      end
 
-      # Turn ON subs + select SIZES + validate size
-      sleep(1)
-      page.first(".p_subtitleButton").click
       sleep(1)
       page.first("#p_subtitleSizeButton_useSmallestFontSize").click
+      sleep(1)
       expect(page.find('button#p_subtitleSizeButton_useSmallestFontSize')['aria-pressed']).to eq("true")
-      sleep(2)
+      sleep(1)
       page.first("#p_subtitleSizeButton_useSmallFontSize").click
       expect(page.find('button#p_subtitleSizeButton_useSmallFontSize')['aria-pressed']).to eq("true")
-      sleep(2)
+      sleep(1)
       page.first("#p_subtitleSizeButton_useMediumFontSize").click
       expect(page.find('button#p_subtitleSizeButton_useMediumFontSize')['aria-pressed']).to eq("true")
-      sleep(2)
+      sleep(1)
       page.first("#p_subtitleSizeButton_useLargeFontSize").click
       expect(page.find('button#p_subtitleSizeButton_useLargeFontSize')['aria-pressed']).to eq("true")
-      sleep(2)
+      sleep(1)
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
       expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
-      g_subs_flag = 1
     end
   end
 end
