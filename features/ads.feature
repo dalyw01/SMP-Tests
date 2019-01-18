@@ -4,7 +4,9 @@ Feature: Checking SMP Ads
   I want to check Ads work with SMP
   So that I verify SMP works during and after an Ad plays
 
+  @ads
   Scenario Outline: Check basic HTML functionality
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback

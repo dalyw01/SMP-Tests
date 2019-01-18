@@ -4,7 +4,9 @@ Feature: Checking 360 player base functionality
   I want to check core functionality of 360 player
   So that I verify its working as expected
 
+  @360
   Scenario Outline: Check basic 360  accessibility
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback

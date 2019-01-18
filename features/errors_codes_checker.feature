@@ -6,7 +6,7 @@ Feature: Checking SMP errors
   Background:
   Given I am on the Cookbook Errors page
 
-  @HTML
+  @errors
   Scenario Outline: Check basic HTML error codes
     Given I am on the errors cookbook page and select HTML player
     When I click on link - "<link>"
