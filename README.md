@@ -50,3 +50,32 @@ gem 'rspec'
 gem 'selenium-webdriver','3.141'
 gem 'touch_action'
 ```
+
+Some basic commands and knowledge to familiarise with this project
+
+To run all feature files with Chrome
+
+```
+cucumber features/
+```
+
+To run through all feature files with Firefox
+
+```
+cucumber features/ BROWSER=firefox
+```
+
+To run through a particular scenario in a table with Firefox
+```
+cucumber features/core_functionality.feature:54 BROWSER=firefox
+```
+
+To run a particular test point in a feature file
+```
+cucumber features/cp_watch_more.feature -t @4
+```
+
+To run all tests except for anything tagged @ads
+```
+cucumber features/ --tags ~@ads BROWSER=chrome
+```
