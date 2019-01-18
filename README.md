@@ -9,7 +9,25 @@ mc-s097941:smp-tests dalyw01$ ruby -v
 ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin18]
 ```
 
-You'll need some gems for this, your Gemfile.lock should look like
+Your Gemfile should look like 
+
+```
+source 'https://rubygems.org'
+
+gem 'cucumber'
+gem 'capybara'
+gem 'rspec'
+gem 'selenium-webdriver','3.141'
+gem 'touch_action'
+```
+
+You can install each seperatley with "gem install X" from https://rubygems.org
+
+If you run a "bundle install" it may edit the Gemfile.lock and add in some additional gems
+
+You'll want to lock to certain version of each gem
+
+Your Gemfile.lock should look something like this
 
 ```
 GEM
@@ -35,18 +53,31 @@ BUNDLED WITH
    2.0.1
 ```
 
-You can install each seperatley with "gem install X" from https://rubygems.org
+Some basic commands and knowledge to run tests in this project
 
-If you run a "bundle install" it may edit the Gemfile.lock and add in some additional gems
-
-Your Gemfile should look like 
+To run all feature files with Chrome
 
 ```
-source 'https://rubygems.org'
+cucumber features/
+```
 
-gem 'cucumber'
-gem 'capybara'
-gem 'rspec'
-gem 'selenium-webdriver','3.141'
-gem 'touch_action'
+To run through all feature files with Firefox
+
+```
+cucumber features/ BROWSER=firefox
+```
+
+To run through a particular scenario in a table with Firefox
+```
+cucumber features/core_functionality.feature:54 BROWSER=firefox
+```
+
+To run a particular test point in a feature file
+```
+cucumber features/cp_watch_more.feature -t @4
+```
+
+To run all tests except for anything tagged @ads
+```
+cucumber features/ --tags ~@ads BROWSER=chrome
 ```
