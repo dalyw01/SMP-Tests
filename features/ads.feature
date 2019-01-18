@@ -1,5 +1,6 @@
+@ads
 Feature: Checking SMP Ads
-  
+
   As a tester of SMP
   I want to check Ads work with SMP
   So that I verify SMP works during and after an Ad plays
@@ -37,6 +38,6 @@ Feature: Checking SMP Ads
     And I click CTA to begin playback
 
   Examples:
-    | page                 | type  | device  | 
+    | page                 | type  | device  |
     | https://is.gd/sohowa | video | desktop |
     | https://is.gd/ifijix | audio | desktop |

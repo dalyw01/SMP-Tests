@@ -1,3 +1,4 @@
+@coreFuntionality
 Feature: Checking SMP core functionality
 
   As a tester of SMP
