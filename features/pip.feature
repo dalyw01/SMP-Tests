@@ -14,10 +14,12 @@ Background:
   And I click CTA to begin playback
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+@first
 Scenario: Check basic PIP accessibility
   When I click PIP icon
-  Then I see the PIP window comes up
+  And I see the PIP window comes up
+  And I click PIP icon
+  Then I see the PIP window goes off
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -30,3 +32,10 @@ Scenario Outline: No PIP should be present in an Audio player
 Examples:
   | page                 | type  | device  |
   | https://is.gd/hayuwa | audio | desktop |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+Scenario: Full screen goes off when you go for PIP mode
+  And I enter full screen
+  When I click PIP icon
+  Then I exit full screen
