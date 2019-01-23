@@ -14,7 +14,7 @@ Background:
   And I click CTA to begin playback
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-@first
+
 Scenario: Check basic PIP accessibility
   When I click PIP icon
   And I see the PIP window comes up
@@ -33,9 +33,17 @@ Examples:
   | page                 | type  | device  |
   | https://is.gd/hayuwa | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Scenario: Full screen goes off when you go for PIP mode
+  And I seek to end of programme
+  Then CPP shows
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+Scenario: CP comes up even though PIP window is on
   And I enter full screen
   When I click PIP icon
   Then I exit full screen
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

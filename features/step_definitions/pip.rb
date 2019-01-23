@@ -1,5 +1,5 @@
 When("I click PIP icon") do
-  sleep 6
+  sleep 1
   page.find('div#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
     page.first('.p_button.p_controlBarButton.p_picInPicButton').click
