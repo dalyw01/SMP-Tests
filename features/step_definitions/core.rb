@@ -43,7 +43,7 @@ Given(/^I visit an audio {string} with a {string} player on {string}$/) do |new_
 end
 
 When(/^the COOKBOOK has loaded$/) do
-  find( "h1" , text: "SMP COOKBOOK" )   
+  find( "h1" , text: "SMP COOKBOOK" )
   sleep(1)
 end
 
@@ -60,7 +60,7 @@ When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
-      page.first(".p_accessibleHitArea").hover 
+      page.first(".p_accessibleHitArea").hover
     end
   end
 end
@@ -107,6 +107,17 @@ Then("I can click each volume bar") do
       item.click
     end
   end
+end
+
+When("I enter full screen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    page.first('.p_fullscreenButton').click
+  end
+end
+
+Then("I exit full screen") do
+  expect(page).to have_no_css('.p_button.p_controlBarButton.p_fullscreenButtonReturn')
 end
 
 When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
@@ -173,7 +184,7 @@ end
 
 Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
-    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
+    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop")
       page.first(".p_chapterMarker").click
       page.first(".p_chapterMarker").hover
     elsif type == "simulcast" and g_device == "phone"
@@ -211,5 +222,3 @@ Then(/^I can seek in quarters to the end$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() - 3 )));')
   sleep(5)
 end
-
-

@@ -1,3 +1,4 @@
+@audioFeature
 Feature: New Audio Player
 
   As a tester of SMP
@@ -5,10 +6,10 @@ Feature: New Audio Player
   So that old functionality is not lost
   AND new functionality works
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @OneItem
-  Scenario Outline: Check basic functionality of audio player for a 1 item playlist  
+  Scenario Outline: Check basic functionality of audio player for a 1 item playlist
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -45,7 +46,7 @@ Feature: New Audio Player
     | https://is.gd/hayuwa | audio | tablet  |
     | https://is.gd/hayuwa | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @Replay
   Scenario Outline: Check replay functionality works
@@ -71,7 +72,7 @@ Feature: New Audio Player
     | https://is.gd/owebiz | audio | tablet  |
     | https://is.gd/owebiz | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ThreeItems
   Scenario Outline: Check basic functionality of audio player for 3 item playlist
@@ -129,7 +130,7 @@ Feature: New Audio Player
     | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @SimulcastLiveButton
   Scenario Outline: Check core functionality of LIVE button for a Simulcast
@@ -157,7 +158,7 @@ Feature: New Audio Player
     | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @SimulcastCore
   Scenario Outline: Check core functionality of audio player for a Simulcast
@@ -188,7 +189,7 @@ Feature: New Audio Player
     | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @Bug21
   Scenario Outline: SMPHTML-1383, Issue 21, In a PAUSED state for 1 item, back arrow isn't greyed out but -20 is
@@ -208,13 +209,3 @@ Feature: New Audio Player
     | https://is.gd/hayuwa | audio | phone   |
     | https://is.gd/hayuwa | audio | tablet  |
     | https://is.gd/hayuwa | audio | desktop |
-
-
-
-
-
-
-
-
-
-

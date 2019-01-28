@@ -1,10 +1,11 @@
+@cpFeature
 Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
-  
+
   As a tester of SMP
   I want the CPP panel to load at the end of the current clip
   So that I am informed and prompted about other available BBC content
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed
@@ -13,7 +14,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     And I click CTA to begin playback
     Then I move my cursor away
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @1
   Scenario Outline: Checking WATCH MORE works in a playing state
@@ -26,7 +27,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @2
   Scenario Outline: Checking WATCH MORE works in a paused state
@@ -40,7 +41,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @3
   Scenario Outline: Checking WATCH MORE works in a playing state and can be dismissed
@@ -56,7 +57,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @4
   Scenario Outline: Checking WATCH MORE works in a paused state and can be dismissed
@@ -70,7 +71,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @5
   Scenario Outline: Checking WATCH MORE not being used breaks carousel loading at the end
@@ -82,9 +83,3 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     | mode       |
     | Inline     |
     | Fullscreen |
-
-
-
-
-
-
