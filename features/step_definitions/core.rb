@@ -3,17 +3,6 @@ g_device    = ""
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
   g_device = new_device
-
-  sleep(1)
-
-  # This is for the pop-up to take the BBC Survey
-  # if class="close" 
-  # <span>No thanks</span>
-  # page.find('.close').click
-  # if page.has_link?('No thanks')
-  #   page.click_link('No thanks')
-  # end
-
   sleep(1)
   if g_device == "phone" 
       if page.driver.browser.browser == :firefox
@@ -50,6 +39,8 @@ When(/^the COOKBOOK has loaded$/) do
     find( "h1" , text: "SMP COOKBOOK" )   
     sleep(1)
   end
+  find( "h1" , text: "SMP COOKBOOK" )
+  sleep(1)
 end
 
 When(/^I click CTA to begin playback$/) do
@@ -65,7 +56,7 @@ When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
-      page.first(".p_accessibleHitArea").hover 
+      page.first(".p_accessibleHitArea").hover
     end
   end
 end
@@ -112,6 +103,17 @@ Then("I can click each volume bar") do
       item.click
     end
   end
+end
+
+When("I enter full screen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    page.first('.p_fullscreenButton').click
+  end
+end
+
+Then("I exit full screen") do
+  expect(page).to have_no_css('.p_button.p_controlBarButton.p_fullscreenButtonReturn')
 end
 
 When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
@@ -175,7 +177,7 @@ end
 
 Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
-    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop") 
+    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop")
       page.first(".p_chapterMarker").click
       page.first(".p_chapterMarker").hover
     elsif type == "simulcast" and g_device == "phone"
@@ -213,5 +215,3 @@ Then(/^I can seek in quarters to the end$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime((( embeddedMedia.players[0].duration() - 3 )));')
   sleep(5)
 end
-
-

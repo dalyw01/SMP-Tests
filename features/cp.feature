@@ -1,9 +1,10 @@
+@cp
 Feature: Checking "Continious Play" plugin core functionality works
-  
+
   As a tester of SMP
   I want the CPP panel to load at the end of the current clip
   So that I am informed and prompted about other available BBC content
-  
+
   The main properties of CPP are...
 
   - A black panel displays
@@ -15,7 +16,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   - CPP still loads when final item has finished
   - CPP displays without timer if autoplay cookie is OFF
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed
@@ -24,7 +25,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I seek to end of programme
     Then I move my cursor away
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @InitiateNextItem
   Scenario Outline: Check pressing various icons of CPP initiate next clip
@@ -40,7 +41,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini CTA       | Inline     |
     | Mini CTA       | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @PreventNextItem
   Scenario Outline: Check pressing various icons of CPP dismiss's or halt CPP
@@ -58,7 +59,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Circle | Inline     |
     | Circle | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @DissmissCPThenUseOtherIcons
   Scenario Outline: Checking CPP appears again with full functionality after dismissing with X
@@ -85,7 +86,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini CTA       | Inline     |
     | Mini CTA       | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CpAndControls
   Scenario Outline: Check CPP does not break core SMP functionality
@@ -107,7 +108,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini CTA       | Inline     |
     | Mini CTA       | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @arrowLastItem
   Scenario Outline: Check user can scroll across carousel and play last item, last item no longer has countdown
@@ -122,7 +123,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ToggleDefaultON
   Scenario Outline: Check toggle is ON by default and next item begins loading
@@ -136,7 +137,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Inline     |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
@@ -150,4 +151,3 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Fullscreen |
-

@@ -1,16 +1,17 @@
+@cpNews
 Feature: Checking "Continious Play" plugin core functionality works
-  
+
   As a tester of SMP
   I want the CPP panel to load at the end of the current clip
   So that I am informed and prompted about other available BBC content
-  
+
   The difference being in NEWS that
 
-  - For every single item with guidance, the user gets blocked 
+  - For every single item with guidance, the user gets blocked
   - Press CTA if inline playback
   - Press play icon if in fullscreen
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   Background:
     Given I am on a page with the News HTML player and CP plugin installed
@@ -18,7 +19,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I seek to end of programme
     Then I move my cursor away
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @InitiateNextItem
   Scenario Outline: Check pressing various icons of CPP initiate next clip
@@ -33,7 +34,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Inline     |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CpAndControls
   Scenario Outline: Check CPP does not break core SMP functionality
@@ -55,7 +56,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini Thumbnail | Inline     | vod  |
     | Mini CTA       | Inline     | vod  |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @arrowLastItem
   Scenario Outline: Check user can scroll across carousel and play last item, last item no longer has countdown
@@ -69,7 +70,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Inline     |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ToggleDefaultON
   Scenario Outline: Check toggle is ON by default and next item begins loading
@@ -83,7 +84,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Inline     |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
@@ -97,6 +98,3 @@ Feature: Checking "Continious Play" plugin core functionality works
     Examples:
     | button         | mode       |
     | Mini Thumbnail | Inline     |
-
-
-
