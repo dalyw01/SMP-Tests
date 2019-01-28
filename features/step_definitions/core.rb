@@ -43,8 +43,13 @@ Given(/^I visit an audio {string} with a {string} player on {string}$/) do |new_
 end
 
 When(/^the COOKBOOK has loaded$/) do
-  find( "h1" , text: "SMP COOKBOOK" )   
-  sleep(1)
+  if page.driver.browser.browser == :safari
+    # Do nothing as safari cannot see the h1
+    sleep(1)
+  else
+    find( "h1" , text: "SMP COOKBOOK" )   
+    sleep(1)
+  end
 end
 
 When(/^I click CTA to begin playback$/) do
@@ -136,19 +141,16 @@ end
 Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if type == "ident + vod + subs"
-
       # Click SUBS button to see current status + turn s
       page.first(".p_subtitleButton").click
       sleep(1)
 
       if page.driver.browser.browser == :chrome
-          # Chrome needs an additional press for some reason
-          sleep(1)
-          page.first(".p_subsToggle").click
-          sleep(1)
-          page.first(".p_subtitleButton").click
-      elsif page.driver.browser.browser == :firefox
-          # Do nothing as Firefox is behaving as I'd expect
+        # Chrome needs an additional press for some reason
+        sleep(1)
+        page.first(".p_subsToggle").click
+        sleep(1)
+        page.first(".p_subtitleButton").click
       end
 
       sleep(1)
