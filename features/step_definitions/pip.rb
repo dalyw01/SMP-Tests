@@ -6,13 +6,13 @@ When("I click PIP icon") do
   end
 end
 
-When("I see the PIP window comes up") do
+When("I see the PIP window shows") do
   within_frame 'smphtml5iframemp' do
     page.find('button[title="Exit Picture in Picture mode"]')
   end
 end
 
-Then("I see the PIP window goes off") do
+Then("I see the PIP window turns off") do
   within_frame 'smphtml5iframemp' do
     page.find('button[title="Open Picture in Picture mode"]')
   end

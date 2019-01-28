@@ -15,11 +15,11 @@ Background:
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Scenario: Check basic PIP accessibility
+Scenario: Check basic PIP functionality
   When I click PIP icon
-  And I see the PIP window comes up
+  And I see the PIP window shows
   And I click PIP icon
-  Then I see the PIP window goes off
+  Then I see the PIP window turns off
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -35,7 +35,7 @@ Examples:
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Scenario: Full screen goes off when you go for PIP mode
+Scenario: Full screen goes back to small screen when you go for PIP mode
   And I seek to end of programme
   Then CPP shows
 
