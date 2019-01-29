@@ -4,7 +4,7 @@ Given(/^I am on a page with the HTML player and CP plugin installed$/) do
 end
 
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
-  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html') 
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
 When("I press alwaysShowCarouselButton then page reloads") do
@@ -112,14 +112,14 @@ Then(/^CPP shows WITHOUT cancel options$/) do
   within_frame "smphtml5iframemp" do
     sleep(2)
     if page.driver.browser.browser == :firefox
-      expect(page).to have_css(".gcp_closeSVG")
+      expect(page).to have_css(".gcp_panelsClose .gcp_closeSVG")
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
       expect(page).to have_css(".gcp_carouselControlsNext")
       # find( "p" , text: "Up next" )
       find( "p" , text: "More" )
     else
-      expect(page).to have_css(".gcp_closeSVG")
+      expect(page).to have_css(".gcp_panelsClose .gcp_closeSVG")
       expect(page).to have_no_css(".gcp_cancel")
       expect(page).to have_no_css(".gcp_spinnerCountdown_button")
       expect(page).to have_css(".gcp_itemCtaIcon")
@@ -152,6 +152,7 @@ end
 Then(/^I enter "([^"]*)"$/) do |string|
   if string == "Fullscreen"
     within_frame "smphtml5iframemp" do
+      page.first(".p_fullscreenButton").hover
       page.first(".p_fullscreenButton").click
     end
   end
@@ -209,38 +210,10 @@ Then("I can click WATCH MORE") do
     # sleep(1)
     page.first("#gcp_onDemandButtonContainer").click
     # sleep(1)
-    # expect(page).to have_css("#gcp_onDemandButtonContainer button", text: "Watch more" ) 
+    # expect(page).to have_css("#gcp_onDemandButtonContainer button", text: "Watch more" )
     # sleep(2)
   end
   # pending # Write code here that turns the phrase above into concrete actions
   #gcp_onDemandButtonContainer
   # aria-label - Watch more
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
