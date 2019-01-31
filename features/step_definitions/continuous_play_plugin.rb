@@ -19,7 +19,7 @@ end
 When(/^I use core functionality of SMP$/) do
   within_frame "smphtml5iframemp" do
     sleep(1)
-    page.first(".p_pauseIcon").click
+    page.first(".p_iconHolder .p_pauseIcon").click
     sleep(1)
     page.first(".p_playIcon").click
     sleep(2)
@@ -94,7 +94,7 @@ end
 Then(/^CPP shows$/) do
   within_frame "smphtml5iframemp" do
     sleep(4)
-    expect(page).to have_css(".gcp_closeSVG")
+    expect(page).to have_css(".gcp_panelsClose .gcp_closeSVG")
     expect(page).to have_css(".gcp_cancel")
     expect(page).to have_css(".gcp_spinnerCountdown_button")
     expect(page).to have_css(".gcp_itemCtaIcon")
