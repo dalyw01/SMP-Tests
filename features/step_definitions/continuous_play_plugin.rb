@@ -49,6 +49,13 @@ Then(/^I can replay current programme$/) do
   end
 end
 
+Then("I click settings button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(6)
+    page.first(".p_button.p_controlBarButton.p_playbackSettingsButton.p_dontCloseSettingsPanel").click
+  end
+end
+
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
@@ -216,4 +223,15 @@ Then("I can click WATCH MORE") do
   # pending # Write code here that turns the phrase above into concrete actions
   #gcp_onDemandButtonContainer
   # aria-label - Watch more
+
+end
+
+Then("I see one Up next and one More section") do
+  within_frame 'smphtml5iframemp' do
+    # objcreate(ContinuousPlay).countdown.click
+    # page.first("div.gcp_inpageCountdownItem div.gcp_spinnerCountdown").click
+    sleep 3
+    expect(page.find('.gcp_inpageCountdownItem span.gcp_countdownText').text).to eql "Up next in..."
+    expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"
+  end
 end
