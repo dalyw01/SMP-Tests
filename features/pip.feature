@@ -14,7 +14,7 @@ Background:
   And I click CTA to begin playback
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+@CheckCP
 Scenario: Check basic PIP functionality
   When I click PIP icon
   And I see the PIP window shows
@@ -23,6 +23,7 @@ Scenario: Check basic PIP functionality
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+@NoPIPForAudio
 Scenario Outline: No PIP should be present in an Audio player
   Given I visit "<page>" with a "<type>" player on "<device>"
   When the COOKBOOK has loaded
@@ -35,13 +36,15 @@ Examples:
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Scenario: Full screen goes back to small screen when you go for PIP mode
+@PIPCP
+Scenario: CP comes up even though PIP window is on
   And I seek to end of programme
   Then CPP shows
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Scenario: CP comes up even though PIP window is on
+@CPFullscreen
+Scenario: Full screen goes back to small screen when you go for PIP mode
   And I enter full screen
   When I click PIP icon
   Then I exit full screen

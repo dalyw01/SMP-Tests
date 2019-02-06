@@ -151,3 +151,27 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Fullscreen |
+
+  @SettingsTurnsOffCountdown
+  Scenario Outline: Check settings button closes the countdown
+    Then I press "<button>"
+    And I enter "<mode>"
+    And I seek to end of programme
+    And I click settings button
+    And CPP shows WITHOUT cancel options
+
+    Examples:
+    | button         | mode       |
+    | Mini CTA       | Fullscreen |
+
+  @twoSectionsInCP
+  Scenario Outline: Check the two sections i.e. "Up next" and "More" are present when CP appears
+    Then I press "<button>"
+    And I enter "<mode>"
+    And I seek to end of programme
+    Then I see one Up next and one More section
+
+    Examples:
+    | button         | mode       |
+    | Mini Thumbnail | Inline     |
+    | Mini CTA       | Fullscreen |
