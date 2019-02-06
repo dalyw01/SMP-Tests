@@ -228,8 +228,6 @@ end
 
 Then("I see one Up next and one More section") do
   within_frame 'smphtml5iframemp' do
-    # objcreate(ContinuousPlay).countdown.click
-    # page.first("div.gcp_inpageCountdownItem div.gcp_spinnerCountdown").click
     sleep 3
     expect(page.find('.gcp_inpageCountdownItem span.gcp_countdownText').text).to eql "Up next in..."
     expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"

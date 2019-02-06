@@ -153,7 +153,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini CTA       | Fullscreen |
 
   @SettingsTurnsOffCountdown
-  Scenario Outline: Check next item does not play if user turns autoplay OFF
+  Scenario Outline: Check settings button closes the countdown
     Then I press "<button>"
     And I enter "<mode>"
     And I seek to end of programme
@@ -165,7 +165,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Mini CTA       | Fullscreen |
 
   @twoSectionsInCP
-  Scenario Outline: Check next item does not play if user turns autoplay OFF
+  Scenario Outline: Check the two sections i.e. "Up next" and "More" are present when CP appears
     Then I press "<button>"
     And I enter "<mode>"
     And I seek to end of programme
