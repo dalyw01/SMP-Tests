@@ -23,7 +23,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     When the COOKBOOK has loaded
     And I click CTA to begin playback
     And I seek to end of programme
-    Then I move my cursor away
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

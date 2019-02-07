@@ -10,7 +10,7 @@ Feature: Checking SMP Ads
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I click CTA to begin playback
+    And I click ADS CTA to begin playback
     And I can see AD controlbar
     And I can AD pause
     And I can see AD controlbar

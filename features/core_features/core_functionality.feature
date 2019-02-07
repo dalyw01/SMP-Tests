@@ -11,7 +11,6 @@ Feature: Checking SMP core functionality
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback
-    Then I see controlbar hides instantly if "<type>"
     And I can pause
     And I can play
     And I can mute
@@ -37,23 +36,14 @@ Feature: Checking SMP core functionality
   Examples:
     | page                 | type               | device  |
     | https://is.gd/egubug | vod                | phone   |
-    | https://is.gd/egubug | vod                | tablet  |
     | https://is.gd/egubug | vod                | desktop |
     | https://is.gd/sabiwu | ident + vod + subs | phone   |
-    | https://is.gd/sabiwu | ident + vod + subs | tablet  |
     | https://is.gd/sabiwu | ident + vod + subs | desktop |
     | https://is.gd/ejocas | vertical           | phone   |
-    | https://is.gd/ejocas | vertical           | tablet  |
     | https://is.gd/ejocas | vertical           | desktop |
     | https://is.gd/wetese | simulcast          | phone   |
-    | https://is.gd/wetese | simulcast          | tablet  |
     | https://is.gd/wetese | simulcast          | desktop |
     | https://is.gd/desusa | webcast            | phone   |
-    | https://is.gd/desusa | webcast            | tablet  |
     | https://is.gd/desusa | webcast            | desktop |
     | https://is.gd/ubofek | audio              | phone   |
-    | https://is.gd/ubofek | audio              | tablet  |
     | https://is.gd/ubofek | audio              | desktop |
-    | https://is.gd/vesovi | minimode           | phone   |
-    | https://is.gd/vesovi | minimode           | tablet  |
-    | https://is.gd/vesovi | minimode           | desktop |

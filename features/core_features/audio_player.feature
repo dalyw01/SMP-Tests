@@ -43,7 +43,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/hayuwa | audio | phone   |
-    | https://is.gd/hayuwa | audio | tablet  |
     | https://is.gd/hayuwa | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -69,7 +68,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/owebiz | audio | phone   |
-    | https://is.gd/owebiz | audio | tablet  |
     | https://is.gd/owebiz | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -101,7 +99,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/ivacij | audio | phone   |
-    | https://is.gd/ivacij | audio | tablet  |
     | https://is.gd/ivacij | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -127,7 +124,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/idihug | audio | phone   |
-    | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -155,7 +151,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/idihug | audio | phone   |
-    | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -186,7 +181,6 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/idihug | audio | phone   |
-    | https://is.gd/idihug | audio | tablet  |
     | https://is.gd/idihug | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -207,5 +201,4 @@ Feature: New Audio Player
   Examples:
     | page                 | type  | device  |
     | https://is.gd/hayuwa | audio | phone   |
-    | https://is.gd/hayuwa | audio | tablet  |
     | https://is.gd/hayuwa | audio | desktop |

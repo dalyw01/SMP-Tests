@@ -45,9 +45,16 @@ end
 
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(3)
-    page.first(".p_accessibleHitArea").click
-    sleep(3)
+    if page.first(".p_accessibleHitArea").click
+      sleep(3)
+      page.first(".p_accessibleHitArea").click
+      sleep(1)
+    else
+      # Refresh page since cookbook is being annoying
+      refresh()
+      sleep(3)
+      page.first(".p_accessibleHitArea").click      
+    end
   end
 end
 
