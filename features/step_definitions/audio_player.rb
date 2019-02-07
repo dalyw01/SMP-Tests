@@ -7,6 +7,33 @@ When(/^I click Audio player CTA to begin playback$/) do
   end
 end
 
+When(/^I click Audio player CTA to begin playback and pause it$/) do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+  	# Different step definition to video as Audio CTA needs to be pressed and not hit-box
+    page.first(".p_audioButton_buttonInner").click
+    sleep(2)
+    page.first("button#p_audioui_playpause").click
+  end
+end
+
+When("I am at the start of the player") do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.first(".p_audioButton_buttonInner").click
+    sleep(3)
+    page.first("button#p_audioui_playpause").click
+    page.first("button#p_audioui_backInterval").click
+  end
+end
+
+When("I am at the end of the player") do
+  within_frame 'smphtml5iframemp' do
+    sleep (2)
+    page.first("button#p_audioui_forwardInterval").click
+  end
+end
+
 Then(/^I can Audio pause$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
@@ -62,7 +89,7 @@ end
 Then(/^I see \-(\d+) is disabled when at START$/) do |arg1|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
-		find_button('p_audioui_backInterval', disabled: true).should be 
+		find_button('p_audioui_backInterval', disabled: true).should be
 	end
 	sleep(1)
 end
@@ -70,7 +97,7 @@ end
 Then(/^I see \+(\d+) is disabled when at LIVE$/) do |arg1|
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
-		find_button('p_audioui_forwardInterval', disabled: true).should be 
+		find_button('p_audioui_forwardInterval', disabled: true).should be
 	end
 	sleep(1)
 end
@@ -94,7 +121,7 @@ end
 Then(/^I see NEXT button is disabled$/) do
 	sleep(1)
 	within_frame 'smphtml5iframemp' do
-		find_button('p_audioui_nextButton', disabled: true).should be  
+		find_button('p_audioui_nextButton', disabled: true).should be
 	end
 	sleep(3)
 end
@@ -118,7 +145,7 @@ end
 Then(/^I see START button is disabled when at START$/) do
 	sleep(4)
 	within_frame 'smphtml5iframemp' do
-		find_button('p_audioui_backToStartButton', disabled: true).should be 
+		find_button('p_audioui_backToStartButton', disabled: true).should be
 	end
 	sleep(1)
 end
@@ -126,10 +153,20 @@ end
 Then(/^I see LIVE button is disabled when at LIVE$/) do
 	sleep(4)
 	within_frame 'smphtml5iframemp' do
-		find_button('p_audioui_toLiveButton', disabled: true).should be 
+		find_button('p_audioui_toLiveButton', disabled: true).should be
 	end
 	sleep(1)
 end
 
+Then("the {int} button is disabled") do |int|
+  within_frame 'smphtml5iframemp' do
+    expect(page.find("button#p_audioui_backInterval").disabled?).to be true
+  end
+end
 
-
+Then("the +{int} button is disabled") do |int|
+  within_frame 'smphtml5iframemp' do
+    sleep 3
+    expect(page.find("button#p_audioui_forwardInterval").disabled?).to be true
+  end
+end

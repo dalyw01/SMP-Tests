@@ -209,3 +209,27 @@ Feature: New Audio Player
     | https://is.gd/hayuwa | audio | phone   |
     | https://is.gd/hayuwa | audio | tablet  |
     | https://is.gd/hayuwa | audio | desktop |
+
+  @backwardDisabled
+  Scenario Outline: At the start of playback -20 button should be disabled
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    When I am at the start of the player
+    Then the -20 button is disabled
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/hayuwa | audio | tablet  |
+    | https://is.gd/hayuwa | audio | desktop |
+
+  @forwardDisabled
+  Scenario Outline: At the end of playback +20 button should be disabled
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    And I click Audio player CTA to begin playback and pause it
+    And I seek to end of programme
+    And I am at the end of the player
+    Then the +20 button is disabled
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/hayuwa | audio | tablet  |
+    | https://is.gd/hayuwa | audio | desktop |
