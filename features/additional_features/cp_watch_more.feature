@@ -12,7 +12,6 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     When I press alwaysShowCarouselButton then page reloads
     When the COOKBOOK has loaded
     And I click CTA to begin playback
-    Then I move my cursor away
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

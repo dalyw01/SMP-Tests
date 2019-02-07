@@ -17,7 +17,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     Given I am on a page with the News HTML player and CP plugin installed
     When I click CTA to begin playback
     And I seek to end of programme
-    Then I move my cursor away
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -46,7 +45,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     And CPP shows
     And I press "<button>"
     And I can resume past News blocking guidance in "<mode>"
-    And I move my cursor away
     And I use core functionality of SMP
     And I seek to end of programme
     And CPP shows

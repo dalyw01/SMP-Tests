@@ -37,5 +37,4 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
   Examples:
     | page                 | type               | device  |
     | https://is.gd/icuhut | ident + vod + subs | phone   |
-    | https://is.gd/icuhut | ident + vod + subs | tablet  |
     | https://is.gd/icuhut | ident + vod + subs | desktop |
