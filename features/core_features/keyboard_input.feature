@@ -1,3 +1,4 @@
+@keyboard
 Feature: Checking SMP HTML accessibility
   As a tester of SMP
   I want to check I can fully use SMP with just keyboard inputs

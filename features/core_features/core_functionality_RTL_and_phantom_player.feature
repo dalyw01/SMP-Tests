@@ -1,3 +1,4 @@
+@core_phantom
 Feature: Checking SMP core functionality for RTL and Phantom Player
 
   As a tester of SMP
