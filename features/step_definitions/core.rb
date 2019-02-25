@@ -1,4 +1,4 @@
-g_device    = ""
+g_device = ""
 
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
@@ -47,8 +47,8 @@ When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
       sleep(3)
-      # page.first("div.p_accessibleHitArea").click
-      # sleep(1)
+      page.first("div.p_accessibleHitArea").click
+      sleep(1)
     else
       # Refresh page since cookbook is being annoying
       refresh()
