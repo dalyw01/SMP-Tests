@@ -58,4 +58,4 @@ Feature: Checking SMP core functionality
 
   Examples:
     | page                 | type               | device  |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop   |
+    | https://is.gd/sabiwu | ident + vod + subs | desktop |

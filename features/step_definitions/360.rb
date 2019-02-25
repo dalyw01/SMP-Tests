@@ -9,6 +9,21 @@ Then(/^I tab to compass$/) do
   end
 end
 
+When(/^I click CTA to begin playback of 360 player$/) do
+  within_frame 'smphtml5iframemp' do
+    if page.first("div.p_accessibleHitArea").click
+      sleep(3)
+      # page.first("div.p_accessibleHitArea").click
+      # sleep(1)
+    else
+      # Refresh page since cookbook is being annoying
+      refresh()
+      sleep(3)
+      page.first("div.p_accessibleHitArea").click
+    end
+  end
+end
+
 Then(/^I tab to controlbar$/) do
   if page.driver.browser.browser == :firefox
     4.times do
@@ -68,8 +83,3 @@ Then(/^I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass$/) do
     page.first("#p_compass_centre_touch").touch_action(:press, hold: 1000)
   end
 end
-
-
-
-
-

@@ -8,7 +8,7 @@ When(/^I click ADS CTA to begin playback$/) do
       # Refresh page since cookbook is being annoying
       refresh()
       sleep(1)
-      page.first(".p_iconHolder").click      
+      page.first(".p_iconHolder").click
     end
   end
 end

@@ -45,15 +45,15 @@ end
 
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
-    if page.first(".p_accessibleHitArea").click
+    if page.first("div.p_accessibleHitArea").click
       sleep(3)
-      page.first(".p_accessibleHitArea").click
-      sleep(1)
+      # page.first("div.p_accessibleHitArea").click
+      # sleep(1)
     else
       # Refresh page since cookbook is being annoying
       refresh()
       sleep(3)
-      page.first(".p_accessibleHitArea").click
+      page.first("div.p_accessibleHitArea").click
     end
   end
 end
@@ -63,7 +63,7 @@ When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
-      page.first(".p_accessibleHitArea").hover
+      page.first("p_accessibleHitArea").hover
     end
   end
 end
@@ -198,7 +198,6 @@ Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
       sleep(1)
       hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
-      p hash["width"]
       expect(hash["width"]).to eq("424.917px")
     end
   end

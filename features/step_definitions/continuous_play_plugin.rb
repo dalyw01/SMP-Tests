@@ -187,7 +187,7 @@ Then("I can resume past News blocking guidance in {string}") do |mode|
   within_frame 'smphtml5iframemp' do
     sleep(1)
     if mode == "Inline"
-      page.first(".p_accessibleHitArea").click
+      page.first("p_accessibleHitArea").click
     end
     sleep(2)
   end

@@ -9,7 +9,7 @@ Feature: Checking 360 player base functionality
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I click CTA to begin playback
+    And I click CTA to begin playback of 360 player
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
     And I click away
@@ -35,6 +35,6 @@ Feature: Checking 360 player base functionality
     And I click CTA to begin playback
 
   Examples:
-    | page                 | type | device  | 
+    | page                 | type | device  |
     | https://is.gd/zikivo | 360  | tablet  |
     | https://is.gd/zikivo | 360  | desktop |
