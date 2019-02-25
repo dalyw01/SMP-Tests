@@ -1,3 +1,4 @@
+@phantom
 Feature: Checking SMP core functionality for RTL and Phantom Player
 
   As a tester of SMP
@@ -5,7 +6,6 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
   I want a regular player to load once I've successfully been validated
   So I can verify a normal SMP loads and every feature of the player is working in all expected situations
 
-  @phantom
   Scenario Outline: Check basic functionality of SMP for various players
 
     Given I visit "<page>" with a "<type>" player on "<device>"

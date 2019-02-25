@@ -1,15 +1,17 @@
+@360
 Feature: Checking 360 player base functionality
 
   As a tester of SMP
   I want to check core functionality of 360 player
   So that I verify its working as expected
 
-  @360
   Scenario Outline: Check basic 360  accessibility
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback
+    And I can pause
+    And I can play
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
     And I click away

@@ -1,4 +1,4 @@
-g_device    = ""
+g_device = ""
 
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
   visit( new_page )
