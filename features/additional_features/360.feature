@@ -9,13 +9,9 @@ Feature: Checking 360 player base functionality
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-<<<<<<< HEAD
     And I click CTA to begin playback of 360 player
-=======
-    And I click CTA to begin playback
     And I can pause
     And I can play
->>>>>>> 10c17dd0c0b5def287137662f99048b56207b786
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
     And I click away
@@ -38,7 +34,7 @@ Feature: Checking 360 player base functionality
     And I can play
     And I can seek in quarters to the end
     And I can exit fullscreen if "<type>"
-    And I click CTA to begin playback
+    And I click CTA to begin playback of 360 player
 
   Examples:
     | page                 | type | device  |
