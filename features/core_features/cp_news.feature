@@ -36,7 +36,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CpAndControls
-  Scenario Outline: Check CPP does not break core SMP functionality
+  Scenario Outline: Check CPP does not break core SMP functionality - Current failing see SMPHTML-1406
     Then I enter "<mode>"
     And I press "<button>"
     And I can resume past News blocking guidance in "<mode>"

@@ -30,7 +30,6 @@ When(/^I use core functionality of SMP$/) do
   end
 end
 
-
 Then(/^I can replay current programme$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -96,11 +95,8 @@ Then(/^CPP shows$/) do
     expect(page).to have_css(".gcp_spinnerCountdown_button")
     expect(page).to have_css(".gcp_itemCtaIcon")
     expect(page).to have_css(".gcp_itemImg")
-    # expect(page).to have_css(".gcp_carouselControlsPrevious")
     expect(page).to have_css(".gcp_carouselControlsNext")
     expect(page.find('button.p_playbackSettingsButton')['aria-label']).to eq("Open playback settings menu for autoplay and video quality settings")
-    # find( "p" , text: "Up next" )
-    # find( "p" , text: "More" )
   end
 end
 
@@ -113,7 +109,6 @@ Then(/^CPP shows WITHOUT cancel options$/) do
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
       expect(page).to have_css(".gcp_carouselControlsNext")
-      # find( "p" , text: "Up next" )
       find( "p" , text: "More" )
     else
       expect(page).to have_css(".gcp_panelsClose .gcp_closeSVG")
@@ -122,7 +117,6 @@ Then(/^CPP shows WITHOUT cancel options$/) do
       expect(page).to have_css(".gcp_itemCtaIcon")
       expect(page).to have_css(".gcp_itemImg")
       expect(page).to have_css(".gcp_carouselControlsNext")
-      # find( "p" , text: "Up next" )
       find( "p" , text: "More" )
     end
   end
@@ -203,17 +197,8 @@ end
 Then("I can click WATCH MORE") do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    # find("button", text: "Watch More").hover
-    # sleep(1)
     page.first("#gcp_onDemandButtonContainer").click
-    # sleep(1)
-    # expect(page).to have_css("#gcp_onDemandButtonContainer button", text: "Watch more" )
-    # sleep(2)
   end
-  # pending # Write code here that turns the phrase above into concrete actions
-  #gcp_onDemandButtonContainer
-  # aria-label - Watch more
-
 end
 
 Then("I see one Up next and one More section") do
