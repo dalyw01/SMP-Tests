@@ -34,13 +34,13 @@ end
 When(/^the COOKBOOK has loaded$/) do
   if page.driver.browser.browser == :safari
     # Do nothing as safari cannot see the h1
-    sleep(1)
+    sleep(2)
   else
     find( "h1" , text: "SMP COOKBOOK" )   
-    sleep(1)
+    sleep(2)
   end
   find( "h1" , text: "SMP COOKBOOK" )
-  sleep(1)
+  sleep(2)
 end
 
 When(/^I click CTA to begin playback$/) do
