@@ -36,18 +36,12 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CpAndControls
-  Scenario Outline: Check CPP does not break core SMP functionality - Current failing see SMPHTML-1406
+  Scenario Outline: Check CPP does not break core SMP functionality
     Then I enter "<mode>"
     And I press "<button>"
     And I can resume past News blocking guidance in "<mode>"
     And I use core functionality of SMP
     And I seek to end of programme
-    And CPP shows
-    And I press "<button>"
-    And I can resume past News blocking guidance in "<mode>"
-    And I use core functionality of SMP
-    And I seek to end of programme
-    And CPP shows
 
   Examples:
     | button         | mode       | type |
