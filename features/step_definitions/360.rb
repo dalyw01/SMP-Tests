@@ -1,4 +1,3 @@
-
 When(/^I click CTA to begin playback of 360 player$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
@@ -19,21 +18,6 @@ Then(/^I tab to compass$/) do
   1.times do
     page.driver.browser.action.send_keys(:tab).perform
     sleep(1)
-  end
-end
-
-When(/^I click CTA to begin playback of 360 player$/) do
-  within_frame 'smphtml5iframemp' do
-    if page.first("div.p_accessibleHitArea").click
-      sleep(3)
-      # page.first("div.p_accessibleHitArea").click
-      # sleep(1)
-    else
-      # Refresh page since cookbook is being annoying
-      refresh()
-      sleep(3)
-      page.first("div.p_accessibleHitArea").click
-    end
   end
 end
 
