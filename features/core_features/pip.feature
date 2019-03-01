@@ -1,10 +1,10 @@
 @pip
-Feature: Checking the PIP functionality works fine
+Feature: Checking Picture In Picture (PiP) functionality works fine
 
 As a tester of SMP
-I want to check core functionality of PIP i.e. "Picture In Picture" Window
+I want to check core functionality of PIP
 So that I verify its working as expected
-Its just for Chrome currently.
+Its currently only supported on Google Chrome
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

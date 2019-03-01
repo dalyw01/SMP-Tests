@@ -42,12 +42,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I can resume past News blocking guidance in "<mode>"
     And I use core functionality of SMP
     And I seek to end of programme
-    And CPP shows
-    And I press "<button>"
-    And I can resume past News blocking guidance in "<mode>"
-    And I use core functionality of SMP
-    And I seek to end of programme
-    And CPP shows
 
   Examples:
     | button         | mode       | type |

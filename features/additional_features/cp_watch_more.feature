@@ -1,4 +1,4 @@
-@cpFeature
+@cpWatchMore
 Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   As a tester of SMP
@@ -15,7 +15,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @1
+  @WatchMorePlaying
   Scenario Outline: Checking WATCH MORE works in a playing state
     Then I enter "<mode>"
     And I can click WATCH MORE
@@ -28,7 +28,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @2
+  @WatchMorePaused
   Scenario Outline: Checking WATCH MORE works in a paused state
     Then I enter "<mode>"
     And I can pause
@@ -42,7 +42,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @3
+  @WatchMorePlayAndDismiss
   Scenario Outline: Checking WATCH MORE works in a playing state and can be dismissed
     Then I enter "<mode>"
     And I can click WATCH MORE
@@ -58,7 +58,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @4
+  @WatchMorePauseAndDismiss
   Scenario Outline: Checking WATCH MORE works in a paused state and can be dismissed
     Then I enter "<mode>"
     And I can pause
@@ -72,7 +72,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @5
+  @WatchMoreCarouselLoads
   Scenario Outline: Checking WATCH MORE not being used breaks carousel loading at the end
     Then I enter "<mode>"
     And I seek to end of programme

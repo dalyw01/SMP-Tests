@@ -10,8 +10,6 @@ Feature: Checking 360 player base functionality
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback of 360 player
-    And I can pause
-    And I can play
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
     And I click away
