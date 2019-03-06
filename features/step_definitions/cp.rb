@@ -48,7 +48,7 @@ end
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
-      sleep(3)
+      sleep(1)
       page.first(".p_pauseIcon").click
       sleep(2)
     end
@@ -124,7 +124,7 @@ end
 
 Then(/^I press "([^"]*)"$/) do |string|
   within_frame "smphtml5iframemp" do
-    sleep(4)
+    sleep(2)
     if string == "X"
       page.first(".gcp_closeSVG").click
     elsif string == "Cancel"
