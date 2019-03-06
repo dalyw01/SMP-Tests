@@ -1,4 +1,3 @@
-
 When(/^I click CTA to begin playback of 360 player$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
@@ -81,8 +80,3 @@ Then(/^I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass$/) do
     page.first("#p_compass_centre_touch").touch_action(:press, hold: 1000)
   end
 end
-
-
-
-
-

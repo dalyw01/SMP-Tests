@@ -19,6 +19,7 @@ Feature: Checking SMP core functionality
     And I see controlbar hides instantly if "<type>"
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
+    And I can change subtitles font size if "<type>"
     And I can enter fullscreen if "<type>"
     And I can click seekbar in fullscreen "<type>"
     And I can pause
