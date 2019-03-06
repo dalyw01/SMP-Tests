@@ -4,7 +4,7 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
   visit( new_page )
   g_device = new_device
   sleep(1)
-  if g_device == "phone" 
+  if g_device == "phone"
       if page.driver.browser.browser == :firefox
         # If it is a PHONE and FIREFOX browser we skip as it's not used by anybody!
         # This will mark the step as yellow in Terminal output
@@ -36,7 +36,7 @@ When(/^the COOKBOOK has loaded$/) do
     # Do nothing as safari cannot see the h1
     sleep(2)
   else
-    find( "h1" , text: "SMP COOKBOOK" )   
+    find( "h1" , text: "SMP COOKBOOK" )
     sleep(2)
   end
   find( "h1" , text: "SMP COOKBOOK" )
@@ -45,15 +45,15 @@ end
 
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
-    if page.first(".p_accessibleHitArea").click
+    if page.first("div.p_accessibleHitArea").click
       sleep(3)
-      page.first(".p_accessibleHitArea").click
+      page.first("div.p_accessibleHitArea").click
       sleep(1)
     else
       # Refresh page since cookbook is being annoying
       refresh()
       sleep(3)
-      page.first(".p_accessibleHitArea").click      
+      page.first("div.p_accessibleHitArea").click
     end
   end
 end
@@ -63,7 +63,7 @@ When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
-      page.first(".p_accessibleHitArea").hover
+      page.first("p_accessibleHitArea").hover
     end
   end
 end
@@ -178,6 +178,36 @@ Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
       sleep(1)
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
       expect(page.find('button#p_subtitleSizeButton_useLargestFontSize')['aria-pressed']).to eq("true")
+    end
+  end
+end
+
+Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
+  # page.find('#smphtml5iframemp').hover
+  within_frame 'smphtml5iframemp' do
+    if (type == "ident + vod + subs" and g_device == "desktop")
+      # Click SUBS button to see current status + turn s
+      page.first("button.p_subtitleButton").click
+
+      if page.driver.browser.browser == :chrome
+        # Chrome needs an additional press for some reason
+        sleep(1)
+        page.first(".p_subtitleButton").click
+      end
+
+      sleep(1)
+      page.first("#p_subtitleSizeButton_useSmallestFontSize").click
+      sleep(2)
+      hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
+      p hash["width"]
+      expect(hash["width"]).to eq("130.167px")
+
+
+      page.first("#p_subtitleSizeButton_useLargestFontSize").click
+      sleep(1)
+      hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
+      p hash["width"]
+      expect(hash["width"]).to eq("446.083px")
     end
   end
 end
