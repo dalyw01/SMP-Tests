@@ -90,9 +90,6 @@ Feature: Checking "Continious Play" plugin core functionality works
   @CpAndControls
   Scenario Outline: Check CPP does not break core SMP functionality
     Then I enter "<mode>"
-    And I press "<button>"
-    And I use core functionality of SMP
-    And I seek to end of programme
     And CPP shows
     And I press "<button>"
     And I use core functionality of SMP
@@ -140,9 +137,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
-    Then I press "<button>"
     And I toggle CPP OFF
-    And I enter "<mode>"
     And I seek to end of programme
     And CPP shows WITHOUT cancel options
 
@@ -150,6 +145,8 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Fullscreen |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @SettingsTurnsOffCountdown
   Scenario Outline: Check settings button closes the countdown
@@ -163,11 +160,11 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini CTA       | Fullscreen |
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
   @twoSectionsInCP
   Scenario Outline: Check the two sections i.e. "Up next" and "More" are present when CP appears
-    Then I press "<button>"
     And I enter "<mode>"
-    And I seek to end of programme
     Then I see one Up next and one More section
 
     Examples:
