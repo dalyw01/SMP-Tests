@@ -183,22 +183,31 @@ Then(/^I can interact with subtitles panel if "([^"]*)"$/) do |type|
 end
 
 Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
+  # page.find('#smphtml5iframemp').hover
   within_frame 'smphtml5iframemp' do
-    if type == "ident + vod + subs"
+    if (type == "ident + vod + subs" and g_device == "desktop")
       # Click SUBS button to see current status + turn s
-      page.first(".p_subtitleButton").click
-      sleep(3)
-      page.first("#p_subtitleSizeButton_useSmallestFontSize").click
+      page.first("button.p_subtitleButton").click
+
+      if page.driver.browser.browser == :chrome
+        # Chrome needs an additional press for some reason
+        sleep(1)
+        page.first(".p_subtitleButton").click
+      end
+
       sleep(1)
+      page.first("#p_subtitleSizeButton_useSmallestFontSize").click
+      sleep(2)
       hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
       p hash["width"]
-      expect(hash["width"]).to eq("212.458px")
+      expect(hash["width"]).to eq("130.167px")
 
 
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
       sleep(1)
       hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
-      expect(hash["width"]).to eq("424.917px")
+      p hash["width"]
+      expect(hash["width"]).to eq("446.083px")
     end
   end
 end

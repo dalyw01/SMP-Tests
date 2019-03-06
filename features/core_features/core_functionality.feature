@@ -19,6 +19,7 @@ Feature: Checking SMP core functionality
     And I see controlbar hides instantly if "<type>"
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
+    And I can change subtitles font size if "<type>"
     And I can enter fullscreen if "<type>"
     And I can click seekbar in fullscreen "<type>"
     And I can pause
@@ -47,15 +48,3 @@ Feature: Checking SMP core functionality
     | https://is.gd/desusa | webcast            | desktop |
     | https://is.gd/ubofek | audio              | phone   |
     | https://is.gd/ubofek | audio              | desktop |
-
-  @subs
-  Scenario Outline: Check resizing of the Subtitles
-
-    Given I visit "<page>" with a "<type>" player on "<device>"
-    When the COOKBOOK has loaded
-    And I click CTA to begin playback
-    Then I can change subtitles font size if "<type>"
-
-  Examples:
-    | page                 | type               | device  |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop |
