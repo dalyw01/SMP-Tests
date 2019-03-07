@@ -1,3 +1,4 @@
+@pg
 Feature: Checking Parental Guidance works as expected for an anon user over 16 with NO pin set initially
   As a tester
   I want to check every part of PG is clickable
