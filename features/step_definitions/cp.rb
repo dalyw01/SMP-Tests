@@ -48,7 +48,7 @@ end
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
-      sleep(3)
+      sleep(1)
       page.first(".p_pauseIcon").click
       sleep(2)
     end
@@ -56,7 +56,7 @@ Then(/^I can pause new programme if "([^"]*)"$/) do |string|
 end
 
 Then(/^I wait for countdown to finish$/) do
-  sleep(12)
+  sleep(9)
 end
 
 Then(/^I scroll through whole carousel and select the last item$/) do
@@ -124,7 +124,7 @@ end
 
 Then(/^I press "([^"]*)"$/) do |string|
   within_frame "smphtml5iframemp" do
-    sleep(4)
+    sleep(2)
     if string == "X"
       page.first(".gcp_closeSVG").click
     elsif string == "Cancel"
@@ -137,7 +137,7 @@ Then(/^I press "([^"]*)"$/) do |string|
       page.first(".gcp_itemDescription").click
     end
   end
-  sleep(5)
+  sleep(1)
 end
 
 Then(/^I enter "([^"]*)"$/) do |string|
@@ -203,7 +203,7 @@ end
 
 Then("I see one Up next and one More section") do
   within_frame 'smphtml5iframemp' do
-    sleep 3
+    sleep (3)
     expect(page.find('.gcp_inpageCountdownItem span.gcp_countdownText').text).to eql "Up next in..."
     expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"
   end
