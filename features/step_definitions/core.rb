@@ -63,7 +63,7 @@ When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
     page.find('.settings-player').hover
     sleep(1)
     within_frame 'smphtml5iframemp' do
-      page.first("p_accessibleHitArea").hover
+      page.first("div.p_accessibleHitArea").hover
     end
   end
 end
