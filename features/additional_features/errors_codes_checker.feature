@@ -1,3 +1,4 @@
+@errors
 Feature: Checking SMP errors
   As a tester of SMP
   I want errors generated for both FLASH and HTML

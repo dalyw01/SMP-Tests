@@ -5,6 +5,7 @@ Feature: Checking SMP Ads
   I want to check Ads work with SMP
   So that I verify SMP works during and after an Ad plays
 
+@ads_first
   Scenario Outline: Check basic HTML functionality
 
     Given I visit "<page>" with a "<type>" player on "<device>"
@@ -40,5 +41,24 @@ Feature: Checking SMP Ads
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/sohowa | video | desktop |
-    | https://is.gd/ifijix | audio | desktop |
+    | https://is.gd/bezeye | video | desktop |
+    | https://is.gd/ukewad | audio | desktop |
+
+@skip_ads
+  Scenario Outline: Check basic HTML functionality
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    When the COOKBOOK has loaded
+    And I load skippable ads page
+    And the COOKBOOK has loaded
+    And I click ADS CTA to begin playback
+    And I can see AD controlbar
+    And I can AD pause
+    And I can see AD controlbar
+    And I can AD play
+    And I can AD pause
+    Then I find Skip Add option
+
+  Examples:
+    | page                 | type  | device  |
+    | https://is.gd/bezeye | video | desktop |
+    | https://is.gd/ukewad | audio | desktop |

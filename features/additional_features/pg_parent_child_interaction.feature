@@ -1,3 +1,4 @@
+@pg_parent_child
 Feature: Checking PG works as expected when switching from parent to child for various scenarios
 
   @inplayer_tp_1

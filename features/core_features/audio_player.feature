@@ -67,8 +67,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/owebiz | audio | phone   |
-    | https://is.gd/owebiz | audio | desktop |
+    | https://is.gd/adayeq | audio | phone   |
+    | https://is.gd/adayeq | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
