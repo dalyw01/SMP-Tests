@@ -42,7 +42,7 @@ Feature: Checking SMP Ads
   Examples:
     | page                 | type  | device  |
     | https://is.gd/bezeye | video | desktop |
-    | https://is.gd/ifijix | audio | desktop |
+    | https://is.gd/ukewad | audio | desktop |
 
 @skip_ads
   Scenario Outline: Check basic HTML functionality
@@ -61,3 +61,4 @@ Feature: Checking SMP Ads
   Examples:
     | page                 | type  | device  |
     | https://is.gd/bezeye | video | desktop |
+    | https://is.gd/ukewad | audio | desktop |
