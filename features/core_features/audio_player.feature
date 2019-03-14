@@ -42,8 +42,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/hayuwa | audio | phone   |
-    | https://is.gd/hayuwa | audio | desktop |
+    | https://is.gd/edasos | audio | phone   |
+    | https://is.gd/edasos | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -200,8 +200,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/hayuwa | audio | phone   |
-    | https://is.gd/hayuwa | audio | desktop |
+    | https://is.gd/edasos | audio | phone   |
+    | https://is.gd/edasos | audio | desktop |
 
   @backwardDisabled
   Scenario Outline: At the start of playback -20 button should be disabled
@@ -211,8 +211,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/hayuwa | audio | tablet  |
-    | https://is.gd/hayuwa | audio | desktop |
+    | https://is.gd/edasos | audio | tablet  |
+    | https://is.gd/edasos | audio | desktop |
 
   @forwardDisabled
   Scenario Outline: At the end of playback +20 button should be disabled
@@ -224,5 +224,5 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/hayuwa | audio | tablet  |
-    | https://is.gd/hayuwa | audio | desktop |
+    | https://is.gd/edasos | audio | tablet  |
+    | https://is.gd/edasos | audio | desktop |
