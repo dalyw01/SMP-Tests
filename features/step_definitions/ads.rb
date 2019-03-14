@@ -7,26 +7,15 @@ When(/^I click ADS CTA to begin playback$/) do
 end
 
 When(/^I can see AD controlbar$/) do
-  sleep 3
+  sleep(3)
   within_frame 'smphtml5iframemp' do
     page.first("#ads_buttonBar").click
   end
 end
 
-When("I load skippable ads page") do
+When("I load skippable ads by clicking html button") do
   page.find("div#content input#adType-skippable").click
   page.find("button#loadAdButton").click
-end
-
-Then("I find Skip Add option") do
-  sleep 3
-  within_frame 'smphtml5iframemp' do
-    sleep 2
-    within_frame (page.find('iframe[width]')) do
-      page.first("div.videoAdUi.imaVideoAdUi")
-      expect(page.find("div.videoAdUiSkipContainer.html5-stop-propagation").visible?).to be true
-    end
-  end
 end
 
 Then(/^I can AD pause$/) do
@@ -46,3 +35,15 @@ end
 Then(/^I can wait for AD to finish$/) do
    sleep(10)
 end
+
+
+Then("I can click Skip Add option") do
+  sleep(3)
+  within_frame 'smphtml5iframemp' do
+    within_frame (page.find('iframe[width]')) do
+      page.first(".videoAdUiSkipButton").click
+    end
+  end
+end
+
+

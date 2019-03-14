@@ -1,12 +1,16 @@
 @ads
-Feature: Checking SMP Ads
+Feature: Checking SMP Ads work for various types of ads
 
-  As a tester of SMP
-  I want to check Ads work with SMP
-  So that I verify SMP works during and after an Ad plays
+    As a tester of SMP
+    I want to check Ads work with SMP
+    So that I verify SMP works during and after an Ad plays
+    The different types of Ads are
 
-@ads_first
-  Scenario Outline: Check basic HTML functionality
+    - Post roll ads
+    - Skippable ads
+
+    @pre_roll_ads
+    Scenario Outline: Check pre roll ads work and SMP works after ad has finished
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -39,26 +43,36 @@ Feature: Checking SMP Ads
     And I can seek in quarters to the end
     And I click CTA to begin playback
 
-  Examples:
+    Examples:
     | page                 | type  | device  |
     | https://is.gd/bezeye | video | desktop |
     | https://is.gd/ukewad | audio | desktop |
 
-@skip_ads
-  Scenario Outline: Check basic HTML functionality
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @skippable_ads
+    Scenario Outline: Check skippable ads show and SMP works after ad has finished
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I load skippable ads page
+    And I load skippable ads by clicking html button
     And the COOKBOOK has loaded
     And I click ADS CTA to begin playback
     And I can see AD controlbar
     And I can AD pause
     And I can see AD controlbar
     And I can AD play
-    And I can AD pause
-    Then I find Skip Add option
+    And I can click Skip Add option
+    And I see controlbar hides instantly if "<type>"
+    And I can pause
+    And I can play
 
-  Examples:
+    Examples:
     | page                 | type  | device  |
     | https://is.gd/bezeye | video | desktop |
     | https://is.gd/ukewad | audio | desktop |
+
+
+
+
+

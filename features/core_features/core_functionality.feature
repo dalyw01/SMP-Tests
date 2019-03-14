@@ -1,12 +1,12 @@
 @coreFuntionality
 Feature: Checking SMP core functionality
 
-  As a tester of SMP
-  I want to check core functionality of SMP works
-  So that I can verify every feature of the player is working in all expected situations
+    As a tester of SMP
+    I want to check core functionality of SMP works
+    So that I can verify every feature of the player is working in all expected situations
 
-  @core
-  Scenario Outline: Check basic functionality of SMP for various players
+    @core
+    Scenario Outline: Check basic functionality of SMP for various players
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -31,7 +31,7 @@ Feature: Checking SMP core functionality
     And I can seek in quarters to the end
     And I click CTA to begin playback
 
-  Examples:
+    Examples:
     | page                 | type               | device  |
     | https://is.gd/egubug | vod                | phone   |
     | https://is.gd/egubug | vod                | desktop |
