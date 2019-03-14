@@ -27,19 +27,6 @@ Feature: Checking SMP Ads work for various types of ads
     And I can click each volume bar
     And I can unmute
     And I see controlbar hides instantly if "<type>"
-    And I can click seekbar unless "<type>"
-    And I can interact with subtitles panel if "<type>"
-    And I can enter fullscreen if "<type>"
-    And I can click seekbar in fullscreen "<type>"
-    And I can pause
-    And I can play
-    And I can mute
-    And I can click each volume bar
-    And I can unmute
-    And I see controlbar hides instantly if "<type>"
-    And I can interact with subtitles panel if "<type>"
-    And I can exit fullscreen if "<type>"
-    And I see controlbar hides instantly if "<type>"
     And I can seek in quarters to the end
     And I click CTA to begin playback
 
