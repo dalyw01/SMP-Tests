@@ -76,5 +76,3 @@ Feature: Checking SMP Ads work for various types of ads
 
 
 
-
-
