@@ -16,7 +16,6 @@ Feature: Checking SMP core functionality
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I see controlbar hides instantly if "<type>"
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can change subtitles font size if "<type>"
@@ -27,10 +26,8 @@ Feature: Checking SMP core functionality
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I see controlbar hides instantly if "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can exit fullscreen if "<type>"
-    And I see controlbar hides instantly if "<type>"
     And I can seek in quarters to the end
     And I click CTA to begin playback
 
@@ -40,11 +37,11 @@ Feature: Checking SMP core functionality
     | https://is.gd/egubug | vod                | desktop |
     | https://is.gd/sabiwu | ident + vod + subs | phone   |
     | https://is.gd/sabiwu | ident + vod + subs | desktop |
-    | https://is.gd/ejocas | vertical           | phone   |
-    | https://is.gd/ejocas | vertical           | desktop |
+    | https://is.gd/mabepe | vertical           | phone   |
+    | https://is.gd/mabepe | vertical           | desktop |
     | https://is.gd/wetese | simulcast          | phone   |
     | https://is.gd/wetese | simulcast          | desktop |
     | https://is.gd/desusa | webcast            | phone   |
     | https://is.gd/desusa | webcast            | desktop |
-    | https://is.gd/ubofek | audio              | phone   |
-    | https://is.gd/ubofek | audio              | desktop |
+    | https://is.gd/apujej | audio              | phone   |
+    | https://is.gd/apujej | audio              | desktop |

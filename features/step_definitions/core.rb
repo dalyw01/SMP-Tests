@@ -200,14 +200,14 @@ Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
       sleep(2)
       hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
       p hash["width"]
-      expect(hash["width"]).to eq("130.167px")
+      expect(hash["width"]).to eq("212.953px")
 
 
       page.first("#p_subtitleSizeButton_useLargestFontSize").click
       sleep(1)
       hash = page.find('div.p_subtitlesContainer div.p_paragraph').style('width')
       p hash["width"]
-      expect(hash["width"]).to eq("446.083px")
+      expect(hash["width"]).to eq("466.969px")
     end
   end
 end
