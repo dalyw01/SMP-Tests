@@ -19,19 +19,26 @@
 <script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
 <script type="text/javascript">
 
-    bbcRequireMap =
+    bbcRequireMap = 
     {
-        "jquery-1.9":"//static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.9.1",
-        "swfobject-2":"//static.bbci.co.uk/frameworks/swfobject/0.1.10/sharedmodules/swfobject-2",
-        "bump-3":"//emp.live.bbci.co.uk/emp/bump-3/bump-3"
+        "bump-4":"https://emp.bbci.co.uk/emp/bump-4/bump-4"
+        //          emp.int.tools.bbc.co.uk/emp/bump-4/bump-4"
+        //          emp.test.bbci.co.uk
+        //          emp.stage.bbci.co.uk
+        //          emp.bbci.co.uk
     }
 
-    require({ paths: bbcRequireMap, waitSeconds: 30 })
+    require({ paths: bbcRequireMap, waitSeconds: 30 });
 
-    document.cookie = 'bbcBumpForcePlayer=smphtml5';
+    //document.cookie = 'bbcBumpForcePlayer=smp-flash';
+    //document.cookie = 'bbcBumpForcePlayer=smphtml5'
+    //document.cookie = 'bbcBumpForcePlayer=smpj2oo';
 
-    require(['bump-3'],function ($)
+    document.cookie = 'ckns_html5Debug=true';
+
+    require(['bump-4'],function (bump)
     {
+       
         var settings_1 =
         {
             muted : true,
@@ -96,11 +103,10 @@
 
 
         // Get media player from above settings
-        var mediaPlayer = $('#media_player_1').player(settings_1);
-        window.mediaPlayer = mediaPlayer;
+        // Get media player from above settings
+        var mediaPlayer = bump.player(document.getElementById('media_player_1'), settings_1 );
 
-        var mediaPlayer2 = $('#media_player_2').player(settings_2);
-        window.mediaPlayer2 = mediaPlayer2;
+        var mediaPlayer2 = bump.player(document.getElementById('media_player_2'), settings_2 );
 
         // Load it
         mediaPlayer.load();
