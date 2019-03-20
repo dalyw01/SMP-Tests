@@ -179,9 +179,10 @@ end
 # Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
 Then("I can resume past News blocking guidance in {string}") do |mode|
   within_frame 'smphtml5iframemp' do
-    sleep(1)
     if mode == "Inline"
+      sleep(2)
       page.first("div.p_accessibleHitArea").click
+      sleep(1)
     end
     sleep(2)
   end

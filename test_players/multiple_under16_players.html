@@ -1,14 +1,13 @@
 <html>
     <head>
-        <title>Multiple Under16 Players!</title>
+        <title>Multiple Under 16 Players!</title>
     </head>
     <body style="height:2000px;" bgcolor="#5C3E58">
       <center>
         <div id="mp1">
-          <h2 style="color:white;">under 16 (William Junior!)</h2>
+          <h2 style="color:white;">Under 16!</h2>
           <div id="media_player_1" style="height:400px; width:800px;"></div>
         </div>
-
         <div id="mp2">
           <br>
           <div id="media_player_2" style="height:90px; width:300px;"></div>
@@ -20,18 +19,26 @@
 <script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
 <script type="text/javascript">
 
-    bbcRequireMap =
+    bbcRequireMap = 
     {
-        "jquery-1.9":"//static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.9.1",
-        "swfobject-2":"//static.bbci.co.uk/frameworks/swfobject/0.1.10/sharedmodules/swfobject-2",
-        "bump-3":"//emp.live.bbci.co.uk/emp/bump-3/bump-3"
+        "bump-4":"https://emp.bbci.co.uk/emp/bump-4/bump-4"
+        //          emp.int.tools.bbc.co.uk/emp/bump-4/bump-4"
+        //          emp.test.bbci.co.uk
+        //          emp.stage.bbci.co.uk
+        //          emp.bbci.co.uk
     }
-    require({ paths: bbcRequireMap, waitSeconds: 30 })
 
-    document.cookie = 'bbcBumpForcePlayer=smphtml5';
+    require({ paths: bbcRequireMap, waitSeconds: 30 });
 
-    require(['bump-3'],function ($)
+    //document.cookie = 'bbcBumpForcePlayer=smp-flash';
+    //document.cookie = 'bbcBumpForcePlayer=smphtml5'
+    //document.cookie = 'bbcBumpForcePlayer=smpj2oo';
+
+    document.cookie = 'ckns_html5Debug=true';
+
+    require(['bump-4'],function (bump)
     {
+       
         var settings_1 =
         {
             muted : true,
@@ -40,23 +47,23 @@
 
             playlistObject:
             {
-                items:
-                [
-                  {
-                    versionID: "p03bhqhy",
-                    kind: "ident"
-                  },
-                  {
-                    versionID: "p049sq7k",
-                    kind: "programme"
-                  }
-                ],
+              items:
+              [
+                {
+                  versionID: "p03bhqhy",
+                  kind: "ident"
+                },
+                {
+                  versionID: "p049sq7k",
+                  kind: "programme"
+                }
+              ],
                 guidance: "PG MESSAGE LARGE PLAYLIST"
             },
 
             ui:
             {
-                colour : "#BB32FF",
+                colour : "#4285F4", // Green
                 controls:
                 {
                   always: true
@@ -68,27 +75,26 @@
         {
             muted : true,
             responsive : true,
-            under16 : true,
 
             playlistObject:
             {
-                items:
-                [
-                  {
-                    versionID: "p03bhqhy",
-                    kind: "ident"
-                  },
-                  {
-                    versionID: "p049sq7k",
-                    kind: "programme"
-                  }
-                ],
+              items:
+              [
+                {
+                  versionID: "p03bhqhy",
+                  kind: "ident"
+                },
+                {
+                  versionID: "p049sq7k",
+                  kind: "programme"
+                }
+              ],
                 guidance: "PG MESSAGE SMALL PLAYLIST"
             },
 
             ui:
             {
-                colour : "#FFFFFF",
+                colour : "#FFFFFF", // White
                 controls:
                 {
                   always: true
@@ -96,14 +102,15 @@
             }
         }
 
-        var mediaPlayer1 = $('#media_player_1').player(settings_1);
-        window.mediaPlayer1 = mediaPlayer1;
 
-        var mediaPlayer2 = $('#media_player_2').player(settings_2);
-        window.mediaPlayer2 = mediaPlayer2;
+        // Get media player from above settings
+        // Get media player from above settings
+        var mediaPlayer = bump.player(document.getElementById('media_player_1'), settings_1 );
+
+        var mediaPlayer2 = bump.player(document.getElementById('media_player_2'), settings_2 );
 
         // Load it
-        mediaPlayer1.load();
+        mediaPlayer.load();
         mediaPlayer2.load();
     });
 </script>
