@@ -7,23 +7,23 @@ end
 
 Then(/^large player playback should initialize$/) do
   within_frame 'smphtml5iframemedia_player_1' do
-    sleep(2)
-    page.first(".p_pauseIcon").click
+    sleep(5)
+    page.first(".p_svg.p_pauseIcon").click
   end
 end
 
 Then(/^I should be able to restart playback without another pop\-up$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
-    page.first(".p_ctaIcon").click
+    page.first(".p_svg.p_ctaIcon.p_play-iplayerIcon").click
     sleep(1)
-    page.first(".p_pauseIcon").click
+    page.first(".p_svg.p_pauseIcon").click
   end
 end
 
 When(/^I seek to end$/) do
   sleep(5) # Wait for ident to finish
-  page.execute_script( 'mediaPlayer1.currentTime(( mediaPlayer1.duration() - 2 ));')
+  page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
   sleep(4)
 end
 

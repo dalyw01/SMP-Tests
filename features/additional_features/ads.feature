@@ -58,8 +58,3 @@ Feature: Checking SMP Ads work for various types of ads
     | page                 | type  | device  |
     | https://is.gd/bezeye | video | desktop |
     | https://is.gd/ukewad | audio | desktop |
-
-
-
-
-
