@@ -2,11 +2,27 @@
 
 This is a little side project I made to test the BBC's SMP
 
-The Ruby Version to use
+Install Homebrew - https://brew.sh/
+
+Install rbenv using Homebrew
 
 ```
-mc-s097941:smp-tests dalyw01$ ruby -v
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin18]
+brew install rbenv
+```
+
+Select the version of Ruby you want to install e.g 2.6.2
+
+```
+rbenv install 2.6.2
+```
+
+Check the Ruby Version is what you selected
+
+```
+Daly-Command-Centre:smp-tests dalyw01$ rbenv versions
+  system
+  2.4.1
+* 2.6.2 (set by /Users/dalyw01/.rbenv/version)
 ```
 
 Your Gemfile should look like 
