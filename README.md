@@ -1,57 +1,107 @@
 # My Cucumber Suite Of Tests
 
-This is a little side project I made to test the BBC's SMP
+This is a little side project I made to test the BBC's SMP.
 
-The Ruby Version to use
+This setup is for MacOS only. However the Ruby gems below apply to Windows.
+
+Download the code from this repo.
+
+## Installing programs
+
+Install Apple CLT "Command Line Tools" from Apple's site - https://developer.apple.com/download/more/
+
+Install Homebrew to make installing applications easier - https://brew.sh/
+
+Install Selenium - 
 
 ```
-mc-s097941:smp-tests dalyw01$ ruby -v
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin18]
+brew install selenium-server-standalone
+brew tap homebrew/cask
 ```
 
-Your Gemfile should look like 
+Install Chromedriver
 
 ```
-source 'https://rubygems.org'
-
-gem 'cucumber'
-gem 'capybara'
-gem 'rspec'
-gem 'selenium-webdriver','3.141'
-gem 'touch_action'
+brew cask install chromedriver
 ```
 
-You can install each seperatley with "gem install X" from https://rubygems.org
+Install Geckodriver
 
-If you run a "bundle install" it may edit the Gemfile.lock and add in some additional gems
+```
+brew install geckodriver < Firefox
+```
 
-You'll want to lock to certain version of each gem
+Install the required version of Ruby
 
-Your Gemfile.lock should look something like this
+```
+install 2.5.3
+```
+
+Check the current version if the one you downloaded
+
+```
+rvm list
+ * ruby-2.3.1 [ x86_64 ]
+   ruby-2.4.1 [ x86_64 ]
+=> ruby-2.5.3 [ x86_64 ]
+
+# => - current
+# =* - current && default
+#  * - default
+```
+
+## Managing Ruby Gems
+
+You can install each gem seperatley with "gem install X" from https://rubygems.org
+
+For example -
+
+```
+gem install bundler
+```
+
+If you install the bundler gem then you can run a "bundle install" 
+
+```
+bundle install
+```
+
+Bundler may prompt you to download/modify any necessary gems
+
+Your Gemfile.lock file may be empty and bundler will populate it with compatible gems
+
+Your Gemfile.lock should look a little something like this -
 
 ```
 GEM
   remote: https://rubygems.org/
-  specs:
+ specs:
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
+    capybara (3.15.0)
+      addressable
+      etc ...
+      xpath (~> 3.2)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     cucumber (3.1.2)
-    capybara (3.12.0)
-    rspec (3.8.0)
-    selenium-webdriver (3.141)
-    touch_action (1.3.3)
+      etc ...
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  cucumber
   capybara
+  cucumber
   rspec
-  selenium-webdriver
+  selenium-webdriver (= 3.141)
   touch_action
 
 BUNDLED WITH
    2.0.1
 ```
+
+## Running Tests
 
 Some basic commands and knowledge to run tests in this project
 
@@ -68,16 +118,19 @@ cucumber features/ BROWSER=firefox
 ```
 
 To run through a particular scenario in a table with Firefox
+
 ```
 cucumber features/core_functionality.feature:54 BROWSER=firefox
 ```
 
 To run a particular test point in a feature file
+
 ```
 cucumber features/cp_watch_more.feature -t @4
 ```
 
 To run all tests except for anything tagged @ads
+
 ```
 cucumber features/ --tags ~@ads BROWSER=chrome
 ```

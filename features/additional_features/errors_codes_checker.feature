@@ -27,4 +27,3 @@ Feature: Checking SMP errors
     | 1008 | This content doesn't seem to be working                | http://static.int.bbc.co.uk/smp/assets/playlists/off_air.xml                   | critical | 1003       |
     | 1009 | This content is not currently available on this device | http://static.int.bbc.co.uk/smp/assets/playlists/no_media.xml                  | critical | 1052       |
     | 1024 | This content is not currently available on this device | http://static.int.bbc.co.uk/smp/assets/playlists/ident_then_mediation_fail.xml | critical | 1052       |
-    | 3024 | This content doesn't seem to be working                | http://static.int.bbc.co.uk/smp/assets/playlists/connections_fail.xml          | critical | 5000, 5001 |

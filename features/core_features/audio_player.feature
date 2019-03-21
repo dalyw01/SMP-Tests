@@ -203,6 +203,8 @@ Feature: New Audio Player
     | https://is.gd/edasos | audio | phone   |
     | https://is.gd/edasos | audio | desktop |
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
   @backwardDisabled
   Scenario Outline: At the start of playback -20 button should be disabled
     Given I visit "<page>" with a "<type>" player on "<device>"
@@ -213,6 +215,8 @@ Feature: New Audio Player
     | page                 | type  | device  |
     | https://is.gd/edasos | audio | tablet  |
     | https://is.gd/edasos | audio | desktop |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @forwardDisabled
   Scenario Outline: At the end of playback +20 button should be disabled

@@ -21,7 +21,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     And I see correct BUMP PG message
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_2
   Scenario: Checking pressing Play button without check box does not start playback
@@ -43,7 +43,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     Then I should be able to press BUMP Play button again
     And I see BUMP caution symbol with GUARDIANS permission error message
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_3
   Scenario: Checking I can tick checkbox and can then dismiss popup
@@ -61,7 +61,7 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     And I tick BUMP checkbox
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_4
   Scenario: Playing through the whole PG setup successfully without any PIN set

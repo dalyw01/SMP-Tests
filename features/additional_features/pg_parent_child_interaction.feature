@@ -2,7 +2,7 @@
 Feature: Checking PG works as expected when switching from parent to child for various scenarios
 
   @inplayer_tp_1
-  Scenario: As parent, SETTING pin and unlocking as child
+  Scenario: As parent, SETTING pin and unlocking as child BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]
@@ -33,6 +33,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I press BUMP [Play] to unlock
     Then small player playback should initialize
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_2
   Scenario: As parent, NOT SETTING pin and checking child still needs permissions(MP-3086)
@@ -66,9 +67,10 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I seek to small player end
     Then I should be able to restart small player playback without another pop-up
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @inplayer_tp_3
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission
+  @inplayer_tp_3 
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]
@@ -92,7 +94,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     Then I should be able to restart playback without another pop-up
 
   @BUMP_tp_3
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
     Given multiple o16 HTML players with guidance and NO cookies
     When I click small CTA
     And I press BUMP [Turn On PG Lock]
@@ -115,6 +117,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I seek to small player end
     Then I should be able to restart small player playback without another pop-up
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_4
   Scenario: As parent, IGNORING PG setup by pressing X, then checking child still has to get permission

@@ -30,6 +30,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I tick BUMP checkbox
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_2
   Scenario: Checking anon popup doesn't proceed without ticking checkbox
@@ -56,6 +57,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I see BUMP caution symbol with age error message
     Then I should be able to dismiss BUMP pop-up pressing X icon
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_3
   Scenario: Checking I am prompted with guidance and can initialize playback
@@ -82,7 +84,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I press BUMP [Play Without PG Lock]
     Then small player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_4
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
@@ -116,6 +118,7 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     When I click small CTA
     Then small player playback should initialize
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_5
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
@@ -147,9 +150,10 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     And I dismiss o16 BUMP pop-up pressing X icon
     Then padlock should be unlocked on both players
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_6
-  Scenario: Setting new pin on large player and unlocking a single play on small player
+  Scenario: Setting new pin on large player and unlocking a single play on small player BEVIS BEVIS BEVIS
     Given multiple anon HTML players with guidance and NO cookies
     When I click CTA
     And I see correct PG message
@@ -182,10 +186,10 @@ Feature: Checking Parental Guidance works as expected for an anon user over 16 w
     When I click CTA
     Then large player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_7
-  Scenario: Setting pin on large player and unlocking via small player padlock
+  Scenario: Setting pin on large player and unlocking via small player padlock BEVIS BEVIS BEVIS
     Given multiple anon HTML players with guidance and NO cookies
     When I click CTA
     And I see correct PG message
