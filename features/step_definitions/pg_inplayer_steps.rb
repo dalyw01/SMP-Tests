@@ -23,7 +23,7 @@ end
 
 When(/^I seek to end$/) do
   sleep(5) # Wait for ident to finish
-  page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
+  page.execute_script( 'embeddedMedia.players[0].currentTime(( embeddedMedia.players[0].duration() - 2 ));')
   sleep(4)
 end
 

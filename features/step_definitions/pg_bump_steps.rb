@@ -23,7 +23,7 @@ end
 
 When(/^I seek to small player end$/) do
   sleep(5) # Wait for ident to finish
-  page.execute_script( 'mediaPlayer2.currentTime(( mediaPlayer2.duration() - 2 ));')
+  page.execute_script( 'embeddedMedia.players[1].currentTime(( embeddedMedia.players[1].duration() - 2 ));')
   sleep(4)
 end
 

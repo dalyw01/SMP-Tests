@@ -22,7 +22,7 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I press BUMP [Play Without PG Lock]
     Then small player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_2
   Scenario: Checking I am prompted with guidance and can dismiss
@@ -42,7 +42,7 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I press BUMP [Play Without PG Lock]
     Then small player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_3
   Scenario: Dismiss guidance while entering PIN and checking playback commences after clicking CTA
@@ -70,7 +70,7 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I click small CTA
     Then small player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_4
   Scenario: Checking both players unlocked after dismissing popup while entering PIN
@@ -96,10 +96,10 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     And I dismiss o16 BUMP pop-up pressing X icon
     Then padlock should be unlocked on both players
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_5
-  Scenario: Setting new pin on large player and unlocking a single play on small player
+  Scenario: Setting new pin on large player and unlocking a single play on small player BEVIS BEVIS  BEVIS BEVIS BEVIS BEVIS
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]
@@ -126,10 +126,10 @@ Feature: Checking Parental Guidance works as expected for a user over 16 with NO
     When I click CTA
     Then large player playback should initialize
 
-
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_6
-  Scenario: Setting pin on large player and unlocking via small player padlock
+  Scenario: Setting pin on large player and unlocking via small player padlock BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]
