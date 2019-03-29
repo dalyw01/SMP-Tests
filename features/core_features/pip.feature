@@ -58,7 +58,7 @@ Scenario: CP appears even when PIP window is showing
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-@CPExitsFullscreen
+@PIPExitsFullscreen
 Scenario: When in Fullscreen pressing PIP icon exits fullscreen
   And I enter full screen
   When I click PIP icon

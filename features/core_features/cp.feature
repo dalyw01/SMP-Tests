@@ -158,7 +158,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
     Examples:
     | button         | mode       |
-    | Mini CTA       | Fullscreen |
+    | Mini CTA       | Inline     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
