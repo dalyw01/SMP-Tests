@@ -2,7 +2,6 @@ When(/^I click ADS CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first("div.p_accessibleHitArea").click
-    sleep(1)
   end
 end
 
@@ -32,13 +31,24 @@ Then(/^I can AD play$/) do
   end
 end
 
+Then("I enter AD fullscreen if {string}") do |mode|
+  sleep(1)
+  if mode == "Fullscreen"
+    within_frame 'smphtml5iframemp' do
+      sleep(1)
+      page.first("#ads_buttonBar").click
+      page.first(".ads_enterFullScreenButton").hover
+      page.first(".ads_enterFullScreenButton").click
+    end
+  end
+end
+
 Then(/^I can wait for AD to finish$/) do
    sleep(10)
 end
 
-
 Then("I can click Skip Add option") do
-  sleep(3)
+  sleep(1)
   within_frame 'smphtml5iframemp' do
     within_frame (page.find('iframe[width]')) do
       page.first(".videoAdUiSkipButton").click
