@@ -1,12 +1,14 @@
 # My Cucumber Suite Of Tests
 
-This is a little side project I made to test the BBC's SMP.
+This is a side project I made to test the BBC's SMP.
 
 This setup is for MacOS only. However some parts of the guide apply to Windows.
 
-Download the code from this repo.
+Make a new folder and download the code from Github
 
 ```
+mkdir new_folder
+cd new_folder
 git clone https://github.com/dalyw01/smp-tests
 Cloning into 'new_folder'...
 Username for 'https://github.com': dalyw01
@@ -21,6 +23,17 @@ Install Apple CLT "Command Line Tools" from Apple's site - https://developer.app
 
 Install Homebrew to make installing applications easier - https://brew.sh/
 
+I typically do it from this directory
+
+```
+Daly-Command-Centre:~ dalyw01$ pwd
+/Users/dalyw01
+Daly-Command-Centre:~ dalyw01$ ls
+Applications  Documents Library   Music   Public
+Desktop   Downloads Movies    Pictures
+Daly-Command-Centre:~ dalyw01$ 
+```
+
 Install Selenium - 
 
 ```
@@ -28,16 +41,16 @@ brew install selenium-server-standalone
 brew tap homebrew/cask
 ```
 
-Install Chromedriver
+Install Chromedriver for Google Chrome
 
 ```
 brew cask install chromedriver
 ```
 
-Install Geckodriver
+Install Geckodriver for Firefox
 
 ```
-brew install geckodriver < Firefox
+brew install geckodriver
 ```
 
 Install the required version of Ruby
