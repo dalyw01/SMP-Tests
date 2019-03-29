@@ -2,9 +2,18 @@
 
 This is a little side project I made to test the BBC's SMP.
 
-This setup is for MacOS only. However the Ruby gems below apply to Windows.
+This setup is for MacOS only. However some parts of the guide apply to Windows.
 
 Download the code from this repo.
+
+```
+git clone https://github.com/dalyw01/smp-tests
+Cloning into 'new_folder'...
+Username for 'https://github.com': dalyw01
+Password for 'https://dalyw01@github.com': 
+```
+
+If prompted, password is a key you generate from - https://github.com/settings/tokens
 
 ## Installing programs
 
@@ -34,7 +43,7 @@ brew install geckodriver < Firefox
 Install the required version of Ruby
 
 ```
-install 2.5.3
+rvm install 2.5.3
 ```
 
 Check the current version if the one you downloaded
@@ -58,6 +67,16 @@ For example -
 
 ```
 gem install bundler
+```
+
+Here are some others you can install
+
+```
+gem install cucumber -v 2.4.0
+gem install capybara
+gem install selenium-webdriver
+gem install rspec
+gem install touch_action
 ```
 
 If you install the bundler gem then you can run a "bundle install" 
