@@ -1,8 +1,10 @@
 # My Cucumber Suite Of Tests
 
-This is a side project I made to test the BBC's SMP.
+This is a side project I made to test the BBC's SMP
 
-This setup is for MacOS only. However some parts of the guide apply to Windows.
+It is a BDD (behaviour driven development) automated test suite
+
+This setup is for MacOS only. However some parts of the guide apply to Windows
 
 Make a new folder and download the code from Github
 
@@ -21,20 +23,21 @@ If prompted, password is a key you generate from - https://github.com/settings/t
 
 Install Apple CLT "Command Line Tools" from Apple's site - https://developer.apple.com/download/more/
 
+You may have to install the CLT through the MacOS App Store
+
 Install Homebrew to make installing applications easier - https://brew.sh/
 
 I typically do it from this directory
 
 ```
-Daly-Command-Centre:~ dalyw01$ pwd
+pwd
 /Users/dalyw01
-Daly-Command-Centre:~ dalyw01$ ls
+ls
 Applications  Documents Library   Music   Public
 Desktop   Downloads Movies    Pictures
-Daly-Command-Centre:~ dalyw01$ 
 ```
 
-Install Selenium - 
+Install Selenium using Homebrew
 
 ```
 brew install selenium-server-standalone
@@ -82,7 +85,7 @@ For example -
 gem install bundler
 ```
 
-Here are some others you can install
+Here are some of the other individual gems you can install
 
 ```
 gem install cucumber -v 2.4.0
@@ -102,7 +105,7 @@ Bundler may prompt you to download/modify any necessary gems
 
 Your Gemfile.lock file may be empty and bundler will populate it with compatible gems
 
-Your Gemfile.lock should look a little something like this -
+Your Gemfile.lock should look a little something like this
 
 ```
 GEM
@@ -141,6 +144,12 @@ To run all feature files with Chrome
 
 ```
 cucumber features/
+```
+
+To run all feature files of a particular folder with Chrome
+
+```
+cucumber features/core_features/
 ```
 
 To run through all feature files with Firefox
