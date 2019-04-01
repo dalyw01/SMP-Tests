@@ -1,16 +1,38 @@
 # My Cucumber Suite Of Tests
 
-This is a little side project I made to test the BBC's SMP.
+This is a side project I made to test the BBC's SMP.
 
-This setup is for MacOS only. However the Ruby gems below apply to Windows.
+This setup is for MacOS only. However some parts of the guide apply to Windows.
 
-Download the code from this repo.
+Make a new folder and download the code from Github
+
+```
+mkdir new_folder
+cd new_folder
+git clone https://github.com/dalyw01/smp-tests
+Cloning into 'new_folder'...
+Username for 'https://github.com': dalyw01
+Password for 'https://dalyw01@github.com':
+```
+
+If prompted, password is a key you generate from - https://github.com/settings/tokens
 
 ## Installing programs
 
 Install Apple CLT "Command Line Tools" from Apple's site - https://developer.apple.com/download/more/
 
 Install Homebrew to make installing applications easier - https://brew.sh/
+
+I typically do it from this directory
+
+```
+Daly-Command-Centre:~ dalyw01$ pwd
+/Users/dalyw01
+Daly-Command-Centre:~ dalyw01$ ls
+Applications  Documents Library   Music   Public
+Desktop   Downloads Movies    Pictures
+Daly-Command-Centre:~ dalyw01$
+```
 
 Install Selenium -
 
@@ -19,22 +41,22 @@ brew install selenium-server-standalone
 brew tap homebrew/cask
 ```
 
-Install Chromedriver
+Install Chromedriver for Google Chrome
 
 ```
 brew cask install chromedriver
 ```
 
-Install Geckodriver
+Install Geckodriver for Firefox
 
 ```
-brew install geckodriver < Firefox
+brew install geckodriver
 ```
 
 Install the required version of Ruby
 
 ```
-install 2.5.3
+rvm install 2.5.3
 ```
 
 Check the current version if the one you downloaded
@@ -60,7 +82,21 @@ For example -
 gem install bundler
 ```
 
+<<<<<<< HEAD
 If you install the bundler gem then you can run a "bundle install"
+=======
+Here are some others you can install
+
+```
+gem install cucumber -v 2.4.0
+gem install capybara
+gem install selenium-webdriver
+gem install rspec
+gem install touch_action
+```
+
+If you install the bundler gem then you can run a "bundle install"
+>>>>>>> 0562e09de49a088b6ea1a9444f229222cf9a5f41
 
 ```
 bundle install
