@@ -12,6 +12,14 @@ When("I see the PIP window shows") do
   end
 end
 
+When("I can play any content in the CP list") do
+  within_frame 'smphtml5iframemp' do
+    page.first('.gcp_itemCtaIcon').click
+    sleep 2
+    page.find('.p_button.p_controlBarButton.p_pauseButton')
+  end
+end
+
 Then("I see the PIP window disappears") do
   within_frame 'smphtml5iframemp' do
     page.find('button[title="Open Picture in Picture mode"]')
