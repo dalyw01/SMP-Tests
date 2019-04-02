@@ -35,16 +35,9 @@ pwd
 ls
 Applications  Documents Library   Music   Public
 Desktop   Downloads Movies    Pictures
-<<<<<<< HEAD
-Daly-Command-Centre:~ dalyw01$
-```
-
-Install Selenium -
-=======
 ```
 
 Install Selenium using Homebrew
->>>>>>> 5d060bc875857a6cd77b7ed987c89f23e4da2c5f
 
 ```
 brew install selenium-server-standalone
