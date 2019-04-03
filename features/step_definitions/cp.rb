@@ -38,6 +38,17 @@ Then(/^I can replay current programme$/) do
   end
 end
 
+Then("CP disappears") do
+  within_frame 'smphtml5iframemp' do
+    begin
+      sleep 2
+      page.find(".gcp_carouselBackground").visible?
+    rescue Capybara::ElementNotFound
+      true
+    end
+  end
+end
+
 Then("I click settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(6)

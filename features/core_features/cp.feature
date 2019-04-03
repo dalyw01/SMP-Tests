@@ -171,3 +171,16 @@ Feature: Checking "Continious Play" plugin core functionality works
     | button         | mode       |
     | Mini Thumbnail | Inline     |
     | Mini CTA       | Fullscreen |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @playingSameContent
+  Scenario Outline: Check the same content gets played when clicked on Play CTA while CP is present and it closes the CP
+    And I enter "<mode>"
+    And CPP shows
+    Then I can replay current programme
+    Then CP disappears
+
+    Examples:
+    | mode       |
+    | Fullscreen |
