@@ -151,6 +151,26 @@ Then(/^I press "([^"]*)"$/) do |string|
   sleep(1)
 end
 
+Then("I move right with the CP list") do
+  within_frame "smphtml5iframemp" do
+    sleep 4
+    page.find("button.gcp_carouselControlsNext").click
+    sleep 2
+    page.find("button.gcp_carouselControlsNext").click
+    sleep 1
+  end
+end
+
+Then("I am able to play any content with a single click") do
+  within_frame "smphtml5iframemp" do
+  elems = []
+  elems << page.find_all(".gcp_carouselContainer li div.gcp_item div.gcp_itemContainer div.gcp_itemCta")
+  element = elems[0][5]
+  element.click
+  sleep 3
+  end
+end
+
 Then(/^I enter "([^"]*)"$/) do |string|
   if string == "Fullscreen"
     within_frame "smphtml5iframemp" do
