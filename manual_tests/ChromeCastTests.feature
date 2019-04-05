@@ -122,11 +122,12 @@ And i click the pause button in full screen mode
 And i try to press the same button again
 Then nothing happens again the button becomes in-active 
 
-ACTUAL
+ACTUAL YE
+YE
 
 
 
-
+hhghjthtjthm
 
 
 
