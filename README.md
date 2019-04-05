@@ -14,7 +14,7 @@ cd new_folder
 git clone https://github.com/dalyw01/smp-tests
 Cloning into 'new_folder'...
 Username for 'https://github.com': dalyw01
-Password for 'https://dalyw01@github.com': 
+Password for 'https://dalyw01@github.com':
 ```
 
 If prompted, password is a key you generate from - https://github.com/settings/tokens
@@ -85,7 +85,14 @@ For example -
 gem install bundler
 ```
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+If you install the bundler gem then you can run a "bundle install"
+=======
+Here are some others you can install
+=======
 Here are some of the other individual gems you can install
+>>>>>>> 5d060bc875857a6cd77b7ed987c89f23e4da2c5f
 
 ```
 gem install cucumber -v 2.4.0
@@ -95,7 +102,8 @@ gem install rspec
 gem install touch_action
 ```
 
-If you install the bundler gem then you can run a "bundle install" 
+If you install the bundler gem then you can run a "bundle install"
+>>>>>>> 0562e09de49a088b6ea1a9444f229222cf9a5f41
 
 ```
 bundle install
@@ -175,6 +183,3 @@ To run all tests except for anything tagged @ads
 ```
 cucumber features/ --tags ~@ads BROWSER=chrome
 ```
-
-
-

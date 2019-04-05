@@ -51,14 +51,20 @@ Examples:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @PIPContinuousPlayPanel
-Scenario: CP appears even when PIP window is showing
+Scenario Outline: CP appears even when PIP window is showing
   And I click PIP icon
   And I seek to end of programme
   Then CPP shows
+  Then I press "<button>"
+  And I can play any content in the CP list
+
+Examples:
+  | button                 |
+  | Circle                 |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-@CPExitsFullscreen
+@PIPExitsFullscreen
 Scenario: When in Fullscreen pressing PIP icon exits fullscreen
   And I enter full screen
   When I click PIP icon
