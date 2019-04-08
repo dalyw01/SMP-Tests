@@ -43,11 +43,11 @@ And the Google Home lights up awaiting commands
     | Play           | Radio 1 Xtra   |
     | Change to      | Radio 2        |
     | Turn on        | Radio 3		  |
-	| Start playing  | Radio 4        |
-	| Switch to      | Radio Asia     |
-	| Will you play  | Radio Scotland |
-	| Could you find | Radio 3        |
-	| Could you play | Radio 1        |
+    | Start playing  | Radio 4        |
+    | Switch to      | Radio Asia     |
+    | Will you play  | Radio Scotland |
+    | Could you find | Radio 3        |
+    | Could you play | Radio 1        |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
