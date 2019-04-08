@@ -42,7 +42,7 @@ And the Google Home lights up awaiting commands
     | Start          | Radio 1        |
     | Play           | Radio 1 Xtra   |
     | Change to      | Radio 2        |
-    | Turn on        | Radio 3		  |
+    | Turn on        | Radio 3	      |
     | Start playing  | Radio 4        |
     | Switch to      | Radio Asia     |
     | Will you play  | Radio Scotland |
@@ -137,7 +137,7 @@ And the Google Home lights up awaiting commands
     | Take a break!             | From a current playing session it doesn't stop!         |
     | Play a random BBC station | Doesn't play any station?                               |
     | What is that?	            | Won't show name of current playing station              |
-	| Play a BBC station.       | You have to specify a station.                          |
+    | Play a BBC station.       | You have to specify a station.                          |
 
 
 
