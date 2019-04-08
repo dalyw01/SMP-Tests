@@ -8,13 +8,13 @@ Feature: Checking Google voice assistant technology works with smart display
   - Start playing a station
   - Pause a playing station
   - Query the current station
-  - Query Google search engine during stations playback
+  - Query Google search engine during station playback
 
-The main properties that should display on the screen Smart Display Screen are 
+The main properties that should display on the Smart Display Screen are 
 
   - Station name
   - Holding image of station
-  - Play / Pause icon when we interact with the smart disply
+  - Play / Pause icon depending on state
 
 Requirements for environment
 
