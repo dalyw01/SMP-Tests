@@ -1,8 +1,8 @@
 # My Cucumber Suite Of Tests
 
-This is a side project I made to test the BBC's SMP
+This is a side project I made to test the BBC's Standard Media Player
 
-It is a BDD (behaviour driven development) automated test suite
+The project is an automated test suite written in a BDD manner
 
 This setup is for MacOS only. However some parts of the guide apply to Windows
 
@@ -17,8 +17,6 @@ Username for 'https://github.com': dalyw01
 Password for 'https://dalyw01@github.com':
 ```
 
-If prompted, password is a key you generate from - https://github.com/settings/tokens
-
 ## Installing programs
 
 Install Apple CLT "Command Line Tools" from Apple's site - https://developer.apple.com/download/more/
@@ -27,7 +25,7 @@ You may have to install the CLT through the MacOS App Store
 
 Install Homebrew to make installing applications easier - https://brew.sh/
 
-I typically install it and run Homebrew installs from this directory
+I typically install it and run Homebrew install(s) from this directory
 
 ```
 pwd
@@ -44,13 +42,13 @@ brew install selenium-server-standalone
 brew tap homebrew/cask
 ```
 
-Install Chromedriver for Google Chrome
+Install Chromedriver for Google Chrome using Homebrew
 
 ```
 brew cask install chromedriver
 ```
 
-Install Geckodriver for Firefox
+Install Geckodriver for Firefox using Homebrew
 
 ```
 brew install geckodriver
