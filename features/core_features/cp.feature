@@ -199,3 +199,13 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContent
+  Scenario Outline: Check the same content gets played when clicked on Play CTA while CP is present and it closes the CP
+    And I enter "<mode>"
+    And I click CTA to begin playback again
+    Then The same content plays which is finished
+
+    Examples:
+    | mode       |
+    | Fullscreen |

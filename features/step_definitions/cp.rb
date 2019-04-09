@@ -49,6 +49,14 @@ Then("CP disappears") do
   end
 end
 
+When("I click CTA to begin playback again") do
+  title = page.find('#playlist_title').text
+  within_frame 'smphtml5iframemp' do
+    sleep 4
+    page.find('.p_button.p_controlBarButton.p_playButton').click
+  end
+end
+
 Then("I click settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(6)
@@ -153,12 +161,18 @@ end
 
 Then("I move right with the CP list") do
   within_frame "smphtml5iframemp" do
-    sleep 4
+    sleep 3
     page.find("button.gcp_carouselControlsNext").click
     sleep 2
     page.find("button.gcp_carouselControlsNext").click
     sleep 1
   end
+end
+
+Then("The same content plays which is finished") do
+  sleep 1
+  title_now = page.find('#playlist_title').text
+  title == title_now
 end
 
 Then("I am able to play any content with a single click") do
