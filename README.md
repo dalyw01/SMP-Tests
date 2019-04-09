@@ -53,13 +53,13 @@ Install **Geckodriver** for Firefox using Homebrew
 brew install geckodriver
 ```
 
-Install **RVM** (Ruby Version Manager) to manage the version of Ruby you're using (You might to brew install gnupg beforehand)
+Install **RVM** (Ruby Version Manager) to manage Ruby versions (You might need to brew install gnupg beforehand)
 
 ```
 \curl -sSL https://get.rvm.io | bash
 ```
 
-Then to set it up run
+Then to set RVM up run
 
 ```
 source /Users/dalyw01/.rvm/scripts/rvm
