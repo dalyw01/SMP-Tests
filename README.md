@@ -71,7 +71,7 @@ Install the required version of Ruby which is currently 2.5.3
 rvm install 2.5.3
 ```
 
-Check the current version if the one you downloaded
+Check the current version being used is the one you downloaded
 
 ```
 rvm list
@@ -98,7 +98,7 @@ gem install rspec
 gem install touch_action
 ```
 
-After you should install the bundler gem
+After you can install the bundler gem
 
 ```
 gem install bundle
@@ -112,11 +112,9 @@ Bundler may prompt you to download/modify any necessary gems
 bundle install
 ```
 
-When other devs run bundle install, bundler will find the Gemfile.lock and skip the dependency resolution step. 
+When other devs run bundle install, bundler will find the Gemfile.lock and skip the dependency resolution step
 
-Instead, it will install all of the same gems that you used on the original machine.
-
-Your Gemfile.lock file may be empty and bundler will populate it with compatible gems
+It will simply install all of the same gems that were specified in the original machine
 
 Your Gemfile.lock should look a little something like this
 
