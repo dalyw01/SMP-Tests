@@ -53,7 +53,17 @@ Install **Geckodriver** for Firefox using Homebrew
 brew install geckodriver
 ```
 
-Install **RVM** (Ruby Version Manager)
+Install **RVM** (Ruby Version Manager) to manage the version of Ruby you're using (You might to brew install gnupg beforehand)
+
+```
+\curl -sSL https://get.rvm.io | bash
+```
+
+Then to set it up run
+
+```
+source /Users/dalyw01/.rvm/scripts/rvm
+```
 
 Install the required version of Ruby which is currently 2.5.3
 
@@ -78,14 +88,6 @@ rvm list
 
 You can install each gem seperatley with "gem install X" from https://rubygems.org
 
-For example -
-
-```
-gem install bundler
-```
-
-If you install the bundler gem then you can run a "bundle install"
-
 Here are some of the other individual gems you can install
 
 ```
@@ -96,13 +98,23 @@ gem install rspec
 gem install touch_action
 ```
 
-If you install the bundler gem then you can run a "bundle install"
+After you should install the bundler gem
+
+```
+gem install bundle
+```
+
+Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed
+
+Bundler may prompt you to download/modify any necessary gems
 
 ```
 bundle install
 ```
 
-Bundler may prompt you to download/modify any necessary gems
+When other devs run bundle install, bundler will find the Gemfile.lock and skip the dependency resolution step. 
+
+Instead, it will install all of the same gems that you used on the original machine.
 
 Your Gemfile.lock file may be empty and bundler will populate it with compatible gems
 
@@ -127,8 +139,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
   cucumber
+  capybara
   rspec
   selenium-webdriver (= 3.141)
   touch_action
