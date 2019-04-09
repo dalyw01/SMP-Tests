@@ -73,7 +73,7 @@ DEPENDENCIES
   capybara
   cucumber
   rspec
-  selenium-webdriver (= 3.141)
+  selenium-webdriver (= 3.141.0)
   touch_action
 
 BUNDLED WITH

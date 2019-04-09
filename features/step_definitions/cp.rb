@@ -1,6 +1,8 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
-  sleep(10)
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+  sleep(5)
 end
 
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
@@ -18,7 +20,6 @@ end
 
 When(/^I use core functionality of SMP$/) do
   within_frame "smphtml5iframemp" do
-    sleep(1)
     page.first(".p_iconHolder .p_pauseIcon").click
     sleep(1)
     page.first(".p_playIcon").click
@@ -135,7 +136,7 @@ end
 
 Then(/^I press "([^"]*)"$/) do |string|
   within_frame "smphtml5iframemp" do
-    sleep(2)
+    sleep(0.5)
     if string == "X"
       page.first(".gcp_closeSVG").click
     elsif string == "Cancel"
@@ -148,7 +149,7 @@ Then(/^I press "([^"]*)"$/) do |string|
       page.first(".gcp_itemDescription").click
     end
   end
-  sleep(1)
+  sleep(0.5)
 end
 
 Then("I move right with the CP list") do

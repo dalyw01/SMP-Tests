@@ -19,13 +19,13 @@ Password for 'https://dalyw01@github.com':
 
 ## Installing programs
 
-Install Apple CLT "Command Line Tools" from Apple's site - https://developer.apple.com/download/more/
+Install **Apple CLT** (Command Line Tools) from their website - https://developer.apple.com/download/more/
 
-You may have to install the CLT through the MacOS App Store
+You may have to install the CLT through the MacOS App Store along with Xcode
 
-Install Homebrew to make installing applications easier - https://brew.sh/
+Next install **Homebrew** to make installing applications easier - https://brew.sh/
 
-I typically install it and run Homebrew install(s) from this directory
+I typically install Homebrew and run initial commands from this directory
 
 ```
 pwd
@@ -35,26 +35,27 @@ Applications  Documents Library   Music   Public
 Desktop   Downloads Movies    Pictures
 ```
 
-Install Selenium using Homebrew
+Install **Selenium** using Homebrew
 
 ```
 brew install selenium-server-standalone
-brew tap homebrew/cask
 ```
 
-Install Chromedriver for Google Chrome using Homebrew
+Install **Chromedriver** for Google Chrome using Homebrew
 
 ```
 brew cask install chromedriver
 ```
 
-Install Geckodriver for Firefox using Homebrew
+Install **Geckodriver** for Firefox using Homebrew
 
 ```
 brew install geckodriver
 ```
 
-Install the required version of Ruby
+Install **RVM** (Ruby Version Manager)
+
+Install the required version of Ruby which is currently 2.5.3
 
 ```
 rvm install 2.5.3
@@ -88,7 +89,7 @@ If you install the bundler gem then you can run a "bundle install"
 Here are some of the other individual gems you can install
 
 ```
-gem install cucumber -v 2.4.0
+gem install cucumber
 gem install capybara
 gem install selenium-webdriver
 gem install rspec

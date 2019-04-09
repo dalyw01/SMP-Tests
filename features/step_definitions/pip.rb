@@ -1,5 +1,9 @@
 When("I click PIP icon") do
   sleep(2)
+  if page.driver.browser.browser == :firefox
+    # If browser is Firefox we skip as pip is not supported
+    pending
+  end
   page.find('div#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
     page.first('.p_button.p_controlBarButton.p_picInPicButton').click
