@@ -166,7 +166,7 @@ end
 
 Then("the +{int} button is disabled") do |int|
   within_frame 'smphtml5iframemp' do
-    sleep 3
+    sleep(3)
     expect(page.find("button#p_audioui_forwardInterval").disabled?).to be true
   end
 end

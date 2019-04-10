@@ -15,7 +15,7 @@ end
 When("I can play any content in the CP list") do
   within_frame 'smphtml5iframemp' do
     page.first('.gcp_itemCtaIcon').click
-    sleep 2
+    sleep(2)
     page.find('.p_button.p_controlBarButton.p_pauseButton')
   end
 end
