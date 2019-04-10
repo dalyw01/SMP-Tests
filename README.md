@@ -128,7 +128,7 @@ If Gemfile.lock IS present then run a bundle install
 bundle install
 ```
 
-Running bundle install will look at the **Gemfile.lock** and install the exact same versions of ever gem, rather than just looking a **Gemfile** and installing the most recent versions
+Running bundle install will look at the **Gemfile.lock** and install the exact same versions of every gem, rather than just looking at **Gemfile** and installing the most recent versions
 
 If Gemfile.lock IS NOT present then Bundler will generate it when we run a script with a list of compatible gems
 
