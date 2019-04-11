@@ -81,8 +81,6 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
-    Then I press "<button>"
-    And I can resume past News blocking guidance in "<mode>"
     And I toggle CPP OFF
     And I enter "<mode>"
     And I seek to end of programme
