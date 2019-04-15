@@ -150,15 +150,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @SettingsTurnsOffCountdown
   Scenario Outline: Check settings button closes the countdown
-    Then I press "<button>"
     And I enter "<mode>"
     And I seek to end of programme
     And I click settings button
     And CPP shows WITHOUT cancel options
 
     Examples:
-    | button         | mode       |
-    | Mini CTA       | Inline     |
+    | mode           |
+    | Fullscreen     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -208,4 +207,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
     Examples:
     | mode       |
+    | Inline     |
     | Fullscreen |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContentSmallScreen
+  Scenario: Check the current program can be replayed in small screen
+    Then I enter "<mode>"
+    And I close the CP Panel
+    And I click CTA to begin playback again
+    Then The same content plays which is finished
