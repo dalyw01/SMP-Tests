@@ -58,6 +58,15 @@ When("I click CTA to begin playback again") do
   end
 end
 
+When("I close the CP Panel") do
+  page.driver.browser.manage.window.resize_to( 1000 , 1000 )
+  sleep 1
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.find('.gcp_panelsClose .gcp_closeSVG').click
+  end
+end
+
 Then("I click settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(6)
