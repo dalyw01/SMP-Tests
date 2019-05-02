@@ -56,4 +56,19 @@ Then("I can click Skip Add option") do
   end
 end
 
-
+Then("I can find no ADS when I replay the content") do
+  sleep(3)
+  within_frame 'smphtml5iframemp' do
+    if page.first("div.p_accessibleHitArea").click
+      sleep(3)
+      page.first("div.p_accessibleHitArea").click
+      sleep(1)
+    end
+    begin
+      sleep(2)
+      page.find("#ads_buttonBar").visible?
+    rescue Capybara::ElementNotFound
+      true
+    end
+  end
+end
