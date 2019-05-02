@@ -75,10 +75,9 @@ Feature: Checking SMP Ads work for various types of ads
     And I click ADS CTA to begin playback
     And I can see AD controlbar
     And I seek to end of programme
+    And I can wait for AD to finish
     Then I can find no ADS when I replay the content
 
     Examples:
     | page                 | type   | device  | mode       |
     | https://is.gd/bezeye | video  | desktop | Inline     |
-    | https://is.gd/bezeye | video  | desktop | Fullscreen |
-    | https://is.gd/ukewad | audio  | desktop | Inline     |

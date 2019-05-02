@@ -57,7 +57,6 @@ Then("I can click Skip Add option") do
 end
 
 Then("I can find no ADS when I replay the content") do
-  sleep(3)
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
       sleep(3)
