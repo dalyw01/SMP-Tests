@@ -198,4 +198,4 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #@@@2
