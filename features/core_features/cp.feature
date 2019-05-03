@@ -218,3 +218,17 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I close the CP Panel
     And I click CTA to begin playback again
     Then The same content plays which is finished
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContentAndSeekEnd
+  Scenario Outline: Check after current program is replayed twice, it stays in buffer state forever
+    And I enter "<mode>"
+    And I close the CP Panel without resizing
+    And I click CTA to begin playback again
+    And I seek till last second of program
+
+    Examples:
+    | mode       |
+    | Inline     |
+    | Fullscreen |
