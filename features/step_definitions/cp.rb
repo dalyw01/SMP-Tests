@@ -8,7 +8,7 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
 end
 
 Given("I am on a page with the HTML player and CP plugin installed and true and false settings applied") do
-  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cp_no_autoplay.html')
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
 
 When("I press alwaysShowCarouselButton then page reloads") do
