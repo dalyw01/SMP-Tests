@@ -19,12 +19,44 @@ Autoplay true and false requirements
     When I seek to end of programme
 
 
-@TrueTrueAndFalse
-Scenario: Check that when playing a video set to false it doesn't play without user interaction
+
+@TrueTrueFalseAndTrue
+Scenario: Playing content from a false setting to a true one requiring the user to press play on the first but auto play the second 
+When I seek to end of programme
 Then I wait for countdown to finish
 When I seek to end of programme
 Then I wait for countdown to finish
 When I click CTA to begin playback
+Then I wait for countdown to finish
+When I seek to end of programme
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
