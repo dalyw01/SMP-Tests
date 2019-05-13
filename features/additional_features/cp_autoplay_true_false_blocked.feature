@@ -14,70 +14,68 @@ Autoplay true and false requirements
 
 
   Background:
-    Given I am on a page with the HTML player and CP plugin installed and true and false settings applied
-    When I click CTA to begin playback
-    When I seek to end of programme
-
-@TrueTrueFalseTrueTrueFalseAndFalse
-Scenario: Playing content from a false setting to a true one requiring the user to press play on the first but auto play the second 
-When I seek to end of programme
-Then I wait for countdown to finish
-When I seek to end of programme
-Then I wait for countdown to finish
-When I click CTA to begin playback
-Then I wait for countdown to finish
-When I seek to end of programme
-When I click CTA to begin playback
-When I seek to end of programme
-Then I wait for countdown to finish
-When I seek to end of programme
-Then I wait for countdown to finish
-When I click CTA to begin playback
-When I seek to end of programme
-Then I wait for countdown to finish
-When I click CTA to begin playback
-When I seek to end of programme
-Then I wait for countdown to finish
-When I click CTA to begin playback
-When I seek to end of programme
-Then I wait for countdown to finish
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+  Given I am on a page with the HTML player and CP plugin installed and true and false settings applied
     
 
-  
+
+@TrueFalse
+Scenario: Playing all content variations of true and false without fullscreen
+all content variations of true and false 
+When I click CTA to begin playback
+When I seek to end of programme
+When I seek to end of programme
+Then I wait for countdown to finish
+Then I can pause
+Then I can play
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+Then I can pause
+Then I can play
+Then I wait for countdown to finish
+When I seek to end of programme
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+
+
+@TrueFalseFullScreen
+Scenario: Playing all content variations of true and false with fullscreen
+When I click CTA to begin playback
+When I seek to end of programme
+When I enter full screen
+When I seek to end of programme
+Then I wait for countdown to finish
+Then I can pause
+Then I can play
+When I seek to end of programme
+Then I wait for countdown to finish
+Then I can play
+When I seek to end of programme
+Then I wait for countdown to finish
+When I seek to end of programme
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+When I seek to end of programme
+Then I wait for countdown to finish
+When I click CTA to begin playback
+When I seek to end of programme
+Then I wait for countdown to finish
+Then I can play
+When I seek to end of programme
+Then I wait for countdown to finish
+Then I can play
+When I seek to end of programme
+Then I wait for countdown to finish
