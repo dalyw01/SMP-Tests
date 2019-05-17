@@ -1,2 +1,4 @@
 # Generated log files
 *.log
+
+*.DS_Store

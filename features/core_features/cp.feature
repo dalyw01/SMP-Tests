@@ -197,6 +197,9 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Fullscreen |
 
+<<<<<<< HEAD
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #@@@2
+=======
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @PlayingSameContent
@@ -220,3 +223,4 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then The same content plays which is finished
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+>>>>>>> master
