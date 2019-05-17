@@ -1,6 +1,8 @@
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
-  sleep(10)
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+  sleep(5)
 end
 
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
@@ -22,7 +24,6 @@ end
 
 When(/^I use core functionality of SMP$/) do
   within_frame "smphtml5iframemp" do
-    sleep(1)
     page.first(".p_iconHolder .p_pauseIcon").click
     sleep(1)
     page.first(".p_playIcon").click
@@ -45,11 +46,47 @@ end
 Then("CP disappears") do
   within_frame 'smphtml5iframemp' do
     begin
-      sleep 2
+      sleep(2)
       page.find(".gcp_carouselBackground").visible?
     rescue Capybara::ElementNotFound
       true
     end
+  end
+end
+
+When("I click CTA to begin playback again") do
+  title = page.find('#playlist_title').text
+  within_frame 'smphtml5iframemp' do
+    sleep(4)
+    page.find('.p_button.p_controlBarButton.p_playButton').click
+  end
+end
+
+When("I close the CP Panel") do
+  page.driver.browser.manage.window.resize_to( 1000 , 1000 )
+  sleep 1
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.find('.gcp_panelsClose .gcp_closeSVG').click
+  end
+end
+
+When("I close the CP Panel without resizing") do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.find('.gcp_panelsClose .gcp_closeSVG').click
+  end
+end
+
+When("I seek till last second of program") do
+  sleep(2)
+  page.find('div#smphtml5iframempwrp').click
+  page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration()));')
+  sleep(5)
+  begin
+    page.find("#ads_buttonBar").visible?
+  rescue Capybara::ElementNotFound
+    true
   end
 end
 
@@ -139,7 +176,7 @@ end
 
 Then(/^I press "([^"]*)"$/) do |string|
   within_frame "smphtml5iframemp" do
-    sleep(2)
+    sleep(0.5)
     if string == "X"
       page.first(".gcp_closeSVG").click
     elsif string == "Cancel"
@@ -152,17 +189,23 @@ Then(/^I press "([^"]*)"$/) do |string|
       page.first(".gcp_itemDescription").click
     end
   end
-  sleep(1)
+  sleep(0.5)
 end
 
 Then("I move right with the CP list") do
   within_frame "smphtml5iframemp" do
-    sleep 4
+    sleep(3)
     page.find("button.gcp_carouselControlsNext").click
-    sleep 2
+    sleep(2)
     page.find("button.gcp_carouselControlsNext").click
-    sleep 1
+    sleep(1)
   end
+end
+
+Then("The same content plays which is finished") do
+  sleep(1)
+  title_now = page.find('#playlist_title').text
+  title == title_now
 end
 
 Then("I am able to play any content with a single click") do
@@ -171,7 +214,7 @@ Then("I am able to play any content with a single click") do
   elems << page.find_all(".gcp_carouselContainer li div.gcp_item div.gcp_itemContainer div.gcp_itemCta")
   element = elems[0][5]
   element.click
-  sleep 3
+  sleep(3)
   end
 end
 

@@ -150,15 +150,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @SettingsTurnsOffCountdown
   Scenario Outline: Check settings button closes the countdown
-    Then I press "<button>"
     And I enter "<mode>"
     And I seek to end of programme
     And I click settings button
     And CPP shows WITHOUT cancel options
 
     Examples:
-    | button         | mode       |
-    | Mini CTA       | Inline     |
+    | mode           |
+    | Fullscreen     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -175,7 +174,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @playingSameContent
-  Scenario Outline: Check the same content gets played when clicked on Play CTA while CP is present and it closes the CP
+  Scenario Outline: Check the CP disappears when Play CTA is clicked and the current program replays
     And I enter "<mode>"
     And CPP shows
     Then I can replay current programme
@@ -188,7 +187,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CPListClickToPlayBug
-  Scenario Outline: Check the same content gets played when clicked on Play CTA while CP is present and it closes the CP
+  Scenario Outline: Check if a single click can play a content from CP
     And I toggle CPP OFF
     And I enter "<mode>"
     Then I move right with the CP list
@@ -198,4 +197,30 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Fullscreen |
 
+<<<<<<< HEAD
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #@@@2
+=======
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContent
+  Scenario Outline: Check the current program is replayed when CP loads and Play CTA is clicked
+    And I enter "<mode>"
+    And I click CTA to begin playback again
+    Then The same content plays which is finished
+
+    Examples:
+    | mode       |
+    | Inline     |
+    | Fullscreen |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContentSmallScreen
+  Scenario: Check the current program can be replayed in small screen
+    Then I enter "<mode>"
+    And I close the CP Panel
+    And I click CTA to begin playback again
+    Then The same content plays which is finished
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+>>>>>>> master

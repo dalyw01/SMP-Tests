@@ -1,5 +1,9 @@
 When("I click PIP icon") do
   sleep(2)
+  if page.driver.browser.browser == :firefox
+    # If browser is Firefox we skip as pip is not supported
+    pending
+  end
   page.find('div#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
     page.first('.p_button.p_controlBarButton.p_picInPicButton').click
@@ -15,7 +19,7 @@ end
 When("I can play any content in the CP list") do
   within_frame 'smphtml5iframemp' do
     page.first('.gcp_itemCtaIcon').click
-    sleep 2
+    sleep(2)
     page.find('.p_button.p_controlBarButton.p_pauseButton')
   end
 end

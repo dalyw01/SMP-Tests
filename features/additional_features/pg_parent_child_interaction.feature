@@ -94,7 +94,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
     Then I should be able to restart playback without another pop-up
 
   @BUMP_tp_3
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission MP-3501
     Given multiple o16 HTML players with guidance and NO cookies
     When I click small CTA
     And I press BUMP [Turn On PG Lock]
@@ -109,7 +109,6 @@ Feature: Checking PG works as expected when switching from parent to child for v
     And I press BUMP [Play] to unlock
     Given an u16 HTML player with guidance
     When I click small CTA
-    And I press BUMP [Play] button to proceed through u16
     And I see BUMP caution symbol with GUARDIANS permission error message
     Then I should be able to press BUMP Play button again
     And I tick BUMP checkbox
