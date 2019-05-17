@@ -9,9 +9,7 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
        Ensure HTTPS:// is in the URL 
        A local CPP Player page set up with content set to both true and false
        Have a combination of true/true, true/false, false/true, false/false 
-       http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html
-       All tests will begin with a starting content video set to true which will be a random video vpid 
-
+       
 
      Background:
        Given I am on a page with the HTML player and CP plugin installed and true and false settings applied
