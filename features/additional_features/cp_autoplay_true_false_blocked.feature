@@ -45,7 +45,7 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
        When I seek to end of programme
        Then I wait for countdown to finish
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
      @TrueFalseFullScreen
      Scenario: Playing all content variations of true and false with fullscreen
