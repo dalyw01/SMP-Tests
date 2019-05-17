@@ -6,15 +6,12 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
      that when content is set to false user interaction is required before the content can play 
 
      Autoplay true and false requirements  
-       Ensure HTTPS:// is in the URL 
-       A local CPP Player page set up with content set to both true and false
        Have a combination of true/true, true/false, false/true, false/false 
        
 
      Background:
        Given I am on a page with the HTML player and CP plugin installed and true and false settings applied
     
-
      @TrueFalse
      Scenario: Playing all content variations of true and false without fullscreen 
        When I click CTA to begin playback
@@ -76,4 +73,3 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
        Then I can play
        When I seek to end of programme
        Then I wait for countdown to finish
-     
