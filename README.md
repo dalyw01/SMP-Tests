@@ -85,8 +85,6 @@ For example -
 gem install bundler
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 If you install the bundler gem then you can run a "bundle install"
 =======
 Here are some others you can install
