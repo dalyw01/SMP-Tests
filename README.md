@@ -86,9 +86,9 @@ gem install bundler
 ```
 
 If you install the bundler gem then you can run a "bundle install"
-=======
+
 Here are some others you can install
-=======
+
 Here are some of the other individual gems you can install
 
 ```
