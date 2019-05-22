@@ -68,7 +68,7 @@ end
 
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
-    sleep(6)
+    sleep(1)
     page.first(".playback_settings_low_option").click
   end
 end
