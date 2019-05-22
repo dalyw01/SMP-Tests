@@ -19,6 +19,7 @@ end
 Given(/^I am on a page with the HTML player and quality settings set to true$/) do
   visit('https://is.gd/idiseq')
   
+
 end
 
 When(/^I seek to end of programme$/) do
@@ -90,7 +91,7 @@ end
 Then("I click quality settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(6)
-    page.first(".playback_settings").click
+    page.first(".p_playbackSettingsButton").click
   end
 end
 
