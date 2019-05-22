@@ -15,4 +15,5 @@ Feature: Checking quality settings are saved when changed
      Scenario: Play content, change quality to low, refresh page and check qulaity is still set to low 
        When I click CTA to begin playback
        Then I click quality settings button
+       Then I click low option button
        

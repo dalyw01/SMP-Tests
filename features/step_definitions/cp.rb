@@ -60,6 +60,37 @@ Then("I click settings button") do
   end
 end
 
+Then("I click low option button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(6)
+    page.first(".playback_settings_low_option").click
+  end
+end
+
+Then("I click medium option button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(6)
+    page.first(".playback_settings_medium_option").click
+  end
+end
+
+Then("I click high option button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(6)
+    page.first(".playback_settings_high_option").click
+  end
+end
+
+
+Then("I click quality settings button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(6)
+    page.first(".playback_settings").click
+  end
+end
+
+
+
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
    within_frame 'smphtml5iframemp' do
