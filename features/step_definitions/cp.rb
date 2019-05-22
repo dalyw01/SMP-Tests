@@ -16,6 +16,11 @@ When(/^I press alwaysShowCarouselButton then page reloads$/) do
   sleep(2)
 end
 
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  
+end
+
 When(/^I seek to end of programme$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
 end
