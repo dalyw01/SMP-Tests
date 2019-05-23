@@ -5,7 +5,7 @@
 *.DS_Store
 
 # Generated from 360 comparison
-.png
+*.png
 
 # If somebody decides to output to a html instead of terminal we don't want to upload
-.html
+*.html
