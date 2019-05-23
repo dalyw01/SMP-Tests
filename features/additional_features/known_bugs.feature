@@ -1,8 +1,8 @@
 @bugs
-Feature: Keeping a track of the Logged bugs for future reference
+Feature: Keeping a track of the logged bugs for future reference
 
   As a tester of SMP
-  I want the bugs in SMP player should be tracked and to be kept for future reference
+  I want to track SMP bugs for future reference
 
   Background:
     Given I am on a page with the HTML player and CP plugin installed

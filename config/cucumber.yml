@@ -1,4 +1,4 @@
 default: BROWSER=chrome
 chrome: BROWSER=chrome
 firefox: BROWSER=firefox
-safari: BROWSER=safari
+safari: BROWSER=safarix

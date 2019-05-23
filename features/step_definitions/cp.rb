@@ -255,7 +255,7 @@ Then(/^I press X of CP$/) do
 end
 
 # Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
-Then("I can resume past News blocking guidance in {string}") do |mode|
+Then(/^I can resume past News blocking guidance in "([^"]*)"$/) do |mode|
   within_frame 'smphtml5iframemp' do
     if mode == "Inline"
       sleep(2)
