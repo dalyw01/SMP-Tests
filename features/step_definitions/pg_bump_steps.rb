@@ -116,7 +116,6 @@ When(/^I enter 1 1 1 1 to BUMP$/) do
   sleep(2)
 end
 
-
 When(/^I enter D A L Y to BUMP$/) do
   sleep(2)
   all(:xpath, '//*[@id="pinEntryInputBox"]')[0].hover
@@ -130,9 +129,7 @@ end
 
 Then(/^I see BUMP caution symbol with GUARDIANS permission error message$/) do
   sleep(1)
-  all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click
-  sleep(1)
-  find('#guidanceMessage').should have_content('Please confirm you have permission before continuing')
+  all(:xpath, '//*[@id="guidancePopup"]')[0].click
   sleep(2)
 end
 
@@ -143,7 +140,7 @@ When(/^I see BUMP caution symbol with invalid PIN error Message$/) do
   find('#guidanceBody').should have_content('Your PIN must be four digits long.')
   sleep(2)
 end
-
+  
 When(/^I see BUMP caution symbol with age error message$/) do
   sleep(1)
   all(:xpath, '//*[@id="pgErrorMessage"]/div/span')[0].click

@@ -17,6 +17,18 @@ When("I load skippable ads by clicking html button") do
   page.find("button#loadAdButton").click
 end
 
+When(/^I enter AD fullscreen if "([^"]*)"$/) do |mode|
+  sleep(1)
+  if mode == "Fullscreen"
+    within_frame 'smphtml5iframemp' do
+      sleep(1)
+      page.first("#ads_buttonBar").click
+      page.first(".ads_enterFullScreenButton").hover
+      page.first(".ads_enterFullScreenButton").click
+    end
+  end
+end
+
 Then(/^I can AD pause$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -28,18 +40,6 @@ Then(/^I can AD play$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first(".ads_playButton").click
-  end
-end
-
-Then("I enter AD fullscreen if {string}") do |mode|
-  sleep(1)
-  if mode == "Fullscreen"
-    within_frame 'smphtml5iframemp' do
-      sleep(1)
-      page.first("#ads_buttonBar").click
-      page.first(".ads_enterFullScreenButton").hover
-      page.first(".ads_enterFullScreenButton").click
-    end
   end
 end
 

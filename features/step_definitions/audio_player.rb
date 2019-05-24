@@ -158,13 +158,13 @@ Then(/^I see LIVE button is disabled when at LIVE$/) do
 	sleep(1)
 end
 
-Then("the {int} button is disabled") do |int|
+Then(/^the \-(\d+) button is disabled$/) do |int|
   within_frame 'smphtml5iframemp' do
     expect(page.find("button#p_audioui_backInterval").disabled?).to be true
   end
 end
 
-Then("the +{int} button is disabled") do |int|
+Then(/^the \+(\d+) button is disabled$/) do |int|
   within_frame 'smphtml5iframemp' do
     sleep(3)
     expect(page.find("button#p_audioui_forwardInterval").disabled?).to be true

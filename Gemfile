@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'cucumber'
+gem 'parallel_tests'
 gem 'capybara'
 gem 'rspec'
 gem 'selenium-webdriver'
 gem 'touch_action'
+gem 'image_size'
+gem 'chunky_png'

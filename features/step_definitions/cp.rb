@@ -9,7 +9,11 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
-When("I press alwaysShowCarouselButton then page reloads") do
+Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
+end
+
+When(/^I press alwaysShowCarouselButton then page reloads$/) do
   page.first(" #alwaysShowCarouselButtonContainerButton").click
   sleep(2)
 end
@@ -251,7 +255,7 @@ Then(/^I press X of CP$/) do
 end
 
 # Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
-Then("I can resume past News blocking guidance in {string}") do |mode|
+Then(/^I can resume past News blocking guidance in "([^"]*)"$/) do |mode|
   within_frame 'smphtml5iframemp' do
     if mode == "Inline"
       sleep(2)

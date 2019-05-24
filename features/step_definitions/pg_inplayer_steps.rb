@@ -154,8 +154,6 @@ When(/^I see caution symbol with GUARDIANS permission error message$/) do
   within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
     find('.p_guidance-alertIcon').hover
-    sleep(1)
-    find('#guidanceMessage').should have_content('Please confirm you have permission before continuing')
     sleep(2)
   end
 end
