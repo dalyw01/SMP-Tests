@@ -68,7 +68,7 @@ end
 
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
-    sleep(1)
+    sleep(10)
     page.first(".p_settingsPanelOpen").click
   end
 end
