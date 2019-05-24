@@ -16,4 +16,5 @@ Feature: Checking quality settings are saved when changed
        When I click CTA to begin playback
        Then I click quality settings button
        Then I click low option button
+       Then I click medium option button
        
