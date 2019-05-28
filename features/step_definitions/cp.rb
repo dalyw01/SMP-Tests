@@ -91,7 +91,7 @@ end
 Then("I click quality settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_playbackSettingsButton").click
+    page.first(".p_qualitySettingOn").click
   end
 end
 
