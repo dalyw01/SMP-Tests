@@ -69,7 +69,7 @@ end
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
     sleep(10)
-    page.first(".p_qualityPanelLowRowHeading").click
+    page.first("p_qualityPanelLowRowHeading").click
   end
 end
 
@@ -91,10 +91,16 @@ end
 Then("I click quality settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(1)
-    page.first(".p_qualitySettingOn").click
+    page.first(".p_playbackSettingsButton").click
   end
 end
 
+Then("I click video quality settings button") do
+  within_frame 'smphtml5iframemp' do
+    sleep(1)
+    page.first(".p_qualitySettingOn").click
+  end
+end
 
 
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
