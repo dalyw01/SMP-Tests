@@ -6,10 +6,14 @@ Given(/^I am on a page with the HTML player and CP plugin installed$/) do
 end
 
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
 
