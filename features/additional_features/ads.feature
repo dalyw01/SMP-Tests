@@ -1,4 +1,4 @@
-@ads
+@Ads
 Feature: Checking SMP Ads work for various types of ads
 
     As a tester of SMP

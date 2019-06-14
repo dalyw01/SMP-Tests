@@ -12,7 +12,7 @@ Feature: Keeping a track of the logged bugs for future reference
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @PlayingSameContentTwiceBug
+  @playingSameContentTwiceBug
   Scenario Outline: Check after current program is replayed twice, it stays in buffer state forever
     And I enter "<mode>"
     And I close the CP Panel without resizing
