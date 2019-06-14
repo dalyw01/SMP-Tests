@@ -108,6 +108,20 @@ When("I enter full screen") do
   end
 end
 
+When("I can double click to enter fullscreen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    page.first('.p_accessibleHitArea').double_click
+  end
+end
+
+When("I can double click to exit fullscreen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    page.first('.p_accessibleHitArea').double_click
+  end
+end
+
 Then("I exit full screen") do
   expect(page).to have_no_css('.p_button.p_controlBarButton.p_fullscreenButtonReturn')
 end
