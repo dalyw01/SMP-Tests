@@ -101,31 +101,6 @@ Then("I can click each volume bar") do
   end
 end
 
-When("I enter full screen") do
-  page.find('#smphtml5iframempwrp').hover
-  within_frame 'smphtml5iframemp' do
-    page.first('.p_fullscreenButton').click
-  end
-end
-
-When("I can double click to enter fullscreen") do
-  page.find('#smphtml5iframempwrp').hover
-  within_frame 'smphtml5iframemp' do
-    page.first('.p_accessibleHitArea').double_click
-  end
-end
-
-When("I can double click to exit fullscreen") do
-  page.find('#smphtml5iframempwrp').hover
-  within_frame 'smphtml5iframemp' do
-    page.first('.p_accessibleHitArea').double_click
-  end
-end
-
-Then("I exit full screen") do
-  expect(page).to have_no_css('.p_button.p_controlBarButton.p_fullscreenButtonReturn')
-end
-
 When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
   if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
@@ -138,9 +113,25 @@ end
 When(/^I can exit fullscreen if "([^"]*)"$/) do |type|
   if type != "audio" and type != "minimode"
     within_frame 'smphtml5iframemp' do
+      sleep(2)
       page.first(".p_fullscreen-returnIcon").click
     end
-    sleep(1)
+  end
+end
+
+When("I can double click to enter fullscreen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    page.first('.p_accessibleHitArea').double_click
+  end
+end
+
+When("I can double click to exit fullscreen") do
+  page.find('#smphtml5iframempwrp').hover
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    page.first('.p_accessibleHitArea').double_click
   end
 end
 
