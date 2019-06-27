@@ -2,8 +2,8 @@
 Feature: Checking fullscreen functionality works when using icons or double-click
 
     As a tester of SMP
-    I want to fullscreen functionality of SMP works
-    So that I can enter and exit fullscreen using multiple methods
+    I want to test fullscreen functionality of SMP is working
+    So that I can enter/exit fullscreen using multiple methods - double-clicking and using icons
 
     @double_click
     Scenario Outline: Check double clicking player enters and double click exits fullscreen
