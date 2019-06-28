@@ -19,6 +19,12 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I can double click to exit fullscreen
     And I can pause
     And I can play
+    And I can seek in quarters to the end
+    And I click CTA to begin playback
+    And I can pause
+    And I can play
+    And I can double click to enter fullscreen
+    And I can double click to exit fullscreen
 
     Examples:
     | page                 | type               | device  |
@@ -28,7 +34,7 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
 
 
     @double_click_and_icons_mix
-    Scenario Outline: Check double clicking player works with pressing icons
+    Scenario Outline: Check double clicking player works in combination with pressing icons
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -43,10 +49,16 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I can double click to exit fullscreen
     And I can pause
     And I can play
+    And I can seek in quarters to the end
+    And I click CTA to begin playback
+    And I can pause
+    And I can play
+    And I can double click to enter fullscreen
+    And I can double click to exit fullscreen
+
 
     Examples:
     | page                 | type               | device  |
     | https://is.gd/sabiwu | ident + vod + subs | tablet  |
     | https://is.gd/sabiwu | ident + vod + subs | desktop |
     | https://is.gd/wetese | simulcast          | desktop |
-
