@@ -13,18 +13,18 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I click CTA to begin playback
     And I can pause
     And I can play
-    And I can double click to enter fullscreen
+    And I can double click anywhere in the player hitbox to enter fullscreen
     And I can pause
     And I can play
-    And I can double click to exit fullscreen
+    And I can double click anywhere in the player hitbox to exit fullscreen
     And I can pause
     And I can play
     And I can seek in quarters to the end
     And I click CTA to begin playback
     And I can pause
     And I can play
-    And I can double click to enter fullscreen
-    And I can double click to exit fullscreen
+    And I can double click anywhere in the player hitbox to exit fullscreen
+    And I can double click anywhere in the player hitbox to exit fullscreen
 
     Examples:
     | page                 | type               | device  |
@@ -41,20 +41,20 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I click CTA to begin playback
     And I can pause
     And I can play
-    And I can double click to enter fullscreen
+    And I can double click anywhere in the player hitbox to enter fullscreen
     And I can exit fullscreen if "<type>"
     And I can pause
     And I can play
     And I can enter fullscreen if "<type>"
-    And I can double click to exit fullscreen
+    And I can double click anywhere in the player hitbox to exit fullscreen
     And I can pause
     And I can play
     And I can seek in quarters to the end
     And I click CTA to begin playback
     And I can pause
     And I can play
-    And I can double click to enter fullscreen
-    And I can double click to exit fullscreen
+    And I can double click anywhere in the player hitbox to enter fullscreen
+    And I can double click anywhere in the player hitbox to exit fullscreen
 
 
     Examples:

@@ -119,7 +119,7 @@ When(/^I can exit fullscreen if "([^"]*)"$/) do |type|
   end
 end
 
-When("I can double click to enter fullscreen") do
+When("I can double click anywhere in the player hitbox to enter fullscreen") do
   page.find('#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -127,7 +127,7 @@ When("I can double click to enter fullscreen") do
   end
 end
 
-When("I can double click to exit fullscreen") do
+When("I can double click anywhere in the player hitbox to exit fullscreen") do
   page.find('#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
     sleep(2)
