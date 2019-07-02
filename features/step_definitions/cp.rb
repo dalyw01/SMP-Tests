@@ -16,12 +16,6 @@ When(/^I press alwaysShowCarouselButton then page reloads$/) do
   sleep(2)
 end
 
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
-  
-
-end
-
 When(/^I seek to end of programme$/) do
   duration = page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration() - 2 ) );')
 end
@@ -58,50 +52,6 @@ Then("CP disappears") do
     end
   end
 end
-
-Then("I click settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".p_button.p_controlBarButton.p_playbackSettingsButton.p_dontCloseSettingsPanel").click
-  end
-end
-
-Then("I click low option button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(10)
-    page.first("p_qualityPanelLowRowHeading").click
-  end
-end
-
-Then("I click medium option button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".playback_settings_medium_option").click
-  end
-end
-
-Then("I click high option button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".playback_settings_high_option").click
-  end
-end
-
-
-Then("I click quality settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(1)
-    page.first(".p_playbackSettingsButton").click
-  end
-end
-
-Then("I click video quality settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(1)
-    page.first(".p_qualitySettingOn").click
-  end
-end
-
 
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
