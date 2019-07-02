@@ -2,7 +2,7 @@
     Feature: Checking quality settings are saved when changed. Prior to any actions the BBC cookies need to be accepted first to ensure the changes are saved
 
      As a tester of SMP
-     I want to check the functionality of the quality settings feature  
+     I want to check the functionality of the quality settings feature and that every selection Low,Medium,High can be selected and the option saved  
        
 
      Background:
@@ -16,7 +16,7 @@
        When I click CTA to begin playback
        Then I click quality settings button
        Then I click video quality settings button
-       Then I click medium option button
+       Then I click low option button
        Then I refresh page
        When I click CTA to begin playback
        Then I click quality settings button
@@ -35,6 +35,10 @@
        Then I click video quality settings button
        Then I click medium option button
        Then I refresh page
+       When I click CTA to begin playback
+       Then I click quality settings button
+       Then I click video quality settings button
+       Then I verify medium option has been selected
 
        # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -47,6 +51,11 @@
        Then I click low option button
        Then I click medium option button
        Then I click high option button
+       Then I refresh page
+       When I click CTA to begin playback
+       Then I click quality settings button
+       Then I click video quality settings button
+       Then I verify high option has been selected
 
        # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
