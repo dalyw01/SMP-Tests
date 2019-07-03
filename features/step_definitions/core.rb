@@ -106,26 +106,26 @@ end
 
 Then(/^I verify low option has been selected$/) do
  within_frame 'smphtml5iframemp' do
-   sleep(2)
+   sleep(3)
    expect(page.find('#p_qualityPanelFirstRow')['aria-label']).to eq("Low quality selected")
-   sleep(2)
+   sleep(3)
  end
 end
 
 
 Then(/^I verify medium option has been selected$/) do
  within_frame 'smphtml5iframemp' do
-   sleep(2)
+   sleep(3)
    expect(page.find('#p_qualityPanelMediumRow')['aria-label']).to eq("Medium quality selected")
-   sleep(2)
+   sleep(3)
  end
 end
 
 Then(/^I verify high option has been selected$/) do
  within_frame 'smphtml5iframemp' do
-   sleep(2)
+   sleep(3)
    expect(page.find('#p_qualityPanelHighRow')['aria-label']).to eq("Highest quality available selected")
-   sleep(2)
+   sleep(3)
  end
 end
 
