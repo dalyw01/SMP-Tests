@@ -73,7 +73,7 @@ end
 Then("I click medium option button") do
   within_frame 'smphtml5iframemp' do
     sleep(2)
-    page.first("#p_qualityPanelMediumRow").click
+    page.first("#p_qualityPanelMediumRowHeading").click
     sleep(2)
 
   end
