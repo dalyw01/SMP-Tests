@@ -31,10 +31,6 @@ Given(/^I visit an audio {string} with a {string} player on {string}$/) do |new_
   refresh()
 end
 
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
-  end
-
 When(/^the COOKBOOK has loaded$/) do
   if page.driver.browser.browser == :safari
     # Do nothing as safari cannot see the h1
