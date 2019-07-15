@@ -1,3 +1,7 @@
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
 Then("I click settings button") do
   within_frame 'smphtml5iframemp' do
     sleep(6)

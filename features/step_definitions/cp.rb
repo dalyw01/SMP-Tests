@@ -1,8 +1,3 @@
-Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/pisole') # Lock to stage
-  sleep(10)
-end
-
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
