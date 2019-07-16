@@ -6,6 +6,10 @@ Given(/^I am on a page with the HTML player and CP plugin installed and true and
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
 
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
 When(/^I press alwaysShowCarouselButton then page reloads$/) do
   page.first(" #alwaysShowCarouselButtonContainerButton").click
   sleep(2)
@@ -61,6 +65,7 @@ end
 Then(/^I wait for countdown to finish$/) do
   sleep(9)
 end
+
 
 Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
