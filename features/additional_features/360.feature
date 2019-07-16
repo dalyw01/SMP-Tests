@@ -5,7 +5,8 @@ Feature: Checking 360 player base functionality
   I want to check core functionality of 360 player
   So that I verify its working as expected
 
-  Scenario Outline: Check basic 360  accessibility
+  @360Core
+  Scenario Outline: Check basic 360 functionality
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -39,8 +40,9 @@ Feature: Checking 360 player base functionality
     | https://is.gd/zikivo | 360  | tablet  |
     | https://is.gd/zikivo | 360  | desktop |
 
-@360MatchScreen
+  @360MatchScreen
   Scenario Outline: Check Screen moves when pressed any button on compass
+
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click CTA to begin playback of 360 player
@@ -51,7 +53,7 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type | device  | mode        |
-    | https://is.gd/gibocu | 360  | tablet  | Inline      |
-    | https://is.gd/gibocu | 360  | tablet  | Fullscreen  |
-    | https://is.gd/gibocu | 360  | desktop | Inline      |
-    | https://is.gd/gibocu | 360  | desktop | Fullscreen  |
+    | https://is.gd/zikivo | 360  | tablet  | Inline      |
+    | https://is.gd/zikivo | 360  | tablet  | Fullscreen  |
+    | https://is.gd/zikivo | 360  | desktop | Inline      |
+    | https://is.gd/zikivo | 360  | desktop | Fullscreen  |

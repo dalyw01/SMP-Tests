@@ -52,8 +52,6 @@ Then("I check screen moves using buttons of compass") do
     sleep(1)
     img2 = page.save_screenshot('screenshot1.png')
 
-    require 'chunky_png'
-
     images = [
       ChunkyPNG::Image.from_file('screenshot.png'),
       ChunkyPNG::Image.from_file('screenshot1.png')
