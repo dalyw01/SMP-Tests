@@ -40,6 +40,37 @@ Then("I can enter fullscreen") do
   end
 end
 
+Then("I check screen moves using buttons of compass") do
+  within_frame 'smphtml5iframemp' do
+    sleep(2)
+    img1 = page.save_screenshot('screenshot.png')
+    sleep(1)
+    page.first("#p_compass_right_touch").hover
+    sleep(1)
+    page.first("#p_compass_right_touch").touch_action(:press, hold: 700)
+    page.first("#p_threeSixtyCanvas").hover
+    sleep(1)
+    img2 = page.save_screenshot('screenshot1.png')
+
+    images = [
+      ChunkyPNG::Image.from_file('screenshot.png'),
+      ChunkyPNG::Image.from_file('screenshot1.png')
+    ]
+
+    diff = []
+
+        images.first.height.times do |y|
+        images.first.row(y).each_with_index do |pixel, x|
+        diff << [x,y] unless pixel == images.last[x,y]
+  end
+end
+
+  puts "pixels (total):     #{images.first.pixels.length}"
+  puts "pixels changed:     #{diff.length}"
+  puts "pixels changed (%): #{(diff.length.to_f / images.first.pixels.length) * 100}%"
+  end
+end
+
 Then(/^I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard$/) do
   sleep(2)
   10.times do
