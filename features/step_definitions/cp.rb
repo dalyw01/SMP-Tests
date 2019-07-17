@@ -1,10 +1,3 @@
-Given(/^I am on a page with the HTML player and CP plugin installed$/) do
-  visit('https://is.gd/pisole') # Lock to stage
-  sleep(1)
-  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
-  sleep(5)
-end
-
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   sleep(1)
   page.driver.browser.manage.window.resize_to( 1600 , 1280 )
@@ -16,6 +9,10 @@ Given(/^I am on a page with the HTML player and CP plugin installed and true and
   page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
+
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
 
 When(/^I press alwaysShowCarouselButton then page reloads$/) do
   page.first(" #alwaysShowCarouselButtonContainerButton").click
@@ -58,48 +55,6 @@ Then("CP disappears") do
   end
 end
 
-When("I click CTA to begin playback again") do
-  title = page.find('#playlist_title').text
-  within_frame 'smphtml5iframemp' do
-    sleep(4)
-    page.find('.p_button.p_controlBarButton.p_playButton').click
-  end
-end
-
-When("I close the CP Panel") do
-  page.driver.browser.manage.window.resize_to( 1000 , 1000 )
-  sleep 1
-  within_frame 'smphtml5iframemp' do
-    sleep(3)
-    page.find('.gcp_panelsClose .gcp_closeSVG').click
-  end
-end
-
-When("I close the CP Panel without resizing") do
-  within_frame 'smphtml5iframemp' do
-    sleep(3)
-    page.find('.gcp_panelsClose .gcp_closeSVG').click
-  end
-end
-
-When("I seek till last second of program") do
-  sleep(2)
-  page.find('div#smphtml5iframempwrp').click
-  page.execute_script( 'embeddedMedia.players[0].currentTime( ( embeddedMedia.players[0].duration()));')
-  sleep(5)
-  begin
-    page.find("#ads_buttonBar").visible?
-  rescue Capybara::ElementNotFound
-    true
-  end
-end
-
-Then("I click settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".p_button.p_controlBarButton.p_playbackSettingsButton.p_dontCloseSettingsPanel").click
-  end
-end
 
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
@@ -114,6 +69,7 @@ end
 Then(/^I wait for countdown to finish$/) do
   sleep(9)
 end
+
 
 Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
