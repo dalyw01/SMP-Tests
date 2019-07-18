@@ -40,30 +40,38 @@ end
 When(/^I click CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     page.first("div.p_accessibleHitArea").click
-    find('#p_v_player_0').hover
+    sleep(2)
+    # If its the video player we need to re-focus on player after pressing CTA, Jim made a change!
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
+    end
   end
 end
 
-When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
-  if type != "audio" or type != "minimode"
-    page.find('.settings-player').hover
-    sleep(1)
-    within_frame 'smphtml5iframemp' do
-      page.first("div.p_accessibleHitArea").hover
+When(/^I replay if "([^"]*)"$/) do |type|
+  within_frame 'smphtml5iframemp' do
+    if type == "simulcast" or type == "webcast"
+      # Do nothing as we cannot replay simulcast or webcast
+    else
+      page.first("div.p_accessibleHitArea").click
+      sleep(2)
+      if page.has_css?('#p_v_player_0') == true
+        find('#p_v_player_0').hover
+      end
     end
   end
 end
 
 Then(/^I can pause$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(0.5)
+    sleep(1)
     page.first(".p_pauseIcon").click
   end
 end
 
 Then(/^I can play$/) do
   within_frame 'smphtml5iframemp' do
-    sleep(0.5)
+    sleep(1)
     page.first(".p_playIcon").click
   end
 end
@@ -103,6 +111,8 @@ When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
     within_frame 'smphtml5iframemp' do
       sleep(2)
       page.first(".p_fullscreenButton").click
+      sleep(2)
+      find('#p_v_player_0').hover
     end
   end
 end
@@ -112,6 +122,8 @@ When(/^I can exit fullscreen if "([^"]*)"$/) do |type|
     within_frame 'smphtml5iframemp' do
       sleep(2)
       page.first(".p_fullscreen-returnIcon").click
+      sleep(2)
+      find('#p_v_player_0').hover
     end
   end
 end

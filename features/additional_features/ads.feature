@@ -21,13 +21,11 @@ Feature: Checking SMP Ads work for various types of ads
     And I can see AD controlbar
     And I can AD play
     And I can wait for AD to finish
-    And I see controlbar hides instantly if "<type>"
     And I can pause
     And I can play
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I see controlbar hides instantly if "<type>"
     And I can seek in quarters to the end
     And I click CTA to begin playback
     And I can pause
