@@ -38,13 +38,10 @@ When(/^the COOKBOOK has loaded$/) do
 end
 
 When(/^I click CTA to begin playback$/) do
-  within_frame 'smphtml5iframemp' do
-    if page.first("div.p_accessibleHitArea").click
-      sleep(3)
-      page.first("div.p_accessibleHitArea").click
-      sleep(1)
-    end
-  end
+   within_frame 'smphtml5iframemp' do
+     page.first("div.p_accessibleHitArea").click
+     find('#p_v_player_0').hover
+   end
 end
 
 When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|

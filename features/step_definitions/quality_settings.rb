@@ -1,3 +1,6 @@
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/sapeno')
+  end
 
 Then("I click settings button") do
   within_frame 'smphtml5iframemp' do
@@ -56,7 +59,7 @@ end
 Then(/^I verify medium option has been selected$/) do
  within_frame 'smphtml5iframemp' do
    sleep(3)
-   expect(page.find('#p_qualityPanelMediumRow')['aria-label']).to eq("Medium quality selected")
+   expect(page.find('#p_qualityPanelMediumRow')['aria-label']).to eq("Medium quality")
    sleep(3)
  end
 end
