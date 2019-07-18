@@ -44,22 +44,22 @@ Then(/^I can AD play$/) do
 end
 
 Then(/^I can wait for AD to finish$/) do
- sleep(10)
-  within_frame 'smphtml5iframemp' do
-    page.first("div.p_accessibleHitArea").click
-    sleep(2)
-    # If its the video player we need to re-focus on player after pressing CTA, Jim made a change!
-    if page.has_css?('#p_v_player_0') == true
-      find('#p_v_player_0').hover
-    end
+ sleep(13)
+   within_frame 'smphtml5iframemp' do
+      if page.has_css?('#p_v_player_0') == true
+        find('#p_v_player_0').hover
+      end
   end
 end
 
-Then("I can click skip ad option") do
+Then("I can click skip AD option") do
   sleep(1)
   within_frame 'smphtml5iframemp' do
     within_frame (page.find('iframe[width]')) do
       page.first(".videoAdUiSkipButton").click
+    end
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
     end
   end
 end
