@@ -50,8 +50,7 @@ Feature: Checking SMP Ads work for various types of ads
     And I enter AD fullscreen if "<mode>"
     And I can see AD controlbar
     And I can AD play
-    And I can click Skip Add option
-    And I see controlbar hides instantly if "<type>"
+    And I can click skip Ad option
     And I can pause
     And I can play
     And I can seek in quarters to the end
