@@ -1,4 +1,6 @@
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
@@ -7,6 +9,8 @@ Given(/^I am on a page with the HTML player and CP plugin installed$/) do
 end
 
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
 
@@ -25,7 +29,6 @@ end
 
 When(/^I use core functionality of SMP$/) do
   within_frame "smphtml5iframemp" do
-    sleep(1)
     page.first(".p_iconHolder .p_pauseIcon").click
     sleep(1)
     page.first(".p_playIcon").click
@@ -48,13 +51,14 @@ end
 Then("CP disappears") do
   within_frame 'smphtml5iframemp' do
     begin
-      sleep 2
+      sleep(2)
       page.find(".gcp_carouselBackground").visible?
     rescue Capybara::ElementNotFound
       true
     end
   end
 end
+
 
 Then(/^I can pause new programme if "([^"]*)"$/) do |string|
   if string == "Mini Thumbnail" or string == "Mini CTA"
@@ -136,7 +140,7 @@ end
 
 Then(/^I press "([^"]*)"$/) do |string|
   within_frame "smphtml5iframemp" do
-    sleep(2)
+    sleep(0.5)
     if string == "X"
       page.first(".gcp_closeSVG").click
     elsif string == "Cancel"
@@ -149,17 +153,23 @@ Then(/^I press "([^"]*)"$/) do |string|
       page.first(".gcp_itemDescription").click
     end
   end
-  sleep(1)
+  sleep(0.5)
 end
 
 Then("I move right with the CP list") do
   within_frame "smphtml5iframemp" do
-    sleep 4
+    sleep(3)
     page.find("button.gcp_carouselControlsNext").click
-    sleep 2
+    sleep(2)
     page.find("button.gcp_carouselControlsNext").click
-    sleep 1
+    sleep(1)
   end
+end
+
+Then("The same content plays which is finished") do
+  sleep(1)
+  title_now = page.find('#playlist_title').text
+  title == title_now
 end
 
 Then("I am able to play any content with a single click") do
@@ -168,7 +178,7 @@ Then("I am able to play any content with a single click") do
   elems << page.find_all(".gcp_carouselContainer li div.gcp_item div.gcp_itemContainer div.gcp_itemCta")
   element = elems[0][5]
   element.click
-  sleep 3
+  sleep(3)
   end
 end
 
@@ -209,7 +219,7 @@ Then(/^I press X of CP$/) do
 end
 
 # Weird behaviour in FULLSCREEN where I cannot focus on player when going from one item to the next if guidance present
-Then("I can resume past News blocking guidance in {string}") do |mode|
+Then(/^I can resume past News blocking guidance in "([^"]*)"$/) do |mode|
   within_frame 'smphtml5iframemp' do
     if mode == "Inline"
       sleep(2)

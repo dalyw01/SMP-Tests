@@ -4,6 +4,8 @@ require 'cucumber'
 require 'selenium-webdriver'
 require 'rspec'
 require 'touch_action'
+require 'image_size'
+require 'chunky_png'
 
 Capybara.default_driver = :selenium
 
