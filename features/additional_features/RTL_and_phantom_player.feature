@@ -12,13 +12,11 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
     Given I visit "<page>" with a "<type>" player on "<device>"
     When I click phantom CTA to begin playback
     And I click phantom LOGIN button from pop up
-    Then I see controlbar hides instantly if "<type>"
     And I can pause
     And I can play
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I see controlbar hides instantly if "<type>"
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can enter fullscreen if "<type>"
@@ -28,10 +26,8 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I see controlbar hides instantly if "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can exit fullscreen if "<type>"
-    And I see controlbar hides instantly if "<type>"
     And I can seek in quarters to the end
     And I click CTA to begin playback
 

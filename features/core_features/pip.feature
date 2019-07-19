@@ -66,8 +66,8 @@ Examples:
 
 @PIPExitsFullscreen
 Scenario: When in Fullscreen pressing PIP icon exits fullscreen
-  And I enter full screen
+  And I can double click anywhere in the player hitbox to enter fullscreen
   When I click PIP icon
-  Then I exit full screen
+  And I can double click anywhere in the player hitbox to enter fullscreen
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -20,7 +20,7 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I can pause
     And I can play
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I replay if "<type>"
     And I can pause
     And I can play
     And I can double click anywhere in the player hitbox to exit fullscreen
@@ -50,7 +50,7 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
     And I can pause
     And I can play
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I replay if "<type>"
     And I can pause
     And I can play
     And I can double click anywhere in the player hitbox to enter fullscreen
