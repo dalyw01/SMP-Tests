@@ -16,20 +16,8 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
      Scenario: Playing all content variations of true and false without fullscreen 
        When I click CTA to begin playback
        When I seek to end of programme
-       When I seek to end of programme
-       Then I wait for countdown to finish
-       Then I can pause
-       Then I can play
-       When I seek to end of programme
        Then I wait for countdown to finish
        When I click CTA to begin playback
-       Then I can pause
-       Then I can play
-       Then I wait for countdown to finish
-       When I seek to end of programme
-       When I click CTA to begin playback
-       When I seek to end of programme
-       Then I wait for countdown to finish
        When I seek to end of programme
        Then I wait for countdown to finish
        When I click CTA to begin playback
@@ -47,29 +35,19 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
      @TrueFalseFullScreen
      Scenario: Playing all content variations of true and false with fullscreen
        When I click CTA to begin playback
-       When I seek to end of programme
        When I enter full screen
        When I seek to end of programme
-       Then I wait for countdown to finish
-       Then I can pause
-       Then I can play
-       When I seek to end of programme
-       Then I wait for countdown to finish
-       Then I can play
-       When I seek to end of programme
-       Then I wait for countdown to finish
-       When I seek to end of programme
        When I click CTA to begin playback
-       When I seek to end of programme
-       Then I wait for countdown to finish
        When I seek to end of programme
        Then I wait for countdown to finish
        When I click CTA to begin playback
        When I seek to end of programme
        Then I wait for countdown to finish
-       Then I can play
+       When I can play
        When I seek to end of programme
        Then I wait for countdown to finish
-       Then I can play
+       When I click CTA to begin playback
        When I seek to end of programme
        Then I wait for countdown to finish
+       When I click CTA to begin playback
+       When I seek to end of programme

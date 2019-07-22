@@ -29,7 +29,7 @@ Feature: Checking SMP core functionality
     And I can interact with subtitles panel if "<type>"
     And I can exit fullscreen if "<type>"
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I replay if "<type>"
 
     Examples:
     | page                 | type               | device  |
