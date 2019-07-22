@@ -59,7 +59,7 @@ end
 Then(/^I verify medium option has been selected$/) do
  within_frame 'smphtml5iframemp' do
    sleep(3)
-   expect(page.find('#p_qualityPanelMediumRow')['aria-label']).to eq("Medium quality")
+   expect(page.find('#p_qualityPanelMediumRow')['aria-label']).to eq("Medium quality selected")
    sleep(3)
  end
 end
