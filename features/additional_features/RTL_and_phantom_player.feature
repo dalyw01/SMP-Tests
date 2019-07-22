@@ -20,7 +20,6 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
     And I can click seekbar unless "<type>"
     And I can interact with subtitles panel if "<type>"
     And I can enter fullscreen if "<type>"
-    And I can click seekbar in fullscreen "<type>"
     And I can pause
     And I can play
     And I can mute
@@ -29,7 +28,7 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
     And I can interact with subtitles panel if "<type>"
     And I can exit fullscreen if "<type>"
     And I can seek in quarters to the end
-    And I click CTA to begin playback
+    And I replay if "<type>"
 
   Examples:
     | page                 | type               | device  |

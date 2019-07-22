@@ -20,8 +20,8 @@ Feature: Checking 360 player base functionality
     And I can mute
     And I can click each volume bar
     And I can unmute
-    And I can enter fullscreen if "<type>"
     And I can click seekbar unless "<type>"
+    And I can enter fullscreen if "<type>"
     And I tab to compass
     And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
     And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
@@ -37,7 +37,6 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type | device  |
-    | https://is.gd/zikivo | 360  | tablet  |
     | https://is.gd/zikivo | 360  | desktop |
 
   @360MatchScreen
@@ -53,7 +52,5 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type | device  | mode        |
-    | https://is.gd/zikivo | 360  | tablet  | Inline      |
-    | https://is.gd/zikivo | 360  | tablet  | Fullscreen  |
     | https://is.gd/zikivo | 360  | desktop | Inline      |
     | https://is.gd/zikivo | 360  | desktop | Fullscreen  |
