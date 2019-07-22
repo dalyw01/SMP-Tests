@@ -51,7 +51,7 @@ Feature: Checking 360 player base functionality
 
   Examples:
     | page                 | type | device  | mode        |
-    | https://is.gd/gibocu | 360  | tablet  | Inline      |
-    | https://is.gd/gibocu | 360  | tablet  | Fullscreen  |
-    | https://is.gd/gibocu | 360  | desktop | Inline      |
-    | https://is.gd/gibocu | 360  | desktop | Fullscreen  |
+    | https://is.gd/zikivo | 360  | tablet  | Inline      |
+    | https://is.gd/zikivo | 360  | tablet  | Fullscreen  |
+    | https://is.gd/zikivo | 360  | desktop | Inline      |
+    | https://is.gd/zikivo | 360  | desktop | Fullscreen  |
