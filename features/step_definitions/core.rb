@@ -38,10 +38,14 @@ When(/^the COOKBOOK has loaded$/) do
 end
 
 When(/^I click CTA to begin playback$/) do
-   within_frame 'smphtml5iframemp' do
-     page.first("div.p_accessibleHitArea").click
-     find('#p_v_player_0').hover
-   end
+  within_frame 'smphtml5iframemp' do
+    page.first("div.p_accessibleHitArea").click
+    sleep(2)
+    # If its the video player we need to re-focus on player after pressing CTA, Jim made a change!
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
+    end
+  end
 end
 
 When(/^I see controlbar hides instantly if "([^"]*)"$/) do |type|
