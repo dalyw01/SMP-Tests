@@ -75,6 +75,7 @@
        Then I click video quality settings button
        Then I click medium option button
        Then I click high option button
+       Then I refresh page
        When I click CTA to begin playback
        Then I click quality settings button
        Then I click video quality settings button
