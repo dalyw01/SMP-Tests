@@ -1,14 +1,3 @@
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/sapeno')
-  end
-
-Then("I click settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".p_button.p_controlBarButton.p_playbackSettingsButton.p_dontCloseSettingsPanel").click
-  end
-end
-
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
     sleep(2)

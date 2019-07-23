@@ -5,6 +5,13 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
 end
 
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
+  visit('https://is.gd/pisole') # Lock to stage
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+  sleep(5)
+end
+
+Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
