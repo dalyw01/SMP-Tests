@@ -16,6 +16,7 @@ end
 
 Then(/^I tab to compass$/) do
   1.times do
+    sleep(1)
     page.driver.browser.action.send_keys(:tab).perform
     sleep(1)
   end
@@ -30,13 +31,6 @@ Then(/^I tab to controlbar$/) do
     2.times do
       page.driver.browser.action.send_keys(:tab).perform
     end
-  end
-end
-
-Then("I can enter fullscreen") do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
-    page.first(".p_fullscreenButton").click
   end
 end
 

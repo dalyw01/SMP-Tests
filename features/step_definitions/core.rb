@@ -107,46 +107,49 @@ Then("I can click each volume bar") do
 end
 
 When(/^I can enter fullscreen if "([^"]*)"$/) do |type|
-  if type != "audio" and type != "minimode"
+  # If it's any type of video
+  if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(2)
       page.first(".p_fullscreenButton").click
       sleep(2)
-      find('#p_v_player_0').hover
+      # If its not 360 we re-apply focus to the player because of Jim change
+      if type != "360" and type != "audio"
+        find('#p_v_player_0').hover
+      end
     end
   end
 end
 
 When(/^I can exit fullscreen if "([^"]*)"$/) do |type|
-  if type != "audio" and type != "minimode"
+  if type != "audio" and type != "minimode" or type != "360"
     within_frame 'smphtml5iframemp' do
       sleep(2)
       page.first(".p_fullscreen-returnIcon").click
       sleep(2)
-      find('#p_v_player_0').hover
     end
   end
 end
 
 When("I can double click anywhere in the player hitbox to enter fullscreen") do
-  page.find('#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
+    end
     sleep(2)
-    page.first('.p_accessibleHitArea').double_click
+    page.first('#p_v_player_0').double_click
   end
 end
 
 When("I can double click anywhere in the player hitbox to exit fullscreen") do
-  page.find('#smphtml5iframempwrp').hover
   within_frame 'smphtml5iframemp' do
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
+    end
     sleep(2)
-    page.first('.p_accessibleHitArea').double_click
-  end
-end
-
-Then("I can see controlbar") do
-  within_frame 'smphtml5iframemp' do
-    page.first(".notInteractiveContent").hover # Need this here or proceedings command don't work
+    page.first('#p_v_player_0').double_click
+    sleep(1)
+    find('#p_v_player_0').hover
   end
 end
 
@@ -227,7 +230,7 @@ Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   end
 end
 
-When(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
+Then(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
       sleep(2)

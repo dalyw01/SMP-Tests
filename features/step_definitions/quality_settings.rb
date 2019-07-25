@@ -1,11 +1,3 @@
-
-Then("I click settings button") do
-  within_frame 'smphtml5iframemp' do
-    sleep(6)
-    page.first(".p_button.p_controlBarButton.p_playbackSettingsButton.p_dontCloseSettingsPanel").click
-  end
-end
-
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
     sleep(2)
@@ -32,8 +24,9 @@ end
 
 Then("I click quality settings button") do
   within_frame 'smphtml5iframemp' do
-    sleep(1)
+    sleep(2)
     page.first(".p_playbackSettingsButton").click
+    sleep(2)
   end
 end
 

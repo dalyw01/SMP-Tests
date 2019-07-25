@@ -35,7 +35,7 @@ Feature: Checking CPP Plugin autoplay does not autoplay content that has been se
      @TrueFalseFullScreen
      Scenario: Playing all content variations of true and false with fullscreen
        When I click CTA to begin playback
-       When I enter full screen
+       When I can double click anywhere in the player hitbox to enter fullscreen
        When I seek to end of programme
        When I click CTA to begin playback
        When I seek to end of programme

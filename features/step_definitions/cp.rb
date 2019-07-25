@@ -11,15 +11,19 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
+Given(/^I am on a page with the HTML player and CP plugin installed$/) do
+  visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
+end
+
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
   sleep(1)
   page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
-
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
-  end
 
 When(/^I press alwaysShowCarouselButton then page reloads$/) do
   page.first(" #alwaysShowCarouselButtonContainerButton").click

@@ -61,3 +61,14 @@ Scenario Outline: CP appears even when PIP window is showing
 Examples:
   | button                 |
   | Circle                 |
+  | Circle                 |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+@PIPExitsFullscreen
+Scenario: When in Fullscreen pressing PIP icon exits fullscreen
+  And I can double click anywhere in the player hitbox to enter fullscreen
+  When I click PIP icon
+  And I can double click anywhere in the player hitbox to enter fullscreen
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
