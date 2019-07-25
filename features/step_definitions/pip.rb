@@ -8,6 +8,7 @@ When("I click PIP icon") do
   within_frame 'smphtml5iframemp' do
     page.first('.p_button.p_controlBarButton.p_picInPicButton').click
   end
+  sleep(2)
 end
 
 When("I see the PIP window shows") do
