@@ -19,7 +19,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   Background:
-    Given I am on a page with the HTML player and CP plugin installed
+    Given I am on a COOKBOOK page with the HTML player and CP plugin installed
     When the COOKBOOK has loaded
     And I click CTA to begin playback
     And I seek to end of programme

@@ -70,7 +70,7 @@ Feature: Checking PG works as expected when switching from parent to child for v
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @inplayer_tp_3 
-  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission BEVIS BEVIS BEVIS BEVIS BEVIS BEVIS
+  Scenario: As parent, SETTING pin, then UNLOCKING and checking child still has to get permission
     Given multiple o16 HTML players with guidance and NO cookies
     When I click CTA
     And I press [Turn On PG Lock]

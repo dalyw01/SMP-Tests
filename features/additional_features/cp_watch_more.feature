@@ -8,7 +8,7 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   Background:
-    Given I am on a page with the HTML player and CP plugin installed
+    Given I am on a COOKBOOK page with the HTML player and CP plugin installed
     When I press alwaysShowCarouselButton then page reloads
     When the COOKBOOK has loaded
     And I click CTA to begin playback
