@@ -4,7 +4,7 @@ When(/^I check if cookies appears$/) do
    	end
 end
 
-Then "I refresh page" do
+Then(/^I refresh page$/) do
   page.refresh()
   sleep (3)
 end
