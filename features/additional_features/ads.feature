@@ -9,6 +9,8 @@ Feature: Checking SMP Ads work for various types of ads
     - Post roll ads
     - Skippable ads
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
     @pre_roll_ads
     Scenario Outline: Check pre roll ads work and SMP works after ad has finished.
     If replaying content, ad should not show.

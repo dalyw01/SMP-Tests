@@ -1,7 +1,7 @@
 @google_voice_testing
 Feature: Checking Google voice assistant technology works with smart display
 
-  As a user
+  As a tester
   I want the Google Smart Display to respond to my words
   So that I can 
 
@@ -25,59 +25,77 @@ Requirements for environment
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 Background:
-Given I have a Google Home and a Google Smart Display on the same network
-And I say "Ok Google" to the Google Home device
-And the Google Home lights up awaiting commands
+  Given I have a Google Home AND Google Smart Display on the SAME NETWORK
+  And I say "Ok Google" to the Google Home device
+  And the Google Home lights up awaiting commands
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @start_session
-  Scenario Outline: Check various PLAYING commands and stations are compatible
-    When I say "phrase" along with "station"
-    Then I see correct title, image with player state as PLAYING
-    And I hear correct station
+Scenario Outline: Check various PLAYING commands and stations are compatible
+    
+  When I say "<intro>" along with "<action>" AND "<station>"
+  Then I expect
+    - Title 
+    - Holding image 
+    - Player state as PLAYING
+    - To hear the correct station
 
   Examples:
-    | phrase         | station        |
-    | Start          | Radio 1        |
-    | Play           | Radio 1 Xtra   |
-    | Change to      | Radio 2        |
-    | Turn on        | Radio 3	      |
-    | Start playing  | Radio 4        |
-    | Switch to      | Radio Asia     |
-    | Will you play  | Radio Scotland |
-    | Could you find | Radio 3        |
-    | Could you play | Radio 1        |
+    | intro        | phrase         | station        |
+    | Okay Google  | Start          | Radio 1        |
+    | Hey Google   | Play           | Radio 1 Xtra   |
+    | Okay Google  | Change to      | Radio 2        |
+    | Okay Google  | Turn on        | Radio 3	       |
+    | Hey Google   | Start playing  | Radio 4        |
+    | Okay Google  | Switch to      | Radio Asia     |
+    | Okay Google  | Will you play  | Radio Scotland |
+    | Hey Google   | Could you find | Radio 3        |
+    | Okay Google  | Could you play | Radio 1        |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @pause_session
-  Scenario Outline: Check Various PAUSING commands work
-  	When I start a station
-  	And hear audio
-    Then I say Okay Google and "phrase"
-    And I see correct title, image with player state as PAUSED
-    And I no audio is audible
+Scenario Outline: Check Various PAUSING commands work
+
+	When I start a station
+	And hear audio
+  Then I say "<intro>" and "<phrase>"
+  Then I expect
+    - Title 
+    - Holding image 
+    - Player state to PAUSE
+    - To hear NO audio
 
   Examples:
-    | phrase      |
-    | Stop        |
-    | Shut up     |
-    | Please stop |
-    | Terminate   |
+    | intro        | phrase      |
+    | Okay Google  | Stop        |
+    | Hey Google   | Shut up     |
+    | Okay Google  | Please stop |
+    | Okay Google  | Terminate   |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @pause_then_resume_session
-  Scenario Outline: Check that pausing and playing session work together
-  	When I start a station
-  	And hear audio
-    Then I say Okay Google and "pause_phrase"
-    And I see correct title, image with player state as PAUSED
-    And I no audio is audible
-    And I say Okay Google and "start_phrase"
-    Then I see correct title, image with player state as PLAYING
-    And I hear correct station
+Scenario Outline: Check that pausing and playing session work together
+
+  When I start a station
+	And hear audio
+  And I say Okay Google and "<pause_phrase>"
+
+  Then I expect
+    - Title 
+    - Holding image 
+    - Player state to PAUSE
+    - To hear NO audio
+
+  And I say Okay Google and "<start_phrase>"
+
+  Then I expect
+    - Title 
+    - Holding image 
+    - Player state as PLAYING
+    - To hear the correct station
 
   Examples:
     | pause_phrase  | start_phrase  |
@@ -89,44 +107,35 @@ And the Google Home lights up awaiting commands
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @query_current_station
-  Scenario Outline: Check that querying current station interrupts playback but answers
-  	When I start a station
-  	And hear audio
-    Then I say Okay Google and "phrase"
-    Then I see correct title, image with player state as PAUSED
-    And audio resumes
+Scenario Outline: Check that querying current station interrupts playback but answers
+
+	When I start a station
+	And hear audio
+  Then I say "<intro>" and "<phrase>"
+  Then I expect
+    - Title 
+    - Holding image 
+    - Player state to PAUSE
+    - To hear NO audio
+    - Audio to eventually resume
 
   Examples:
-    | phrase                |
-    | What's playing?       |
-    | What's on?            |
-    | What are you playing? |
-    | What's currently on   |
-    | What station is that? |
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-@querying_google_leaves_session (need to revisit this one)
-  Scenario Outline: Check that querying Google search engine leaves session but goes back
-  	When I start a station
-  	And hear audio
-    Then I say Okay Google and "phrase"
-    Then I see Google answers the query but returns to our session
-    Then I see correct title, image with player state as PAUSED
-    And audio resumes
-
-  Examples:
-    | phrase                |
-    | How tall is a Toucan? |
+    | intro        | phrase                |
+    | Okay Google  | What's playing?       |
+    | Hey Google   | What's on?            |
+    | Okay Google  | What are you playing? |
+    | Hey Google   | What's currently on   |
+    | Okay Google  | What station is that? |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @negative_test_scenarios
-  Scenario Outline: Check that certain negative test cases are refused
-  	When I start a station
-  	And hear audio
-    Then I say Okay Google and "phrase"
-    None of the below should work
+Scenario Outline: Check that certain negative test cases are refused
+  	
+  When I start a station
+	And hear audio
+  Then I say Okay Google and "<phrase>"
+  None of the below should work
 
   Examples:
     | phrase                    | note                                                    |
