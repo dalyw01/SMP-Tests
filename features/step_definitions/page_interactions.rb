@@ -26,5 +26,3 @@ When(/^I hover and click$/) do
 end
 
 
-
-yey. d
