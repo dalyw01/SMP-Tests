@@ -1,63 +1,60 @@
-@Chromecast
-Feature: Checking core functionality of Chromecast works correctly (Android and Mobile Browser only as well as Desktop Browser)
+@chromecast_testing
+Feature: Checking core functionality of Chromecast works correctly
 
-As a tester of SMP
-I want to check core functionality of Chromecast
-So i can ensure that it works as expected 
+  As a tester of SMP
+  I want to check core functionality of Chromecast
+  So i can ensure that it works as expected 
 
-Connecting ChromeCast requirements 
-- Ensure HTTPS:// is in the URL 
-- ChromeCast and Device need to be on the same network
-- "allowcasting: true" in settings cookbook 
-- Queued playlist.  
+  ChromeCast requirements 
 
- "queuedPlaylist": {
-    "title": "Chromecast Playlist 2 - Anxiety",
-    "allowContinuousCast": true,
-    "items": [
-      {
-        "vpid": "p05wxs88",
-        "kind": "programme"
-      }
-    ],
-    "guidance": "LOL ANXIETY"
-  },
-  "guidance": "LOL DOGS"
+  - Use Google Chrome browser
+  - Ensure HTTPS connection
+  - ChromeCast and device need to be on the same network
+  - settings object needs - "allowcasting": true
+  - playlist object needs if queued playlist - "allowContinuousCast": true
+  - A full example - https://is.gd/olepat
 
-Background
-Given I have a ChromeCast and device connected to the same network with the HTML player
-And i have ChromeCast content with CP Plugin
-When the COOKBOOK is loaded 
-When I click the CTA to begin playback 
-And I can see the video playback
-Then Press Chromecast Icon
-And i can see Chromecast connecting
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-@CheckBasicPlayerControls
-Scenario: A check for all the basic player functionality 
-When i see video casted onto the screen
-And i Press Pause button 
-Then video should pause 
-And i press the play buttton the player should play
-Then player should play again 
-And i press the full screen button 
-Then player should go into full screen view 
-And i seek to another position 
-Then video should shift to that position
+  Background
+    Given I have a ChromeCast and device connected to the same network with the HTML player
+    And i have ChromeCast content with CP Plugin
+    When the COOKBOOK is loaded 
+    When I click the CTA to begin playback 
+    And I can see the video playback
+    Then Press Chromecast Icon
+    And i can see Chromecast connecting
 
-@CheckCastButtonDesktop
-Scenario: Check basic chromecast functionality works as expected 
-Then i can see the video being casted onto the screen 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-@CheckFullScreenModeDesktop
-And i press the full screen mode icon button 
-Then the screen should go to fullscreen mode 
-And when i exit fullscreen mode the page should return back to its original position 
-Then the cast should be returned to non full screen mode and continue playing
+  @CheckBasicPlayerControls
+  Scenario Outline: A basic check that every "<action>" in SMP is Mirrored on Chromecast
+
+  Examples:
+  | action          |
+  | Pause           |
+  | Play            |
+  | Mute            |
+  | Subtitle        |
+  | Seek            |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @CheckBasicPlayerControlsNoEffect
+  Scenario Outline: A basic check that every "<action>" in SMP is NOT Mirrored on Chromecast
+
+  Examples:
+  | action          |
+  | Fullscreen      |
+  | Exit Fullscreen |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @CastControlPositioning
 Scenario: Check chromecast controls is placed in the top left of the player, avoiding overlapping with the CP 
 Then the chromecast controls should be placed in the top left corner of the player and remain in that position
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 @CastButtonIsntUnderLinedIfOff
 Scenario: if cast is off, cast icon in the control bar shouldn't be underlined 
@@ -121,22 +118,3 @@ And i click the full screen mode button
 And i click the pause button in full screen mode
 And i try to press the same button again
 Then nothing happens again the button becomes in-active 
-
-ACTUAL YE
-YE
-aSsS
-
-
-hhghjthtjthm
-
-
-
-
-
-
-jksjdja,sdja,dja,.dj
-
-
-asdadadadasad
-
-
