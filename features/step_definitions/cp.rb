@@ -1,4 +1,4 @@
-Given(/^I am on a COOKBOOK page with the HTML player and CP plugin installed$/) do
+Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
   sleep(1)
   page.driver.browser.manage.window.resize_to( 1800 , 1480 )
@@ -10,6 +10,14 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
+
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
+Given(/^I am on a page with the HTML player guidance set to true$/) do
+  visit('https://is.gd/gabemu')
+  end 
 
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
@@ -119,7 +127,6 @@ end
 Then(/^I wait for countdown to finish$/) do
   sleep(9)
 end
-
 
 Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
