@@ -2,17 +2,26 @@
 Feature: Checking 360 player base functionality
 
   As a tester of SMP
-  I want to check core functionality of 360 player
-  So that I verify its working as expected
+  I want to test core functionality of 360 player
+  So that can I verify it's working as expected for different inputs - Mouse click, Keyboard And Touch
 
-  @360Core
-  Scenario Outline: Check basic 360 functionality
+  NOTE - @360Click doesn't visually reflect what's happening
+         However it covers a bug that happened on LIVE 
+         A bug where users could not click the compass as it was not accessible but could use keyboard
 
-    Given I visit "<page>" with a "<type>" player on "<device>"
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  Background:
+    Given I visit page with a 360 player
     When the COOKBOOK has loaded
     And I click CTA to begin playback of 360 player
-    And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
-    And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @360Click
+  Scenario Outline: Check basic 360 functionality using CLICK input
+
+    Then I can CLICK LEFT, RIGHT, UP, DOWN and RESET on compass
     And I click away
     And I tab to controlbar
     And I can pause
@@ -23,8 +32,7 @@ Feature: Checking 360 player base functionality
     And I can click seekbar unless "<type>"
     And I can enter fullscreen if "<type>"
     And I tab to compass
-    And I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard
-    And I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass
+    And I can CLICK LEFT, RIGHT, UP, DOWN and RESET on compass
     And I tab to controlbar
     And I can pause
     And I can mute
@@ -36,21 +44,82 @@ Feature: Checking 360 player base functionality
     And I click CTA to begin playback of 360 player
 
   Examples:
-    | page                 | type | device  |
-    | https://is.gd/zikivo | 360  | desktop |
+    | type |
+    | 360  |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @360Touch
+  Scenario Outline: Check basic 360 functionality using TOUCH input
+
+    Theen I can TOUCH then hold LEFT, RIGHT, UP, DOWN and RESET on compass
+    And I click away
+    And I tab to controlbar
+    And I can pause
+    And I can play
+    And I can mute
+    And I can click each volume bar
+    And I can unmute
+    And I can click seekbar unless "<type>"
+    And I can enter fullscreen if "<type>"
+    And I tab to compass
+    And I can TOUCH then hold LEFT, RIGHT, UP, DOWN and RESET on compass
+    And I tab to controlbar
+    And I can pause
+    And I can mute
+    And I can click each volume bar
+    And I can unmute
+    And I can play
+    And I can seek in quarters to the end
+    And I can exit fullscreen if "<type>"
+    And I click CTA to begin playback of 360 player
+
+  Examples:
+    | type |
+    | 360  |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @360Keyboard
+  Scenario Outline: Check basic 360 functionality
+
+    Then I can press LEFT, RIGHT, UP, DOWN and ENTER keys on keyboard to use compass
+    And I click away
+    And I tab to controlbar
+    And I can pause
+    And I can play
+    And I can mute
+    And I can click each volume bar
+    And I can unmute
+    And I can click seekbar unless "<type>"
+    And I can enter fullscreen if "<type>"
+    And I tab to compass
+    And I can press LEFT, RIGHT, UP, DOWN and ENTER keys on keyboard to use compass
+    And I tab to controlbar
+    And I can pause
+    And I can mute
+    And I can click each volume bar
+    And I can unmute
+    And I can play
+    And I can seek in quarters to the end
+    And I can exit fullscreen if "<type>"
+    And I click CTA to begin playback of 360 player
+
+  Examples:
+    | type |
+    | 360  |
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @360MatchScreen
   Scenario Outline: Check Screen moves when pressed any button on compass
 
-    Given I visit "<page>" with a "<type>" player on "<device>"
-    When the COOKBOOK has loaded
-    And I click CTA to begin playback of 360 player
-    And I tab to controlbar
+    When I tab to controlbar
     And I can pause
     Then I enter "<mode>"
     Then I check screen moves using buttons of compass
 
   Examples:
-    | page                 | type | device  | mode        |
-    | https://is.gd/zikivo | 360  | desktop | Inline      |
-    | https://is.gd/zikivo | 360  | desktop | Fullscreen  |
+    | mode        |
+    | Inline      |
+    | Fullscreen  |
