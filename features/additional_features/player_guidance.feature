@@ -1,4 +1,4 @@
-    @player_guidancegit 
+    @player_warning 
     Feature: Checking that the in player guidance appears correctly 
 
      As a tester of SMP
