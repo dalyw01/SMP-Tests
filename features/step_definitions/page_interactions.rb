@@ -9,7 +9,6 @@ Then(/^I refresh page$/) do
   sleep (3)
 end
 
-<<<<<<< HEAD
 # used in core_functionality_cp_news.feature
 Then(/^I can see warning$/) do
   within_frame 'smphtml5iframemp' do
@@ -29,16 +28,8 @@ Then(/^I can see in player warning$/) do
     sleep(5)
   end
 end
-=======
+
 Then(/^I click guidance$/) do
   page.refresh()
   sleep (3)
 end
-
-# Bevis
-
-
-
-
-g
->>>>>>> b9410bcb58c96e2e59513a59c6e381d5c24b1f41
