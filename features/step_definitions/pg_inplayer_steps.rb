@@ -102,7 +102,7 @@ When(/^I press \[Play\] to set new PIN$/) do
 end
 
 When(/^I press \[Continue\]$/) do
-  within_frame 'smphtml5iframemedia' do
+  within_frame 'smphtml5iframemedia_player_1' do
     sleep(1)
     find('#pgAgeContinue').click
     sleep(2)
