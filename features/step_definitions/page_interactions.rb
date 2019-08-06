@@ -9,27 +9,12 @@ Then(/^I refresh page$/) do
   sleep (3)
 end
 
-# used in core_functionality_cp_news.feature
-Then(/^I can see warning$/) do
-  within_frame 'smphtml5iframemp' do
-    find('.p_guidanceContainer').hover
-    sleep(4)
-  end
-end
 
-Given(/^I am on a page with warning installed$/) do
-  visit('https://is.gd/oyahax')
-end
 
-Then(/^I can see in player warning$/) do
-  within_frame 'smphtml5iframemp' do
-  	sleep(5)
-    find('.p_crossIcon').click
-    sleep(5)
-  end
-end
 
-Then(/^I click guidance$/) do
-  page.refresh()
-  sleep (3)
-end
+
+
+
+
+
+
