@@ -26,7 +26,7 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
 end
 
 Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
+  visit('https://is.gd/sapeno')
 end
 
 When(/^the COOKBOOK has loaded$/) do
@@ -237,7 +237,7 @@ end
 Then(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
-      sleep(2)
+      sleep(1)
       page.first(".p_playerSeekBarHolder").click
       sleep(1)
       page.first(".p_playerSeekBarHolder").hover
