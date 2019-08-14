@@ -12,7 +12,6 @@ Feature: New Audio Player
   Scenario Outline: Check basic functionality of audio player for a 1 item playlist
 
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When the COOKBOOK has loaded
     Then I click Audio player CTA to begin playback
     And I can press +20
     And I can press -20
@@ -42,8 +41,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/edasos | audio | phone   |
-    | https://is.gd/edasos | audio | desktop |
+    | https://is.gd/novava | audio | phone   |
+    | https://is.gd/novava | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -53,7 +52,6 @@ Feature: New Audio Player
   Previous item arrow goes to previous clip if WITHIN first 5 seconds
 
   Given I visit "<page>" with a "<type>" player on "<device>"
-    When the COOKBOOK has loaded
     Then I click Audio player CTA to begin playback
     And I can press NEXT item
     And I see NEXT button is disabled
@@ -67,8 +65,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/adayeq | audio | phone   |
-    | https://is.gd/adayeq | audio | desktop |
+    | https://is.gd/novava | audio | phone   |
+    | https://is.gd/novava | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
