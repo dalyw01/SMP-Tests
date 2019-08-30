@@ -7,7 +7,7 @@ Feature: Checking SMP Guidance functionality
 
 
     @GuidanceChecks
-    Scenario Outline: Check basic functionality of SMP for various players
+    Scenario Outline: Check basic functionality of SMP Guidance in player confirming the correct messaging appears 
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -20,10 +20,10 @@ Feature: Checking SMP Guidance functionality
     | https://is.gd/inarix | minimode           | desktop | english  |
     | https://is.gd/erimih | simulcast          | desktop | english  |
     | https://is.gd/ujahus | old audio player   | desktop | english  |
-    | https://is.gd/yujase | vod                | desktop | english  |
+    | https://is.gd/joface | vod                | desktop | english  |
     | https://is.gd/otujul | vod + greek        | desktop | greek    |
     | https://is.gd/yipiso | vod + japanese     | desktop | japanese |
-    | https://is.gd/fabexi | audio to video     | desktop | english  | 
+    | https://is.gd/ikozon | audio to video     | desktop | english  | 
     | https://is.gd/mehiru | video to audio     | desktop | english  | 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -44,9 +44,8 @@ Feature: Checking SMP Guidance functionality
     | https://is.gd/hexoxi | queued playlist             | desktop | warn_eng   | inplay_eng         |
     | https://is.gd/luxumo | queued playlist             | desktop | warn_grk   | inplay_grk         |
     | https://is.gd/jizeka | queued playlist             | desktop | warn_jap   | inplay_jap         |
-    | https://is.gd/unecib | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
-    | https://is.gd/cusuto | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
-    | https://is.gd/unecib | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/qohake | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/omoyun | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
     
     
    
