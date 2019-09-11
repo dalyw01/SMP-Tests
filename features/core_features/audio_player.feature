@@ -54,7 +54,6 @@ Feature: New Audio Player
   Given I visit "<page>" with a "<type>" player on "<device>"
     Then I click Audio player CTA to begin playback
     And I can press NEXT item
-    And I see NEXT button is disabled
     And I can press +20
     And I can press PREVIOUS item
     And I see NEXT button is disabled
@@ -65,8 +64,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/novava | audio | phone   |
-    | https://is.gd/novava | audio | desktop |
+    | https://is.gd/epehal | audio | phone   |
+    | https://is.gd/epehal | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
