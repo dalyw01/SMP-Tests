@@ -24,17 +24,17 @@ end
 
 Then("I click quality settings button") do
   within_frame 'smphtml5iframemp' do
-    sleep(2)
+    sleep(1)
     page.first(".p_playbackSettingsButton").click
-    sleep(2)
+    sleep(1)
   end
 end
 
 Then("I click video quality settings button") do
   within_frame 'smphtml5iframemp' do
-    sleep(5)
+    sleep(1)
     page.first("#p_qualityRow").click
-    sleep(5)
+    sleep(1)
   end
 end
 
