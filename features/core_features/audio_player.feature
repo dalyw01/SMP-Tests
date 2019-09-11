@@ -63,7 +63,7 @@ Feature: New Audio Player
     And I see NEXT button is disabled
 
   Examples:
-    | page | type  | device  |
+    | page    | type  | device  |
     | https://is.gd/epehal| audio | phone   |
     | https://is.gd/epehal| audio | desktop |
 
