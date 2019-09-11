@@ -25,10 +25,6 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
   sleep(1)
 end
 
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/sapeno')
-end
-
 When(/^the COOKBOOK has loaded$/) do
   if page.driver.browser.browser == :safari
     # Do nothing as safari cannot see the h1
