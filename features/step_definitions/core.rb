@@ -233,7 +233,7 @@ end
 Then(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
-      sleep(2)
+      sleep(1)
       page.first(".p_playerSeekBarHolder").click
       sleep(1)
       page.first(".p_playerSeekBarHolder").hover

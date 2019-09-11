@@ -1,3 +1,7 @@
+Given(/^I visit page with a 360 player$/) do
+  visit('https://is.gd/zikivo')
+end
+
 When(/^I click CTA to begin playback of 360 player$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
@@ -65,24 +69,32 @@ end
   end
 end
 
-Then(/^I can press LEFT,RIGHT,UP,DOWN and ENTER keys on keyboard$/) do
-  sleep(2)
-  10.times do
-    page.driver.browser.action.send_keys(:arrow_left).perform
+Then(/^I can CLICK LEFT, RIGHT, UP, DOWN and RESET on compass$/) do
+  within_frame 'smphtml5iframemp' do
+    page.first("#p_compass_left_touch").hover
+    sleep(2)
+    10.times do
+      page.first("#p_compass_left_touch").click
+    end
+    page.first("#p_compass_right_touch").hover
+    sleep(2)
+    10.times do
+      page.first("#p_compass_right_touch").click
+    end
+    page.first("#p_compass_up_touch").hover
+    sleep(2)
+    10.times do
+      page.first("#p_compass_up_touch").click
+    end
+    page.first("#p_compass_down_touch").hover
+    sleep(2)
+    10.times do
+      page.first("#p_compass_down_touch").click
+    end
   end
-  10.times do
-    page.driver.browser.action.send_keys(:arrow_right).perform
-  end
-  10.times do
-    page.driver.browser.action.send_keys(:arrow_up).perform
-  end
-  10.times do
-    page.driver.browser.action.send_keys(:arrow_down).perform
-  end
-  page.driver.browser.action.send_keys(:enter).perform
 end
 
-Then(/^I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass$/) do
+Then(/^I can TOUCH then hold LEFT, RIGHT, UP, DOWN and RESET on compass$/) do
   within_frame 'smphtml5iframemp' do
     page.first("#p_compass_left_touch").hover
     sleep(1)
@@ -105,3 +117,21 @@ Then(/^I can click then hold LEFT,RIGHT,UP,DOWN and RESET on compass$/) do
     page.first("#p_compass_centre_touch").touch_action(:press, hold: 1000)
   end
 end
+
+Then(/^I can press LEFT, RIGHT, UP, DOWN and ENTER keys on keyboard to use compass$/) do
+  sleep(2)
+  10.times do
+    page.driver.browser.action.send_keys(:arrow_left).perform
+  end
+  10.times do
+    page.driver.browser.action.send_keys(:arrow_right).perform
+  end
+  10.times do
+    page.driver.browser.action.send_keys(:arrow_up).perform
+  end
+  10.times do
+    page.driver.browser.action.send_keys(:arrow_down).perform
+  end
+  page.driver.browser.action.send_keys(:enter).perform
+end
+

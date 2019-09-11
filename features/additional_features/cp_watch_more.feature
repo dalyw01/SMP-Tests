@@ -20,11 +20,12 @@ Feature: Checking WATCH MORE for "Continious Play" plugin functionality works
     Then I enter "<mode>"
     And I can click WATCH MORE
     And CPP shows WITHOUT cancel options
+    And I press "<button>"
 
   Examples:
-    | mode       |
-    | Inline     |
-    | Fullscreen |
+    | button | mode       |
+    | X      | Inline     |
+    | X      | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

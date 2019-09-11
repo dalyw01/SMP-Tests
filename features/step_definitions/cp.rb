@@ -84,13 +84,6 @@ When("I close the CP Panel") do
   end
 end
 
-When("I close the CP Panel without resizing") do
-  within_frame 'smphtml5iframemp' do
-    sleep(3)
-    page.find('.gcp_panelsClose .gcp_closeSVG').click
-  end
-end
-
 When("I seek till last second of program") do
   sleep(2)
   page.find('div#smphtml5iframempwrp').click

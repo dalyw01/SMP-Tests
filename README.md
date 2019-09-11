@@ -13,7 +13,7 @@ Make a new folder and download the code from Github
 ```
 mkdir new_folder
 cd new_folder
-git clone https://github.com/dalyw01/smp-tests
+git clone https://github.com/dalyw01/smp-ui-tests
 Cloning into 'new_folder'...
 Username for 'https://github.com': dalyw01
 Password for 'https://dalyw01@github.com':
@@ -275,17 +275,5 @@ cucumber features/additional_features/ --format html > report_firefox.html BROWS
 ```
 
 Once the html files have been generated please leave other devs know when doing a PULL request
-
-## Additional Information AGAIN
-
-An experimental part of this test suite includes the **parallel_tests** gem
-
-This gem allows us to run multiple instances of our tests simultaneously 
-
-An example
-
-```
-bundle exec parallel_cucumber features/parental_guidance_features/ -n 2
-```
 
 
