@@ -41,8 +41,8 @@ Feature: New Audio Player
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/novava | audio | phone   |
-    | https://is.gd/novava | audio | desktop |
+    | https://is.gd/otiwax | audio | phone   |
+    | https://is.gd/otiwax | audio | desktop |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
