@@ -9,6 +9,27 @@ When(/^I press ENTER on CTA to begin playback$/) do
   sleep(1)
 end
 
+When(/^I seek till towards end of program$/) do
+  60.times do
+    find(:id, 'smphtml5iframemp').native.send_keys(:arrow_right)
+  end
+end
+
+When(/^I press cancel$/) do
+  find(:id, 'smphtml5iframemp').native.send_keys(:enter)
+  sleep(1)
+end
+
+When(/^I press$/) do
+  find(:id, 'smphtml5iframemp').native.send_keys(:enter)
+  sleep(1)
+end
+
+When(/^I enter audio setting$/) do
+  find(:id, 'smphtml5iframemp').native.send_keys(:enter)
+  sleep(1)
+end
+
 When(/^I pause$/) do
   find(:id, 'smphtml5iframemp').native.send_keys(:enter)
   sleep(1)
