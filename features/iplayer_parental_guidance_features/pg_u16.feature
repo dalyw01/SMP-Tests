@@ -82,3 +82,4 @@
     And I press BUMP [Play] button to proceed through u16
     And I seek to small player end
     Then I should be able to restart small player playback without another pop-up
+    
