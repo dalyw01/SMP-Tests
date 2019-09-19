@@ -8,13 +8,3 @@ Then(/^I refresh page$/) do
   page.refresh()
   sleep (3)
 end
-
-
-
-
-
-
-
-
-
-
