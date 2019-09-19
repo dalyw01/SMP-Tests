@@ -11,6 +11,10 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
@@ -112,7 +116,6 @@ end
 Then(/^I wait for countdown to finish$/) do
   sleep(9)
 end
-
 
 Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
