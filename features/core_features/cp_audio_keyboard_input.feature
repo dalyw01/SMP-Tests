@@ -82,3 +82,33 @@ Feature: Checking SMP HTML accessibility on continuous play plugin
   Examples:
     | page                 | type            | device  |    
     | https://is.gd/equkup | video           | desktop |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+@simulkeyboard
+
+    Scenario Outline: Check basic HTML accessibility of Simulcast
+
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    When I TAB
+    And I press ENTER on CTA to begin playback
+    And I TAB
+    And I pause
+    And I resume
+    And I TAB
+    And I unmute
+    And I mute
+    And I TAB
+    And I TAB
+    And I TAB
+    And I TAB
+    When I enter audio setting
+    And I TAB
+    And I press UP arrow to seek forwards
+    And I press DOWN arrow to seek backwards
+    And I press RIGHT arrow to seek forwards
+    And I press LEFT arrow to seek backwards
+   
+  Examples:
+    | page                 | type            | device  |    
+    | https://is.gd/itukag | video           | desktop |
