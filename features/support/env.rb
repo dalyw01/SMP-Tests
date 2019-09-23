@@ -6,16 +6,24 @@ require 'rspec'
 require 'touch_action'
 require 'image_size'
 require 'chunky_png'
+require 'browserstack-automate'
 
+BrowserStack.for "cucumber"
 Capybara.default_driver = :selenium
 
-# This assigns any BROWSER env variable to an actual browser
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new app, browser: ENV['BROWSER'].to_sym
+# Rest of the configuration file remains unchanged
+browser = Selenium::WebDriver.for :firefox
+
+Before do |scenario|
+  @browser = browser
+end
+
+at_exit do
+  browser.quit
 end
 
 # A Capybara thing that needs to be here
-World(Capybara::DSL)
+# World(Capybara::DSL)
 
 # This is a chunk of code to stop selenium auto-quitting when complete
 # Capybara::Selenium::Driver.class_eval do
