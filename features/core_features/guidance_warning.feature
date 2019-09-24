@@ -44,8 +44,8 @@ Feature: Checking SMP Guidance functionality
     | https://is.gd/hexoxi | queued playlist             | desktop | warn_eng   | inplay_eng         |
     | https://is.gd/luxumo | queued playlist             | desktop | warn_grk   | inplay_grk         |
     | https://is.gd/jizeka | queued playlist             | desktop | warn_jap   | inplay_jap         |
-    | https://is.gd/qohake | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
-    | https://is.gd/omoyun | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/ajuwup | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/ajuwup | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
     
     
    

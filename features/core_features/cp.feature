@@ -197,26 +197,3 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Fullscreen |
 
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  @PlayingSameContent
-  Scenario Outline: Check the current program is replayed when CP loads and Play CTA is clicked
-    And I enter "<mode>"
-    And I click CTA to begin playback again
-    Then The same content plays which is finished
-
-    Examples:
-    | mode       |
-    | Inline     |
-    | Fullscreen |
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  @PlayingSameContentSmallScreen
-  Scenario: Check the current program can be replayed in small screen
-    Then I enter "<mode>"
-    And I close the CP Panel
-    And I click CTA to begin playback again
-    Then The same content plays which is finished
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

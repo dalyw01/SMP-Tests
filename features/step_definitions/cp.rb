@@ -1,13 +1,13 @@
 Given(/^I am on a COOKBOOK page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
   sleep(5)
 end
 
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
@@ -21,7 +21,7 @@ end
 
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
 end
 
@@ -206,12 +206,6 @@ Then("I move right with the CP list") do
     page.find("button.gcp_carouselControlsNext").click
     sleep(1)
   end
-end
-
-Then("The same content plays which is finished") do
-  sleep(1)
-  title_now = page.find('#playlist_title').text
-  title == title_now
 end
 
 Then("I am able to play any content with a single click") do
