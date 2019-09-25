@@ -1,5 +1,9 @@
 Given(/^I visit page with a 360 player$/) do
   visit('https://is.gd/zikivo')
+  sleep(1)
+      page.driver.browser.manage.window.resize_to( 900 , 900 )
+    sleep(1)
+    page.execute_script( 'window.scrollBy(0, 270);')
 end
 
 When(/^I click CTA to begin playback of 360 player$/) do

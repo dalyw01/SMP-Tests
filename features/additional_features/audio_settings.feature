@@ -28,5 +28,6 @@
        Then I select autoplay off
        When I seek till last second of program
        Then I can Audio play
+       Then I can Audio pause
        Then I hover on audio settings button
        Then I click audio settings button
