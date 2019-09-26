@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'cucumber'
-gem 'parallel_tests'
 gem 'capybara'
 gem 'rspec'
 gem 'selenium-webdriver'

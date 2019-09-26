@@ -20,7 +20,9 @@ Capybara.default_driver = :selenium
 
 puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 puts "Hello BROWSER which is  #{ENV['BROWSER'].to_sym}"
+puts "Hello this is #{ENV['RUN_ON_BSTACK']}"
 puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 
 # This assigns any BROWSER env variable to an actual browser
 Capybara.register_driver :selenium do |app|
