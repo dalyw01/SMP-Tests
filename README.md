@@ -222,13 +222,13 @@ Some basic commands and knowledge to run tests in this project
 To run a single script
 
 ```
-cucumber features/core_functionality.feature
+cucumber features/core_features/core_functionality.feature
 ```
 
 To run a single test from a single script
 
 ```
-cucumber features/core_functionality.feature:37
+cucumber features/core_features/core_functionality.feature:37
 ```
 
 To run all scripts

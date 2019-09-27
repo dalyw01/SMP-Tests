@@ -14,11 +14,10 @@ require 'browserstack-automate'
 
 caps = Selenium::WebDriver::Remote::Capabilities.new
 caps["os"] = "Windows"
-caps["os_version"] = "10"
+caps["os_version"] = "7"
 caps["browser"] = "Chrome"
 caps["browser_version"] = "78.0 beta"
-caps['name'] = 'Bstack-[Ruby] Sample Test ZZZZZ'
-
+caps['name'] = 'SMP X'
 
 # Need this so it works with BrowserStack
 BrowserStack.for "cucumber"
@@ -26,15 +25,14 @@ BrowserStack.for "cucumber"
 # Gets visit() to work
 World(Capybara::DSL)
 
-# Use selenium  locally
+# Use selenium locally, uncomment this
 Capybara.default_driver = :selenium
-
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new app, 
   browser: ENV['BROWSER'].to_sym
 end
 
-# This assigns any BROWSER env variable to an actual browser
+# Use selenium on Browserstack, uncomment this
 # Capybara.register_driver :browserstack do |app|
 #   Capybara::Selenium::Driver.new app,
 #    :browser => :remote,

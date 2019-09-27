@@ -32,19 +32,11 @@ When(/^the COOKBOOK has loaded$/) do
   sleep(1)
 end
 
-When("I click CTA to begin playback of a {string}") do |type|
-  # puts "LOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOOLOLOLOL"
-  # puts "-#{ENV['RUN_ON_BSTACK']}-"
-  if type == "simulcast" or type == "webcast"
-    if ENV['RUN_ON_BSTACK'] == "true"
-      # puts "GETTING IN HERE?!!?!?!?!?!?!?!?!?!?!?!?!!?!?!"
-      pending
-    end
-  end
+When("I click CTA to begin playback") do
   within_frame 'smphtml5iframemp' do
     page.first("div.p_accessibleHitArea").click
     sleep(2)
-    # If its the video player we need to re-focus on player after pressing CTA, Jim made a change!
+    # If video player we need to re-focus on after pressing CTA, Jim made a change!
     if page.has_css?('#p_v_player_0') == true
       find('#p_v_player_0').hover
     end
