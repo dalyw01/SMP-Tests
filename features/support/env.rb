@@ -26,18 +26,23 @@ BrowserStack.for "cucumber"
 # Gets visit() to work
 World(Capybara::DSL)
 
-# Use selenium
-#Capybara.default_driver = :selenium
+# Use selenium  locally
+Capybara.default_driver = :selenium
 
-# This assigns any BROWSER env variable to an actual browser
-Capybara.register_driver :browserstack do |app|
-  Capybara::Selenium::Driver.new app,
-   :browser => :remote,
-   :url => "http://williamdaly1:L7qARqDjWTr5rp8G2s37@hub-cloud.browserstack.com/wd/hub",
-   :desired_capabilities => caps
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new app, 
+  browser: ENV['BROWSER'].to_sym
 end
 
-Capybara.default_driver = :browserstack
+# This assigns any BROWSER env variable to an actual browser
+# Capybara.register_driver :browserstack do |app|
+#   Capybara::Selenium::Driver.new app,
+#    :browser => :remote,
+#    :url => "abc",
+#    :desired_capabilities => caps
+# end
+
+# Capybara.default_driver = :browserstack
 
 
 

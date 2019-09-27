@@ -219,7 +219,19 @@ BUNDLED WITH
 
 Some basic commands and knowledge to run tests in this project
 
-To run all feature files with Chrome
+To run a single script
+
+```
+cucumber features/core_functionality.feature
+```
+
+To run a single test from a single script
+
+```
+cucumber features/core_functionality.feature:37
+```
+
+To run all scripts
 
 ```
 cucumber features/
@@ -228,7 +240,7 @@ cucumber features/
 To run all feature files of a particular folder with Chrome
 
 ```
-cucumber features/core_features/
+cucumber features/core_features/ BROWSER=chrome
 ```
 
 To run through all feature files with Firefox
@@ -245,7 +257,7 @@ cucumber features/core_functionality.feature:54 BROWSER=firefox
 
 To run a particular test point in a feature file
 
-```
+``` 
 cucumber features/cp_watch_more.feature -t @4
 ```
 
@@ -254,26 +266,3 @@ To run all tests except for anything tagged @ads
 ```
 cucumber features/ --tags ~@ads BROWSER=chrome
 ```
-
-## Additional Information
-
-If you've got all of the above running successfully then congratulations!
-
-You don't ***need*** to read any further!
-
-However, from now on, when doing a PULL REQUEST proof functionality hasn't been broken in the process may be required
-
-One for Mozilla Firefox and the other for Google Chrome
-
-To create these files print the output to a html file
-
-Some examples
-
-```
-cucumber features/core_features/ --format html > report_chrome.html BROWSER=chrome
-cucumber features/additional_features/ --format html > report_firefox.html BROWSER=firefox
-```
-
-Once the html files have been generated please leave other devs know when doing a PULL request
-
-
