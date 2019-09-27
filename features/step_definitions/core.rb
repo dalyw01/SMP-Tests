@@ -27,11 +27,20 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
 end
 
 When(/^the COOKBOOK has loaded$/) do
+  sleep(1)
   find( "h1" , text: "SMP COOKBOOK" )
-  sleep(2)
+  sleep(1)
 end
 
-When(/^I click CTA to begin playback$/) do
+When("I click CTA to begin playback of a {string}") do |type|
+  # puts "LOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOOLOLOLOL"
+  # puts "-#{ENV['RUN_ON_BSTACK']}-"
+  if type == "simulcast" or type == "webcast"
+    if ENV['RUN_ON_BSTACK'] == "true"
+      # puts "GETTING IN HERE?!!?!?!?!?!?!?!?!?!?!?!?!!?!?!"
+      pending
+    end
+  end
   within_frame 'smphtml5iframemp' do
     page.first("div.p_accessibleHitArea").click
     sleep(2)

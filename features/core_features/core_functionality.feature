@@ -10,7 +10,7 @@ Feature: Checking SMP core functionality
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I click CTA to begin playback
+    And I click CTA to begin playback of a "<type>"
     And I can pause
     And I can play
     And I can mute
