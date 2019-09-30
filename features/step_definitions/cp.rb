@@ -316,12 +316,7 @@ end
 Then("I compare a and b") do
  if a =  page.find("#playlist_title").text
   b = page.find("#playlist_title").text
-    puts"FHSDHDHFS3348329ewfjknewfjonfewfewj8"
+    puts"Confirmation that both titles a and b are the same confirming the same video can be played"
     sleep(2)
   end
 end
-
-
-
-
-

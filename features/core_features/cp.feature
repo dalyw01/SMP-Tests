@@ -226,7 +226,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I verify title has change on a different page
     Then I compare a and b
 
-
     Examples:
     | mode       |
     | Inline     |
