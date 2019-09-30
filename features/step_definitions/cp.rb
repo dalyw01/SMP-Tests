@@ -11,6 +11,10 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  end
+
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
@@ -80,6 +84,13 @@ When("I close the CP Panel") do
   end
 end
 
+When("I close the CP Panel without resizing") do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.find('.gcp_panelsClose .gcp_closeSVG').click
+  end
+end
+
 When("I seek till last second of program") do
   sleep(2)
   page.find('div#smphtml5iframempwrp').click
@@ -112,7 +123,6 @@ end
 Then(/^I wait for countdown to finish$/) do
   sleep(9)
 end
-
 
 Then(/^I scroll through whole carousel and select the last item$/) do
   within_frame "smphtml5iframemp" do
@@ -290,3 +300,28 @@ Then("I see one Up next and one More section") do
     expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"
   end
 end
+
+Then("I verify title has changed") do
+  a = page.find("#playlist_title").text
+  puts a
+  sleep(1)
+end
+  
+Then("I verify title has change on a different page") do
+  b = page.find("#playlist_title").text
+  puts b
+  sleep(1)
+end
+
+Then("I compare a and b") do
+ if a =  page.find("#playlist_title").text
+  b = page.find("#playlist_title").text
+    puts"FHSDHDHFS3348329ewfjknewfjonfewfewj8"
+    sleep(2)
+  end
+end
+
+
+
+
+

@@ -112,3 +112,50 @@ Feature: Checking SMP HTML accessibility on continuous play plugin
   Examples:
     | page                 | type            | device  |    
     | https://is.gd/itukag | video           | desktop |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+ @radiominikeyboard
+
+    Scenario Outline: Check basic HTML accessibility of Radio Minimode
+
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    When I TAB
+    And I press ENTER on CTA to begin playback
+    And I TAB
+    And I pause
+    And I resume
+    And I TAB
+    And I unmute
+    And I mute
+    And I TAB
+    And I TAB
+    And I TAB
+    And I TAB
+    When I enter audio setting
+    And I TAB
+    And I press UP arrow to seek forwards
+    And I press DOWN arrow to seek backwards
+    And I press RIGHT arrow to seek forwards
+    And I press LEFT arrow to seek backwards
+   
+  Examples:
+    | page                 | type            | device  |    
+    | https://is.gd/ahekoj | video           | desktop |
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+@360keyboard
+
+    Scenario Outline: Check basic HTML accessibility of the 360 Player
+
+    Given I visit "<page>" with a "<type>" player on "<device>"
+    And I TAB
+    And I press ENTER on CTA to begin playback
+    Then I tab to 360 compass
+    When I press UP arrow to look up
+    When I press LEFT arrow to look left
+  
+  Examples:
+    | page                 | type            | device  |    
+    | https://is.gd/urehig | video           | desktop |

@@ -20,22 +20,17 @@
 
 <script type="text/javascript" src="./cp_autoplay_blocked_files/require.js"></script>
 <script type="text/javascript">
-
     bbcRequireMap = 
     {
         "bump-4":"https://emp.stage.bbci.co.uk/emp/bump-4/bump-4"
     }
-
     require({ paths: bbcRequireMap, waitSeconds: 30 });
-
     document.cookie = 'ckns_html5Debug=true';
-
     /*
     -------------------------
     IMPLEMENTING MEDIA PLAYER
     -------------------------
     */
-
     require(['bump-4'],function (bump)
     {
         var cpData = 
@@ -49,21 +44,17 @@
                 items: []
             }
         };
-
         /*
         -------------------------
         SETTING UP CONTENT
         -------------------------
         */
-
         var audio_vpid  = "p0602jd5";
         var audio_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p0602lky.jpg";
         var audio_title = "Audio Clip Audio Clip Audio Clip Audio Clip";
-
         var audio_vpid_2  = "p05lfmj3";
         var audio_img_2   = "http://ichef.bbci.co.uk/images/ic/976x549/p05lfpn8.jpg";
         var audio_title_2 = "AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2";
-
         var trump_vpid  = "p06dgnlg";
         var trump_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06dh5nw.jpg";
         var trump_title = "Trump baby blimp ready to take first steps";
@@ -71,15 +62,12 @@
         var china_vpid  = "p06cvv5k";
         var china_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06cvx3j.jpg";
         var china_title = "Why the US-China trade war will hit most of our pockets";
-
         var gmail_vpid  = "p06cv017";
         var gmail_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06cvf0m.jpg";
         var gmail_title = "WATCH: How to hide your Gmails from prying eyes";
-
         var dinosaur_vpid = "p077kpkb"
         var dinosaur_img = "https://ichef.bbci.co.uk/images/ic/976x549/p06j7yg1.jpg"
         var dinosaur_title = "DINO DINO DINOs"
-
         var time_vpid = "p076y3fj"
         var time_img = "https://ichef.bbci.co.uk/images/ic/976x549/p076y3sj.jpg"
         var time_title = "Clock clock clock"
@@ -89,17 +77,13 @@
         STORING CONTENT IN ARRAY FOR CP
         -------------------------------
         */
-
         var vpids  = [ trump_vpid  , audio_vpid       , china_vpid   , gmail_vpid  , audio_vpid_2     , dinosaur_vpid    , time_vpid   ];
         var images = [ trump_img   , audio_img        , china_img    , gmail_img   , audio_img_2      , dinosaur_img     , time_img    ];
         var titles = [ trump_title , audio_title      , china_title  , gmail_title , audio_title_2    , dinosaur_title   , time_title  ];
         var kinds  = [ "programme" , "radioProgramme" , "programme"  , "programme" , "radioProgramme" , "radioProgramme" , "programme"  ];
         var autoplays = [ true     , true             , false        , true        , true             , false            , false        ];
-
-
         var dates     = [ "123123 DATE" , "28 February 2018" ,  "NO DATE LOL" , "DATE !@£$%^&*()" , "DATE XXXX" , "123 123 123" ];
         var durations = [ 3 , 100 , 1233 , 290 , 10000  ];
-
         var summaries =   
                         [
                             "Here is a description of TRUMP" ,
@@ -109,13 +93,11 @@
                             "Here is a description of GMAIL" ,
                             "Here is a description of more Audio" ,
                         ];
-
         /*
         -------------------------
         CP
         -------------------------
         */
-
         for (var i = 0; i < vpids.length; i++) 
         {
             (function (index) 
@@ -127,11 +109,9 @@
                     continuousPlayName : "derp",
                     title  : titles[i],
                     imgUrl : images[i],
-
                     playlist : 
                     {
                         holdingImageURL : images[i],
-
                         items: 
                         [
                             {
@@ -147,29 +127,24 @@
                 });
             }(i));
         }
-
         /*
         -------------------------
         SETTINGS FOR PLAYER 1
         -------------------------
         */
-
         var settings_player_1 = 
         {
             superResponsive : true,
             product  : "news",
             preferHtmlControls : true,
-
             guidance :
             {
                 displayContinuousGuidanceInQueuePlaylist: true
             },
-
             ui:
             {
                 colour : "#20EB51",
             },
-
             plugins: 
             {
                 toLoad: 
@@ -181,7 +156,6 @@
                     },
                 ]
             },
-
             playlistObject: 
             {
                 items: 
@@ -196,19 +170,15 @@
                 holdingImageURL : images[0]
             },
         };
-
         /*
         -------------------------
         LOADING PLAYERS
         -------------------------
         */
-
         var mediaPlayer = bump.player(document.getElementById('mp'), settings_player_1 );
         window.player = mediaPlayer;
         mediaPlayer.load();
-
     })
-
 </script>
 
 

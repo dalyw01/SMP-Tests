@@ -28,13 +28,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @InitiateNextItem
   Scenario Outline: Check pressing various icons of CPP initiate next clip
+    Then I verify title has changed
     Then I enter "<mode>"
     And CPP shows
     And I press "<button>"
     And I can pause new programme if "<button>"
+    Then I verify title has change on a different page
 
-  Examples:
-    | button         | mode       |
+  
     | Mini Thumbnail | Inline     |
     | Mini Thumbnail | Fullscreen |
     | Mini CTA       | Inline     |
@@ -96,6 +97,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I seek to end of programme
     And CPP shows
     And I press "<button>"
+
 
   Examples:
     | button         | mode       |
@@ -201,22 +203,32 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @PlayingSameContent
   Scenario Outline: Check the current program is replayed when CP loads and Play CTA is clicked
+    Then I verify title has changed
     And I enter "<mode>"
-    And I click CTA to begin playback again
-    Then The same content plays which is finished
+    And CPP shows
+    And I press "<button>"
+    Then CP disappears
+    Then I verify title has change on a different page
 
     Examples:
     | mode       |
     | Inline     |
-    | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @PlayingSameContentSmallScreen
-  Scenario: Check the current program can be replayed in small screen
-    Then I enter "<mode>"
-    And I close the CP Panel
-    And I click CTA to begin playback again
-    Then The same content plays which is finished
+  @CompareTitle
+  Scenario Outline: Compare the title of two different pieces of content
+    Then I verify title has changed
+    And I enter "<mode>"
+    And CPP shows
+    And I press "<button>"
+    Then I can replay current programme
+    Then I verify title has change on a different page
+    Then I compare a and b
+
+
+    Examples:
+    | mode       |
+    | Inline     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

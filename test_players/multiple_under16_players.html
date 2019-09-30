@@ -18,20 +18,15 @@
 
 <script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
 <script type="text/javascript">
-
     bbcRequireMap = 
     {
         "bump-4":"https://emp.stage.bbc.co.uk/emp/bump-4/bump-4"
     }
-
     require({ paths: bbcRequireMap, waitSeconds: 30 });
-
     //document.cookie = 'bbcBumpForcePlayer=smp-flash';
     //document.cookie = 'bbcBumpForcePlayer=smphtml5'
     //document.cookie = 'bbcBumpForcePlayer=smpj2oo';
-
     document.cookie = 'ckns_html5Debug=true';
-
     require(['bump-4'],function (bump)
     {
        
@@ -40,7 +35,6 @@
             muted : true,
             responsive : true,
             under16 : true,
-
             playlistObject:
             {
               items:
@@ -56,7 +50,6 @@
               ],
                 guidance: "PG MESSAGE LARGE PLAYLIST"
             },
-
             ui:
             {
                 colour : "#4285F4", // Green
@@ -66,7 +59,6 @@
                 }
             }
         }
-
         var settings_2 =
         {
             muted : true,
@@ -88,7 +80,6 @@
               ],
                 guidance: "PG MESSAGE SMALL PLAYLIST"
             },
-
             ui:
             {
                 colour : "#FFFFFF", // White
@@ -98,13 +89,10 @@
                 }
             }
         }
-
-
         // Get media player from above settings
         // Get media player from above settings
         var mediaPlayer1 = bump.player(document.getElementById('media_player_1'), settings_1 );
         var mediaPlayer2 = bump.player(document.getElementById('media_player_2'), settings_2 );
-
         // Load it
         mediaPlayer1.load();
         mediaPlayer2.load();
