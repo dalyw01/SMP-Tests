@@ -43,6 +43,14 @@ When("I click CTA to begin playback") do
   end
 end
 
+When("I see correct {string} displaying on CTA") do |new_duration|
+  within_frame 'smphtml5iframemp' do
+    page.first("div.p_accessibleHitArea").hover
+    sleep(1)
+    find('.p_ctaDuration').should have_content(new_duration)
+  end
+end
+
 When(/^I replay if "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if type == "simulcast" or type == "webcast"
