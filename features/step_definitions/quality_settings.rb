@@ -1,3 +1,11 @@
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
+end
+
 Then("I click low option button") do
   within_frame 'smphtml5iframemp' do
     sleep(2)
