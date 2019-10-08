@@ -1,5 +1,5 @@
 Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
+  visit('https://is.gd/sapeno')
   sleep(1)
   page.driver.browser.manage.window.resize_to( 900 , 900 )
   sleep(1)
