@@ -1,7 +1,7 @@
 Given(/^I am on a COOKBOOK page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  page.driver.browser.manage.window.resize_to( 1400 , 1400 )
   sleep(1)
   page.execute_script( 'window.scrollBy(0, 270);')
   sleep(5)
@@ -10,7 +10,7 @@ end
 Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  page.driver.browser.manage.window.resize_to( 1400 , 1400 )
   sleep(1)
   page.execute_script( 'window.scrollBy(0, 270);')
 end
@@ -18,7 +18,7 @@ end
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  page.driver.browser.manage.window.resize_to( 1400 , 1400 )
   sleep(1)
   page.execute_script( 'window.scrollBy(0, 270);')
 end
@@ -26,7 +26,7 @@ end
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  page.driver.browser.manage.window.resize_to( 1400 , 1400 )
   sleep(1)
   page.execute_script( 'window.scrollBy(0, 270);')
 end

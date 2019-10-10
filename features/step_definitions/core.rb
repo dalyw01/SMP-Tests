@@ -19,14 +19,21 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
     page.execute_script( 'window.scrollBy(0, 270);')
   end
   # If webcast we need to set some data first for seekbar to show
-  if new_type == "webcast"
-    page.first("#setWebcastData").click
+  if new_type == "webcast" or new_type == "simulcast"
+    # page.first("#setWebcastData").click
+    pending
     sleep(1)
   end
   sleep(1)
 end
 
 When(/^the COOKBOOK has loaded$/) do
+  if page.has_css?('#bbcprivacy-continue-button') == true
+    sleep(1)
+    find('#bbcprivacy-continue-button').click
+    sleep(1)
+    find('#bbccookies-continue-button').click
+  end
   sleep(1)
   find( "h1" , text: "SMP COOKBOOK" )
   sleep(1)
@@ -219,8 +226,6 @@ Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
     if type == "simulcast"
       page.first(".p_progressBar").click
       page.first(".p_progressBar").hover
-      # page.first(".p_seekBar").click
-      # Do nothing as seek is
     elsif type == "simulcast" and g_device == "phone"
       page.should have_no_selector(".p_chapterMarker")
       page.first(".p_progressBar").click
