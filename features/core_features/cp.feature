@@ -217,17 +217,7 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CompareTitle
-  Scenario Outline: Compare the title of two different pieces of content
-    Then I verify title has changed
-    And I enter "<mode>"
-    And CPP shows
-    And I press "<button>"
-    Then I can replay current programme
-    Then I verify title has change on a different page
-    Then I compare a and b
-
-    Examples:
-    | mode       |
-    | Inline     |
+  Scenario: Verify the titles of two different pieces of content from the CP are different
+  Then I compare two different titles
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

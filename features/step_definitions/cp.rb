@@ -11,10 +11,6 @@ Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
 
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
-  end
-
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
 end
@@ -301,22 +297,31 @@ Then("I see one Up next and one More section") do
   end
 end
 
-Then("I verify title has changed") do
+Then("I compare two different titles") do
   a = page.find("#playlist_title").text
-  puts a
-  sleep(1)
-end
   
-Then("I verify title has change on a different page") do
-  b = page.find("#playlist_title").text
-  puts b
-  sleep(1)
-end
+  # Scroll to last item and 
+  within_frame "smphtml5iframemp" do
+    sleep(4)
+    10.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    10.times do
+      page.first(".gcp_carouselControlsPrevious").click
+    end
+    14.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    page.first('.gcp_infoWrap').click
+    sleep(5)
+  end
 
-Then("I compare a and b") do
- if a =  page.find("#playlist_title").text
   b = page.find("#playlist_title").text
-    puts"Confirmation that both titles a and b are the same confirming the same video can be played"
-    sleep(2)
+
+
+  if a == b 
+    fail "Test status is a FAIL! #{a} is the same as #{b}"
   end
 end
+
+
