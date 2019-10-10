@@ -298,9 +298,9 @@ Then("I see one Up next and one More section") do
 end
 
 Then("I compare two different titles") do
+  # Captures the title of the FIRST video and stores it in variable (a)
   a = page.find("#playlist_title").text
-  
-  # Scroll to last item and 
+  # Scroll to through the carousel and play an item within it 
   within_frame "smphtml5iframemp" do
     sleep(4)
     10.times do
@@ -315,13 +315,10 @@ Then("I compare two different titles") do
     page.first('.gcp_infoWrap').click
     sleep(5)
   end
-
+  # Captures the title of the SECOND video and stores it in variable (a) 
   b = page.find("#playlist_title").text
-
-
+  # Compares (a) and (b) and and delivers a fail message if a==b
   if a == b 
     fail "Test status is a FAIL! #{a} is the same as #{b}"
   end
 end
-
-
