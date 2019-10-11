@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Audio Player</title>
+    </head>
+    <body bgcolor="#DDFADE">
+        <center>
+            <h1>Clean STAGE Audio Player</h1>
+            <div id="mp" style="width:100%"></div>
+        </center>
+    </body>
+</html>
+
+<script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
+<script type="text/javascript">
+
+    bbcRequireMap = 
+    {
+        //"bump-4":"https://emp.bbci.co.uk/emp/bump-4/bump-4"
+        //          emp.int.tools.bbc.co.uk/emp/bump-4/bump-4"
+        //          emp.test.bbci.co.uk
+        "bump-4": "https://emp.stage.bbci.co.uk/emp/bump-4/bump-4"
+        //          emp.bbci.co.uk
+    }
+
+    require({ paths: bbcRequireMap, waitSeconds: 30 });
+
+    document.cookie = 'ckns_html5Debug=true';
+
+    /*
+    -------------------------
+    IMPLEMENTING MEDIA PLAYER
+    -------------------------
+    */
+
+    require(['bump-4'],function (bump)
+    {
+        var settings_player_1 =
+        {
+            responsive : true,
+            muted      : false,
+              
+            ui: 
+            {
+                skin   : "audio",
+                colour : "#5dbacb",
+                controls : 
+                {
+                    includeNextButton : true,
+                    includePreviousButton : true
+                }
+            },
+
+            playlistObject:
+            {
+                items:
+                [
+                    {
+                        versionID : "p07n1ycy",
+                        kind      : "programme"
+                    }
+                ]
+            }
+        }
+
+        // Get media player from above settings
+        var mediaPlayer = bump.player(document.getElementById('mp'), settings_player_1 );
+        window.mediaPlayer = mediaPlayer;
+
+        // Load it
+        mediaPlayer.load();
+
+    });
+
+</script>
