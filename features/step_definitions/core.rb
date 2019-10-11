@@ -9,12 +9,12 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
         # If it is a PHONE and FIREFOX we set to pending/un-run
         pending
       else
-        page.driver.browser.manage.window.resize_to( 300 , 1800 )
+        page.driver.browser.manage.window.resize_to( 300 , 1400 )
         sleep(1)
         page.execute_script( 'window.scrollBy(0, 270);')
       end
   else
-    page.driver.browser.manage.window.resize_to( 900 , 900 )
+    page.driver.browser.manage.window.resize_to( 1400 , 1400 )
     sleep(1)
     page.execute_script( 'window.scrollBy(0, 270);')
   end

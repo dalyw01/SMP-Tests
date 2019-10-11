@@ -176,8 +176,8 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then CP disappears
 
     Examples:
-    | mode       |
-    | Fullscreen |
+    | mode   |
+    | Inline |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -189,6 +189,6 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I am able to play any content with a single click
 
     Examples:
-    | mode       |
-    | Fullscreen |
+    | mode   |
+    | Inline |
 

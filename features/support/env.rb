@@ -13,12 +13,12 @@ require 'browserstack-automate'
 # New ones can be made here - https://www.browserstack.com/automate/capabilities
 
 caps = Selenium::WebDriver::Remote::Capabilities.new
-caps["os"] = "Windows"
-caps["os_version"] = "10"
+caps["os"] = "OS X"
+caps["os_version"] = "Mojave"
 caps["browser"] = "Chrome"
-# caps["browser_version"] = "78.0 beta"
-caps['name'] = 'SMP X'
-caps['resolution'] = '2048x1536'
+caps['name'] = "SMP X"
+caps['resolution'] = "1920x1080"
+caps["browserstack.selenium_version"] = "3.141.59"
 
 # Need this so it works with BrowserStack
 BrowserStack.for "cucumber"
@@ -30,7 +30,7 @@ World(Capybara::DSL)
 # Capybara.default_driver = :selenium
 # Capybara.register_driver :selenium do |app|
 #   Capybara::Selenium::Driver.new app, 
-#   browser: ENV['BROWSER'].to_sym
+#   browser: ENV['BROWSER'].to_sym	
 # end
 
 # Use selenium on Browserstack, uncomment this
