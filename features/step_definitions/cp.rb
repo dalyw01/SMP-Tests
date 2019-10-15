@@ -337,21 +337,24 @@ end
 
 Then(/^I compare two of the same title checking they are equal$/) do
    #Captures title of the video as variable C
-      c = page.find("#playlist_title").text
+   c = page.find("#playlist_title").text
+
    #Presses Play CTA during CP 10 sec countdown to play the same content 
-      within_frame 'smphtml5iframemp' do
+   within_frame 'smphtml5iframemp' do
       page.first("div.p_accessibleHitArea").click
       sleep(1)
     if page.has_css?('#p_v_player_0') == true
-    find('#p_v_player_0').hover
+      find('#p_v_player_0').hover
     end
   end
+
   #Captures title of the video as variable d
-      d = page.find("#playlist_title").text
-      sleep(5)
+  d = page.find("#playlist_title").text
+  sleep(5)
+
   #Compares variables c and d and gives fail message if they don't match 
-    if c != d
+  if c != d
     fail "#{c} Title c should be the same as title d #{d}"
-    end
-    sleep(2)
+  end
+  sleep(2)
  end
