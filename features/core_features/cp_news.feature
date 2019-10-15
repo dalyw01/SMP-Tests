@@ -82,8 +82,8 @@ Feature: Checking "Continious Play" plugin core functionality works
   @ToggleTurnedOFF
   Scenario Outline: Check next item does not play if user turns autoplay OFF
     And I toggle CPP OFF
-    And I enter "<mode>"
     And I seek to end of programme
+    And I enter "<mode>"
     And CPP shows WITHOUT cancel options
 
     Examples:

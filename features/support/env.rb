@@ -13,8 +13,8 @@ require 'browserstack-automate'
 # New ones can be made here - https://www.browserstack.com/automate/capabilities
 
 caps = Selenium::WebDriver::Remote::Capabilities.new
-caps["os"] = "OS X"
-caps["os_version"] = "Mojave"
+caps["os"] = "Windows"
+caps["os_version"] = "10"
 caps["browser"] = "Chrome"
 caps['name'] = "SMP X"
 caps['resolution'] = "1920x1080"
@@ -38,7 +38,7 @@ World(Capybara::DSL)
 Capybara.register_driver :browserstack do |app|
   Capybara::Selenium::Driver.new app,
    :browser => :remote,
-   :url => "",
+   :url => "http://williamdaly1:L7qARqDjWTr5rp8G2s37@hub-cloud.browserstack.com/wd/hub",
    :desired_capabilities => caps
 end
 
