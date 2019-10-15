@@ -28,13 +28,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @InitiateNextItem
   Scenario Outline: Check pressing various icons of CPP initiate next clip
+    Then I verify title has changed
     Then I enter "<mode>"
     And CPP shows
     And I press "<button>"
     And I can pause new programme if "<button>"
+    Then I verify title has change on a different page
 
-  Examples:
-    | button         | mode       |
+  
     | Mini Thumbnail | Inline     |
     | Mini Thumbnail | Fullscreen |
     | Mini CTA       | Inline     |
@@ -96,6 +97,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     And I seek to end of programme
     And CPP shows
     And I press "<button>"
+
 
   Examples:
     | button         | mode       |
@@ -197,3 +199,16 @@ Feature: Checking "Continious Play" plugin core functionality works
     | mode       |
     | Fullscreen |
 
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @PlayingSameContent
+  Scenario: Verify the title is the same when the same content is replayed via CP
+    Then I compare two of the same title checking they are equal
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @CompareTitle
+  Scenario: Verify the titles of two different pieces of content from the CP are different
+    Then I compare two different titles
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
