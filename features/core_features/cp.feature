@@ -202,22 +202,13 @@ Feature: Checking "Continious Play" plugin core functionality works
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @PlayingSameContent
-  Scenario Outline: Check the current program is replayed when CP loads and Play CTA is clicked
-    Then I verify title has changed
-    And I enter "<mode>"
-    And CPP shows
-    And I press "<button>"
-    Then CP disappears
-    Then I verify title has change on a different page
-
-    Examples:
-    | mode       |
-    | Inline     |
+  Scenario: Verify the title is the same when the same content is replayed via CP
+    Then I compare two of the same title checking they are equal
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @CompareTitle
   Scenario: Verify the titles of two different pieces of content from the CP are different
-  Then I compare two different titles
+    Then I compare two different titles
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

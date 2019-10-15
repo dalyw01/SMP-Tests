@@ -315,10 +315,31 @@ Then("I compare two different titles") do
     page.first('.gcp_infoWrap').click
     sleep(5)
   end
-  # Captures the title of the SECOND video and stores it in variable (a) 
+   #Captures the title of the SECOND video and stores it in variable (a) 
   b = page.find("#playlist_title").text
-  # Compares (a) and (b) and and delivers a fail message if a==b
+   #Compares (a) and (b) and and delivers a fail message if a=b
   if a == b 
     fail "Test status is a FAIL! #{a} is the same as #{b}"
   end
 end
+
+Then(/^I compare two of the same title checking they are equal$/) do
+   #Captures title of the video as variable C
+      c = page.find("#playlist_title").text
+   #Presses Play CTA during CP 10 sec countdown to play the same content 
+      within_frame 'smphtml5iframemp' do
+      page.first("div.p_accessibleHitArea").click
+      sleep(1)
+    if page.has_css?('#p_v_player_0') == true
+    find('#p_v_player_0').hover
+    end
+  end
+  #Captures title of the video as variable d
+      d = page.find("#playlist_title").text
+      sleep(5)
+  #Compares variables c and d and gives fail message if they don't match 
+    if c != d
+    fail "#{c} Title c should be the same as title d #{d}"
+    end
+    sleep(2)
+ end
