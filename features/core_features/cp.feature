@@ -190,8 +190,8 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @CPListClickToPlayBug
   Scenario Outline: Check if a single click can play a content from CP
-    And I toggle CPP OFF
     And I enter "<mode>"
+    And I toggle CPP OFF
     Then I move right with the CP list
     Then I am able to play any content with a single click
 

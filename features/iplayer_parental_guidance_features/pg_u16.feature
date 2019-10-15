@@ -1,11 +1,11 @@
-@pg_u16
-Feature: Checking Parental Guidance works as expected for a user under 16 with NO pin set initially
-  As a tester
-  I want to check every part of PG is clickable
-  I want to check every part of PG can be exited from via X icon
-  I want to check that once every condition has been met that playback will commence
-  I want playback to replay upon completion without the need to repeat every PG step again
-  So that PG works as expected for both inplayer PG and BUMP PG
+  @pg_u16
+  Feature: Checking Parental Guidance works as expected for a user under 16 with NO pin set initially
+    As a tester
+    I want to check every part of PG is clickable
+    I want to check every part of PG can be exited from via X icon
+    I want to check that once every condition has been met that playback will commence
+    I want playback to replay upon completion without the need to repeat every PG step again
+    So that PG works as expected for both inplayer PG and BUMP PG
 
   @inplayer_tp_1
   Scenario: Checking I am prompted with guidance and can then dismiss
@@ -82,3 +82,4 @@ Feature: Checking Parental Guidance works as expected for a user under 16 with N
     And I press BUMP [Play] button to proceed through u16
     And I seek to small player end
     Then I should be able to restart small player playback without another pop-up
+    

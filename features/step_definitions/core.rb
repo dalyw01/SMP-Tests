@@ -1,21 +1,22 @@
 g_device = ""
 
 Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, new_type, new_device|
-  visit( new_page )
+  visit(new_page)
   g_device = new_device
   sleep(1)
   if g_device == "phone"
       if page.driver.browser.browser == :firefox
-        # If it is a PHONE and FIREFOX browser we skip as it's not used by anybody!
-        # This will mark the step as yellow in Terminal output
+        # If it is a PHONE and FIREFOX we set to pending/un-run
         pending
       else
         page.driver.browser.manage.window.resize_to( 300 , 1800 )
+        sleep(1)
+        page.execute_script( 'window.scrollBy(0, 270);')
       end
-  elsif g_device == "tablet"
-    page.driver.browser.manage.window.resize_to( 1000 , 1000 )
   else
-    page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+    page.driver.browser.manage.window.resize_to( 900 , 900 )
+    sleep(1)
+    page.execute_script( 'window.scrollBy(0, 270);')
   end
   # If webcast we need to set some data first for seekbar to show
   if new_type == "webcast"
@@ -25,18 +26,7 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
   sleep(1)
 end
 
-Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/idiseq')
-end
-
 When(/^the COOKBOOK has loaded$/) do
-  if page.driver.browser.browser == :safari
-    # Do nothing as safari cannot see the h1
-    sleep(2)
-  else
-    find( "h1" , text: "SMP COOKBOOK" )
-    sleep(2)
-  end
   find( "h1" , text: "SMP COOKBOOK" )
   sleep(2)
 end
@@ -217,9 +207,11 @@ end
 
 Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
-    if (type == "simulcast" and g_device == "tablet") or (type == "simulcast" and g_device == "desktop")
-      page.first(".p_chapterMarker").click
-      page.first(".p_chapterMarker").hover
+    if type == "simulcast"
+      page.first(".p_progressBar").click
+      page.first(".p_progressBar").hover
+      # page.first(".p_seekBar").click
+      # Do nothing as seek is
     elsif type == "simulcast" and g_device == "phone"
       page.should have_no_selector(".p_chapterMarker")
       page.first(".p_progressBar").click
@@ -237,7 +229,7 @@ end
 Then(/^I can click seekbar in fullscreen "([^"]*)"$/) do |type|
   if type != "minimode"
     within_frame 'smphtml5iframemp' do
-      sleep(2)
+      sleep(1)
       page.first(".p_playerSeekBarHolder").click
       sleep(1)
       page.first(".p_playerSeekBarHolder").hover

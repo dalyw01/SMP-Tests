@@ -1,0 +1,215 @@
+
+<html>
+    <head>
+        <title>CP - News and stopAutoplayOnGuidance : true</title>
+        <script type="text/javascript" src="https://static.bbci.co.uk/frameworks/requirejs/0.13.0/sharedmodules/require.js"></script>
+        <script type="text/javascript">
+    
+            bbcRequireMap = 
+            {
+                "bump-4":"https://emp.bbci.co.uk/emp/bump-4/bump-4"
+            }
+
+            require({ paths: bbcRequireMap, waitSeconds: 30 });
+        
+        </script>
+    </head>
+    <body bgcolor="#B08B59">
+
+        <p>stopAutoplayOnGuidance : true</p>
+        <p>This setting forces us to see the CTA instead of the news guidance banner</p>
+
+        <div id="mp" style="height:190px; width:780px">
+            <!-- Player is here -->
+        </div>
+    </body>
+</html>
+
+<script type="text/javascript">
+
+    document.cookie = 'ckns_html5Debug=true';
+
+    /*
+    -------------------------
+    IMPLEMENTING MEDIA PLAYER
+    -------------------------
+    */
+
+    require(['bump-4'],function (bump)
+    {
+        var cpData = 
+        {
+            name: 'smp.plugin.continuousplay.playlistSetChanged',
+            data: 
+            {
+                showDate : true,
+                stopAutoplayOnGuidance : true,
+                items: []
+            }
+        };
+
+        /*
+        -------------------------
+        SETTING UP CONTENT
+        -------------------------
+        */
+
+        var audio_vpid  = "p0602jd5";
+        var audio_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p0602lky.jpg";
+        var audio_title = "Audio Clip Audio Clip Audio Clip Audio Clip";
+
+        var audio_vpid_2  = "p05lfmj3";
+        var audio_img_2   = "http://ichef.bbci.co.uk/images/ic/976x549/p05lfpn8.jpg";
+        var audio_title_2 = "AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2 AUDIO 2";
+
+        var trump_vpid  = "p06dgnlg";
+        var trump_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06dh5nw.jpg";
+        var trump_title = "Trump baby blimp ready to take first steps";
+       
+        var china_vpid  = "p06cvv5k";
+        var china_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06cvx3j.jpg";
+        var china_title = "Why the US-China trade war will hit most of our pockets";
+
+        var gmail_vpid  = "p06cv017";
+        var gmail_img   = "http://ichef.bbci.co.uk/images/ic/976x549/p06cvf0m.jpg";
+        var gmail_title = "WATCH: How to hide your Gmails from prying eyes";
+
+        var three_sixty_vpid_1  = "p05yt7ml";
+        var three_sixty_img_1   = "https://cdn.worldvectorlogo.com/logos/xbox-360.svg";
+        var three_sixty_title_1 = "360 - 1 - Nile Dam";
+
+        /*
+        -------------------------------
+        STORING CONTENT IN ARRAY FOR CP
+        -------------------------------
+        */
+
+        var vpids  = [ trump_vpid  , audio_vpid       , china_vpid   , three_sixty_vpid_1   , gmail_vpid  , audio_vpid_2  ];
+        var images = [ trump_img   , audio_img        , china_img    , three_sixty_img_1    , gmail_img   , audio_img_2  ];
+        var titles = [ trump_title , audio_title      , china_title  , three_sixty_title_1  , gmail_title , audio_title_2 ];
+        var kinds  = [ "programme" , "radioProgramme" , "programme"  , "360"                , "programme" , "radioProgramme" ];
+
+        var dates     = [ "123123 DATE" , "28 February 2018" ,  "NO DATE LOL" , "DATE !@£$%^&*()" , "DATE XXXX" , "123 123 123" ];
+        var durations = [ 113 , 100 , 1233 , 290 , 10000  ];
+
+        var summaries =   
+                        [
+                            "Here is a description of TRUMP" ,
+                            "Here is a description of AUDIO" ,
+                            "Here is a description of CHINA" ,
+                            "Here is a description of 360 video" ,
+                            "Here is a description of GMAIL" ,
+                            "Here is a description of more Audio" ,
+                        ];
+
+        /*
+        -------------------------
+        CP
+        -------------------------
+        */
+
+        for (var i = 0; i < vpids.length; i++) 
+        {
+            (function (index) 
+            {
+                cpData.data.items.push(
+                {
+                    showLiveOrDuration : true,
+                    continuousPlayName : "derp",
+                    title  : titles[i],
+                    imgUrl : images[i],
+    
+                    playlist : 
+                    {
+                        holdingImageURL : images[i],
+                        items: 
+                        [
+                            {
+                                vpid     : vpids[i],
+                                kind     : kinds[i],
+                                duration : durations[i]                                      
+                            }
+                        ],
+                        
+                        guidance : "This is GUIDANCE loaded from CP 平仮名,らがな 平仮名, ひらがな",
+                        summary  : summaries[i],
+                        date     : dates[i],
+                    }
+                });
+            }(i));
+        }
+
+        /*
+        -------------------------
+        SETTINGS FOR PLAYER 1
+        -------------------------
+        */
+
+        var settings_player_1 = 
+        {
+            superResponsive : true,
+            product  : "news",
+
+            plugins: 
+            {
+                toLoad: 
+                [
+                    { 
+                        html : 'name:onwardJourney.js', 
+                        data : cpData
+                    },
+                ]
+            },
+
+            playlistObject: 
+            {
+                items: 
+                [
+                    {
+                        vpid     : vpids[0],
+                        kind     : kinds[0],
+                        duration : durations[0]
+                    }
+                ],
+                holdingImageURL : images[0]
+            },
+        };
+
+        /*
+        -------------------------
+        LOADING PLAYER
+        -------------------------
+        */
+
+        var mediaPlayer = bump.player(document.getElementById('mp'), settings_player_1 );
+        mediaPlayer.load();
+
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

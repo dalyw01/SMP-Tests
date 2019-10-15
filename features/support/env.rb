@@ -6,24 +6,26 @@ require 'rspec'
 require 'touch_action'
 require 'image_size'
 require 'chunky_png'
+require 'rubygems'
+require 'browserstack-automate'
 
+# Need this so it works with BrowserStack
+BrowserStack.for "cucumber"
+
+# Gets visit() to work
+World(Capybara::DSL)
+
+# Use selenium
 Capybara.default_driver = :selenium
+
+puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+puts "Hello BROWSER which is  #{ENV['BROWSER'].to_sym}"
+puts "Hello this is #{ENV['RUN_ON_BSTACK']}"
+puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 
 # This assigns any BROWSER env variable to an actual browser
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new app, browser: ENV['BROWSER'].to_sym
+  Capybara::Selenium::Driver.new app, 
+  browser: ENV['BROWSER'].to_sym
 end
-
-# A Capybara thing that needs to be here
-World(Capybara::DSL)
-
-# This is a chunk of code to stop selenium auto-quitting when complete
-# Capybara::Selenium::Driver.class_eval do
-#   def quit
-#     puts "Press RETURN to quit the browser"
-#     $stdin.gets
-#     @browser.quit
-#   rescue Errno::ECONNREFUSED
-#     # Browser must have already gone
-#   end
-# end

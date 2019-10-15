@@ -1,24 +1,42 @@
 Given(/^I am on a COOKBOOK page with the HTML player and CP plugin installed$/) do
   visit('https://is.gd/pisole') # Lock to stage
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 1800 , 1480 )
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
   sleep(5)
 end
 
-Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
+Given(/^I am on a page with the HTML player and quality settings set to true$/) do
+  visit('https://is.gd/idiseq')
   sleep(1)
-  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
+end
+
+Given(/^I am on a page with the News HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
 end
 
 Given(/^I am on a page with the HTML player and CP plugin installed$/) do
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_news_guidance_block.html')
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
 end
 
 Given(/^I am on a page with the HTML player and CP plugin installed and true and false settings applied$/) do
-  sleep(1)
-  page.driver.browser.manage.window.resize_to( 1600 , 1280 )
   visit('http://smp-scratch.tools.bbc.co.uk/dalyw01/cucumber_players/cp_no_autoplay.html')
+  sleep(1)
+  page.driver.browser.manage.window.resize_to( 900 , 900 )
+  sleep(1)
+  page.execute_script( 'window.scrollBy(0, 270);')
 end
 
 When(/^I press alwaysShowCarouselButton then page reloads$/) do
@@ -203,18 +221,12 @@ end
 
 Then("I move right with the CP list") do
   within_frame "smphtml5iframemp" do
-    sleep(3)
+    sleep(5)
     page.find("button.gcp_carouselControlsNext").click
     sleep(2)
     page.find("button.gcp_carouselControlsNext").click
     sleep(1)
   end
-end
-
-Then("The same content plays which is finished") do
-  sleep(1)
-  title_now = page.find('#playlist_title').text
-  title == title_now
 end
 
 Then("I am able to play any content with a single click") do
@@ -291,7 +303,7 @@ end
 
 Then("I see one Up next and one More section") do
   within_frame 'smphtml5iframemp' do
-    sleep (3)
+    sleep (5)
     expect(page.find('.gcp_inpageCountdownItem span.gcp_countdownText').text).to eql "Up next in..."
     expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"
   end
