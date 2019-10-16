@@ -175,19 +175,6 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @playingSameContent
-  Scenario Outline: Check the CP disappears when Play CTA is clicked and the current program replays
-    And I enter "<mode>"
-    And CPP shows
-    Then I can replay current programme
-    Then CP disappears
-
-    Examples:
-    | mode       |
-    | Fullscreen |
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
   @CPListClickToPlayBug
   Scenario Outline: Check if a single click can play a content from CP
     And I enter "<mode>"
