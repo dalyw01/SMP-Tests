@@ -28,11 +28,18 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
 end
 
 When(/^the COOKBOOK has loaded$/) do
+  # If UK cookie message appears
   if page.has_css?('#bbcprivacy-continue-button') == true
     sleep(1)
     find('#bbcprivacy-continue-button').click
     sleep(1)
     find('#bbccookies-continue-button').click
+    sleep(1)
+  # Else If INTERNATIONAL cookie message appears
+  elsif page.has_css?('#bbccookies-continue-button')
+    sleep(1)
+    find('#bbccookies-continue-button').click
+    sleep(1)
   end
   sleep(1)
   find( "h1" , text: "SMP COOKBOOK" )
@@ -219,6 +226,10 @@ Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
       expect(hash1["width"] < hash2["width"]).to be true
     end
   end
+end
+
+Then(/^I wait$/) do
+  sleep(5)
 end
 
 Then(/^I can click seekbar unless "([^"]*)"$/) do |type|

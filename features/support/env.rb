@@ -38,10 +38,9 @@ World(Capybara::DSL)
 Capybara.register_driver :browserstack do |app|
   Capybara::Selenium::Driver.new app,
    :browser => :remote,
-   :url => "http://williamdaly1:L7qARqDjWTr5rp8G2s37@hub-cloud.browserstack.com/wd/hub",
+   :url => "",
    :desired_capabilities => caps
 end
-
 Capybara.default_driver = :browserstack
 
 

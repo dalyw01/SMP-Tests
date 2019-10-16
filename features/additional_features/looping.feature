@@ -11,20 +11,12 @@ Feature: Checking looping of content on SMP works correctly
     When the COOKBOOK has loaded
     And I click CTA to begin playback
     And I seek to end of programme
-    And I can mute
-    And I can pause
-    And I can play
-    And I can unmute
+    And I wait
     And I seek to end of programme
-    And I can mute
-    And I can pause
-    And I can play
-    And I can unmute
+    And I wait
     And I seek to end of programme
-    And I can mute
-    And I can pause
-    And I can play
-    And I can unmute
+    And I wait
+    And I seek to end of programme
 
     Examples:
     | page                 | type | device  |
