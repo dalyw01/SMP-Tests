@@ -25,6 +25,11 @@ When(/^I press$/) do
   sleep(1)
 end
 
+When(/^I hover$/) do
+  find(:id, 'smphtml5iframemp').native.send_keys(:hover)
+  sleep(1)
+end
+
 When(/^I enter audio setting$/) do
   find(:id, 'smphtml5iframemp').native.send_keys(:enter)
   sleep(1)
@@ -81,5 +86,13 @@ end
 When(/^I press LEFT arrow to seek backwards$/) do
   40.times do
     find(:id, 'smphtml5iframemp').native.send_keys(:arrow_left)
+  end
+end
+
+Then(/^I tab to 360 compass$/) do
+  5.times do
+    sleep(1)
+    page.driver.browser.action.send_keys(:tab).perform
+    sleep(1)
   end
 end

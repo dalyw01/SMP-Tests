@@ -90,6 +90,13 @@ When("I close the CP Panel") do
   end
 end
 
+When("I close the CP Panel without resizing") do
+  within_frame 'smphtml5iframemp' do
+    sleep(3)
+    page.find('.gcp_panelsClose .gcp_closeSVG').click
+  end
+end
+
 When("I seek till last second of program") do
   sleep(2)
   page.find('div#smphtml5iframempwrp').click
@@ -293,3 +300,53 @@ Then("I see one Up next and one More section") do
     expect(page.find('div.gcp_carouselBackground p.gcp_moreContentTitle').text).to eql "More"
   end
 end
+
+Then("I compare two different titles") do
+  # Captures the title of the FIRST video and stores it in variable (a)
+  a = page.find("#playlist_title").text
+  # Scroll to through the carousel and play an item within it 
+  within_frame "smphtml5iframemp" do
+    sleep(4)
+    10.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    10.times do
+      page.first(".gcp_carouselControlsPrevious").click
+    end
+    14.times do
+      page.first(".gcp_carouselControlsNext").click
+    end
+    page.first('.gcp_infoWrap').click
+    sleep(5)
+  end
+   #Captures the title of the SECOND video and stores it in variable (a) 
+  b = page.find("#playlist_title").text
+   #Compares (a) and (b) and and delivers a fail message if a=b
+  if a == b 
+    fail "Test status is a FAIL! #{a} is the same as #{b}"
+  end
+end
+
+Then(/^I compare two of the same title checking they are equal$/) do
+   #Captures title of the video as variable C
+   c = page.find("#playlist_title").text
+
+   #Presses Play CTA during CP 10 sec countdown to play the same content 
+   within_frame 'smphtml5iframemp' do
+      page.first("div.p_accessibleHitArea").click
+      sleep(1)
+    if page.has_css?('#p_v_player_0') == true
+      find('#p_v_player_0').hover
+    end
+  end
+
+  #Captures title of the video as variable d
+  d = page.find("#playlist_title").text
+  sleep(5)
+
+  #Compares variables c and d and gives fail message if they don't match 
+  if c != d
+    fail "#{c} Title c should be the same as title d #{d}"
+  end
+  sleep(2)
+ end

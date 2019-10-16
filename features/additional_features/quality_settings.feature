@@ -8,6 +8,8 @@
        Given I am on a page with the HTML player and quality settings set to true
        When I check if cookies appears
 
+      # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
      @LowQuality
        Scenario: Play content, change quality to low, refresh page and check quality is still set to low
        When I click CTA to begin playback
@@ -24,7 +26,6 @@
 
      @MediumQuality
        Scenario: Play content, change quality to medium, refresh page and check quality is still set to low 
-       When I check if cookies appears
        When I click CTA to begin playback
        Then I click quality settings button
        Then I click video quality settings button
