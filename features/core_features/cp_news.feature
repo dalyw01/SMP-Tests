@@ -30,8 +30,8 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Examples:
     | button         | mode       |
-    | Mini Thumbnail | Inline     |
-    | Mini CTA       | Inline     |
+    | Mini Thumbnail | inline     |
+    | Mini CTA       | inline     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -46,8 +46,8 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Examples:
     | button         | mode       | type |
-    | Mini Thumbnail | Inline     | vod  |
-    | Mini CTA       | Inline     | vod  |
+    | Mini Thumbnail | inline     | vod  |
+    | Mini CTA       | inline     | vod  |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -61,7 +61,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Examples:
     | mode       |
-    | Inline     |
+    | inline     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -75,17 +75,14 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   Examples:
     | mode       |
-    | Inline     |
+    | inline     |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @ToggleTurnedOFF
-  Scenario Outline: Check next item does not play if user turns autoplay OFF
+  Scenario: Check next item does not play if user turns autoplay OFF
+    And I pause
     And I toggle CPP OFF
-    And I enter "<mode>"
-    And I seek to end of programme
+    And I play
     And CPP shows WITHOUT cancel options
 
-    Examples:
-    | button         | mode       |
-    | Mini Thumbnail | Inline     |

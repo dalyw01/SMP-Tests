@@ -6,6 +6,3 @@
 
 # Generated from 360 comparison
 *.png
-
-# If somebody decides to output to a html instead of terminal we don't want to upload
-*.html

@@ -10,7 +10,8 @@ Feature: Checking SMP core functionality for RTL and Phantom Player
   Scenario Outline: Check basic functionality of SMP for various players
 
     Given I visit "<page>" with a "<type>" player on "<device>"
-    When I click phantom CTA to begin playback
+    When the COOKBOOK has loaded
+    And I click phantom CTA to begin playback
     And I click phantom LOGIN button from pop up
     And I can pause
     And I can play

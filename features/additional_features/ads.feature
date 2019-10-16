@@ -58,7 +58,6 @@ Feature: Checking SMP Ads work for various types of ads
     And I can seek in quarters to the end
 
     Examples:
-    | page                 | type   | device  | mode       |
-    | https://is.gd/bezeye | video  | desktop | Inline     |
-    | https://is.gd/bezeye | video  | desktop | Fullscreen |
-    | https://is.gd/ukewad | audio  | desktop | Inline     |
+    | page                 | type   | device  | mode   |
+    | https://is.gd/bezeye | video  | desktop | Inline |
+    | https://is.gd/ukewad | audio  | desktop | Inline |

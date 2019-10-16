@@ -37,9 +37,7 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   
     | Mini Thumbnail | Inline     |
-    | Mini Thumbnail | Fullscreen |
     | Mini CTA       | Inline     |
-    | Mini CTA       | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -82,9 +80,7 @@ Feature: Checking "Continious Play" plugin core functionality works
     | Circle         | Inline     |
     | Circle         | Fullscreen |
     | Mini Thumbnail | Inline     |
-    | Mini Thumbnail | Fullscreen |
     | Mini CTA       | Inline     |
-    | Mini CTA       | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -133,7 +129,6 @@ Feature: Checking "Continious Play" plugin core functionality works
   Examples:
     | mode       |
     | Inline     |
-    | Fullscreen |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -158,8 +153,8 @@ Feature: Checking "Continious Play" plugin core functionality works
     And CPP shows WITHOUT cancel options
 
     Examples:
-    | mode           |
-    | Fullscreen     |
+    | mode   |
+    | Inline |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -183,8 +178,8 @@ Feature: Checking "Continious Play" plugin core functionality works
     Then I am able to play any content with a single click
 
     Examples:
-    | mode       |
-    | Fullscreen |
+    | mode   |
+    | Inline |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

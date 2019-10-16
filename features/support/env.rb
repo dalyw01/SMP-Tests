@@ -9,23 +9,43 @@ require 'chunky_png'
 require 'rubygems'
 require 'browserstack-automate'
 
+# Input capabilities
+# New ones can be made here - https://www.browserstack.com/automate/capabilities
+
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps["os"] = "Windows"
+caps["os_version"] = "10"
+caps["browser"] = "Chrome"
+caps['name'] = "SMP X"
+caps['resolution'] = "1920x1080"
+caps["browserstack.selenium_version"] = "3.141.59"
+
 # Need this so it works with BrowserStack
 BrowserStack.for "cucumber"
 
 # Gets visit() to work
 World(Capybara::DSL)
 
-# Use selenium
-Capybara.default_driver = :selenium
+# Use selenium locally, uncomment this
+# Capybara.default_driver = :selenium
+# Capybara.register_driver :selenium do |app|
+#   Capybara::Selenium::Driver.new app, 
+#   browser: ENV['BROWSER'].to_sym	
+# end
 
-puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-puts "Hello BROWSER which is  #{ENV['BROWSER'].to_sym}"
-puts "Hello this is #{ENV['RUN_ON_BSTACK']}"
-puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-
-# This assigns any BROWSER env variable to an actual browser
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new app, 
-  browser: ENV['BROWSER'].to_sym
+# Use selenium on Browserstack, uncomment this
+# https://www.browserstack.com/automate/ruby
+Capybara.register_driver :browserstack do |app|
+  Capybara::Selenium::Driver.new app,
+   :browser => :remote,
+   :url => "",
+   :desired_capabilities => caps
 end
+Capybara.default_driver = :browserstack
+
+
+
+
+
+
+

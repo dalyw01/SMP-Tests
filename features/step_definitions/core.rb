@@ -9,36 +9,59 @@ Given(/^I visit "([^"]*)" with a "([^"]*)" player on "([^"]*)"$/) do |new_page, 
         # If it is a PHONE and FIREFOX we set to pending/un-run
         pending
       else
-        page.driver.browser.manage.window.resize_to( 300 , 1800 )
+        page.driver.browser.manage.window.resize_to( 300 , 1400 )
         sleep(1)
         page.execute_script( 'window.scrollBy(0, 270);')
       end
   else
-    page.driver.browser.manage.window.resize_to( 900 , 900 )
+    page.driver.browser.manage.window.resize_to( 1400 , 1400 )
     sleep(1)
     page.execute_script( 'window.scrollBy(0, 270);')
   end
   # If webcast we need to set some data first for seekbar to show
-  if new_type == "webcast"
-    page.first("#setWebcastData").click
+  if new_type == "webcast" or new_type == "simulcast"
+    # page.first("#setWebcastData").click
+    pending
     sleep(1)
   end
   sleep(1)
 end
 
 When(/^the COOKBOOK has loaded$/) do
+  # If UK cookie message appears
+  if page.has_css?('#bbcprivacy-continue-button') == true
+    sleep(1)
+    find('#bbcprivacy-continue-button').click
+    sleep(1)
+    find('#bbccookies-continue-button').click
+    sleep(1)
+  # Else If INTERNATIONAL cookie message appears
+  elsif page.has_css?('#bbccookies-continue-button')
+    sleep(1)
+    find('#bbccookies-continue-button').click
+    sleep(1)
+  end
+  sleep(1)
   find( "h1" , text: "SMP COOKBOOK" )
-  sleep(2)
+  sleep(1)
 end
 
-When(/^I click CTA to begin playback$/) do
+When("I click CTA to begin playback") do
   within_frame 'smphtml5iframemp' do
     page.first("div.p_accessibleHitArea").click
     sleep(2)
-    # If its the video player we need to re-focus on player after pressing CTA, Jim made a change!
+    # If video player we need to re-focus on after pressing CTA, Jim made a change!
     if page.has_css?('#p_v_player_0') == true
       find('#p_v_player_0').hover
     end
+  end
+end
+
+When("I see correct {string} displaying on CTA") do |new_duration|
+  within_frame 'smphtml5iframemp' do
+    page.first("div.p_accessibleHitArea").hover
+    sleep(1)
+    find('.p_ctaDuration').should have_content(new_duration)
   end
 end
 
@@ -205,13 +228,15 @@ Then(/^I can change subtitles font size if "([^"]*)"$/) do |type|
   end
 end
 
+Then(/^I wait$/) do
+  sleep(5)
+end
+
 Then(/^I can click seekbar unless "([^"]*)"$/) do |type|
   within_frame 'smphtml5iframemp' do
     if type == "simulcast"
       page.first(".p_progressBar").click
       page.first(".p_progressBar").hover
-      # page.first(".p_seekBar").click
-      # Do nothing as seek is
     elsif type == "simulcast" and g_device == "phone"
       page.should have_no_selector(".p_chapterMarker")
       page.first(".p_progressBar").click
