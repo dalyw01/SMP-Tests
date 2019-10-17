@@ -7,13 +7,24 @@ Feature: Checking core functionality of Google Chromecast works correctly when c
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  Terms you may need to know
+  - SMP:                     Standard Media Player. The player used by clients (e.g. iplayer, sounds, news). It unifies video playback across the BBC.
+  - allowcasting:            This allows cast/playback
+  - allowContinlousCast:     This allows multiple casts to be played one after the other
+  - CTA:                     Call to Action. This initialises playback. 
+  - VOD:                     Video on Demand
+  - AOD:                     Audio on Demand
+  - <action>:                Placeholder for any of the various actions that the SMP may perform.
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
   ChromeCast Testing Requirements 
 
   - Use Google Chrome browser on a mobile or desktop device
   - Chromecast needs to be connected to a monitor
   - ChromeCast and device need to be on same network
-  - Settings object needs - "allowcasting": true
-  - Playlist object needs if queued playlist - "allowContinuousCast": true
+  - Settings object needs - "allowcasting": true.  
+  - Playlist object needs if queued playlist - "allowContinuousCast": true 
   - Ensure HTTPS connection
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -23,7 +34,7 @@ Feature: Checking core functionality of Google Chromecast works correctly when c
   - VOD - https://is.gd/nobeka
   - AOD - https://is.gd/teyoya
   - Queued VOD - https://is.gd/atugem
-  - Continious Play Plugin - https://is.gd/riguwu
+  - Continuous Play Plugin - https://is.gd/riguwu
 
 Chromecasts Does Not Support
 
