@@ -8,9 +8,9 @@ Tests are written as in Gherkin and saved as a .feature file
 
 #############################
 
-* **Chrome Cast** *: This is the device that is connected to anything that has an HDMI port.
-* **Google Voice** *: An AI based system that can respond to users queries, fulfil user requests and supply information. An example is "Ok Google, what's the weather today?"
-* **Smart Display** *: This is a display that can respond to a similar use of AI and displays results of the user query/request visually on a screen.
+* **Chrome Cast** : This is the device that is connected to anything that has an HDMI port.
+* **Google Voice** : An AI based system that can respond to users queries, fulfil user requests and supply information. An example is "Ok Google, what's the weather today?"
+* **Smart Display** : This is a display that can respond to a similar use of AI and displays results of the user query/request visually on a screen.
 
 ############################
 
