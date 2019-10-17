@@ -102,7 +102,7 @@ gem 'selenium-webdriver'
 gem 'touch_action'
 ```
 
-You can install each gem seperatley with "gem install X" from https://rubygems.org
+You then install each gem seperatley with "gem install X" from https://rubygems.org
 
 Here is how you can install each individual gem
 
@@ -114,15 +114,13 @@ gem install selenium-webdriver
 gem install touch_action
 ```
 
-If a file called Gemfile.lock is present we can use the Bundler gem
-
 Lets install the bundler gem
 
 ```
 gem install bundler
 ```
 
-If Gemfile.lock IS present then run a bundle install
+Let's then run a bundle install
 
 ```
 bundle install
@@ -131,6 +129,8 @@ bundle install
 Running bundle install will look at the **Gemfile.lock** and install the exact same versions of every gem, rather than just looking at **Gemfile** and installing the most recent versions
 
 If Gemfile.lock IS NOT present then Bundler will generate it when we run a script with a list of compatible gems
+
+Once installed, this is an example of how it will look:
 
 ```
 GEM
