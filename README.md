@@ -4,7 +4,7 @@ This is a Cucumber project I made to test the BBC's Standard Media Player
 
 The project is an automated test suite written in a BDD manner
 
-This setup is for MacOS only. 
+This setup is for MacOS only 
 
 ## Getting Started
 
