@@ -10,7 +10,7 @@ Feature: Checking core functionality of Google Chromecast works correctly when c
   Terms you may need to know
   - SMP:                     Standard Media Player. The player used by clients (e.g. iplayer, sounds, news). It unifies video playback across the BBC.
   - allowcasting:            This allows cast/playback from SMP to the Chromecast.
-  - allowContinlousCast:     This allows multiple casts to be played one after the other from SMP to the Chromecast.
+  - allowContinuousCast:     This allows multiple casts to be played one after the other from SMP to the Chromecast.
   - CTA:                     Call to Action. This initialises playback. 
   - VOD:                     Video on Demand
   - AOD:                     Audio on Demand
