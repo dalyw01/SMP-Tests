@@ -1,6 +1,6 @@
 # SMP Tests
 
-This is a Cucumber project I made to test the BBC's Standard Media Player
+This is a Cucumber project made to test the BBC's Standard Media Player
 
 The project is an automated test suite written in a BDD manner
 
@@ -27,11 +27,11 @@ You may have to install the CLT through the MacOS App Store along with Xcode
 
 Next install **Homebrew** to make installing other programs easier - https://brew.sh/
 
-I typically install Homebrew and run initial commands from this directory
+Install Homebrew and run initial commands from this directory
 
 ```
 pwd
-/Users/dalyw01
+/Users/Username
 ls
 Applications  Documents Library   Music   Public
 Desktop   Downloads Movies    Pictures
