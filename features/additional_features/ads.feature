@@ -12,8 +12,8 @@ Feature: Checking SMP Ads work for various types of ads
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     @pre_roll_ads
-    Scenario Outline: Check pre roll ads work and SMP works after ad has finished.
-    If replaying content, ad should not show.
+    Scenario Outline: Check pre roll Ads work and SMP works after Ad has finished.
+    If replaying content, Ad should not show.
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
@@ -38,12 +38,12 @@ Feature: Checking SMP Ads work for various types of ads
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     @skippable_ad
-    Scenario Outline: Check skippable ad show, can be clicked and SMP works after ad has finished.
-    If replaying content, ad should not show.
+    Scenario Outline: Check skippable Ad show, can be clicked and SMP works after Ad has finished.
+    If replaying content, Ad should not show.
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I load skippable ads by clicking html button
+    And I load skippable Ads by clicking html button
     And I click ADS CTA to begin playback
     And I can AD pause
     And I enter AD fullscreen if "<mode>"

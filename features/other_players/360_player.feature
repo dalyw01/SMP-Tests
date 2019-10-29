@@ -110,5 +110,3 @@ Feature: Checking 360 player base functionality
     | 360  |
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-  
