@@ -10,10 +10,6 @@ When(/^I click CTA to begin playback of 360 player$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
       sleep(5)
-    # else
-    #   refresh()
-    #   sleep(3)
-    #   page.first("div.p_accessibleHitArea").click
     end
   end
 end
