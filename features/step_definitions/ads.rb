@@ -6,7 +6,7 @@ When(/^I click ADS CTA to begin playback$/) do
   end
 end
 
-When("I load skippable ads by clicking html button") do
+When("I load skippable ADS by clicking html button") do
   page.find("div#content input#adType-skippable").click
   page.find("button#loadAdButton").click
 end
