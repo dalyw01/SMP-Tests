@@ -20,4 +20,4 @@ Feature: Checking looping of content on SMP works correctly
 
     Examples:
     | page                 | type | device  |
-    | https://is.gd/cutele | vod  | desktop |
+    | https://is.gd/jabece | vod  | desktop |

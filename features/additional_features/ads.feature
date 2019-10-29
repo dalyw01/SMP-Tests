@@ -1,26 +1,24 @@
 @Ads
-Feature: Checking SMP Ads work for various types of ads
+Feature: Checking SMP ADs work for various types of ADs
 
     As a tester of SMP
-    I want to check Ads work with SMP
-    So that I verify SMP works during and after an Ad plays
-    The different types of Ads are
+    I want to check ADs work with SMP
+    So that I verify SMP works during and after an AD plays
+    The different types of ADS are
 
-    - Post roll ads
-    - Skippable ads
+    - Post roll ADS
+    - Skippable ADS
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     @pre_roll_ads
-    Scenario Outline: Check pre roll ads work and SMP works after ad has finished.
-    If replaying content, ad should not show.
+    Scenario Outline: Check pre roll ADS work and SMP works after AD has finished.
+    If replaying content, AD should not show.
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click ADS CTA to begin playback
-    And I can see AD controlbar
     And I can AD pause
-    And I can see AD controlbar
     And I can AD play
     And I can wait for AD to finish
     And I can pause
@@ -34,23 +32,21 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type  | device  |
-    | https://is.gd/bezeye | video | desktop |
-    | https://is.gd/ukewad | audio | desktop |
+    | https://is.gd/afitip | video | desktop |
+    | https://is.gd/visoti | audio | desktop |
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     @skippable_ad
-    Scenario Outline: Check skippable ad show, can be clicked and SMP works after ad has finished.
-    If replaying content, ad should not show.
+    Scenario Outline: Check skippable AD show, can be clicked and SMP works after AD has finished.
+    If replaying content, AD should not show.
 
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
-    And I load skippable ads by clicking html button
+    And I load skippable ADS by clicking html button
     And I click ADS CTA to begin playback
-    And I can see AD controlbar
     And I can AD pause
     And I enter AD fullscreen if "<mode>"
-    And I can see AD controlbar
     And I can AD play
     And I can click skip AD option
     And I can pause
@@ -59,5 +55,5 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type   | device  | mode   |
-    | https://is.gd/bezeye | video  | desktop | Inline |
-    | https://is.gd/ukewad | audio  | desktop | Inline |
+    | https://is.gd/afitip | video  | desktop | Inline |
+    | https://is.gd/visoti | audio  | desktop | Inline |

@@ -28,8 +28,8 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
 
     Examples:
     | page                 | type               | device  |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop |
-    | https://is.gd/wetese | simulcast          | desktop |
+    | https://is.gd/axohun | ident + vod + subs | desktop |
+    | https://is.gd/toxisi | simulcast          | desktop |
 
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -47,8 +47,8 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
 
     Examples:
     | page                 | type               | device  |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop |
-    | https://is.gd/wetese | simulcast          | desktop |
+    | https://is.gd/axohun | ident + vod + subs | desktop |
+    | https://is.gd/toxisi | simulcast          | desktop |
 
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -66,6 +66,6 @@ Feature: Checking fullscreen functionality works when using icons or double-clic
 
     Examples:
     | page                 | type               | device  |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop |
-    | https://is.gd/wetese | simulcast          | desktop |
+    | https://is.gd/axohun | ident + vod + subs | desktop |
+    | https://is.gd/toxisi | simulcast          | desktop |
 
