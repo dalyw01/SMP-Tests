@@ -12,7 +12,7 @@ Feature: Checking SMP Guidance functionality
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     When I see correct guidance or warning message "<cta>"
-    And I click CTA to begin playback
+    When I click CTA to begin playback
 
 
     Examples:

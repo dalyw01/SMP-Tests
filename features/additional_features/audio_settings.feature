@@ -1,4 +1,3 @@
-    @audio_settings
     Feature: Checking functionality of the audio settings feature 
 
      As a tester of SMP
@@ -9,6 +8,7 @@
 
      @AudioSettings
        Scenario: Play audio content with autoplay on and cycle through multiple audio content 
+       When the COOKBOOK has loaded
        Then I can Audio play
        Then I hover on audio settings button
        Then I click audio settings button   
@@ -22,6 +22,7 @@
 
       @AudioSettingsFalse
        Scenario: Play audio content with autoplay off and cycle through multiple audio content 
+       When the COOKBOOK has loaded
        Then I can Audio play
        Then I hover on audio settings button
        Then I click audio settings button   
