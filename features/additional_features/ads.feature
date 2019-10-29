@@ -18,9 +18,7 @@ Feature: Checking SMP Ads work for various types of ads
     Given I visit "<page>" with a "<type>" player on "<device>"
     When the COOKBOOK has loaded
     And I click ADS CTA to begin playback
-    And I can see AD controlbar
     And I can AD pause
-    And I can see AD controlbar
     And I can AD play
     And I can wait for AD to finish
     And I can pause
@@ -34,8 +32,8 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type  | device  |
-    | https://is.gd/bezeye | video | desktop |
-    | https://is.gd/ukewad | audio | desktop |
+    | https://is.gd/afitip | video | desktop |
+    | https://is.gd/visoti | audio | desktop |
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -47,10 +45,8 @@ Feature: Checking SMP Ads work for various types of ads
     When the COOKBOOK has loaded
     And I load skippable ads by clicking html button
     And I click ADS CTA to begin playback
-    And I can see AD controlbar
     And I can AD pause
     And I enter AD fullscreen if "<mode>"
-    And I can see AD controlbar
     And I can AD play
     And I can click skip AD option
     And I can pause
@@ -59,5 +55,5 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type   | device  | mode   |
-    | https://is.gd/bezeye | video  | desktop | Inline |
-    | https://is.gd/ukewad | audio  | desktop | Inline |
+    | https://is.gd/afitip | video  | desktop | Inline |
+    | https://is.gd/visoti | audio  | desktop | Inline |

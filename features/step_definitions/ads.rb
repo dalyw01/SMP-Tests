@@ -2,13 +2,7 @@ When(/^I click ADS CTA to begin playback$/) do
   within_frame 'smphtml5iframemp' do
     sleep(2)
     page.first("div.p_accessibleHitArea").click
-  end
-end
-
-When(/^I can see AD controlbar$/) do
-  sleep(3)
-  within_frame 'smphtml5iframemp' do
-    page.first("#ads_buttonBar").click
+    sleep(3)
   end
 end
 

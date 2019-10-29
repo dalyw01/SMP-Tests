@@ -111,15 +111,4 @@ Feature: Checking 360 player base functionality
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @360MatchScreen
-  Scenario Outline: Check Screen moves when pressed any button on compass
-
-    When I tab to controlbar
-    And I can pause
-    Then I enter "<mode>"
-    Then I check screen moves using buttons of compass
-
-  Examples:
-    | mode        |
-    | Inline      |
-    | Fullscreen  |
+  

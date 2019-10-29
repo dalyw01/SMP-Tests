@@ -1,5 +1,5 @@
 Given(/^I visit page with a 360 player$/) do
-  visit('https://is.gd/zikivo')
+  visit('https://is.gd/agiviz')
   sleep(1)
   page.driver.browser.manage.window.resize_to( 900 , 900 )
   sleep(1)
@@ -9,11 +9,11 @@ end
 When(/^I click CTA to begin playback of 360 player$/) do
   within_frame 'smphtml5iframemp' do
     if page.first("div.p_accessibleHitArea").click
-      sleep(3)
-    else
-      refresh()
-      sleep(3)
-      page.first("div.p_accessibleHitArea").click
+      sleep(5)
+    # else
+    #   refresh()
+    #   sleep(3)
+    #   page.first("div.p_accessibleHitArea").click
     end
   end
 end
@@ -39,37 +39,6 @@ Then(/^I tab to controlbar$/) do
     2.times do
       page.driver.browser.action.send_keys(:tab).perform
     end
-  end
-end
-
-Then("I check screen moves using buttons of compass") do
-  within_frame 'smphtml5iframemp' do
-    sleep(2)
-    img1 = page.save_screenshot('screenshot.png')
-    sleep(1)
-    page.first("#p_compass_right_touch").hover
-    sleep(1)
-    page.first("#p_compass_right_touch").touch_action(:press, hold: 700)
-    page.first("#p_threeSixtyCanvas").hover
-    sleep(1)
-    img2 = page.save_screenshot('screenshot1.png')
-
-    images = [
-      ChunkyPNG::Image.from_file('screenshot.png'),
-      ChunkyPNG::Image.from_file('screenshot1.png')
-    ]
-
-    diff = []
-
-        images.first.height.times do |y|
-        images.first.row(y).each_with_index do |pixel, x|
-        diff << [x,y] unless pixel == images.last[x,y]
-  end
-end
-
-  puts "pixels (total):     #{images.first.pixels.length}"
-  puts "pixels changed:     #{diff.length}"
-  puts "pixels changed (%): #{(diff.length.to_f / images.first.pixels.length) * 100}%"
   end
 end
 
