@@ -14,9 +14,9 @@ Feature: Checking duration displayed on CTA of player
 
     Examples:
     | page                 | type | device  | duration |
-    | https://is.gd/wemone | vod  | desktop | 00:01    |
-    | https://is.gd/lotimo | vod  | desktop | 00:05    |
-    | https://is.gd/luqute | vod  | desktop | 01:00    |
-    | https://is.gd/qawepu | vod  | desktop | 01:30    |
-    | https://is.gd/foqucu | vod  | desktop | 1:00:00  |
-    | https://is.gd/ruxuna | vod  | desktop | 3:28:21  |
+    | https://is.gd/soquko | vod  | desktop | 00:01    |
+    | https://is.gd/ahameb | vod  | desktop | 00:05    |
+    | https://is.gd/okibuf | vod  | desktop | 01:00    |
+    | https://is.gd/cuhufu | vod  | desktop | 01:30    |
+    | https://is.gd/lehenu | vod  | desktop | 1:00:00  |
+    | https://is.gd/aheweb | vod  | desktop | 3:28:21  |

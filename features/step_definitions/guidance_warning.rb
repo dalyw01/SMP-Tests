@@ -88,17 +88,17 @@ When(/^I see correct guidance or warning message "([^"]*)"$/) do |arg1|
 end
 
 Given(/^I am on a Simulcast page with guidance$/) do
-  visit('https://is.gd/erimih')
+  visit('https://is.gd/ogugam')
 end
 
 Given(/^I am on a old audio player page with guidance$/) do
-  visit('https://is.gd/ujahus')
+  visit('https://is.gd/nubeve')
 end
 
 Given(/^I am on a news page with greek guidance$/) do
-  visit('https://is.gd/otujul')
+  visit('https://is.gd/akitad')
 end
 
 Given(/^I am on a news page with japanese guidance$/) do
-  visit('https://is.gd/yipiso')
+  visit('https://is.gd/rukidi')
 end

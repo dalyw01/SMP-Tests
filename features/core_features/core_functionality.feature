@@ -33,15 +33,15 @@ Feature: Checking SMP core functionality
 
     Examples:
     | page                 | type               | device  |
-    | https://is.gd/egubug | vod                | phone   |
-    | https://is.gd/egubug | vod                | desktop |
-    | https://is.gd/sabiwu | ident + vod + subs | phone   |
-    | https://is.gd/sabiwu | ident + vod + subs | desktop |
-    | https://is.gd/mabepe | vertical           | phone   |
-    | https://is.gd/mabepe | vertical           | desktop |
-    | https://is.gd/wetese | simulcast          | phone   |
-    | https://is.gd/wetese | simulcast          | desktop |
-    | https://is.gd/desusa | webcast            | phone   |
-    | https://is.gd/desusa | webcast            | desktop |
-    | https://is.gd/apujej | audio              | phone   |
-    | https://is.gd/apujej | audio              | desktop |
+    | https://is.gd/golixa | vod                | phone   |
+    | https://is.gd/golixa | vod                | desktop |
+    | https://is.gd/axohun | ident + vod + subs | phone   |
+    | https://is.gd/axohun | ident + vod + subs | desktop |
+    | https://is.gd/muxene | vertical           | phone   |
+    | https://is.gd/muxene | vertical           | desktop |
+    | https://is.gd/toxisi | simulcast          | phone   |
+    | https://is.gd/toxisi | simulcast          | desktop |
+    | https://is.gd/ulibar | webcast            | phone   |
+    | https://is.gd/ulibar | webcast            | desktop |
+    | https://is.gd/ifedil | audio              | phone   |
+    | https://is.gd/ifedil | audio              | desktop |
