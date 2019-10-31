@@ -170,19 +170,6 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  @CPListClickToPlayBug
-  Scenario Outline: Check if a single click can play a content from CP
-    And I enter "<mode>"
-    And I toggle CPP OFF
-    Then I move right with the CP list
-    Then I am able to play any content with a single click
-
-    Examples:
-    | mode   |
-    | Inline |
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
   @PlayingSameContent
   Scenario: Verify the title is the same when the same content is replayed via CP
     Then I compare two of the same title checking they are equal
