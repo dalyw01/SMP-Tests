@@ -45,4 +45,4 @@ Feature: Checking SMP HTML accessibility
 
   Examples:
     | page                 | type  | device  |
-    | https://is.gd/egubug | video | desktop |
+    | https://is.gd/golixa | video | desktop |

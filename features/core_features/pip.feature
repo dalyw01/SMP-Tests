@@ -46,7 +46,7 @@ Scenario Outline: PIP should not be present in an Audio player
 
 Examples:
   | page                 | type  | device  |
-  | https://is.gd/hayuwa | audio | desktop |
+  | https://is.gd/ekufet | audio | desktop |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
