@@ -1,5 +1,5 @@
 Given(/^I am on a page with the HTML player and quality settings set to true$/) do
-  visit('https://is.gd/nowusu')
+  visit('https://is.gd/nowusu')# Set to BUMP4 and Staging 
   sleep(1)
   page.driver.browser.manage.window.resize_to( 900 , 900 )
   sleep(1)
