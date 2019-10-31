@@ -81,8 +81,8 @@ Feature: Checking "Continious Play" plugin core functionality works
 
   @ToggleTurnedOFF
   Scenario: Check next item does not play if user turns autoplay OFF
-    And I pause
     And I toggle CPP OFF
+    And I pause
     And I play
     And CPP shows WITHOUT cancel options
 
