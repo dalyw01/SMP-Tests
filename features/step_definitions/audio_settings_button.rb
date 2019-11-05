@@ -1,5 +1,5 @@
 Given(/^I am on a audio page with the audio settings accessible on the page$/) do
-  visit('https://is.gd/okimef')
+  visit('https://is.gd/ezerax')
 end
 
 Then(/^I hover on audio settings button$/) do

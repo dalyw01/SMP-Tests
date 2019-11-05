@@ -51,7 +51,7 @@
 
   Examples:
     | page                 | type            | device  |    
-    | https://is.gd/cepiju | video           | desktop |
+    | https://is.gd/biroku | video           | desktop |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -81,7 +81,7 @@
    
   Examples:
     | page                 | type            | device  |    
-    | https://is.gd/equkup | video           | desktop |
+    | https://is.gd/eyugup | video           | desktop |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -111,7 +111,7 @@
    
   Examples:
     | page                 | type            | device  |    
-    | https://is.gd/itukag | video           | desktop |
+    | https://is.gd/gakami | video           | desktop |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -141,6 +141,6 @@
    
   Examples:
     | page                 | type            | device  |    
-    | https://is.gd/ahekoj | video           | desktop |
+    | https://is.gd/asogad | video           | desktop |
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

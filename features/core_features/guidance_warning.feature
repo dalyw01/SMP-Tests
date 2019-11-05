@@ -17,14 +17,14 @@ Feature: Checking SMP Guidance functionality
 
     Examples:
     | page                 | type               | device  | cta      | 
-    | https://is.gd/inarix | minimode           | desktop | english  |
-    | https://is.gd/erimih | simulcast          | desktop | english  |
-    | https://is.gd/ujahus | old audio player   | desktop | english  |
-    | https://is.gd/joface | vod                | desktop | english  |
-    | https://is.gd/otujul | vod + greek        | desktop | greek    |
-    | https://is.gd/yipiso | vod + japanese     | desktop | japanese |
-    | https://is.gd/ikozon | audio to video     | desktop | english  | 
-    | https://is.gd/mehiru | video to audio     | desktop | english  | 
+    | https://is.gd/etacip | minimode           | desktop | english  |
+    | https://is.gd/ogugam | simulcast          | desktop | english  |
+    | https://is.gd/nubeve | old audio player   | desktop | english  |
+    | https://is.gd/ukulem | vod                | desktop | english  |
+    | https://is.gd/akitad | vod + greek        | desktop | greek    |
+    | https://is.gd/rukidi | vod + japanese     | desktop | japanese |
+    | https://is.gd/papewu | audio to video     | desktop | english  | 
+    | https://is.gd/ipiwaz | video to audio     | desktop | english  | 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -41,11 +41,11 @@ Feature: Checking SMP Guidance functionality
 
     Examples:
     | page                 | type                        | device  | cta        | inplayer_warning   |
-    | https://is.gd/hexoxi | queued playlist             | desktop | warn_eng   | inplay_eng         |
-    | https://is.gd/luxumo | queued playlist             | desktop | warn_grk   | inplay_grk         |
-    | https://is.gd/jizeka | queued playlist             | desktop | warn_jap   | inplay_jap         |
-    | https://is.gd/ajuwup | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
-    | https://is.gd/ajuwup | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/ipoyik | queued playlist             | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/uciteg | queued playlist             | desktop | warn_grk   | inplay_grk         |
+    | https://is.gd/ageguk | queued playlist             | desktop | warn_jap   | inplay_jap         |
+    | https://is.gd/benete | audio to video warning eng  | desktop | warn_eng   | inplay_eng         |
+    | https://is.gd/jepunu | video to audio warning eng  | desktop | warn_eng   | inplay_eng         |
     
     
    

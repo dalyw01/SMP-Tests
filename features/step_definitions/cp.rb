@@ -307,13 +307,13 @@ Then("I compare two different titles") do
   # Scroll to through the carousel and play an item within it 
   within_frame "smphtml5iframemp" do
     sleep(4)
-    10.times do
+    28.times do
       page.first(".gcp_carouselControlsNext").click
     end
-    10.times do
+    28.times do
       page.first(".gcp_carouselControlsPrevious").click
     end
-    14.times do
+    32.times do
       page.first(".gcp_carouselControlsNext").click
     end
     page.first('.gcp_infoWrap').click

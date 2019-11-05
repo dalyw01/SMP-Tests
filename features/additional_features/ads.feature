@@ -34,8 +34,8 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type  | device  |
-    | https://is.gd/bezeye | video | desktop |
-    | https://is.gd/ukewad | audio | desktop |
+    | https://is.gd/afitip | video | desktop |
+    | https://is.gd/visoti | audio | desktop |
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -59,5 +59,5 @@ Feature: Checking SMP Ads work for various types of ads
 
     Examples:
     | page                 | type   | device  | mode   |
-    | https://is.gd/bezeye | video  | desktop | Inline |
-    | https://is.gd/ukewad | audio  | desktop | Inline |
+    | https://is.gd/afitip | video  | desktop | Inline |
+    | https://is.gd/visoti | audio  | desktop | Inline |
